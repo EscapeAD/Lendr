@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  item: one
+  due_date: 2016-09-24 18:56:53
+  start_date: 2016-09-24 18:56:53
+  returned: false
+  returned_date: 2016-09-24 18:56:53
+
+two:
+  user: two
+  item: two
+  due_date: 2016-09-24 18:56:53
+  start_date: 2016-09-24 18:56:53
+  returned: false
+  returned_date: 2016-09-24 18:56:53
