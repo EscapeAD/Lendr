@@ -9,7 +9,21 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user  = User.new(user_params)
+    @user = User.new(user_params)
+  end
+
+  def edit
+    @user = User.find(params[:id])
+  end
+
+  def update
+    @user = User.find(params[:id])
+    @user.update_attributes(user_params)
+    if @user.save
+    else
+      render :edit
+    end
+
   end
 
 
