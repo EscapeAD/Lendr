@@ -9,6 +9,13 @@
   </head>
 
   <body>
+    <%= link_to 'login', new_user_session_path %> |
+    <%= link_to 'Sign Up', new_user_registration_path	 %> |
+    <%= link_to 'edit Reg', edit_user_registration_path	 %> |
+    <%= link_to 'new pass', new_user_password_path %> |
+    <%= link_to 'edit pass', edit_user_password_path %> |
+    <%= link_to 'delete Reg', cancel_user_registration_path %> |
+    <%= link_to 'HOME', items_path %> |
     <%= yield %>
   </body>
 </html>
