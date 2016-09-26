@@ -4,31 +4,12 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  def new
+  def create
     @user = User.new
   end
 
-  def create
-    @user = User.new(user_params)
+  def configure_sign_up_params
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :city])
   end
 
-  def edit
-    @user = User.find(params[:id])
-  end
-
-  def update
-    @user = User.find(params[:id])
-    @user.update_attributes(user_params)
-    if @user.save
-    else
-      render :edit
-    end
-
-  end
-
-
-  private
-  def user_params
-    params.require(:user).permit(:first_name,:last_name)
-  end
 end
