@@ -1,2 +1,6 @@
-<%= @item.name %>
-<%= image_tag @item.image.url %>
+<h1><%= @item.name %></h1>
+
+<div class = "item_image"><%= image_tag @item.image.url %></div>
+Description: <%= @item.description %><br>
+Type: <%= @item.item_type %><br>
+Owner: <%= @item.user_id %><br>

@@ -1,12 +1,11 @@
 <h1>All Items</h1>
 
-<ul>
 <% @items.each do |item| %>
-  <%= link_to item.name, item_path(item) %>
-  <li>Description: <%= item.description %></li>
-  <li>Type: <%= item.item_type %></li>
-  <li>Owner: <%= item.user_id %></li>
-  <li class = "item_image">Image: <br><%= image_tag item.image.url %></li>
+  <div class = "item_image"><%= image_tag item.image.url %></div>
+  <div class = "item-info">
+    <%= link_to item.name, item_path(item) %>
+    <br>Owner: <%= item.user_id %>
+  </div>
   <br>
 <% end %>
 </ul>
