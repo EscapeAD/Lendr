@@ -8,4 +8,18 @@ class Checkout < ApplicationRecord
     Checkout.where(user_id: user_id)
   end
 
+  def self.lent_out(user_id)
+    inventory = Item.where(user_id: user_id)
+    list      = []
+    checkout  = Checkout.all
+    checkout.each do |item|
+      inventory.each do |invent_item|
+        if item[:item_id] == invent_item[:id] && item[:returned] == false
+          list << item
+        end
+      end
+    end
+    return list
+  end
+
 end
