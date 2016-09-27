@@ -25,9 +25,19 @@
   <h2> Items Lent:</h2><small> user:count</small>
 </div>
 <div class="container">
-  <h2> Items Borrowed:</h2><small> user:count</small>
+  <h2> Items Borrowed:</h2>
+  <% if @borrow.empty? %>
+  <em>Currently nothing is borrowed - Checkout <%= link_to 'available borrow list', items_path %></em>
+  <% else %>
+  <div class="row">
     <% @borrow.each do | item | %>
-
+      <div class="col-md-6 border">
+        <strong>Name: </strong> <%= Item.find(item.item_id).name %>
+        <strong>Owner: </strong> <%= User.find(item.user_id).first_name %> <%= User.find(item.user_id).last_name %>
+        <strong>Time Left: </strong> ...
+      </div>
+    <% end %>
+      </div>
     <% end %>
 </div>
 <div class="container">
