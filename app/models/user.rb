@@ -15,4 +15,8 @@ class User < ApplicationRecord
     return inventory
   end
 
+  def self.borrow_list(user_id)
+    Checkout.where(user_id: user_id)
+  end
+
 end
