@@ -1,3 +1,3 @@
 class Verification < ApplicationRecord
-  belongs_to :checkout_id
+  belongs_to :checkout
 end
