@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  checkout_id: one
+  status: MyString
+  owner: false
+  borrower: false
+
+two:
+  checkout_id: two
+  status: MyString
+  owner: false
+  borrower: false
