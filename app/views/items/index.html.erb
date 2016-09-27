@@ -2,7 +2,7 @@
 
 <ul>
 <% @items.each do |item| %>
-  <li>Name: <%= item.name %></li>
+  <%= link_to item.name, item_path(item) %>
   <li>Description: <%= item.description %></li>
   <li>Type: <%= item.item_type %></li>
   <li>Owner: <%= item.user_id %></li>
