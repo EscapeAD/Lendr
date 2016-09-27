@@ -1,6 +1,6 @@
-<h2> USER PAGE </h2>
+<h2> <%= current_user.first_name.capitalize %>'s Library </h2>
 
-<%= link_to 'Edit User ', edit_user_registration_path %>
+<%= link_to 'Edit My User Profile ', edit_user_registration_path %>
 <div class='row'>
 <div id="profile" class='col-md-4'>
 </div>
@@ -11,7 +11,9 @@
     <strong>City:</strong> <%=current_user.city %><br/>
     <strong>Email:</strong> <%=current_user.email %><br/>
     <h4>Status </h4>
-    <strong>Total Inventory: </strong> <%= @count_inventory %>
+    <strong>Total Inventory: </strong>&nbsp;&nbsp; <%= @count_inventory %> &nbsp;&nbsp;
+    <strong>Total Borrowed: </strong>&nbsp;&nbsp; <%= @borrow.count %> &nbsp;&nbsp;
+    <strong>Total Lent Out: </strong>&nbsp;&nbsp; <%= @lent.count %>
 
   </div>
 </div>
@@ -19,7 +21,8 @@
 <hr>
 
 <div class="container">
-  <h2> Pending:</h2><small> user:count</small>
+  <h2> Pending:</h2>
+  <em>Currently no pending </em>
 </div>
 <div class="container">
   <h2> Items Lent:</h2>
@@ -56,5 +59,16 @@
 </div>
 <div class="container">
   <h2> Inventory:</h2>
+  <% if @items.empty? %>
+  <em>Currently no Items in Inventory,  <%= link_to 'Add Item to Inventory', new_item_path %></em>
+  <% else %>
+  <div class="row">
+    <% @items.each do | item | %>
+      <div class="col-md-6 border">
+        <strong>Name: </strong> <%= Item.find(item.item_id).name %>
+      </div>
+    <% end %>
+      </div>
+    <% end %>
 
 </div>
