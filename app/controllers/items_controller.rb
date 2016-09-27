@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+  before_action :set_user
   def index
     @items = Item.all
   end
@@ -12,11 +13,11 @@ class ItemsController < ApplicationController
   end
 
   def create
-    @item = Item.new(item_params)
+    @item = @user.owned_items.new(item_params)
     if @item.save
-      redirect_to root_path
+      redirect_to items_path
     else
-      render :new
+      render :new, notice:"Error"
     end
   end
 
@@ -44,4 +45,7 @@ class ItemsController < ApplicationController
     params.require(:item).permit(:name,:item_type,:description,:owner_id,:image)
   end
 
+  def set_user
+    @user = current_user
+  end
 end

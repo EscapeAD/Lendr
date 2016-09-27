@@ -1,0 +1,33 @@
+<h2> USER PAGE </h2>
+
+<%= link_to 'Edit User ', edit_user_registration_path %>
+<div class='row'>
+<div id="profile" class='col-md-4'>
+</div>
+<div class="col-md-8" id="userpanel">
+  <div class=''>
+    <h4>Contact Info</h4>
+    <strong>Name:</strong> <%=current_user.first_name.capitalize %> <%=current_user.last_name.capitalize %><br/>
+    <strong>City:</strong> <%=current_user.city %><br/>
+    <strong>Email:</strong> <%=current_user.email %><br/>
+    <h4>Status </h4>
+    <strong>Total Inventory: </strong> <%= User.count_inventory(current_user.id) %>
+
+  </div>
+</div>
+</div>
+<hr>
+
+<div class="container">
+  <h2> Pending:</h2><small> user:count</small>
+</div>
+<div class="container">
+  <h2> Items Lent:</h2><small> user:count</small>
+</div>
+<div class="container">
+  <h2> Items Borrowed:</h2><small> user:count</small>
+</div>
+<div class="container">
+  <h2> Inventory:</h2>
+
+</div>
