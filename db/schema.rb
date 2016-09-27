@@ -32,21 +32,17 @@ ActiveRecord::Schema.define(version: 20160927003732) do
   create_table "items", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
-<<<<<<< HEAD
-    t.integer  "owner_id"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
-=======
     t.string   "image"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.string   "item_type"
     t.integer  "user_id"
->>>>>>> master
   end
 
   create_table "users", force: :cascade do |t|
