@@ -11,7 +11,7 @@
     <strong>City:</strong> <%=current_user.city %><br/>
     <strong>Email:</strong> <%=current_user.email %><br/>
     <h4>Status </h4>
-    <strong>Total Inventory: </strong> <%= User.count_inventory(current_user.id) %>
+    <strong>Total Inventory: </strong> <%= @count_inventory %>
 
   </div>
 </div>
