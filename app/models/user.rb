@@ -8,7 +8,7 @@ class User < ApplicationRecord
 
   def self.count_inventory(user_id)
     inventory       = 0
-    inventory_total = Item.where(owner_id: user_id)
+    inventory_total = Item.where(user_id: user_id)
     inventory_total.each do
       inventory += 1
     end
