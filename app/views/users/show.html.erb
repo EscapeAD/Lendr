@@ -28,13 +28,13 @@
   <% else %>
   <div class='row'>
     <% @pending.each do | item | %>
-    <div class="col-md-6 border">
+    <div id='pending<%=item.id%>' class="col-md-6 border">
       <div class='floatl'>
       <%= image_tag Item.find(item.item_id).image.url, class: 'thumbnail' %>
       </div>
       <div class='floatr'>
       <strong>Name: </strong> <%= Item.find(item.item_id).name %><br/>
-      <a id="pending#{item.id}">Confirm</a><br/>
+      <a href="<%=item.id%>"class='confirm'>Confirm</a><br/>
       <%= link_to 'Decline', item_checkout_path(item.item_id, item.id), method: :delete, data: { confirm: 'Are you sure?' } %>
       </div>
     </div>

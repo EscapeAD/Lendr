@@ -1,5 +1,6 @@
 $(document).on('turbolinks:load', function(){
-  $('#burrow').on('click', function(){
-    
+  $('.check').on('click', function(event){
+
+
   })
 })
