@@ -21,6 +21,10 @@ class CheckoutsController < ApplicationController
     end
   end
 
+  def update
+
+  end
+
   def destroy
     @checkout = Checkout.find(params[:id])
     @checkout.destroy

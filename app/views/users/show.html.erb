@@ -34,7 +34,7 @@
       </div>
       <div class='floatr'>
       <strong>Name: </strong> <%= Item.find(item.item_id).name %><br/>
-      <a href="<%=item.id%>"class='confirm'>Confirm</a><br/>
+      <a id='<%=item.item_id%>' href="<%=item.id%>" class='confirm'>Confirm</a><br/>
       <%= link_to 'Decline', item_checkout_path(item.item_id, item.id), method: :delete, data: { confirm: 'Are you sure?' } %>
       </div>
     </div>
