@@ -1,7 +1,6 @@
 class VerificationsController < ApplicationController
   def show
-    @verify = Verification.find(parmas[:id])
-
+    @verify = Verification.find(params[:id])
   end
 
   def new
