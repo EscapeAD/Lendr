@@ -36,7 +36,8 @@ class Checkout < ApplicationRecord
     checkout  = Checkout.all
     checkout.each do |item|
       inventory.each do |invent_item|
-        if item[:item_id] == invent_item[:id] && item[:check_initial] == false
+        if item[:item_id] == invent_item[:id]
+          # && item[:check_initial] == false
           list << item
         end
       end
