@@ -26,9 +26,15 @@
   <% if @pending.empty? %>
     <em>Currently no pending </em>
   <% else %>
+  <div class='row'>
     <% @pending.each do | item | %>
+    <div class="col-md-6 border">
+
       <strong>Name: </strong> <%= Item.find(item.item_id).name %>
+      <%= link_to 'Decline', item_checkout_path(item.item_id, item.id),  method: :delete, data: { confirm: 'Are you sure?' } %>
+    </div>
       <% end %>
+    </div>
   <% end %>
 </div>
 <div class="container">

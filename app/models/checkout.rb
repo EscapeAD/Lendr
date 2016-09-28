@@ -6,7 +6,14 @@ class Checkout < ApplicationRecord
   private
 
   def self.borrow_list(user_id)
-    Checkout.where(user_id: user_id)
+    list = Checkout.where(user_id: user_id)
+    final = []
+    list.each do | item |
+      if item[:check_initial] == true
+        final << item
+      end
+    end
+      return final
   end
 
   def self.lent_out(user_id)
@@ -15,7 +22,7 @@ class Checkout < ApplicationRecord
     checkout  = Checkout.all
     checkout.each do |item|
       inventory.each do |invent_item|
-        if item[:item_id] == invent_item[:id] && item[:returned] == false
+        if item[:item_id] == invent_item[:id] && item[:returned] == false && item[:check_initial] == true
           list << item
         end
       end
@@ -34,7 +41,6 @@ class Checkout < ApplicationRecord
         end
       end
     end
-    puts list
     return list
   end
 

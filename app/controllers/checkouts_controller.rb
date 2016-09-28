@@ -21,6 +21,12 @@ class CheckoutsController < ApplicationController
     end
   end
 
+  def destroy
+    @checkout = Checkout.find(params[:id])
+    @checkout.destroy
+    redirect_to user_path
+  end
+
   private
   def checkout_params
     params.require(:checkouts).permit(:item_id)
