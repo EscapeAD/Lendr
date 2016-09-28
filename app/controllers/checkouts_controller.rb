@@ -22,7 +22,11 @@ class CheckoutsController < ApplicationController
   end
 
   def update
-
+    puts params[:id]
+    @checkout = Checkout.find(params[:id])
+    # @checkout = Checkout.where(id: params[:id])
+    @checkout.update_attribute(:check_initial, :item_id)
+    @checkout.save
   end
 
   def destroy
