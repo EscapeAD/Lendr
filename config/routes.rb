@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   resource :user, only: [:show]
 
   resources :items do
-    resources :checkouts
+    resources :checkouts do
+      resources :verifications
+    end
   end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
