@@ -31,7 +31,8 @@
     <div class="col-md-6 border">
 
       <strong>Name: </strong> <%= Item.find(item.item_id).name %>
-      <%= link_to 'Decline', item_checkout_path(item.item_id, item.id),  method: :delete, data: { confirm: 'Are you sure?' } %>
+      <a id="pending#{item.id}">Confirm</a>
+      <%= link_to 'Decline', item_checkout_path(item.item_id, item.id), method: :delete, data: { confirm: 'Are you sure?' } %>
     </div>
       <% end %>
     </div>
@@ -78,8 +79,12 @@
   <div class="row">
     <% @items.each do | item | %>
       <div class="col-md-6 border">
-        <%= image_tag Item.find(item.id).image.url %>
+        <div class='floatl'>
+        <%= image_tag Item.find(item.id).image.url, class: 'thumbnail float' %>
+      </div>
+      <div class='floatr'>
         <strong>Name: </strong> <%= Item.find(item.id).name %>
+      </div>
       </div>
     <% end %>
       </div>
