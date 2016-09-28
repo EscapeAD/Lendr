@@ -4,7 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   has_many :owned_items, class_name: 'Item'
-  
+  has_many :checkouts
+
   private
 
 

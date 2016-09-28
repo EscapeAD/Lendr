@@ -1,0 +1,14 @@
+<h1>Checkout</h1>
+<%= form_for [@user, @item, @checkout], url: {action: "create"} do |f| %>
+  <% if @checkout.errors.any? %>
+    <%= pluralize(@checkout.errors.count,"error") %> prevented you from saving:
+
+    <ul>
+      <% @checkout.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  <%end %>
+
+  <%= f.submit %>
+<% end %>
