@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   resources :items do
     resources :checkouts do
-      resource :verifications
+      resources :verifications
     end
   end
 
