@@ -1,16 +1,18 @@
 $(document).on('turbolinks:load', function(){
-  $('.check').on('click', function(event){
+  $('.confirm').on('click', function(event){
     event.preventDefault();
-    var itemId = $(this).attr('href');
-    var checkoutId = $(this).attr('id');
+    var checkoutId = $(this).attr('href');
+    var  itemId    = $(this).attr('id');
     console.log(itemId);
     console.log(checkoutId);
     $.ajax({
-      url: '/items/:item_id/checkouts',
-      method: 'POST',
-      data: {},
+      url: '/items/'+itemId+'/checkouts/'+checkoutId,
+      method: 'PUT',
+      data: {id: checkoutId, intial_check: true},
       dataType: 'JSON'
-    })
+    }).done(function(responseData){
+
+    });
 
   })
 })
