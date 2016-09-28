@@ -41,7 +41,6 @@ class Checkout < ApplicationRecord
         end
       end
     end
-    puts list
     return list
   end
 

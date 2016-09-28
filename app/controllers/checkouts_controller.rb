@@ -24,7 +24,7 @@ class CheckoutsController < ApplicationController
   def destroy
     @checkout = Checkout.find(params[:id])
     @checkout.destroy
-    render :show
+    redirect_to user_path
   end
 
   private
