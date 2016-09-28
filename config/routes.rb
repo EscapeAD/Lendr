@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resource :user, only: [:show]
 
   resources :items do
-    resources :checkouts, only: [:new, :create]
+    resources :checkouts, only: [:new, :create, :destroy]
   end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
