@@ -22,7 +22,14 @@
 
 <div class="container">
   <h2> Pending:</h2>
-  <em>Currently no pending </em>
+
+  <% if @pending.empty? %>
+    <em>Currently no pending </em>
+  <% else %>
+    <% @pending.each do | item | %>
+      <strong>Name: </strong> <%= Item.find(item.item_id).name %>
+      <% end %>
+  <% end %>
 </div>
 <div class="container">
   <h2> Items Lent:</h2>

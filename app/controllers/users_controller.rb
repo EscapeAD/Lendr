@@ -6,6 +6,7 @@ class UsersController < ApplicationController
     @count_inventory = Item.count_inventory(current_user.id)
     @lent            = Checkout.lent_out(current_user.id)
     @items           = Item.where(user_id: current_user.id)
+    @pending         = Checkout.pending(current_user.id)
 
 
   end
