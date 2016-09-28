@@ -26,7 +26,12 @@ class CheckoutsController < ApplicationController
     @checkout = Checkout.find(params[:id])
     # @checkout = Checkout.where(id: params[:id])
     @checkout.update_attribute(:check_initial, :item_id)
-    @checkout.save
+
+    if @checkout.save
+    redirect_to user_path
+    else
+      redirect_to user_path, notice: 'Unable to confirm'
+    end
   end
 
   def destroy
