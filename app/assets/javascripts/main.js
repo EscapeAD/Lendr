@@ -10,9 +10,8 @@ $(document).on('turbolinks:load', function(){
       method: 'PUT',
       data: {id: checkoutId, intial_check: true},
       dataType: 'JSON'
-    }).done(function(responseData){
-
     });
+  });
 
-  })
+
 })

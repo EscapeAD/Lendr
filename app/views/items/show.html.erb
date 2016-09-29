@@ -5,7 +5,7 @@ Description: <%= @item.description %><br>
 Type: <%= @item.item_type %><br>
 Owner: <%= @item.user_id %><br>
 
-
-
+<div class = "borrow-button"><%= button_tag 'Borrow', type: 'button' %></div>
+<!-- button_tag 'Borrow', type: 'reset', disabled: true -->
   <%= link_to 'Borrrow', new_item_checkout_path(@item) %>
   <%= link_to 'Delete', item_path, method: :delete, data: {confirm: "Are you sure you want to delete the item '#{@item.name}'? This cannot be undone!"} %>
