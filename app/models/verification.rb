@@ -17,6 +17,7 @@ class Verification < ApplicationRecord
       verification_session.update_attribute(:borrower, true)
       verification_session.save
     end
+    
   end
 
   def self.status_text(verfId)
@@ -28,6 +29,6 @@ class Verification < ApplicationRecord
     end
   end
 
-  
+
 
 end
