@@ -18,6 +18,8 @@ class VerificationsController < ApplicationController
     @verify = Verification.find(params[:id])
     Verification.verify_user(params[:item_id],params[:checkout_id],params[:id],current_user)
 
+    Verification.verify_staging(@verify.id)
+    redirect_to user_path
 
 
   end

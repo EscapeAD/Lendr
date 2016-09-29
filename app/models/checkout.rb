@@ -10,7 +10,6 @@ class Checkout < ApplicationRecord
     final = []
     list.each do | item |
       if item[:check_initial] == true && item[:due_date] != nil && item[:returned] == false
-        list << item
         final << item
       end
     end
