@@ -7,10 +7,10 @@ class Verification < ApplicationRecord
   end
 
   def self.verify_user(itemId, checkoutsId, verfId, current_user)
-    item_owner           = Item.find(itemId)
+    item                 = Item.find(itemId)
     check                = Checkout.find(checkoutsId)
     verification_session = Verification.find(verfId)
-    if current_user.id == item_owner.id
+    if current_user.id == item.user_id
       verification_session.update_attribute(:owner, true)
       verification_session.save
     else
@@ -27,5 +27,7 @@ class Verification < ApplicationRecord
       "Verify Return Complete"
     end
   end
+
+  
 
 end
