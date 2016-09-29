@@ -35,6 +35,9 @@ class Verification < ApplicationRecord
     checkout_session = Checkout.find(verification_session.checkout_id)
     if verification_session[:owner] === true && verification_session[:borrower] === true
       checkout_session.update_attributes(start_date:  Time.now, due_date: Time.now + 14.days)
+      verification_session.update_attributes(status: 'return', owner: 'false', borrower: 'false')
+      checkout_session.save
+      verification_session.save
     end
   end
 
