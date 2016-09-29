@@ -1,9 +1,10 @@
 class ItemsController < ApplicationController
   before_action :set_user
   def index
+    @items = Item.all
     if request.xhr?
       input = params[:searchInput]
-      items = Item.where('name LIKE ?', "%#{input}%")
+      items = Item.where('name ILIKE ?', "%#{input}%")
       render partial: 'items', locals: {searchItemList: items}
     end
   end
