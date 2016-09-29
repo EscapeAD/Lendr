@@ -36,14 +36,14 @@ $(document).on('turbolinks:load', function(){
         $('#searchList').append(rData);
       });
   });
-  $('#verify_button').on('click'. function(event){
-
+  $('#verify_button').on('click', function(event){
+      event.preventDefault();
     $.ajax({
-      url: $(this),
-      method: ,
-      data: ,
-      dataType: ,
-    }).done({
+      url: $(this).attr('href'),
+      method: 'PUT',
+      data: {},
+      dataType: 'JSON'
+    }).done(function(responseData){
 
     });
   })

@@ -1,8 +1,8 @@
 <h1> WORKING</h1>
-<% if current_user.id == @user.user_id && (@verify.borrower === false  && @verify.owner === True) %>
-<button id='verify_button' disabled="true" class="btn btn-primary btn-large">Waiting Borrow to verify</button>
-<% elsif  current_user.id != @user.user_id && (@verify.borrower === true  && @verify.owner === false) %>
-<button id='verify_button' disabled="true" class="btn btn-primary btn-large">Waiting Lender to verify</button>
+<% if current_user.id == @user.user_id && @verify.owner == true %>
+<button class="btn btn-primary btn-large">"Waiting Borrow to verify"</button>
+<% elsif  current_user.id != @user.user_id && @verify.borrower == true %>
+<button class="btn btn-primary btn-large">"Waiting Lender to verify"</button>
 <% else %>
 <%= link_to "#{@status_text}", item_checkout_verification_path(@user.id, @verify.checkout_id, @verify.id), id: 'verify_button', class: "btn btn-primary btn-large" %>
 <% end %>

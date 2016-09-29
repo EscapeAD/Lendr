@@ -7,7 +7,6 @@ class VerificationsController < ApplicationController
 
 
 
-
   end
 
   def new
@@ -15,8 +14,19 @@ class VerificationsController < ApplicationController
   end
 
   def update
+
     @verify = Verification.find(params[:id])
-    Verification.verify_user(params[:item_id],params[:checkout_id],params[:id])
+    # Verification.verify_user(params[:item_id],params[:checkout_id],params[:id])
+    item_owner           = Item.find(params[:item_id])
+    check                = Checkout.find(params[:checkout_id])
+    verification_session = Verification.find(params[:id])
+    if current_user.id == item_owner.id
+      verification_session.update_attribute(:owner, true)
+      verification_session.save
+    else
+      verification_session.update_attribute(:borrower, true)
+      verification_session.save
+    end
     redirect_to item_checkout_verification_path(params[:item_id],params[:checkout_id],params[:id])
   end
 
