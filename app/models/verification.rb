@@ -11,9 +11,11 @@ class Verification < ApplicationRecord
     check                = Checkout.find(checkoutsId)
     verification_session = Verification.find(verfId)
     if current_user.id == item_owner.id
-      verification_session.update_attribute(:lender, true)
+      verification_session.update_attribute(:owner, true)
+      verification_session.save
     else
       verification_session.update_attribute(:borrower, true)
+      verification_session.save
     end
   end
 
