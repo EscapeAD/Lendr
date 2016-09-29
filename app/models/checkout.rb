@@ -31,11 +31,16 @@ class Checkout < ApplicationRecord
     return list
   end
 
-  def self.pending(user_id)
-    inventory = Item.where(user_id: user_id)
+  def self.pending(userId)
+    inventory = Item.where(user_id: userId)
     list      = []
     checkout  = Checkout.all
     checkout.each do |item|
+
+      if item[:user_id] == userId && item[:due_date] == nil
+        list << item
+      end
+
       inventory.each do |invent_item|
         if item[:item_id] == invent_item[:id] && item[:due_date] == nil
           # && item[:check_initial] == false
