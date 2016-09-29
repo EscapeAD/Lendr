@@ -34,11 +34,13 @@
       </div>
       <div class='floatr'>
       <strong>Name: </strong> <%= Item.find(item.item_id).name %><br/>
+      <% if Verification.where(checkout_id: item.id, status: 'pickup').empty? %>
       <a id='<%=item.item_id%>' href="<%=item.id%>" class='confirm'>Confirm</a><br/>
       <%= link_to 'Decline', item_checkout_path(item.item_id, item.id), method: :delete, data: { confirm: 'Are you sure?' } %>
 
-
+      <% else %>
       <%= link_to 'show', item_checkout_verification_path(Item.find(item.item_id),item.id,Verification.verify_show_pickup(item.id)) %>
+      <% end %>
       </div>
     </div>
 

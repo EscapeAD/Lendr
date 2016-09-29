@@ -9,7 +9,8 @@ class Checkout < ApplicationRecord
     list = Checkout.where(user_id: user_id)
     final = []
     list.each do | item |
-      if item[:check_initial] == true
+      if item[:check_initial] == true && item[:due_date] != nil && item[:returned] == false
+        list << item
         final << item
       end
     end
@@ -22,7 +23,7 @@ class Checkout < ApplicationRecord
     checkout  = Checkout.all
     checkout.each do |item|
       inventory.each do |invent_item|
-        if item[:item_id] == invent_item[:id] && item[:returned] == false && item[:check_initial] == true
+        if item[:item_id] == invent_item[:id] && item[:returned] == false && item[:check_initial] == true && item[:due_date] != nil && item[:returned] == false
           list << item
         end
       end
@@ -36,7 +37,7 @@ class Checkout < ApplicationRecord
     checkout  = Checkout.all
     checkout.each do |item|
       inventory.each do |invent_item|
-        if item[:item_id] == invent_item[:id]
+        if item[:item_id] == invent_item[:id] && item[:due_date] == nil
           # && item[:check_initial] == false
           list << item
         end
