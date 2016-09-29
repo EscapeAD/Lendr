@@ -5,4 +5,7 @@ Description: <%= @item.description %><br>
 Type: <%= @item.item_type %><br>
 Owner: <%= @item.user_id %><br>
 
- <%= link_to 'Delete', item_path, method: :delete, data: {confirm: "Are you sure you want to delete the item '#{@item.name}'? This cannot be undone!"} %>
+
+
+  <%= link_to 'Borrrow', new_item_checkout_path(@item) %>
+  <%= link_to 'Delete', item_path, method: :delete, data: {confirm: "Are you sure you want to delete the item '#{@item.name}'? This cannot be undone!"} %>
