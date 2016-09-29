@@ -15,4 +15,19 @@ $(document).on('turbolinks:load', function(){
     });
 
   })
-})
+
+
+  $('#searchBtn').on('click',function(e){
+    e.preventDefault();
+    $('#searchList').empty();
+    var searchInput = $('#searchTextField').val();
+    $.ajax({
+      url: '/items',
+      method: 'GET',
+      data: {searchInput: searchInput},
+      dataType: 'HTML'
+    }).done(function(rData){
+      $('#searchList').append(rData);
+    });
+  });
+});
