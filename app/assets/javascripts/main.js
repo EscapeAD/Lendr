@@ -36,4 +36,17 @@ $(document).on('turbolinks:load', function(){
         $('#searchList').append(rData);
       });
   });
+  $('#verify_button').on('click'. function(event){
+
+    $.ajax({
+      url: $(this),
+      method: ,
+      data: ,
+      dataType: ,
+    }).done({
+
+    });
+  })
+
+
 });
