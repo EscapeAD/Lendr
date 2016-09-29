@@ -1,6 +1,11 @@
 class VerificationsController < ApplicationController
   def show
     @verify = Verification.find(params[:id])
+    @status_text = Verification.status_text(params[:id])
+
+
+
+
   end
 
   def new

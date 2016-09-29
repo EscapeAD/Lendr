@@ -19,4 +19,13 @@ class Verification < ApplicationRecord
     end
   end
 
+  def self.status_text(verfId)
+    status = Verification.find(verfId).status
+    if status == 'pickup'
+      "Verify Pickup Complete"
+    else
+      "Verify Return Complete"
+    end
+  end
+
 end
