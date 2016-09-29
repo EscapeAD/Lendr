@@ -38,6 +38,7 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
     @item.image = nil
     @item.save
+    dragon_var = Checkout.where(item_id: params[:id])
     @item.destroy
     redirect_to root_path
   end
