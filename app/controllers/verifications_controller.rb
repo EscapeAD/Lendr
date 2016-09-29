@@ -21,6 +21,10 @@ class VerificationsController < ApplicationController
     Verification.verify_staging(@verify.id)
     redirect_to user_path
 
+    if @verify == nil
+      redirect_to user_path
+    end
+
 
   end
 
