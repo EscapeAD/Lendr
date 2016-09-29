@@ -1,7 +1,11 @@
 class ItemsController < ApplicationController
   before_action :set_user
   def index
-    @items = Item.all
+    if request.xhr?
+      input = params[:searchInput]
+      items = Item.where('name LIKE ?', "%#{input}%")
+      render partial: 'items', locals: {searchItemList: items}
+    end
   end
 
   def show
