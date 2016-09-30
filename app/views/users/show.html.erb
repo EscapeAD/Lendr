@@ -34,8 +34,17 @@
       </div>
       <div class='floatr'>
       <strong>Name: </strong> <%= Item.find(item.item_id).name %><br/>
-      <a id='<%=item.item_id%>' href="<%=item.id%>" class='confirm'>Confirm</a><br/>
-      <%= link_to 'Decline', item_checkout_path(item.item_id, item.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+      <% if Verification.where(checkout_id: item.id, status: 'pickup').empty? %>
+        <% if Item.find(item.item_id).user_id == current_user.id %>
+          <a id='<%=item.item_id%>' href="<%=item.id%>" class='confirm'>Confirm</a><br/>
+          <%= link_to 'Decline', item_checkout_path(item.item_id, item.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+        <% else %>
+          <em> Waiting for Lender to Approve </em><br/>
+          <%= link_to 'Cancel Request', item_checkout_path(item.item_id, item.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+          <% end %>
+      <% else %>
+      <%= link_to 'show', item_checkout_verification_path(Item.find(item.item_id),item.id,Verification.verify_show_pickup(item.id)) %>
+      <% end %>
       </div>
     </div>
 
@@ -54,6 +63,7 @@
         <strong>Name: </strong> <%= Item.find(item.item_id).name %>
         <strong>lent to: </strong> <%= User.find(item.user_id).first_name %> <%= User.find(item.user_id).last_name %>
         <strong>Time Left: </strong> ...
+        <%= link_to 'show', item_checkout_verification_path(Item.find(item.item_id),item.id,Verification.verify_show_pickup(item.id)) %>
       </div>
     <% end %>
       </div>

@@ -22,12 +22,20 @@ class CheckoutsController < ApplicationController
     @checkout = Checkout.find(params[:id])
     # @checkout = Checkout.where(id: params[:id])
     @checkout.update_attribute(:check_initial, true)
-    @checkout.save
-    redirect_to user_path
+    if @checkout.save
+      @verify = @checkout.verifications.new(checkout_id: params[:id], status: 'pickup')
+      @verify.save
+      redirect_to user_path
+
+    else
+      redirect_to user_path
+    end
   end
 
   def destroy
     @checkout = Checkout.find(params[:id])
+    @verify = Verification.where(checkout_id: params[:id])
+    @verify.destroy_all
     @checkout.destroy
     redirect_to user_path
   end

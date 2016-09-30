@@ -2,6 +2,11 @@ class ItemsController < ApplicationController
   before_action :set_user
   def index
     @items = Item.all
+    if request.xhr?
+      input = params[:searchInput]
+      items = Item.where('name ILIKE ?', "%#{input}%")
+      render partial: 'items', locals: {searchItemList: items}
+    end
   end
 
   def show
@@ -38,6 +43,16 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
     @item.image = nil
     @item.save
+    dragon_var = Checkout.where(item_id: params[:id])
+    dragon_var.each do |element|
+      found_checkout_element = Verification.where(checkout_id: element.id)
+        found_checkout_element.each do | check_out_element |
+          check_out_element.destroy
+          check_out_element.save
+        end
+      element.destroy
+      element.save
+    end
     @item.destroy
     redirect_to root_path
   end

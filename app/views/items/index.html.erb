@@ -1,11 +1,23 @@
-<h1>All Items</h1>
+<h1>Item Search</h1>
 
-<% @items.each do |item| %>
-  <div class = "item_image"><%= image_tag item.image.url %></div>
-  <div class = "item-info">
-    <%= link_to item.name, item_path(item) %>
-    <br>Owner: <%= item.user_id %>
-  </div>
-  <br>
-<% end %>
-</ul>
+
+<button id="searchBtn">Search</button>
+<input id="searchTextField" type="text" name="searchTxt">
+
+
+<div id="searchSec">
+  <ul id="searchList">
+    <section id="allItems">
+    <h2>All Items</h2>
+
+    <% @items.each do |item| %>
+      <div class = "item_image"><%= image_tag item.image.url %></div>
+      <div class = "item-info">
+        <%= link_to item.name, item_path(item) %>
+        <br>Owner: <%= item.user_id %>
+      </div>
+      <br>
+    <% end %>
+    </section>
+  </ul>
+</div>
