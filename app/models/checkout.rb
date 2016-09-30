@@ -2,6 +2,7 @@ class Checkout < ApplicationRecord
   belongs_to :user
   belongs_to :item
   has_many   :verifications
+  has_many   :stories
 
   private
 
@@ -55,7 +56,9 @@ class Checkout < ApplicationRecord
     array_of_stories    = []
     checkout_story_list.each do |checkout_list|
       stories = Story.where(checkout_id: checkout_list.id)
-      array_of_stories << stories
+      stories.each do | story |
+      array_of_stories << story
+    end
     end
     return array_of_stories
   end
