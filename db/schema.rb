@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160928004230) do
+ActiveRecord::Schema.define(version: 20160930202509) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,11 +35,21 @@ ActiveRecord::Schema.define(version: 20160928004230) do
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
     t.string   "item_type"
-    t.integer  "user_id"
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.integer  "user_id"
+  end
+
+  create_table "stories", force: :cascade do |t|
+    t.string   "title"
+    t.integer  "checkout_id"
+    t.text     "story"
+    t.datetime "date"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["checkout_id"], name: "index_stories_on_checkout_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -74,5 +84,6 @@ ActiveRecord::Schema.define(version: 20160928004230) do
 
   add_foreign_key "checkouts", "items"
   add_foreign_key "checkouts", "users"
+  add_foreign_key "stories", "checkouts"
   add_foreign_key "verifications", "checkouts"
 end
