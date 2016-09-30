@@ -1,0 +1,64 @@
+
+.navbar-inverse {
+  background-color: white;
+  border:none;
+}
+
+.navbar-brand{
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: -4px;
+  font-size: 50px;
+}
+
+.navbar-header a{
+  color: orange;
+}
+
+.navbar-header{
+  padding-top: 22px;
+  padding-bottom: 22px;
+}
+
+.navbar-right{
+  padding-top: 15px;
+  padding-right: 15px;
+}
+
+.nav-group{
+  display: inline-block;
+  padding: 15px 0px 15px 15px;
+}
+
+#userpanel {
+  border: 2px solid black;
+  height: 200px;
+  width: 600px;
+  margin: 0;
+  display: inline-block;
+}
+
+#profile {
+  border: 2px solid black;
+  height: 200px;
+  width: 200px;
+  display: inline-block;
+}
+
+.border {
+  border: 1px solid black;
+  height: 180px;
+}
+.floatl {
+  display: inline-block;
+  float: left;
+  margin: 0;
+  padding-right: 10px;
+}
+.floatr {
+  display: inline-block;
+  padding: 10px;
+}
+
+body{
+  padding-top: 70px;
+}

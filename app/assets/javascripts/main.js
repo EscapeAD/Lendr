@@ -13,8 +13,8 @@ $(document).on('turbolinks:load', function(){
     }).done(function(responseData){
       location.reload();
     });
+  });
 
-  })
 
   $('#searchTextField').keypress(function(e){
     if (e.which === 13) {
