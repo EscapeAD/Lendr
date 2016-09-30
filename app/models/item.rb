@@ -13,4 +13,5 @@ private
     end
     return inventory
   end
+
 end

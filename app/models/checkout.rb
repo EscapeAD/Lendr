@@ -49,5 +49,15 @@ class Checkout < ApplicationRecord
     end
     return list
   end
+## collects the stories of the item
+  def self.collect_story(item_primary_key)
+    checkout_story_list = Checkout.where(item_id: item_primary_key)
+    array_of_stories    = []
+    checkout_story_list.each do |checkout_list|
+      stories = Story.where(checkout_id: checkout_list.id)
+      array_of_stories << stories
+    end
+    return array_of_stories
+  end
 
 end
