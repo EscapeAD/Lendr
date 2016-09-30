@@ -41,8 +41,7 @@
         <% else %>
           <em> Waiting for Lender to Approve </em><br/>
           <%= link_to 'Cancel Request', item_checkout_path(item.item_id, item.id), method: :delete, data: { confirm: 'Are you sure?' } %>
-
-          <%end%>
+          <% end %>
       <% else %>
       <%= link_to 'show', item_checkout_verification_path(Item.find(item.item_id),item.id,Verification.verify_show_pickup(item.id)) %>
       <% end %>
@@ -64,6 +63,7 @@
         <strong>Name: </strong> <%= Item.find(item.item_id).name %>
         <strong>lent to: </strong> <%= User.find(item.user_id).first_name %> <%= User.find(item.user_id).last_name %>
         <strong>Time Left: </strong> ...
+        <%= link_to 'show', item_checkout_verification_path(Item.find(item.item_id),item.id,Verification.verify_show_pickup(item.id)) %>
       </div>
     <% end %>
       </div>

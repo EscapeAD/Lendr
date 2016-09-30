@@ -11,7 +11,7 @@ $(document).on('turbolinks:load', function(){
       data: {id: checkoutId, intial_check: true},
       dataType: 'JSON'
     }).done(function(responseData){
-
+      location.reload();
     });
 
   })
@@ -44,7 +44,7 @@ $(document).on('turbolinks:load', function(){
       data: {},
       dataType: 'JSON'
     }).done(function(responseData){
-
+      location.reload();
     });
   })
 
