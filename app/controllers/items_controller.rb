@@ -10,7 +10,8 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find(params[:id])
+    @item    = Item.find(params[:id])
+    @stories = Checkout.collect_story(params[:id])
   end
 
   def new
