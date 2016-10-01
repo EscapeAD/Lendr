@@ -11,20 +11,25 @@
 }
 
 .name{
-  font-weight: bold;
-  font-size: 25px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 30px;
+  margin-bottom: 25px;
 }
 
 #user-profile-info{
+  font-family: 'Lato', sans-serif;
   overflow: auto;
   display: flex;
-  line-height: 33px;
+  line-height: 35px;
   font-size: 18px;
+  color: white;
+  padding-bottom: 20px;
 }
 
 #profile-description{
   padding-top: 50px;
   text-align: left;
+  padding-bottom: 20px;
 }
 
 @media (min-width:330px){
@@ -46,6 +51,32 @@
 @media (min-width:768px){
 }
 
-.profile-container{
-  
+.profile-bg{
+  background-image: url("profile-bg.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.profile-statistics{
+  margin-top: 20px;
+  color: white;
+  text-align: center;
+}
+
+.statistic-titles{
+  margin-top: 0px;
+  font-size: 16px;
+  letter-spacing: 1px;
+}
+
+.numbers{
+  margin-top: 0px;
+  font-family: 'Pavanam', sans-serif;
+  margin-top: 10px;
+  font-size: 55px;
+}
+
+.middle-column{
+  border-left: 1px solid white;
+  border-right: 1px solid white;
 }
