@@ -1,3 +1,6 @@
+.navbar{
+  background-color: white;
+}
 
 .navbar-inverse {
   background-color: white;
@@ -57,6 +60,12 @@
 .floatr {
   display: inline-block;
   padding: 10px;
+}
+
+@media (min-width:808px){
+  .navbar-brand {
+    padding-left: 40px;
+  }
 }
 
 body{

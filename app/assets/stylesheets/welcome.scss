@@ -14,9 +14,10 @@
 
 .context-container{
   width: 100%;
-  margin-top: 70px;
+  margin-top: 30px;
   color: white;
   background-color: orange;
+  padding-bottom: 30px;
 }
 
 .image-text{
@@ -33,9 +34,11 @@
   letter-spacing: 1px;
   text-align: center;
   width: auto;
+  padding-top: 15px;
+  padding-bottom: 15px;
 }
 
-h4{
+.jumbotron h4{
   font-size: 17px;
   font-family: 'Lato', sans-serif;
   letter-spacing: 1px;
@@ -44,6 +47,40 @@ h4{
   text-align: center;
   width: 150px;
   margin: auto;
+}
+
+.recommended-container{
+  text-align: center;
+}
+
+.recommended-container a{
+  text-decoration: none;
+  color: white;
+}
+
+.recommended-container button:hover{
+  background-color: white;
+  border: 3px solid white;
+}
+
+.recommended-container button:hover{
+  background-color: white;
+  border: 3px solid white;
+}
+
+.recommended-container button a:hover{
+  color:orange;
+}
+
+.recommended-container button{
+  font-size: 17px;
+  font-family: 'Lato', sans-serif;
+  letter-spacing: 1px;
+  text-align: center;
+  margin: auto;
+  border: 3px solid white;
+  border-radius: 0px;
+  background-color: transparent;
 }
 
 .container .jumbotron{
