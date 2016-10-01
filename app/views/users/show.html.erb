@@ -36,7 +36,7 @@
       <strong>Name: </strong> <%= Item.find(item.item_id).name %><br/>
       <% if Verification.where(checkout_id: item.id, status: 'pickup').empty? %>
         <% if Item.find(item.item_id).user_id == current_user.id %>
-          <a id='<%=item.item_id%>' href="<%=item.id%>" class='confirm'>Confirm</a><br/>
+        <%= link_to 'Accept', user_path ,data: {checkout: "#{item.id}",inventory: "#{item.item_id}"}, class: 'confirm'%>
           <%= link_to 'Decline', item_checkout_path(item.item_id, item.id), method: :delete, data: { confirm: 'Are you sure?' } %>
         <% else %>
           <em> Waiting for Lender to Approve </em><br/>

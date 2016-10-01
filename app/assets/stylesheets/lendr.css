@@ -71,3 +71,6 @@
 body{
   padding-top: 70px;
 }
+.confirm:hover {
+  cursor: pointer;
+}
