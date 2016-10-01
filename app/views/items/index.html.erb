@@ -11,12 +11,14 @@
     <h2>All Items</h2>
 
     <% @items.each do |item| %>
-      <div class = "item_image"><%= image_tag item.image.url %></div>
+    <%= picture = item.pictures.first %>
+      <div class = "item_image"><%= image_tag item.pictures.last.image.url(:thumb) %></div>
       <div class = "item-info">
         <%= link_to item.name, item_path(item) %>
         <br>Owner: <%= item.user_id %>
       </div>
       <br>
+
     <% end %>
     </section>
   </ul>

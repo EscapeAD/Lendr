@@ -2,11 +2,13 @@ class ItemsController < ApplicationController
   before_action :set_user
   def index
     @items = Item.all
+    #Append the first picture of each item into picList
     if request.xhr?
       input = params[:searchInput]
       items = Item.where('name ILIKE ?', "%#{input}%")
       render partial: 'items', locals: {searchItemList: items}
     end
+
   end
 
   def show
@@ -15,11 +17,13 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
+    @picture = @item.pictures.build
+
   end
 
   def create
     @item = @user.owned_items.new(item_params)
-    if @item.save
+    if @item.save!
       redirect_to items_path
     else
       render :new, notice:"Error"
@@ -59,7 +63,7 @@ class ItemsController < ApplicationController
 
   private
   def item_params
-    params.require(:item).permit(:name,:item_type,:description,:owner_id,:image)
+    params.require(:item).permit(:name,:item_type,:description,:owner_id,pictures_attributes: [:id, :image, :_destroy])
   end
 
   def set_user
