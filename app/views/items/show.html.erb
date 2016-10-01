@@ -13,7 +13,14 @@ Owner: <%= @item.user_id %><br>
   <h3>Story</h3>
 <div class='border container'>
   <div class='row'>
-    <div class="">
+    <% if @stories.empty? %>
+    <em>Currently young lone item has no stories </em>
+    <% else %>
+    <% @stories.each do |story| %>
+    <div class="col-xs-6 col-md-12 border">
+      <h2><%= story.title %></h2>
     </div>
+    <% end %>
+    <% end %>
   </div>
 </div>

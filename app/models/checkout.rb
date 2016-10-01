@@ -2,6 +2,7 @@ class Checkout < ApplicationRecord
   belongs_to :user
   belongs_to :item
   has_many   :verifications
+  has_many   :stories
 
   private
 
@@ -48,6 +49,18 @@ class Checkout < ApplicationRecord
       end
     end
     return list
+  end
+## collects the stories of the item
+  def self.collect_story(item_primary_key)
+    checkout_story_list = Checkout.where(item_id: item_primary_key)
+    array_of_stories    = []
+    checkout_story_list.each do |checkout_list|
+      stories = Story.where(checkout_id: checkout_list.id)
+      stories.each do | story |
+      array_of_stories << story
+    end
+    end
+    return array_of_stories
   end
 
 end
