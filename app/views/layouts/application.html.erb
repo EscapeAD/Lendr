@@ -30,11 +30,11 @@
             <% end %>
           </div>
           <div class="nav-group">
-          <% if user_signed_in? %>
-            <%= link_to 'Log Out', destroy_user_session_path, method: :delete %>
-          <% else %>
-            <a type="button" data-toggle="modal" data-target="#signupModal">Sign Up</a>
-          <% end %>
+            <% if user_signed_in? %>
+              <%= link_to 'Log Out', destroy_user_session_path, method: :delete %>
+            <% else %>
+              <a type="button" data-toggle="modal" data-target="#signupModal">Sign Up</a>
+            <% end %>
           </div>
         </div>
       </div><!--/.navbar-collapse -->
@@ -49,9 +49,9 @@
       </div>
 
       <%= render :partial => 'items/signin_form' %>
-
-      <%= yield :top_content %>
-
+      <div class='container'>
+        <%= yield :top_content %>
+      </div>
       <div class="container header-container">
         <h1><%= yield :header %></h1>
       </div>
@@ -74,14 +74,14 @@
 
           <div class="form-group row">
               <%= f.label :email, class:'col-sm-2 col-form-label'%>
-              <div class="col-sm-10">
+            <div class="col-sm-10">
               <%= f.email_field :email, class: 'form-control',id: "inputEmail3", placeholder:"Email" %>
+            </div>
           </div>
-        </div>
 
           <div class="form-group row">
-            <%= f.label :first_name, class:'col-sm-2 col-form-label' %>
-            <div class="col-sm-10">
+              <%= f.label :first_name, class:'col-sm-2 col-form-label' %>
+          <div class="col-sm-10">
             <%= f.text_field :first_name, class: 'form-control',placeholder: 'John'%>
           </div>
         </div>
@@ -116,7 +116,6 @@
             <%= f.password_field :password_confirmation, autocomplete: "off" , class: 'form-control',placeholder: 'Password'%>
           </div>
         </div>
-
         <br/>
 
 
@@ -127,7 +126,7 @@
         </div>
 
       <% end %>
-    </div>
+    </div> 
   </div>
 </div>
 
