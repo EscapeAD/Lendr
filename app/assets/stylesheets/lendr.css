@@ -74,3 +74,6 @@ body{
 .confirm:hover {
   cursor: pointer;
 }
+a:hover {
+  cursor: pointer;
+}
