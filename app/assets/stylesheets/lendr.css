@@ -68,6 +68,10 @@
   }
 }
 
+.alert-container{
+  padding-top: 30px;
+}
+
 body{
   padding-top: 70px;
 }
