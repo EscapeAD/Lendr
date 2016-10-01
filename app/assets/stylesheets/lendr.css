@@ -2,9 +2,12 @@
   background-color: white;
 }
 
-.navbar-inverse {
+.navbar-main{
   background-color: white;
-  border:none;
+}
+
+.navbar-others{
+  background-color: orange
 }
 
 .navbar-brand{
@@ -13,8 +16,12 @@
   font-size: 50px;
 }
 
-.navbar-header a{
+.header-main a{
   color: orange;
+}
+
+.header-others a{
+  color: white;
 }
 
 .navbar-header{
@@ -70,6 +77,13 @@
 
 .alert-container{
   padding-top: 30px;
+}
+
+.context-container{
+  width: 100%;
+  margin-top: 55px;
+  padding-bottom: 30px;
+  font-family: 'Lato', sans-serif;
 }
 
 body{
