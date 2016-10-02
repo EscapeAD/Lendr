@@ -17,7 +17,8 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
-    @picture = @item.pictures.build
+    @item.pictures.build
+    @item.pictures.build
 
   end
 
@@ -32,6 +33,8 @@ class ItemsController < ApplicationController
 
   def edit
     @item = Item.find(params[:id])
+    @item.pictures.build
+    @item.pictures.build
   end
 
   def update
@@ -45,7 +48,7 @@ class ItemsController < ApplicationController
 
   def destroy
     @item = Item.find(params[:id])
-    @item.image = nil
+    @item.destroy
     @item.save
     dragon_var = Checkout.where(item_id: params[:id])
     dragon_var.each do |element|
@@ -59,6 +62,11 @@ class ItemsController < ApplicationController
     end
     @item.destroy
     redirect_to root_path
+  end
+
+
+  def destroypic(pic)
+    pic.destroy
   end
 
   private

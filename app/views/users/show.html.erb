@@ -95,7 +95,7 @@
     <% @items.each do | item | %>
       <div class="col-md-6 border">
         <div class='floatl'>
-        <%= image_tag Item.find(item.id).image.url, class: 'thumbnail float' %>
+        <%= image_tag Item.find(item.id).pictures.first.image.url, class: 'thumbnail float' %>
       </div>
       <div class='floatr'>
         <strong>Name: </strong> <%= Item.find(item.id).name %>

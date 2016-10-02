@@ -1,6 +1,9 @@
 <h1><%= @item.name %></h1>
 
-<div class = "item_image"><%= image_tag @item.image.url %></div>
+<% @item.pictures.each do |pic| %>
+  <div class = "item_image"><%= image_tag pic.image.url %></div>
+  <%= link_to 'delete', item_picture_url(@item.id,pic.id),method: :delete, id: 'delImgId' %>
+<% end %>
 Description: <%= @item.description %><br>
 Type: <%= @item.item_type %><br>
 Owner: <%= @item.user_id %><br>
