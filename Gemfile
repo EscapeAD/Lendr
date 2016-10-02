@@ -30,6 +30,7 @@ gem 'jbuilder', '~> 2.5'
 gem "figaro"
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+gem 'geocoder'
 
 
 gem "paperclip", "~> 5.0.0"
