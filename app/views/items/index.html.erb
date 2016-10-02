@@ -10,7 +10,7 @@
     <section id="allItems">
     <h2>All Items</h2>
     <% @items.each do |item| %>
-    <div class='border container'>
+    <div class='border container-fluid'>
       <div class = "item_image floatl"><%= image_tag item.image.url %></div>
       <div class = "item-info">
         <%= link_to item.name, item_path(item) %>
