@@ -37,26 +37,30 @@
       <div class="row pending-items-display">
         <h2 class="subheader-main user-categories">Pending</h2>
 
-        <div class = "images list">
+        <div class = "images-list">
           <% if @pending.empty? %>
             <em>Currently no pending</em>
           <% else %>
             <% @pending.each do | item | %>
               <div class="col-md-3">
-                <%= image_tag Item.find(item.item_id).image.url, class: 'thumbnail' %>
-                <strong>Name: </strong> <%= Item.find(item.item_id).name %><br/>
-                <% if Verification.where(checkout_id: item.id, status: 'pickup').empty? %>
-                  <% if Item.find(item.item_id).user_id == current_user.id %>
-                  <%= link_to 'Accept', user_path ,data: {checkout: "#{item.id}",inventory: "#{item.item_id}"}, class: 'confirm'%>
-                    <%= link_to 'Decline', item_checkout_path(item.item_id, item.id), method: :delete, data: { confirm: 'Are you sure?' } %>
-                  <% else %>
-                    <em> Waiting for Lender to Approve </em><br/>
-                    <%= link_to 'Cancel Request', item_checkout_path(item.item_id, item.id), method: :delete, data: { confirm: 'Are you sure?' } %>
-                  <% end %>
+                <div class="user-square-container">
+                  <%= image_tag Item.find(item.item_id).image.url, class: 'thumbnail' %>
+                </div>
+                <div class = "accept-decline">
+                  <% if Verification.where(checkout_id: item.id, status: 'pickup').empty? %>
 
-                <% else %>
-                  <%= link_to 'show', item_checkout_verification_path(Item.find(item.item_id),item.id,Verification.verify_show_pickup(item.id)) %>
-                <% end %>
+                    <% if Item.find(item.item_id).user_id == current_user.id %>
+                      <span class="accept-button"><%= link_to 'Accept', user_path ,data: {checkout: "#{item.id}",inventory: "#{item.item_id}"}, class: 'confirm'%></span>
+                      <span class="accept-button"><%= link_to 'Decline', item_checkout_path(item.item_id, item.id), method: :delete, data: { confirm: 'Are you sure?' } %></span>
+                    <% else %>
+                      <em> Waiting for Lender to Approve </em><br/>
+                      <%= link_to 'Cancel Request', item_checkout_path(item.item_id, item.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+                    <% end %>
+
+                  <% else %>
+                    <%= link_to 'show', item_checkout_verification_path(Item.find(item.item_id),item.id,Verification.verify_show_pickup(item.id)) %>
+                  <% end %>
+                </div>
               </div>
             <% end %>
           <% end %>
@@ -64,60 +68,73 @@
 
       </div>
 
-      <div class="container">
-        <h2> Items Lent:</h2>
-        <%# if @lent.empty? %>
-        <em>Currently nothing is Lent out</em>
-        <%# else %>
-        <div class="row">
-          <%# @lent.each do | item | %>
-            <div class="col-md-6 border">
-              <strong>Name: </strong> <%#= Item.find(item.item_id).name %>
-              <strong>lent to: </strong> <%#= User.find(item.user_id).first_name %> <%#= User.find(item.user_id).last_name %>
-              <strong>Time Left: </strong> ...
-              <%#= link_to 'show', item_checkout_verification_path(Item.find(item.item_id),item.id,Verification.verify_show_pickup(item.id)) %>
-            </div>
-          <%# end %>
-            </div>
-          <%# end %>
+      <div class="row pending-items-display">
+        <h2 class="subheader-main user-categories">Items Lent</h2>
 
-      </div>
-      <div class="container">
-        <h2> Items Borrowed:</h2>
-        <%# if @borrow.empty? %>
-        <em>Currently nothing is borrowed - Checkout <%#= link_to 'available borrow list', items_path %></em>
-        <%# else %>
-        <div class="row">
-          <%# @borrow.each do | item | %>
-            <div class="col-md-6 border">
-              <strong>Name: </strong> <%#= Item.find(item.item_id).name %>
-              <strong>Owner: </strong> <%#= User.find(item.user_id).first_name %> <%#= User.find(item.user_id).last_name %>
-              <strong>Time Left: </strong> ...
-            </div>
-          <%# end %>
-            </div>
-          <%# end %>
+        <div class = "images-list">
+          <% if @lent.empty? %>
+            <em>Currently nothing is being lent out.</em>
+          <% else %>
+            <% @lent.each do | item | %>
+              <div class="col-md-3">
+                <div class="user-square-container">
+                  <%= image_tag Item.find(item.item_id).image.url, class: 'thumbnail' %>
+                </div>
+                <div class = "accept-decline">
+                  <strong>Nickname: </strong> <%= Item.find(item.item_id).name %>
+                  <strong>Lent To: </strong> <%= User.find(item.user_id).first_name %> <%= User.find(item.user_id).last_name %>
+                  <strong>Time Left: </strong> ...
+                  <%= link_to 'show', item_checkout_verification_path(Item.find(item.item_id),item.id,Verification.verify_show_pickup(item.id)) %>
+                </div>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
       </div>
 
-      <div class="container">
-        <h2> Inventory:</h2>
-        <%# if @items.empty? %>
-        <em>Currently no Items in Inventory,  <%#= link_to 'Add Item to Inventory', new_item_path %></em>
-        <%# else %>
-        <div class="row">
-          <%# @items.each do | item | %>
-            <div class="col-md-6 border">
-              <div class='floatl'>
-              <%#= image_tag Item.find(item.id).image.url, class: 'thumbnail float' %>
-            </div>
-            <div class='floatr'>
-              <strong>Name: </strong> <%#= Item.find(item.id).name %>
-            </div>
-            </div>
-          <%# end %>
-            </div>
-          <%# end %>
+      <div class="row pending-items-display">
+        <h2 class="subheader-main user-categories">Items Borrowed</h2>
 
+        <div class = "images-list">
+          <% if @borrow.empty? %>
+            <em>Currently you have nothing borrowed. <%= link_to 'Available Borrow List', items_path %></em>
+          <% else %>
+            <% @borrow.each do | item | %>
+              <div class="col-md-3">
+                <div class="user-square-container">
+                  <%= image_tag Item.find(item.item_id).image.url, class: 'thumbnail' %>
+                </div>
+                <div class = "accept-decline">
+                  <strong>Nickname: </strong> <%= Item.find(item.item_id).name %>
+                  <strong>Owner: </strong> <%= User.find(item.user_id).first_name %> <%= User.find(item.user_id).last_name %>
+                  <strong>Time Left: </strong> ...
+                </div>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="row pending-items-display">
+        <h2 class="subheader-main user-categories">Total Inventory</h2>
+
+        <div class = "images-list">
+          <% if @items.empty? %>
+            <em>Your inventory is empty. <%= link_to 'Add Item to Inventory', new_item_path %></em>
+          <% else %>
+            <% @items.each do | item | %>
+              <div class="col-md-3">
+                <div class="user-square-container">
+                  <%= image_tag Item.find(item.id).image.url, class: 'thumbnail float' %>
+                </div>
+                <div class = "accept-decline">
+                  <strong>Nickname: </strong> <%= Item.find(item.id).name %>
+                </div>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
 
     </div>
   </div>
