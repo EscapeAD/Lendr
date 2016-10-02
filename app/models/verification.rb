@@ -49,5 +49,4 @@ class Verification < ApplicationRecord
   end
 
 
-
 end
