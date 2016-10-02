@@ -4,7 +4,7 @@ class VerificationsController < ApplicationController
     @status_text     = Verification.status_text(params[:id])
     @owner_of_item   = Item.find(params[:item_id])
     @borrower        = Checkout.find(params[:checkout_id])
-    unless @owner_of_item.id == current_user.id || @borrower.user_id == current_user.id
+    unless @owner_of_item.user_id == current_user.id || @borrower.user_id == current_user.id
       redirect_to user_path
     end
   end

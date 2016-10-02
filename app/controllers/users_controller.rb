@@ -8,8 +8,6 @@ class UsersController < ApplicationController
     @lent            = Checkout.lent_out(@user.id)
     @items           = Item.where(user_id: @user.id)
     @pending         = Checkout.pending(@user.id)
-
-
   end
 
   private
