@@ -12,7 +12,12 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find(params[:id])
+    @item    = Item.find(params[:id])
+
+    @stories = Checkout.collect_story(params[:id])
+    puts params
+
+    @owner   = User.find(@item.user_id)
   end
 
   def new

@@ -14,7 +14,4 @@ private
     return inventory
   end
 
-  def self.delete_attachment(pic_id)
-    self.pictures.pic_id.destroy
-  end
 end

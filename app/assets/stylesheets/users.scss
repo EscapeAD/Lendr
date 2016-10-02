@@ -1,3 +1,135 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#profile-image{
+  text-align: center;
+}
+
+#profile-image img{
+  width: 300px;;
+}
+
+.name{
+  font-family: 'Montserrat', sans-serif;
+  font-size: 30px;
+  margin-bottom: 25px;
+}
+
+#user-profile-info{
+  font-family: 'Lato', sans-serif;
+  overflow: auto;
+  display: flex;
+  line-height: 35px;
+  font-size: 18px;
+  color: #424242;
+  padding-bottom: 20px;
+}
+
+#profile-description{
+  padding-top: 50px;
+  text-align: left;
+  padding-bottom: 20px;
+}
+
+@media (min-width:330px){
+  #user-profile-info{
+    display: flex;
+  }
+
+  #profile-image{
+    display: inline-block;
+    flex: 1;
+  }
+
+  #profile-description{
+    display: inline-block;
+    flex: 1;
+  }
+}
+
+@media (min-width:768px){
+}
+
+.profile-statistics{
+  padding-top: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid gray;
+  border-top: 1px solid gray;
+  color: black;
+  text-align: center;
+  width: 82%;
+  margin: auto;
+  margin-top: 21px;
+}
+
+.statistic-titles{
+  margin-top: 0px;
+  font-size: 16px;
+  letter-spacing: 1px;
+}
+
+.numbers{
+  margin-top: 0px;
+  font-family: 'Pavanam', sans-serif;
+  margin-top: 10px;
+  font-size: 55px;
+}
+
+.middle-column{
+  border-left: 1px solid #BCBCBC;
+  border-right: 1px solid #BCBCBC;
+}
+
+.pending-items-display{
+  text-align: center;
+  width: 87%;
+  margin: auto;
+}
+
+.accept-button{
+  padding: 10px;
+}
+
+.images-list{
+  text-align: center;
+  margin: auto;
+}
+
+.user-square-container{
+  position: relative;
+  height: 150px;
+  overflow: hidden;
+  padding: 0px;
+  margin:none;
+  border: none;
+}
+
+.user-square-container img{
+  position: absolute;
+  overflow: hidden;
+  padding: 0px;
+  margin:none;
+  border: none;
+}
+
+.user-categories{
+  color: #424242;
+}
+
+.accept-decline{
+  font-size: 20px;
+  color: #424242;
+  position: relative;
+  text-align: center;
+}
+
+.images-list img{
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+}
+
+.thumbnail{
+  width:auto;
+}

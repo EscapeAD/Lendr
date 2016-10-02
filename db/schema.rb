@@ -50,6 +50,16 @@ ActiveRecord::Schema.define(version: 20161001021406) do
     t.index ["item_id"], name: "index_pictures_on_item_id", using: :btree
   end
 
+  create_table "stories", force: :cascade do |t|
+    t.string   "title"
+    t.integer  "checkout_id"
+    t.text     "story"
+    t.datetime "date"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["checkout_id"], name: "index_stories_on_checkout_id", using: :btree
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "email"
     t.string   "encrypted_password",     default: "", null: false
@@ -83,5 +93,6 @@ ActiveRecord::Schema.define(version: 20161001021406) do
   add_foreign_key "checkouts", "items"
   add_foreign_key "checkouts", "users"
   add_foreign_key "pictures", "items"
+  add_foreign_key "stories", "checkouts"
   add_foreign_key "verifications", "checkouts"
 end

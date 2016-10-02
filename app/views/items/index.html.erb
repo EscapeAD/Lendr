@@ -9,16 +9,19 @@
   <ul id="searchList">
     <section id="allItems">
     <h2>All Items</h2>
-
     <% @items.each do |item| %>
-      <% if item.pictures.empty? %>
-        <em>  No pictures found </em>
-      <% else %>
-      <div class = "item_image"><%= image_tag item.pictures.first.image.url(:thumb) %></div>
+
+    <div class='border container-fluid'>
+      <div class = "item_image floatl">
+        <% if item.pictures.empty? %>
+          <em>  No pictures found </em>
+        <% else %>
+        <div class = "item_image"><%= image_tag item.pictures.first.image.url(:thumb) %></div>
       <div class = "item-info">
         <%= link_to item.name, item_path(item) %>
         <br>Owner: <%= item.user_id %>
       </div>
+    </div>
       <br>
       <% end %>
     <% end %>

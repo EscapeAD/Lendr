@@ -1,22 +1,46 @@
-<h1><%= @item.name %></h1>
 
-<% @item.pictures.each do |pic| %>
-  <div class = "item_image"><%= image_tag pic.image.url %></div>
-  <%= link_to 'delete', item_picture_url(@item.id,pic.id),method: :delete, id: 'delImgId' %>
-<% end %>
-Description: <%= @item.description %><br>
-Type: <%= @item.item_type %><br>
-Owner: <%= @item.user_id %><br>
+<div class='container'>
+  <div class='border item-show-info row'>
 
-<div class = "borrow-button"><%= button_tag 'Borrow', type: 'button' %></div>
+<div class = "item_image floatl col-md-8"><%#= image_tag @item.image.url, id: 'show-image' %></div>
+<div class="pull-right col-md-4">
+    <h1><%= @item.name %></h1>
+    <strong>Owner:</strong>       <%= @owner.first_name.capitalize %> <%= @owner.last_name.capitalize %><br>
+    <strong>Type:</strong>&nbsp;&nbsp;&nbsp;  <%= @item.item_type.capitalize %><br>
+    <dl>
+  <dt><strong>Description:</strong></dt>
+  <dd><%= @item.description %></dd>
+  </dl>
+<br>
+
+<!-- <div class = "borrow-button"><%= button_tag 'Borrow', type: 'button' %></div> -->
 <!-- button_tag 'Borrow', type: 'reset', disabled: true -->
-  <%= link_to 'Borrrow', new_item_checkout_path(@item) %>
+  <%= link_to 'Borrrow', new_item_checkout_path(@item), class: 'btn btn-success btn-lg' %>
+  <% if current_user == @item.user_id %>
   <%= link_to 'Edit', edit_item_path %>
   <%= link_to 'Delete', item_path, method: :delete, data: {confirm: "Are you sure you want to delete the item '#{@item.name}'? This cannot be undone!"} %>
+  <% end %>
+</div>
+</div>
+</div>
+<% @item.pictures.each do |pic| %>
+  <div class = "item_image"><%= image_tag pic.image.url, class: 'thumbnail' %></div>
+  <%= link_to 'delete', item_picture_url(@item.id,pic.id),method: :delete, id: 'delImgId' %>
+<% end %>
+
+<div class='border container story-box'>
+  <div class='container'>
   <h3>Story</h3>
-<div class='border container'>
   <div class='row'>
-    <div class="">
+    <% if @stories.empty? %>
+    <em>Currently young lone item has no stories </em>
+    <% else %>
+    <% @stories.each do |story| %>
+    <div class="col-xs-6 col-md-12 border">
+      <h2><%= story.title %></h2>
     </div>
+    <% end %>
+    <% end %>
   </div>
+</div>
 </div>
