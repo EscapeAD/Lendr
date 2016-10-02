@@ -9,11 +9,17 @@ class CheckoutsController < ApplicationController
 
   def create
     item = params[:item_id]
+    @ower_item = Item.find(item).user_id
     @checkout = Checkout.new(user_id: current_user.id, item_id: item)
-    if @checkout.save
-      redirect_to root_path
+    #Check to make sure borrower isn't owner
+    if current_user.id == @ower_item
+      render :new, notice: "Sorry you can't borrow your own item"
     else
-      render :new
+      if @checkout.save
+        redirect_to root_path
+      else
+        render :new
+      end
     end
   end
 

@@ -46,8 +46,6 @@ class Verification < ApplicationRecord
       checkout_session.save
       verification_session.destroy
     end
-
-
   end
 
 

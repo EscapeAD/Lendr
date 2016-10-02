@@ -9,13 +9,14 @@
   <ul id="searchList">
     <section id="allItems">
     <h2>All Items</h2>
-
     <% @items.each do |item| %>
-      <div class = "item_image"><%= image_tag item.image.url %></div>
+    <div class='border container'>
+      <div class = "item_image floatl"><%= image_tag item.image.url %></div>
       <div class = "item-info">
         <%= link_to item.name, item_path(item) %>
         <br>Owner: <%= item.user_id %>
       </div>
+    </div>
       <br>
     <% end %>
     </section>
