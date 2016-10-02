@@ -56,7 +56,7 @@
 
 .border {
   border: 1px solid black;
-  height: 180px;
+
 }
 .floatl {
   display: inline-block;
@@ -94,4 +94,20 @@ body{
 }
 a:hover {
   cursor: pointer;
+}
+
+.item-show-info{
+  height: 400px;
+}
+
+.story-box{
+  clear: both;
+}
+.body-content{
+  margin-top: 10px;
+}
+#show-image {
+  width: 700px;
+  padding-top: 2px;
+
 }
