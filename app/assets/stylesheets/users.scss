@@ -1,3 +1,91 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#profile-image{
+  text-align: center;
+}
+
+#profile-image img{
+  width: 300px;
+}
+
+.name{
+  font-family: 'Montserrat', sans-serif;
+  font-size: 30px;
+  margin-bottom: 25px;
+}
+
+#user-profile-info{
+  font-family: 'Lato', sans-serif;
+  overflow: auto;
+  display: flex;
+  line-height: 35px;
+  font-size: 18px;
+  color: white;
+  padding-bottom: 20px;
+}
+
+#profile-description{
+  padding-top: 50px;
+  text-align: left;
+  padding-bottom: 20px;
+}
+
+@media (min-width:330px){
+  #user-profile-info{
+    display: flex;
+  }
+
+  #profile-image{
+    display: inline-block;
+    flex: 1;
+  }
+
+  #profile-description{
+    display: inline-block;
+    flex: 1;
+  }
+}
+
+@media (min-width:768px){
+}
+
+.profile-bg{
+  background-image: url("profile-bg.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.profile-statistics{
+  margin-top: 20px;
+  color: white;
+  text-align: center;
+}
+
+.statistic-titles{
+  margin-top: 0px;
+  font-size: 16px;
+  letter-spacing: 1px;
+}
+
+.numbers{
+  margin-top: 0px;
+  font-family: 'Pavanam', sans-serif;
+  margin-top: 10px;
+  font-size: 55px;
+}
+
+.middle-column{
+  border-left: 1px solid white;
+  border-right: 1px solid white;
+}
+
+.pending-items-display{
+  text-align: center;
+}
+
+.user-categories{
+  color: white;
+}

@@ -1,10 +1,19 @@
+/* TEMPORARY */
+.thumbnail{
+  width:200px;
+}
+/* END */
+
 .navbar{
   background-color: white;
 }
 
-.navbar-inverse {
+.navbar-main{
   background-color: white;
-  border:none;
+}
+
+.navbar-others{
+  background-color: orange
 }
 
 .navbar-brand{
@@ -13,8 +22,12 @@
   font-size: 50px;
 }
 
-.navbar-header a{
+.header-main a{
   color: orange;
+}
+
+.header-others a{
+  color: white;
 }
 
 .navbar-header{
@@ -66,6 +79,17 @@
   .navbar-brand {
     padding-left: 40px;
   }
+}
+
+.alert-container{
+  padding-top: 30px;
+}
+
+.context-container{
+  width: 100%;
+  padding-top: 55px;
+  padding-bottom: 30px;
+  font-family: 'Lato', sans-serif;
 }
 
 body{
