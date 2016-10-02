@@ -55,6 +55,7 @@
   background-image: url("profile-bg.jpg");
   background-position: center;
   background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 .profile-statistics{
@@ -79,4 +80,12 @@
 .middle-column{
   border-left: 1px solid white;
   border-right: 1px solid white;
+}
+
+.pending-items-display{
+  text-align: center;
+}
+
+.user-categories{
+  color: white;
 }

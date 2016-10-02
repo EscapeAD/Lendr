@@ -34,55 +34,35 @@
         </div>
       </div>
 
-      <!-- <div class='row'>
-      <div id="profile" class='col-md-4'>
-      </div>
-      <div class="col-md-8" id="userpanel">
-        <div class=''>
-          <h4>Contact Info</h4>
-          <strong>Name:</strong> <%#=current_user.first_name.capitalize %> <%#=current_user.last_name.capitalize %><br/>
-          <strong>City:</strong> <%#=current_user.city %><br/>
-          <strong>Email:</strong> <%#=current_user.email %><br/>
-          <h4>Status </h4>
-          <strong>Total Inventory: </strong>&nbsp;&nbsp; <%#= @count_inventory %> &nbsp;&nbsp;
-          <strong>Total Borrowed: </strong>&nbsp;&nbsp; <%#= @borrow.count %> &nbsp;&nbsp;
-          <strong>Total Lent Out: </strong>&nbsp;&nbsp; <%#= @lent.count %>
+
+      <div class="row pending-items-display">
+        <h2 class="subheader-main user-categories">Pending</h2>
+
+        <div class = "images list">
+          <% if @pending.empty? %>
+            <em>Currently no pending</em>
+          <% else %>
+            <% @pending.each do | item | %>
+              <div class="col-md-3">
+                <%= image_tag Item.find(item.item_id).image.url, class: 'thumbnail' %>
+                <% if Verification.where(checkout_id: item.id, status: 'pickup').empty? %>
+
+                  <% if Item.find(item.item_id).user_id == current_user.id %>
+                    <a id='<%=item.item_id%>' href="<%=item.id%>" class='confirm'>Confirm</a><br/>
+                    <%= link_to 'Decline', item_checkout_path(item.item_id, item.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+                  <% else %>
+                    <em> Waiting for Lender to Approve </em><br/>
+                    <%= link_to 'Cancel Request', item_checkout_path(item.item_id, item.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+                  <% end %>
+
+                <% else %>
+                  <%= link_to 'show', item_checkout_verification_path(Item.find(item.item_id),item.id,Verification.verify_show_pickup(item.id)) %>
+                <% end %>
+              </div>
+            <% end %>
+          <% end %>
         </div>
-      </div>
-      </div>
-      <hr>-->
 
-      <!-- <div class="container">
-        <h2> Pending:</h2>
-
-        <%# if @pending.empty? %>
-          <em>Currently no pending </em>
-        <%# else %>
-        <div class='row'>
-          <%# @pending.each do | item | %>
-          <div id='pending<%#=item.id%>' class="col-md-6 border">
-            <div class='floatl'>
-            <%#= image_tag Item.find(item.item_id).image.url, class: 'thumbnail' %>
-            </div>
-            <div class='floatr'>
-            <strong>Name: </strong> <%#= Item.find(item.item_id).name %><br/>
-            <%# if Verification.where(checkout_id: item.id, status: 'pickup').empty? %>
-              <%# if Item.find(item.item_id).user_id == current_user.id %>
-                <a id='<%#=item.item_id%>' href="<%#=item.id%>" class='confirm'>Confirm</a><br/>
-                <%#= link_to 'Decline', item_checkout_path(item.item_id, item.id), method: :delete, data: { confirm: 'Are you sure?' } %>
-              <%# else %>
-                <em> Waiting for Lender to Approve </em><br/>
-                <%#= link_to 'Cancel Request', item_checkout_path(item.item_id, item.id), method: :delete, data: { confirm: 'Are you sure?' } %>
-                <%# end %>
-            <%# else %>
-            <%#= link_to 'show', item_checkout_verification_path(Item.find(item.item_id),item.id,Verification.verify_show_pickup(item.id)) %>
-            <%# end %>
-            </div>
-          </div>
-
-          <%# end %>
-        </div>
-        <%# end %>
       </div>
 
       <div class="container">
@@ -137,9 +117,9 @@
             </div>
           <%# end %>
             </div>
-          <%# end %>
+          <%# end %>-->
 
-      </div> -->
+
     </div>
   </div>
 </div>
