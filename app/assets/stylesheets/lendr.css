@@ -62,7 +62,7 @@
 
 .border {
   border: 1px solid black;
-  height: 180px;
+
 }
 .floatl {
   display: inline-block;
@@ -115,5 +115,5 @@ a:hover {
 #show-image {
   width: 700px;
   padding-top: 2px;
-  
+
 }
