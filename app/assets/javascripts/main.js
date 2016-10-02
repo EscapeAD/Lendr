@@ -46,7 +46,6 @@ $(document).on('turbolinks:load', function(){
     }).done(function(responseData){
       location.reload();
     });
-  });
-
+  })
 
 });
