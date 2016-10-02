@@ -6,6 +6,10 @@ class Verification < ApplicationRecord
     Verification.where(checkout_id: input_id, status: 'pickup')[0][:id]
   end
 
+  def self.verify_show_return(input_id)
+    Verification.where(checkout_id: input_id, status: 'return')[0][:id]
+  end
+
   def self.verify_user(itemId, checkoutsId, verfId, current_user)
     item                 = Item.find(itemId)
     check                = Checkout.find(checkoutsId)

@@ -7,6 +7,8 @@ class VerificationsController < ApplicationController
     unless @owner_of_item.user_id == current_user.id || @borrower.user_id == current_user.id
       redirect_to user_path
     end
+  rescue ActiveRecord::RecordNotFound
+    redirect_to user_url, notice: 'Item is been returned'
   end
 
   def new
