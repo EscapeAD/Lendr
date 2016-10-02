@@ -7,6 +7,7 @@ class VerificationsController < ApplicationController
     unless @owner_of_item.user_id == current_user.id || @borrower.user_id == current_user.id
       redirect_to user_path
     end
+    Verification.verify_staging(@verify)
   rescue ActiveRecord::RecordNotFound
     redirect_to user_url, notice: 'Item is been returned'
   end
@@ -19,7 +20,7 @@ class VerificationsController < ApplicationController
     Verification.verify_user(params[:item_id],params[:checkout_id],params[:id],current_user)
     @verification_id = Verification.find_by(checkout_id: params[:checkout_id], status: 'pickup')
     @verify = Verification.find(params[:id])
-    Verification.verify_staging(@verify.id)
+    Verification.verify_staging(@verify)
 
 
     # if @verify == nil

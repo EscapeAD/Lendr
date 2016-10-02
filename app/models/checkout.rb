@@ -35,8 +35,8 @@ class Checkout < ApplicationRecord
     inventory = Item.where(user_id: userId)
     list      = []
     checkout  = Checkout.all
+    stories     = Story.all
     checkout.each do |item|
-
       if item[:user_id] == userId && item[:due_date] == nil
         list << item
       end
@@ -45,6 +45,12 @@ class Checkout < ApplicationRecord
         if item[:item_id] == invent_item[:id] && item[:due_date] == nil
           # && item[:check_initial] == false
           list << item
+        end
+      end
+
+      stories.each do | story |
+        if (userId == item[:id]) && (item[:id] == story[:checkout_id] && story[:complete] == false)
+            list << story
         end
       end
     end

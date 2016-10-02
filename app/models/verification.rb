@@ -35,8 +35,8 @@ class Verification < ApplicationRecord
 
   #Check both owner and borrower verified the Verification
   #Update checkout session start date to current date and due_date to 2 weeks after
-  def self.verify_staging(verfId)
-    verification_session = Verification.find(verfId)
+  def self.verify_staging(current_verfication)
+    verification_session = Verification.find(current_verfication.id)
     checkout_session = Checkout.find(verification_session.checkout_id)
     if verification_session[:owner] == true && verification_session[:borrower] == true && verification_session[:status] == 'pickup'
       checkout_session.update_attributes(start_date:  Time.now, due_date: Time.now + 14.days)
@@ -47,6 +47,7 @@ class Verification < ApplicationRecord
 
     if verification_session[:owner] == true && verification_session[:borrower] == true && verification_session[:status] == 'return'
       checkout_session.update_attribute(:returned, true)
+      checkout_session.stories.new(checkout_id: checkout_session.id)
       checkout_session.save
       verification_session.destroy
     end
