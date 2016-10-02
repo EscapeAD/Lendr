@@ -1,9 +1,8 @@
 
 <div class='container'>
-
   <div class='border item-show-info row'>
 
-<div class = "item_image floatl col-md-8"><%= image_tag @item.image.url, id: 'show-image' %></div>
+<div class = "item_image floatl col-md-8"><%#= image_tag @item.image.url, id: 'show-image' %></div>
 <div class="pull-right col-md-4">
     <h1><%= @item.name %></h1>
     <strong>Owner:</strong>       <%= @owner.first_name.capitalize %> <%= @owner.last_name.capitalize %><br>
@@ -24,6 +23,11 @@
 </div>
 </div>
 </div>
+<% @item.pictures.each do |pic| %>
+  <div class = "item_image"><%= image_tag pic.image.url, class: 'thumbnail' %></div>
+  <%= link_to 'delete', item_picture_url(@item.id,pic.id),method: :delete, id: 'delImgId' %>
+<% end %>
+
 <div class='border container story-box'>
   <div class='container'>
   <h3>Story</h3>
