@@ -14,16 +14,16 @@
 
 
   <%= f.label :name %>
-  <%= f.text_field :name %>
+  <%= f.text_field :name %><br />
 
-  <%= f.label :category %><br />
-  <%= f.select :category_id, options_for_select(Category.all.map{|s|[s.name, s.id]}) %>
+  <%= f.label :category %>
+  <%= f.select :category_id, options_for_select(Category.all.map{|s|[s.name, s.id]}) %><br />
 
   <%= f.label :description %>
-  <%= f.text_field :description %>
+  <%= f.text_field :description %><br />
 
   <%= f.fields_for :pictures do |picture|  %>
-    <%= picture.file_field :image %>
+    <%= picture.file_field :image %><br />
   <% end %>
 
 
