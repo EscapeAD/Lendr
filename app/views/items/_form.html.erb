@@ -16,8 +16,8 @@
   <%= f.label :name %>
   <%= f.text_field :name %>
 
-  <%= f.label :item_type %>
-  <%= f.text_field :item_type %>
+  <%= f.label :category %><br />
+  <%= f.select :category_id, options_for_select(Category.all.map{|s|[s.name, s.id]}) %>
 
   <%= f.label :description %>
   <%= f.text_field :description %>
