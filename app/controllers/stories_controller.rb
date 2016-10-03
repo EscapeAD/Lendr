@@ -4,7 +4,7 @@ class StoriesController < ApplicationController
     @story = Story.find(params[:id])
     @story.update_attributes(story_params)
     @story.save
-    @story.update_attributes(completed: true, datetime: Date.now)
+    @story.update_attributes(completed: true, date: DateTime.now)
     @story.save
     redirect_to user_path
   end
