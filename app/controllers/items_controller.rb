@@ -21,7 +21,6 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @item.pictures.build
-    @item.pictures.build
 
   end
 
@@ -74,7 +73,7 @@ class ItemsController < ApplicationController
 
   private
   def item_params
-    params.require(:item).permit(:name,:item_type,:description,:owner_id,pictures_attributes: [:id, :image, :_destroy])
+    params.require(:item).permit(:name,:description,:owner_id,:category_id,pictures_attributes: [:id, :image, :_destroy])
   end
 
   def set_user

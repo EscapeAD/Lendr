@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resource :user, only: [:show]
 
   resources :items do
+    resources :stories, only: [:update]
     resources :checkouts do
       resources :verifications
     end

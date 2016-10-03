@@ -26,6 +26,7 @@
       <div id="navbar" class="navbar-collapse collapse">
         <div class="navbar-form navbar-right">
           <div class="nav-group">
+            <%= link_to 'Temp Link to items/index', items_path %> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <% if user_signed_in? %>
               <%= link_to "Profile", user_path %>
             <% else %>
