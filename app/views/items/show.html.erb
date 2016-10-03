@@ -2,7 +2,7 @@
 <div class='container'>
   <div class='border item-show-info row'>
 
-<div class = "item_image floatl col-md-8"><%#= image_tag @item.image.url, id: 'show-image' %></div>
+<div class = "item_image floatl col-md-8"><%= image_tag @item.pictures.first.image.url, id: 'show-image' %></div>
 <div class="pull-right col-md-4">
     <h1><%= @item.name %></h1>
     <strong>Owner:</strong>       <%= @owner.first_name.capitalize %> <%= @owner.last_name.capitalize %><br>

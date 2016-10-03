@@ -23,10 +23,10 @@ class VerificationsController < ApplicationController
     Verification.verify_staging(@verify)
 
 
-    # if @verify == nil
-      # redirect_to user_url(current_user.id)
-    # end
-
+    if @verify == nil
+      redirect_to user_path
+    end
+    redirect_to user_path
     # redirect_to item_checkout_verification_url(params[:item_id], params[:id], @verification_id)
 
 
