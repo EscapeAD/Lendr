@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20161002195523) do
+=======
+ActiveRecord::Schema.define(version: 20161002202040) do
+>>>>>>> 9a2b2f3d97f732f4a58cd2412c7cfc0bd5b72d2f
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,14 +36,22 @@ ActiveRecord::Schema.define(version: 20161002195523) do
   create_table "items", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.string   "item_type"
+    t.integer  "user_id"
+  end
+
+  create_table "pictures", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false\
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
-    t.integer  "user_id"
+    t.integer  "item_id"
+    t.index ["item_id"], name: "index_pictures_on_item_id", using: :btree
   end
 
   create_table "stories", force: :cascade do |t|
@@ -47,8 +59,9 @@ ActiveRecord::Schema.define(version: 20161002195523) do
     t.integer  "checkout_id"
     t.text     "story"
     t.datetime "date"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.boolean  "completed",   default: false
     t.index ["checkout_id"], name: "index_stories_on_checkout_id", using: :btree
   end
 
@@ -87,6 +100,7 @@ ActiveRecord::Schema.define(version: 20161002195523) do
 
   add_foreign_key "checkouts", "items"
   add_foreign_key "checkouts", "users"
+  add_foreign_key "pictures", "items"
   add_foreign_key "stories", "checkouts"
   add_foreign_key "verifications", "checkouts"
 end

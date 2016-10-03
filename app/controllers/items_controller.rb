@@ -2,29 +2,32 @@ class ItemsController < ApplicationController
   before_action :set_user
   def index
     @items = Item.all
+    #Append the first picture of each item into picList
     if request.xhr?
       input = params[:searchInput]
       items = Item.where('name ILIKE ?', "%#{input}%")
       render partial: 'items', locals: {searchItemList: items}
     end
+
   end
 
   def show
     @item    = Item.find(params[:id])
-
     @stories = Checkout.collect_story(params[:id])
-    puts params
-
     @owner   = User.find(@item.user_id)
+
   end
 
   def new
     @item = Item.new
+    @item.pictures.build
+    @item.pictures.build
+
   end
 
   def create
     @item = @user.owned_items.new(item_params)
-    if @item.save
+    if @item.save!
       redirect_to items_path
     else
       render :new, notice:"Error"
@@ -33,6 +36,8 @@ class ItemsController < ApplicationController
 
   def edit
     @item = Item.find(params[:id])
+    @item.pictures.build
+    @item.pictures.build
   end
 
   def update
@@ -46,7 +51,7 @@ class ItemsController < ApplicationController
 
   def destroy
     @item = Item.find(params[:id])
-    @item.image = nil
+    @item.destroy
     @item.save
     dragon_var = Checkout.where(item_id: params[:id])
     dragon_var.each do |element|
@@ -62,9 +67,14 @@ class ItemsController < ApplicationController
     redirect_to root_path
   end
 
+
+  def destroypic(pic)
+    pic.destroy
+  end
+
   private
   def item_params
-    params.require(:item).permit(:name,:item_type,:description,:owner_id,:image)
+    params.require(:item).permit(:name,:item_type,:description,:owner_id,pictures_attributes: [:id, :image, :_destroy])
   end
 
   def set_user

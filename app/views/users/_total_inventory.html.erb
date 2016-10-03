@@ -1,0 +1,19 @@
+<div class="container">
+  <h2> Inventory:</h2>
+  <% if @items.empty? %>
+  <em>Currently no Items in Inventory,  <%= link_to 'Add Item to Inventory', new_item_path %></em>
+  <% else %>
+  <div class="row">
+    <% @items.each do | item | %>
+      <div class="col-md-6 border">
+        <div class='floatl'>
+        <%= image_tag Item.find(item.id).image.url, class: 'thumbnail float' %>
+      </div>
+      <div class='floatr'>
+        <strong>Name: </strong> <%= Item.find(item.id).name %>
+      </div>
+      </div>
+    <% end %>
+      </div>
+    <% end %>
+  </div>
