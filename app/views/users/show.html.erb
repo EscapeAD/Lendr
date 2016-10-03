@@ -44,13 +44,17 @@
             <% @pending.each do | item | %>
               <div class="col-md-3">
                 <div class="user-square-container">
-                  <%= image_tag Item.find(item.item_id).image.url, class: 'thumbnail' %>
+                  <%= image_tag Item.find(item.item_id).pictures.first.image.url, class: 'thumbnail' %>
                 </div>
                 <div class = "accept-decline">
+                  <% if Story.story_check(item.id) %>
+                      Create a Story
+                  <% else %>
                   <% if Verification.where(checkout_id: item.id, status: 'pickup').empty? %>
 
                     <% if Item.find(item.item_id).user_id == current_user.id %>
-                      <span class="accept-button"><%= link_to 'Accept', user_path ,data: {checkout: "#{item.id}",inventory: "#{item.item_id}"}, class: 'confirm'%></span>
+                      <!-- <span class="accept-button"><%#= link_to 'Accept', user_path ,data: {checkout: "#{item.id}",inventory: "#{item.item_id}"}, class: 'confirm'%></span> -->
+                      <span class="accept-button"><%= link_to 'Accept', item_checkout_path(item.item_id, item.id), method: :put %></span>
                       <span class="accept-button"><%= link_to 'Decline', item_checkout_path(item.item_id, item.id), method: :delete, data: { confirm: 'Are you sure?' } %></span>
                     <% else %>
                       <em> Waiting for Lender to Approve </em><br/>
@@ -59,6 +63,7 @@
 
                   <% else %>
                     <%= link_to 'show', item_checkout_verification_path(Item.find(item.item_id),item.id,Verification.verify_show_pickup(item.id)) %>
+                  <% end %>
                   <% end %>
                 </div>
               </div>
@@ -79,7 +84,7 @@
             <% @lent.each do | item | %>
               <div class="col-md-3 border ">
                 <div class="user-square-container">
-                  <%= image_tag Item.find(item.item_id).image.url, class: 'thumbnail' %>
+                  <%= image_tag Item.find(item.item_id).pictures.first.image.url, class: 'thumbnail' %>
                 </div>
                 <div class = "accept-decline">
                   <strong>Nickname: </strong> <%= Item.find(item.item_id).name %>

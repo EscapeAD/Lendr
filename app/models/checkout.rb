@@ -34,27 +34,29 @@ class Checkout < ApplicationRecord
   def self.pending(userId)
     inventory = Item.where(user_id: userId)
     list      = []
-    checkout  = Checkout.all
-    stories     = Story.all
-    checkout.each do |item|
-      if item[:user_id] == userId && item[:due_date] == nil
-        list << item
+    checkouts  = Checkout.all
+    stories   = Story.all
+    checkouts.each do |checkout|
+      if checkout[:user_id] == userId && checkout[:due_date] == nil
+        list << checkout
       end
 
       inventory.each do |invent_item|
-        if item[:item_id] == invent_item[:id] && item[:due_date] == nil
+        if checkout[:item_id] == invent_item[:id] && checkout[:due_date] == nil
           # && item[:check_initial] == false
-          list << item
+          list << checkout
         end
       end
 
       stories.each do | story |
-        if (userId == item[:id]) && (item[:id] == story[:checkout_id] && story[:complete] == false)
-            list << story
+        if (userId == checkout[:id]) && (checkout[:id] == story[:checkout_id] && story[:completed] == false)
+            item_story = Checkout.find(story.checkout_id)
+            list << item_story
+            puts story.checkout_id
         end
       end
     end
-    return list
+    return list.uniq
   end
 ## collects the stories of the item
   def self.collect_story(item_primary_key)

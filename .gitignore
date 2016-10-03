@@ -16,10 +16,7 @@
 # Ignore Byebug command history file.
 .byebug_history
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a547b422333a07c4a75112a3ba950282a466dd5d
+/public/system/pictures/images
 /public/system/items/images
 
 # Ignore application configuration
