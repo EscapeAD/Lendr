@@ -44,7 +44,7 @@
             <% @pending.each do | item | %>
               <div class="col-md-3">
                 <div class="user-square-container">
-                  <%= image_tag Item.find(item.item_id).image.url, class: 'thumbnail' %>
+                  <%= image_tag Item.find(item.item_id).pictures.first.image.url, class: 'thumbnail' %>
                 </div>
                 <div class = "accept-decline">
                   <% if Verification.where(checkout_id: item.id, status: 'pickup').empty? %>
