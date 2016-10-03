@@ -48,7 +48,25 @@
                 </div>
                 <div class = "accept-decline">
                   <% if Story.story_check(item.id) %>
-                      Create a Story
+                        <a  type="button" data-toggle="modal" data-target="#myModal<%= item.id %>">Create a Story</a>
+                        <!--  Story Mogal -->
+                        <div class="modal fade" id="myModel<%= item.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                          <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                              <%= form_for(:story) do |f| %>
+                              <%= devise_error_messages! %>
+                                <div class="modal-header">
+                                  <button type="button" class="close form-group row" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                  <h4 class="modal-title" id="myModalLabel">CHECK IT OUt</h4>
+                                </div>
+
+                                <div class="modal-body">
+
+                              <% end %>
+                                </div>
+                              </div>
+                            </div>
+                        </div>
                   <% else %>
                   <% if Verification.where(checkout_id: item.id, status: 'pickup').empty? %>
 
@@ -145,7 +163,6 @@
           <% end %>
         </div>
       </div>
-
     </div>
   </div>
 </div>
