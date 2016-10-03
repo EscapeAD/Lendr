@@ -77,6 +77,9 @@ ActiveRecord::Schema.define(version: 20161002202040) do
     t.string   "city"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.float    "latitude"
+    t.float    "longitude"
+    t.string   "address"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
