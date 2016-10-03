@@ -34,6 +34,7 @@ $(document).on('turbolinks:load', function(){
         $('#searchList').append(rData);
       });
   });
+
   $('#verify_button').on('click', function(event){
       event.preventDefault();
     $.ajax({
@@ -44,6 +45,24 @@ $(document).on('turbolinks:load', function(){
     }).done(function(responseData){
       location.reload();
     });
-  })
+  });
+
+  handler = Gmaps.build('Google');
+  handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+    markers = handler.addMarkers([
+      {
+        "lat": 0,
+        "lng": 0,
+        "picture": {
+          "url": "http://people.mozilla.com/~faaborg/files/shiretoko/firefoxIcon/firefox-32.png",
+          "width":  32,
+          "height": 32
+        },
+        "infowindow": "hello!"
+      }
+    ]);
+    handler.bounds.extendWith(markers);
+    handler.fitMapToBounds();
+  });
 
 });

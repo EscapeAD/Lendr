@@ -12,3 +12,12 @@
 
 gmail_username: 'toolbox.lendr@gmail.com'
 gmail_password: 'bitmaker'
+
+development:
+  google_maps_api_key: AIzaSyDWpUXaotMng0tWinkZls3-44npC8tfVKg
+
+test:
+  google_maps_api_key: AIzaSyDWpUXaotMng0tWinkZls3-44npC8tfVKg
+
+production:
+  google_maps_api_key: AIzaSyDWpUXaotMng0tWinkZls3-44npC8tfVKg
