@@ -8,5 +8,6 @@ class Story < ApplicationRecord
     if story.completed == false
       return true
     end
+    return false
   end
 end

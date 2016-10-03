@@ -48,7 +48,7 @@
                 </div>
                 <div class = "accept-decline">
                   <% if Story.story_check(item.id) %>
-                      check it out
+                      Create a Story
                   <% else %>
                   <% if Verification.where(checkout_id: item.id, status: 'pickup').empty? %>
 
