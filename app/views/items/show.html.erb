@@ -6,7 +6,7 @@
 <div class="pull-right col-md-4">
     <h1><%= @item.name %></h1>
     <strong>Owner:</strong>       <%= @owner.first_name.capitalize %> <%= @owner.last_name.capitalize %><br>
-    <strong>Type:</strong>&nbsp;&nbsp;&nbsp;  <%= @item.item_type.capitalize %><br>
+    <strong>Type:</strong>&nbsp;&nbsp;&nbsp;  <%= @item.category.name.capitalize %><br>
     <dl>
   <dt><strong>Description:</strong></dt>
   <dd><%= @item.description %></dd>
