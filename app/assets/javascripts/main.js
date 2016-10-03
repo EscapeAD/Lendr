@@ -1,17 +1,17 @@
 $(document).on('turbolinks:load', function(){
-  $('.confirm').on('click', function(event){
-    var checkoutId = $(this).data('checkout');
-    var  itemId    = $(this).data('inventory');
-    console.log(itemId);
-    console.log(checkoutId);
-    $.ajax({
-      url: '/items/'+itemId+'/checkouts/'+checkoutId,
-      method: 'PUT',
-      data: {id: checkoutId},
-      dataType: 'JSON'
-    }).done(function(rData){
-    });
-  });
+  // $('.confirm').on('click', function(event){
+  //   var checkoutId = $(this).data('checkout');
+  //   var  itemId    = $(this).data('inventory');
+  //   console.log(itemId);
+  //   console.log(checkoutId);
+  //   $.ajax({
+  //     url: '/items/'+itemId+'/checkouts/'+checkoutId,
+  //     method: 'PUT',
+  //     data: {id: checkoutId},
+  //     dataType: 'JSON'
+  //   }).done(function(rData){
+  //   });
+  // });
 
 
   $('#searchTextField').keypress(function(e){
