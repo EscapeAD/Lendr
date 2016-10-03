@@ -13,7 +13,8 @@
 <% elsif  current_user.id != @owner_of_item.user_id && @verify.borrower == true %>
 <button disabled="true" class="btn btn-primary btn-large">"Waiting Lender to verify"</button>
 <% else %>
-<%= link_to "#{@status_text}", item_checkout_verification_path(@owner_of_item.id, @verify.checkout_id, @verify.id), id: 'verify_button', class: "btn btn-primary btn-large" %>
+<%#= link_to "#{@status_text}", item_checkout_verification_path(@owner_of_item.id, @verify.checkout_id, @verify.id), id: 'verify_button', class: "btn btn-primary btn-large" %>
+<%= link_to "#{@status_text}", item_checkout_verification_path(@owner_of_item.id, @verify.checkout_id, @verify.id), method: :put, class: "btn btn-primary btn-large" %>
 <% end %>
 </div>
 </div>

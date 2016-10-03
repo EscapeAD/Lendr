@@ -50,7 +50,8 @@ class Checkout < ApplicationRecord
 
       stories.each do | story |
         if (userId == checkout[:id]) && (checkout[:id] == story[:checkout_id] && story[:completed] == false)
-            list << Item.find(Checkout.find(story.checkout_id).item_id)
+            item_story = Checkout.find(story.checkout_id)
+            list << item_story
             puts story.checkout_id
         end
       end

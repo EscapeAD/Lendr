@@ -47,6 +47,9 @@
                   <%= image_tag Item.find(item.item_id).pictures.first.image.url, class: 'thumbnail' %>
                 </div>
                 <div class = "accept-decline">
+                  <% if Story.story_check(item.id) %>
+                      check it out
+                  <% else %>
                   <% if Verification.where(checkout_id: item.id, status: 'pickup').empty? %>
 
                     <% if Item.find(item.item_id).user_id == current_user.id %>
@@ -60,6 +63,7 @@
 
                   <% else %>
                     <%= link_to 'show', item_checkout_verification_path(Item.find(item.item_id),item.id,Verification.verify_show_pickup(item.id)) %>
+                  <% end %>
                   <% end %>
                 </div>
               </div>
@@ -80,7 +84,7 @@
             <% @lent.each do | item | %>
               <div class="col-md-3 border ">
                 <div class="user-square-container">
-                  <%= image_tag Item.find(item.item_id).image.url, class: 'thumbnail' %>
+                  <%= image_tag Item.find(item.item_id).pictures.first.image.url, class: 'thumbnail' %>
                 </div>
                 <div class = "accept-decline">
                   <strong>Nickname: </strong> <%= Item.find(item.item_id).name %>
