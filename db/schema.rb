@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161001021406) do
+ActiveRecord::Schema.define(version: 20161002202040) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,8 +55,9 @@ ActiveRecord::Schema.define(version: 20161001021406) do
     t.integer  "checkout_id"
     t.text     "story"
     t.datetime "date"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.boolean  "completed",   default: false
     t.index ["checkout_id"], name: "index_stories_on_checkout_id", using: :btree
   end
 
