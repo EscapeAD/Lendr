@@ -16,7 +16,7 @@
         <% if item.pictures.empty? %>
           <em>  No pictures found </em>
         <% else %>
-        <div class = "item_image"><%= image_tag item.pictures.first.image.url(:thumb) %></div>
+        <div class = "item_image"><%= image_tag item.pictures.first.image.url(:medium) %></div>
       <div class = "item-info">
         <%= link_to item.name, item_path(item) %>
         <br>Owner: <%= item.user_id %>
