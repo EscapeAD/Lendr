@@ -1,18 +1,4 @@
 $(document).on('turbolinks:load', function(){
-  // $('.confirm').on('click', function(event){
-  //   var checkoutId = $(this).data('checkout');
-  //   var  itemId    = $(this).data('inventory');
-  //   console.log(itemId);
-  //   console.log(checkoutId);
-  //   $.ajax({
-  //     url: '/items/'+itemId+'/checkouts/'+checkoutId,
-  //     method: 'PUT',
-  //     data: {id: checkoutId},
-  //     dataType: 'JSON'
-  //   }).done(function(rData){
-  //   });
-  // });
-
 
   $('#searchTextField').keypress(function(e){
     if (e.which === 13) {
@@ -34,16 +20,5 @@ $(document).on('turbolinks:load', function(){
         $('#searchList').append(rData);
       });
   });
-  $('#verify_button').on('click', function(event){
-      event.preventDefault();
-    $.ajax({
-      url: $(this).attr('href'),
-      method: 'PUT',
-      data: {},
-      dataType: 'JSON'
-    }).done(function(responseData){
-      location.reload();
-    });
-  })
 
 });
