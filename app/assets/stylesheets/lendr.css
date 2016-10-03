@@ -111,3 +111,20 @@ a:hover {
   padding-top: 2px;
 
 }
+.thumbnail-pic{
+  height: 95px;
+  display: inline-block;
+}
+.underpass-pic{
+  float:left;
+  clear: both;
+  border: 2px black solid;
+  margin-left: 15px;
+}
+.item-description{
+  float: right;
+  width: 400px;
+  border: 1px black solid;
+  position: absolute;
+  left:600px;
+}

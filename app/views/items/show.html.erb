@@ -3,7 +3,15 @@
   <div class='border item-show-info row'>
 
 <div class = "item_image floatl col-md-8"><%= image_tag @item.pictures.first.image.url, id: 'show-image' %></div>
-<div class="pull-right col-md-4">
+
+<div class='underpass-pic'>
+<% @item.pictures.each do |pic| %>
+  <div class = "thumbnail-pic"><%= image_tag pic.image.url, class: 'thumbnail-pic' %></div>
+  <%= link_to 'delete', item_picture_url(@item.id,pic.id),method: :delete, id: 'delImgId' %>
+<% end %>
+</div>
+
+<div class="pull-right col-md-4 item-description">
     <h1><%= @item.name %></h1>
     <strong>Owner:</strong>       <%= @owner.first_name.capitalize %> <%= @owner.last_name.capitalize %><br>
     <strong>Type:</strong>&nbsp;&nbsp;&nbsp;  <%= @item.category.name.capitalize %><br>
@@ -23,17 +31,13 @@
 </div>
 </div>
 </div>
-<% @item.pictures.each do |pic| %>
-  <div class = "item_image"><%= image_tag pic.image.url, class: 'thumbnail' %></div>
-  <%= link_to 'delete', item_picture_url(@item.id,pic.id),method: :delete, id: 'delImgId' %>
-<% end %>
 
 <div class='border container story-box'>
   <div class='container'>
   <h3>Adventures of:</h3>
   <div class='row'>
     <% if @stories.empty? %>
-    <em>Currently young lone item has no stories </em>
+    <em>Currently this lone item has no adventures </em>
     <% else %>
     <% @stories.each do |story| %>
     <div class="col-xs-6 col-md-11">
