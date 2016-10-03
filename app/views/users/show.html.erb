@@ -57,11 +57,16 @@
                               <%= devise_error_messages! %>
                                 <div class="modal-header">
                                   <button type="button" class="close form-group row" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                  <h4 class="modal-title" id="myModalLabel">CHECK IT OUt</h4>
+                                  <h4 class="modal-title" id="myModalLabel">Story Time</h4>
                                 </div>
-
                                 <div class="modal-body">
-
+                                  <div class="form-group row">
+                                      <%= f.label :title, class:'col-sm-2 col-form-label'%>
+                                    <div class="col-sm-10">
+                                      <%= f.text_field :title, class: 'form-control', placeholder:"Title" %>
+                                    </div>
+                                  </div>
+                                </div>
                               <% end %>
                                 </div>
                               </div>
