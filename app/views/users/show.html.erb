@@ -48,30 +48,37 @@
                 </div>
                 <div class = "accept-decline">
                   <% if Story.story_check(item.id) %>
-                        <a  type="button" data-toggle="modal" data-target="#myModal<%= item.id %>">Create a Story</a>
+                        <a  type="button" data-toggle="modal" data-target="#storyModal<%=item.id%>">Create a Story</a>
                         <!--  Story Mogal -->
-                        <!-- <div class="modal fade" id="myModel<%= item.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal fade" id="storyModal<%=item.id%>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                           <div class="modal-dialog" role="document">
                             <div class="modal-content">
-                              <%= form_for(:story) do |f| %>
-                              <%= devise_error_messages! %>
+                              <% #form_for @story, item_story_path(item.item_id, Story.find_by(checkout_id: item.id).id )  do |f| %>
+                              <%= form_for :story, url: item_story_path(item.item_id, Story.find_by(checkout_id: item.id).id ), method: :put  do |f| %>
                                 <div class="modal-header">
                                   <button type="button" class="close form-group row" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                  <h4 class="modal-title" id="myModalLabel">Story Time</h4>
+                                  <h4 class="modal-title" id="myModalLabel">Sign In</h4>
                                 </div>
                                 <div class="modal-body">
                                   <div class="form-group row">
                                       <%= f.label :title, class:'col-sm-2 col-form-label'%>
-                                    <div class="col-sm-10">
-                                      <%= f.text_field :title, class: 'form-control', placeholder:"Title" %>
-                                    </div>
+                                      <div class="col-sm-10">
+                                      <%= f.text_field :title, class: 'form-control',placeholder:"merry had a little lamb" %>
                                   </div>
                                 </div>
-                              <% end %>
+                                  <div class="form-group row">
+                                    <%= f.label :story, class:'col-sm-2 col-form-label' %>
+                                    <div class="col-sm-10">
+                                    <%= f.text_area :story, class: 'form-control',placeholder: 'once upon a time'%>
+                                  </div>
                                 </div>
-                              </div>
+                                <div class="modal-footer">
+                                  <%= f.submit "submit story", class: "btn btn-primary" %>
+                                </div>
+                              <% end %>
                             </div>
-                        </div> -->
+                          </div>
+                        </div>
                   <% else %>
                   <% if Verification.where(checkout_id: item.id, status: 'pickup').empty? %>
 
