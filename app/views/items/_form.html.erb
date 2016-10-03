@@ -22,7 +22,10 @@
   <%= f.label :description %>
   <%= f.text_field :description %>
 
-  <%= f.file_field :image %>
+  <%= f.fields_for :pictures do |picture|  %>
+    <%= picture.file_field :image %>
+  <% end %>
+
 
   <%= f.submit %>
 

@@ -32,14 +32,22 @@ ActiveRecord::Schema.define(version: 20161002202040) do
   create_table "items", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.string   "item_type"
+    t.integer  "user_id"
+  end
+
+  create_table "pictures", force: :cascade do |t|
+    t.string   "name"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
-    t.string   "item_type"
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
-    t.integer  "user_id"
+    t.integer  "item_id"
+    t.index ["item_id"], name: "index_pictures_on_item_id", using: :btree
   end
 
   create_table "stories", force: :cascade do |t|
@@ -85,6 +93,7 @@ ActiveRecord::Schema.define(version: 20161002202040) do
 
   add_foreign_key "checkouts", "items"
   add_foreign_key "checkouts", "users"
+  add_foreign_key "pictures", "items"
   add_foreign_key "stories", "checkouts"
   add_foreign_key "verifications", "checkouts"
 end
