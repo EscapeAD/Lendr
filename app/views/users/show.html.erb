@@ -50,7 +50,7 @@
                   <% if Story.story_check(item.id) %>
                         <a  type="button" data-toggle="modal" data-target="#myModal<%= item.id %>">Create a Story</a>
                         <!--  Story Mogal -->
-                        <div class="modal fade" id="myModel<%= item.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <!-- <div class="modal fade" id="myModel<%= item.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                           <div class="modal-dialog" role="document">
                             <div class="modal-content">
                               <%= form_for(:story) do |f| %>
@@ -71,7 +71,7 @@
                                 </div>
                               </div>
                             </div>
-                        </div>
+                        </div> -->
                   <% else %>
                   <% if Verification.where(checkout_id: item.id, status: 'pickup').empty? %>
 
