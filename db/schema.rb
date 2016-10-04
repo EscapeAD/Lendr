@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161003234713) do
+ActiveRecord::Schema.define(version: 20161004014953) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -66,6 +66,17 @@ ActiveRecord::Schema.define(version: 20161003234713) do
     t.datetime "updated_at",                  null: false
     t.boolean  "completed",   default: false
     t.index ["checkout_id"], name: "index_stories_on_checkout_id", using: :btree
+  end
+
+  create_table "story_photos", force: :cascade do |t|
+    t.integer  "story_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
+    t.index ["story_id"], name: "index_story_photos_on_story_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
