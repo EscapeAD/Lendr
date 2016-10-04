@@ -6,8 +6,6 @@
     <div id="map" style='width: 800px; height: 400px;'></div>
   </div>
 
-  <div id="map"></div>
-
   <div class='pull-right'>
     <% if current_user.id == @owner_of_item.user_id && @verify.owner == true %>
       <button disabled="true" class="btn btn-primary btn-large">"Waiting Borrow to verify"</button>
@@ -17,4 +15,24 @@
       <%= link_to "#{@status_text}", item_checkout_verification_path(@owner_of_item.id, @verify.checkout_id, @verify.id), method: :put, class: "btn btn-primary btn-large" %>
     <% end %>
   </div>
+
+  <script type="text/javascript">
+    handler = Gmaps.build('Google');
+    handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+      markers = handler.addMarkers([
+        {
+          "lat": 0,
+          "lng": 0,
+          "picture": {
+          "width":  32,
+          "height": 32
+        },
+        "infowindow": "hello!"
+      }
+    ]);
+    handler.bounds.extendWith(markers);
+    handler.fitMapToBounds();
+  });
+</script>
+
 </div>
