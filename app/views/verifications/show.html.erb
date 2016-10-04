@@ -2,10 +2,8 @@
 
 <div class='container'>
 
-  <div style='width: 800px;'>
-    <input id="location-input" class="controls" type="text" placeholder="Search Box">
-    <div id="map" style='width: 800px; height: 400px;'></div>
-  </div>
+  <input id="location-input" class="controls" type="text" placeholder="Search Box">
+  <div id="map" style='height: 400px;'></div>
 
   <div class='pull-right'>
     <% if current_user.id == @owner_of_item.user_id && @verify.owner == true %>
