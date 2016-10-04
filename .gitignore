@@ -16,8 +16,8 @@
 # Ignore Byebug command history file.
 .byebug_history
 
-/public/system/pictures/images
-/public/system/items/images
+/public/system/pictures/
+/public/system/items/
 /public/system/users/
 
 
