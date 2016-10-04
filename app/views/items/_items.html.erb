@@ -1,16 +1,15 @@
 <h2>Search Results</h2>
 
+
 <% if searchItemList.empty? %>
 <em>  No results found </em>
 <% else %>
 <% searchItemList.each do |item| %>
-    <li>
-      <div class = "item_image"><%= image_tag item.image.url %></div>
+      <div class = "item_image"><%= image_tag item.pictures.first.image.url(:thumb) %></div>
       <div class = "item-info">
         <%= link_to item.name, item_path(item) %>
         <br>Owner: <%= item.user_id %>
       </div>
       <br>
-    </li>
     <% end %>
 <% end %>
