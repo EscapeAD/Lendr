@@ -13,18 +13,28 @@
   <% end %>
 
 
-  <%= f.label :name %>
+  <%= f.label :name %><br />
   <%= f.text_field :name %><br />
 
-  <%= f.label :category %>
+  <%= f.label :category %><br />
   <%= f.select :category_id, options_for_select(Category.all.map{|s|[s.name, s.id]}) %><br />
 
-  <%= f.label :description %>
-  <%= f.text_field :description %><br />
+  <%= f.label :description %><br />
+  <%= f.text_area :description %><br />
 
-  <%= f.fields_for :pictures do |picture|  %>
-    <%= picture.file_field :image %><br />
-  <% end %>
+  <h3>Upload Item Images</h3>
+  <div id="story_photos">
+    <%= f.fields_for :pictures, Picture.new do |image| %>
+      <%= render partial:'pictures_fields', locals: { f: image } %>
+      <div class="links">
+        <%= link_to_add_association 'Add Another image', f, :pictures, partial:'pictures_fields' %>
+      </div>
+    <% end %>
+  </div>
+  <br/><br/>
+
+
+
 
 
   <%= f.submit %>
