@@ -78,6 +78,13 @@ class ItemsController < ApplicationController
     @item.destroy
     @item.save
     dragon_var = Checkout.where(item_id: params[:id])
+    picture_destroy = Picture.where(item_id: params[:id])
+    picture_destroy.each do |picture|
+      if picture != nil
+        picture.destroy
+        picture.save
+      end
+    end
     dragon_var.each do |element|
       found_checkout_element = Verification.where(checkout_id: element.id)
         found_checkout_element.each do | check_out_element |
