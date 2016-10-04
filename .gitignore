@@ -18,6 +18,8 @@
 
 /public/system/pictures/images
 /public/system/items/images
+/public/system/users/
+
 
 # Ignore application configuration
 /config/application.yml
