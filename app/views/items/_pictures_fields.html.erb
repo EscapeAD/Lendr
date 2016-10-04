@@ -1,0 +1,7 @@
+<div class="nested-fields" style="padding-bottom: 10px;">
+  <div class="field">
+    <%= f.label :image, "File to submit"%>
+    <%= f.file_field :image, :required => true %>
+  </div>
+  <%= link_to_remove_association "Remove file", f %>
+</div>
