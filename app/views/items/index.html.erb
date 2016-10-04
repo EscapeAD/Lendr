@@ -1,3 +1,8 @@
+<ul>
+  <li><a href='' id='bookCat'>Book</a></li>
+  <li><a href='' id='toolCat'>Tool</a></li>
+</ul>
+
 <h1>Item Search</h1>
 
 
@@ -6,25 +11,21 @@
 
 
 <div id="searchSec">
-  <ul id="searchList">
+  <div id="searchList">
     <section id="allItems">
-    <h2>All Items</h2>
-    <% @items.each do |item| %>
-
-    <div class='border container-fluid'>
-      <div class = "item_image floatl">
+        <h2>All Items</h2>
+        <% @items.each do |item| %>
         <% if item.pictures.empty? %>
-          <em>  No pictures found </em>
+            <em>  No pictures found </em>
         <% else %>
-        <div class = "item_image"><%= image_tag item.pictures.first.image.url(:medium) %></div>
-      <div class = "item-info">
-        <%= link_to item.name, item_path(item) %>
-        <br>Owner: <%= item.user_id %>
-      </div>
-    </div>
-      <br>
+          <div class = "item_image"><%= image_tag item.pictures.first.image.url(:thumb) %></div>
+          <div class = "item-info">
+            <%= link_to item.name, item_path(item) %>
+            <br>Owner: <%= item.user_id %>
+          </div>
+          <br>
       <% end %>
     <% end %>
     </section>
-  </ul>
+  </div>
 </div>
