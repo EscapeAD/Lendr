@@ -5,8 +5,33 @@ class ItemsController < ApplicationController
     #Append the first picture of each item into picList
     if request.xhr?
       input = params[:searchInput]
-      items = Item.where('name ILIKE ?', "%#{input}%")
-      render partial: 'items', locals: {searchItemList: items}
+      catInput = params[:categoryInput]
+      filteredItems = []
+      # Click on category when there is nothing in search input #
+      if input.empty?
+        items = Item.all
+        items.each do |item|
+          if item.category.name == catInput
+            filteredItems << item
+          end
+        end
+        render partial: 'items', locals: {searchItemList: filteredItems}
+
+      #If we have search input
+      else
+        if catInput.empty?  #If we did not click on category
+          items = Item.where('name ILIKE ?', "%#{input}%")
+          render partial: 'items', locals: {searchItemList: items}
+        else
+          items = Item.where('name ILIKE ?', "%#{input}%")
+          items.each do |item|
+            if item.category.name == catInput
+              filteredItems << item
+            end
+          end
+          render partial: 'items', locals: {searchItemList: filteredItems}
+        end
+      end
     end
 
   end
@@ -53,6 +78,13 @@ class ItemsController < ApplicationController
     @item.destroy
     @item.save
     dragon_var = Checkout.where(item_id: params[:id])
+    picture_destroy = Picture.where(item_id: params[:id])
+    picture_destroy.each do |picture|
+      if picture != nil
+        picture.destroy
+        picture.save
+      end
+    end
     dragon_var.each do |element|
       found_checkout_element = Verification.where(checkout_id: element.id)
         found_checkout_element.each do | check_out_element |

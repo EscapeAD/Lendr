@@ -4,7 +4,11 @@
 
       <div class="row" id="user-profile-info">
         <div class="col-md-6" id="profile-image">
+          <% if @user.avatar_file_name != nil %>
+          <%= image_tag @user.avatar.url(:medium) %>
+          <% else %>
           <%= image_tag "http://awhatsappstatus.org/wp-content/uploads/2015/11/femous-and-poular-d-profile-pictures-2.jpg" %>
+          <% end %>
         </div>
 
         <div class="col-md-6" id= "profile-description">
