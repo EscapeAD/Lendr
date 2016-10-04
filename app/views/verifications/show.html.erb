@@ -82,22 +82,6 @@
         map.fitBounds(bounds);
       });
     }
-    // handler = Gmaps.build('Google');
-    // handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
-    //   markers = handler.addMarkers([
-    //     {
-    //       "lat": 0,
-    //       "lng": 0,
-    //       "picture": {
-    //       "width":  32,
-    //       "height": 32
-    //     },
-    //     "infowindow": "hello!"
-    //   }
-    // ]);
-    // handler.bounds.extendWith(markers);
-    // handler.fitMapToBounds();
-    // });
   </script>
   <script src="https://maps.googleapis.com/maps/api/js?key=<%= Figaro.env.google_maps_api_key %>&libraries=places&callback=initAutocomplete"
          async defer></script>
