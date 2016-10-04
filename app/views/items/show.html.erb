@@ -2,7 +2,13 @@
 <div class='container'>
   <div class='border item-show-info row'>
 
-<div class = "item_image floatl col-md-8"><%= image_tag @item.pictures.first.image.url, id: 'show-image' %></div>
+<div class = "item_image floatl col-md-8">
+  <% if @item.pictures.first != nil %>
+  <%= image_tag @item.pictures.first.image.url, id: 'show-image' %>
+  <% else %>
+  <%= image_tag "http://epaper2.mid-day.com/images/no_image_thumb.gif" %>
+  <% end %>
+  </div>
 
 <div class='underpass-pic'>
 <% @item.pictures.each do |pic| %>

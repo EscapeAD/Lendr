@@ -17,9 +17,13 @@
         <h2>All Items</h2>
         <% @items.each do |item| %>
         <% if item.pictures.empty? %>
-            <em>  No pictures found </em>
+        <%= image_tag "http://epaper2.mid-day.com/images/no_image_thumb.gif"%><br/>
+            <%= link_to item.name, item_path(item) %>
+            <br>Owner: <%= item.user_id %>
         <% else %>
-          <div class = "item_image"><%= image_tag item.pictures.first.image.url(:thumb) %></div>
+          <div class = "item_image"><% if item.pictures != nil %>
+            <%= image_tag item.pictures.first.image.url(:thumb) %>
+            <% end %>
           <div class = "item-info">
             <%= link_to item.name, item_path(item) %>
             <br>Owner: <%= item.user_id %>

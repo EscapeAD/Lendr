@@ -48,7 +48,11 @@
             <% @pending.each do | item | %>
               <div class="col-md-3">
                 <div class="user-square-container">
+                  <% if Item.find(item.item_id).pictures.first != nil %>
                   <%= image_tag Item.find(item.item_id).pictures.first.image.url, class: 'thumbnail' %>
+                  <% else %>
+                  <%= image_tag "http://epaper2.mid-day.com/images/no_image_thumb.gif", class: 'thumbnail' %>
+                  <% end %>
                 </div>
                 <div class = "accept-decline">
                   <% if Story.story_check(item.id) %>
@@ -130,7 +134,11 @@
             <% @lent.each do | item | %>
               <div class="col-md-3 border ">
                 <div class="user-square-container">
+                  <% if Item.find(item.item_id).pictures.first != nil %>
                   <%= image_tag Item.find(item.item_id).pictures.first.image.url, class: 'thumbnail' %>
+                  <% else %>
+                  <%= image_tag "http://epaper2.mid-day.com/images/no_image_thumb.gif", class: 'thumbnail' %>
+                  <% end %>
                 </div>
                 <div class = "accept-decline">
                   <strong>Nickname: </strong> <%= Item.find(item.item_id).name %>
@@ -156,7 +164,11 @@
             <% @borrow.each do | item | %>
               <div class="col-md-3">
                 <div class="user-square-container">
-                  <%= image_tag  Item.find(item.item_id).pictures.first.image.url, class: 'thumbnail' %>
+                  <% if Item.find(item.item_id).pictures.first != nil %>
+                  <%= image_tag Item.find(item.item_id).pictures.first.image.url, class: 'thumbnail' %>
+                  <% else %>
+                  <%= image_tag "http://epaper2.mid-day.com/images/no_image_thumb.gif", class: 'thumbnail' %>
+                  <% end %>
                 </div>
                 <div class = "accept-decline">
                   <strong>Nickname: </strong> <%= Item.find(item.item_id).name %>
@@ -181,7 +193,11 @@
             <% @items.each do | item | %>
               <div class="col-md-3">
                 <div class="user-square-container">
-                  <%= image_tag item.pictures.first.image.url, class: 'thumbnail float' %>
+                  <% if item.pictures.first != nil %>
+                  <%= image_tag item.pictures.first.image.url, class: 'thumbnail' %>
+                  <% else %>
+                  <%= image_tag "http://epaper2.mid-day.com/images/no_image_thumb.gif", class: 'thumbnail' %>
+                  <% end %>
                 </div>
                 <div class = "accept-decline">
                   <strong>Nickname: </strong> <%= Item.find(item.id).name %>
