@@ -54,7 +54,6 @@ $(document).on('turbolinks:load', function(){
       });
   });
 
-
   $('#verify_button').on('click', function(event){
       event.preventDefault();
     $.ajax({
@@ -65,5 +64,5 @@ $(document).on('turbolinks:load', function(){
     }).done(function(responseData){
       location.reload();
     });
-  })
+  });
 });
