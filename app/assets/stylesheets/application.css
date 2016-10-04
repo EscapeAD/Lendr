@@ -14,3 +14,16 @@
  *= require_tree .
  *= require_self
  */
+
+ #signUpDiv {
+   border:1px solid orange;
+   width:20%;
+   margin:50px auto;
+   padding:10px;
+ }
+
+#signUpForm {
+     border:1px;
+     width:50%;
+     margin:0 auto;
+ }
