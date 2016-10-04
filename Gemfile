@@ -34,6 +34,7 @@ gem 'geocoder'
 
 gem 'gmaps4rails'
 
+gem "cocoon"
 
 gem "paperclip", "~> 5.0.0"
 
