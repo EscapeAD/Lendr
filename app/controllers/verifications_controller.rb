@@ -12,30 +12,31 @@ class VerificationsController < ApplicationController
       redirect_to user_url, notice: 'Item is been returned'
 
     @users = User.all
-    @hash = Gmaps4rails.build_markers(@users) do |user, marker|
-      marker.lat user.latitude
-      marker.lng user.longitude
-end
-
   end
 
   def new
-
   end
 
   def update
-    Verification.verify_user(params[:item_id],params[:checkout_id],params[:id],current_user)
-    @verification_id = Verification.find_by(checkout_id: params[:checkout_id], status: 'pickup')
     @verify = Verification.find(params[:id])
-    Verification.verify_staging(@verify)
+    if params[:meetup_location] != nil
+      @verify.update_attribute(meetup_location: params[:meetup_location])
+      @verify.save
+    else
+
+      Verification.verify_user(params[:item_id],params[:checkout_id],params[:id],current_user)
+      @verification_id = Verification.find_by(checkout_id: params[:checkout_id], status: 'pickup')
+      Verification.verify_staging(@verify)
 
 
-    if @verify == nil
+      if @verify == nil
+        redirect_to user_path
+      end
       redirect_to user_path
+      # redirect_to item_checkout_verification_url(params[:item_id], params[:id], @verification_id)
     end
-    redirect_to user_path
-    # redirect_to item_checkout_verification_url(params[:item_id], params[:id], @verification_id)
 
+    render
 
   end
 

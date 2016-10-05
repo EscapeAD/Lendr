@@ -2,7 +2,12 @@ $(document).on('turbolinks:load', function(){
 
   $('#searchTextField').keypress(function(e){
     if (e.which === 13) {
-      $('#searchBtn').click();
+      $.ajax({
+        url:'/items/'+'$(this).items[:owner.id]/checkouts/'+ $(this).items[:owner.id]+'/verifications/:id',
+        method: 'POST',
+        data:{meetup_location: place.formatted_address},
+        dataType: 'JSON'
+      });
     }
   });
 
