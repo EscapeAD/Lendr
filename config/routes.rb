@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-  get 'mails/index'
-
-  get 'mails/show'
 
   root 'welcome#index'
 
@@ -19,5 +16,6 @@ Rails.application.routes.draw do
     resources :pictures, only: [:destroy]
   end
 
+  resources :mails
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

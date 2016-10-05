@@ -1,2 +1,7 @@
 <h1>Mails#index</h1>
-<p>Find me in app/views/mails/index.html.erb</p>
+<h2>All Mails</h2>
+<% @mails.each do |mail| %>
+    <%=mail.title%>
+    <%=mail.text%>
+  </br>
+<% end %>

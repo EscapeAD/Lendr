@@ -1,2 +1,6 @@
-<h1>Mails#show</h1>
-<p>Find me in app/views/mails/show.html.erb</p>
+<% user = User.find_by(id: @mail.sender) %>
+<%= user.first_name %>
+</br>
+<%= @mail.title %>
+</br>
+<%= @mail.text %>

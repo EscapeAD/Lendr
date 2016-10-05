@@ -40,6 +40,7 @@ class ItemsController < ApplicationController
     @item    = Item.find(params[:id])
     @stories = Checkout.collect_story(params[:id])
     @owner   = User.find(@item.user_id)
+    @mail = Mail.new
 
   end
 

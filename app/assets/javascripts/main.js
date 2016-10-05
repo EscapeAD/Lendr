@@ -54,6 +54,23 @@ $(document).on('turbolinks:load', function(){
       });
   });
 
+
+  $('#mailSubmitBtn').on('click',function(e){
+      e.preventDefault();
+      var mailTitleInput = $('#mailTitle').val();
+      var mailTextInput = $('#mailText').val();
+      var ownerId = $('#mailSubmitBtn').attr('data-ownerId');
+
+      alert(ownerId);
+      $.ajax({
+        url: '/mails',
+        method: 'POST',
+        data: {mailTitleInput: mailTitleInput, mailTextInput: mailTextInput, ownerId: ownerId},
+        dataType: 'JSON'
+      }).always(function(nothing){
+      });
+  });
+
   $('#verify_button').on('click', function(event){
       event.preventDefault();
     $.ajax({
