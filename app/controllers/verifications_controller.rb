@@ -23,7 +23,7 @@ class VerificationsController < ApplicationController
   def update
     @verify = Verification.find(params[:id])
     if params[:meetup_location] != nil
-      @verify.update_attribute(meetup_location: params[:meetup_location])
+      @verify.update_attribute(:meetup_location, params[:meetup_location])
       @verify.save
     else
 
@@ -39,12 +39,11 @@ class VerificationsController < ApplicationController
       # redirect_to item_checkout_verification_url(params[:item_id], params[:id], @verification_id)
     end
 
-    render
+    # render :new
 
   end
 
   def create
-
   end
   private
 
