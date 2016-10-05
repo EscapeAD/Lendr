@@ -1,0 +1,6 @@
+<% user = User.find_by(id: @mail.sender) %>
+<%= user.first_name %>
+</br>
+<%= @mail.title %>
+</br>
+<%= @mail.text %>
