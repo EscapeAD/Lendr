@@ -13,3 +13,24 @@
   text-overflow: ellipsis;
   width: 300px;
 }
+
+.display-map{
+  width: 50%;
+  display: inline-block;
+}
+
+.display-info-chat{
+  display: inline-block;
+  width: 50%;
+  padding: 15px;
+}
+
+.selected-address{
+  display: inline-block;
+  width: 70%;
+}
+
+.verify-pickup-button{
+  display: inline-block;
+  width: 30%;
+}

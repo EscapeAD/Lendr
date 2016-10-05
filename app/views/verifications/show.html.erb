@@ -1,88 +1,95 @@
-<h1>WORKING</h1>
-
-<div class='container'>
-
+<div class = "display-map pull-left">
   <input id="location-input" class="controls" type="text" placeholder="Search Box">
   <div id="map" style='height: 400px;'></div>
+</div>
 
-  <div class='pull-right'>
-    <% if current_user.id == @owner_of_item.user_id && @verify.owner == true %>
-      <button disabled="true" class="btn btn-primary btn-large">"Waiting Borrow to verify"</button>
-    <% elsif  current_user.id != @owner_of_item.user_id && @verify.borrower == true %>
-      <button disabled="true" class="btn btn-primary btn-large">"Waiting Lender to verify"</button>
-    <% else %>
-      <%= link_to "#{@status_text}", item_checkout_verification_path(@owner_of_item.id, @verify.checkout_id, @verify.id), method: :put, class: "btn btn-primary btn-large" %>
-    <% end %>
+<div class = "display-info-chat pull-right">
+  <div class = "selected-location">
+    <div id = "selected-address"><strong>Selected Meetup Location: </strong><div id="selected-meetup-address"></div>
+    <div id = "verify-pickup-button">
+      <% if current_user.id == @owner_of_item.user_id && @verify.owner == true %>
+        <button disabled="true" class="btn btn-primary btn-large">"Waiting Borrow to verify"</button>
+      <% elsif  current_user.id != @owner_of_item.user_id && @verify.borrower == true %>
+        <button disabled="true" class="btn btn-primary btn-large">"Waiting Lender to verify"</button>
+      <% else %>
+        <%= link_to "#{@status_text}", item_checkout_verification_path(@owner_of_item.id, @verify.checkout_id, @verify.id), method: :put, class: "btn btn-primary btn-large" %>
+      <% end %>
+    </div>
   </div>
+  <div class = "owner-borrower-chat"></div>
+</div>
 
-  <script type="text/javascript">
-    function initAutocomplete() {
-      var map = new google.maps.Map(document.getElementById('map'), {
-        center: {lat: -33.8688, lng: 151.2195},
-        zoom: 13,
-        mapTypeId: 'roadmap'
+<script type="text/javascript">
+  function initAutocomplete() {
+    var map = new google.maps.Map(document.getElementById('map'), {
+      center: {lat: -33.8688, lng: 151.2195},
+      zoom: 13,
+      mapTypeId: 'roadmap'
+    });
+
+    // Create the search box and link it to the UI element.
+    var input = document.getElementById('location-input');
+    var searchBox = new google.maps.places.SearchBox(input);
+    map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+
+    // Bias the SearchBox results towards current map's viewport.
+    map.addListener('bounds_changed', function() {
+      searchBox.setBounds(map.getBounds());
+    });
+
+    var markers = [];
+    // Listen for the event fired when the user selects a prediction and retrieve
+    // more details for that place.
+    searchBox.addListener('places_changed', function() {
+      var places = searchBox.getPlaces();
+
+      if (places.length == 0) {
+        return;
+      }
+
+      // Clear out the old markers.
+      markers.forEach(function(marker) {
+        marker.setMap(null);
       });
+      markers = [];
 
-      // Create the search box and link it to the UI element.
-      var input = document.getElementById('location-input');
-      var searchBox = new google.maps.places.SearchBox(input);
-      map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
-
-      // Bias the SearchBox results towards current map's viewport.
-      map.addListener('bounds_changed', function() {
-        searchBox.setBounds(map.getBounds());
-      });
-
-      var markers = [];
-      // Listen for the event fired when the user selects a prediction and retrieve
-      // more details for that place.
-      searchBox.addListener('places_changed', function() {
-        var places = searchBox.getPlaces();
-
-        if (places.length == 0) {
+      // For each place, get the icon, name and location.
+      var bounds = new google.maps.LatLngBounds();
+      places.forEach(function(place) {
+        if (!place.geometry) {
+          console.log("Returned place contains no geometry");
           return;
         }
+        var icon = {
+          url: place.icon,
+          size: new google.maps.Size(71, 71),
+          origin: new google.maps.Point(0, 0),
+          anchor: new google.maps.Point(17, 34),
+          scaledSize: new google.maps.Size(25, 25)
+        };
 
-        // Clear out the old markers.
-        markers.forEach(function(marker) {
-          marker.setMap(null);
-        });
-        markers = [];
+        // Create a marker for each place.
+        markers.push(new google.maps.Marker({
+          map: map,
+          icon: icon,
+          title: place.name,
+          position: place.geometry.location
+        }));
 
-        // For each place, get the icon, name and location.
-        var bounds = new google.maps.LatLngBounds();
-        places.forEach(function(place) {
-          if (!place.geometry) {
-            console.log("Returned place contains no geometry");
-            return;
-          }
-          var icon = {
-            url: place.icon,
-            size: new google.maps.Size(71, 71),
-            origin: new google.maps.Point(0, 0),
-            anchor: new google.maps.Point(17, 34),
-            scaledSize: new google.maps.Size(25, 25)
-          };
+        // Place full address
+        $('#selected-meetup-address').empty().append(place.formatted_address);
 
-          // Create a marker for each place.
-          markers.push(new google.maps.Marker({
-            map: map,
-            icon: icon,
-            title: place.name,
-            position: place.geometry.location
-          }));
-
-          if (place.geometry.viewport) {
-            // Only geocodes have viewport.
-            bounds.union(place.geometry.viewport);
-          } else {
-            bounds.extend(place.geometry.location);
-          }
-        });
-        map.fitBounds(bounds);
+        if (place.geometry.viewport) {
+          // Only geocodes have viewport.
+          bounds.union(place.geometry.viewport);
+        } else {
+          bounds.extend(place.geometry.location);
+        }
       });
-    }
-  </script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=<%= Figaro.env.google_maps_api_key %>&libraries=places&callback=initAutocomplete"
-         async defer></script>
-</div>
+      map.fitBounds(bounds);
+    });
+ };
+
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=<%= Figaro.env.google_maps_api_key %>&libraries=places&callback=initAutocomplete"
+       async defer></script>
