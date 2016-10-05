@@ -1,5 +1,6 @@
 class Verification < ApplicationRecord
   belongs_to :checkout
+  has_many :messages
 
 
   def self.verify_show_pickup(input_id)

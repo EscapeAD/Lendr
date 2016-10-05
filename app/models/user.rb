@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   has_many :owned_items, class_name: 'Item'
   has_many :checkouts
+  has_many :messages
 
   geocoded_by :full_address  # can also be an IP address
   after_validation :geocode, if: :address_changed?    # auto-fetch coordinates
@@ -14,7 +15,8 @@ class User < ApplicationRecord
 
   has_attached_file :avatar, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
-
+  validates_uniqueness_of :email
+  validates_presence_of :email
 
   private
   def full_address
