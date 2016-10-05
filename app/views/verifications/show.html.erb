@@ -5,10 +5,10 @@
 
 <div class = "display-info-chat pull-right">
   <div class = "selected-location">
-    <div id = "selected-address"><strong>Selected Meetup Location: </strong><div id="selected-meetup-address"></div>
+    <div id = "selected-address"><strong>Selected Meetup Location: </strong><div id="selected-meetup-address"><%= @verify.meetup_location %></div>
     <div id = "verify-pickup-button">
       <% if current_user.id == @owner_of_item.user_id && @verify.owner == true %>
-        <button disabled="true" class="btn btn-primary btn-large">"Waiting Borrow to verify"</button>
+        <button disabled="true" class="btn btn-primary btn-large">"Waiting Borrower to Verify"</button>
       <% elsif  current_user.id != @owner_of_item.user_id && @verify.borrower == true %>
         <button disabled="true" class="btn btn-primary btn-large">"Waiting Lender to verify"</button>
       <% else %>
@@ -77,7 +77,7 @@
         }));
 
         // Place full address
-        $('#selected-meetup-address').empty().append(place.vicinity+","+place.formatted_address);
+        $('#selected-meetup-address').empty().append(places[0].formatted_address);
 
         if (place.geometry.viewport) {
           // Only geocodes have viewport.
@@ -100,18 +100,6 @@
         dataType: 'JSON'
       });
     });
-
-    // .done(function(){
-    //   var item_id = $('#location-input').attr('data-item');
-    //   var checkout_id = $('#location-input').attr('data-checkout');
-    //   var verification_id = $('#location-input').attr('data-verification');
-    //   $.ajax({
-    //     url: '/items/'+ item_id +'/checkouts/'+ checkout_id + '/verifications/' + verification_id,
-    //     method: 'PUT',
-    //     data:{'meetup_location' : places_changed.formatted_address},
-    //     dataType: 'JSON'
-    //   });
-    // });
  };
 
 </script>
