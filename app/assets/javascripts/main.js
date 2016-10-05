@@ -1,16 +1,5 @@
 $(document).on('turbolinks:load', function(){
 
-  $('#searchTextField').keypress(function(e){
-    if (e.which === 13) {
-      $.ajax({
-        url:'/items/'+'$(this).items[:owner.id]/checkouts/'+ $(this).items[:owner.id]+'/verifications/:id',
-        method: 'POST',
-        data:{meetup_location: place.formatted_address},
-        dataType: 'JSON'
-      });
-    }
-  });
-
   $('#searchBtn').on('click',function(e){
       e.preventDefault();
       $('#searchList').empty();
@@ -56,23 +45,6 @@ $(document).on('turbolinks:load', function(){
         dataType: 'HTML'
       }).done(function(rData){
         $('#searchList').append(rData);
-      });
-  });
-
-
-  $('#mailSubmitBtn').on('click',function(e){
-      e.preventDefault();
-      var mailTitleInput = $('#mailTitle').val();
-      var mailTextInput = $('#mailText').val();
-      var ownerId = $('#mailSubmitBtn').attr('data-ownerId');
-
-      alert(ownerId);
-      $.ajax({
-        url: '/mails',
-        method: 'POST',
-        data: {mailTitleInput: mailTitleInput, mailTextInput: mailTextInput, ownerId: ownerId},
-        dataType: 'JSON'
-      }).always(function(nothing){
       });
   });
 
