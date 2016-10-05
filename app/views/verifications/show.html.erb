@@ -3,14 +3,9 @@
   <div id="map" style='height: 400px;'></div>
 </div>
 <div class="border chat">
-  <%= form_for message do |f| %>
+  <%= render @messages %>
 
-    <%= f.hidden_field :room_id, value: room.id %>
-
-    <%= f.label :content, "enter message here" %>
-    <%= f.text_field :content, autocomplete: :off %>
-
-  <% end %>
+  <%= render partial: "form", locals: {verification_id: @verify, message: @message} %>
 </div>
 
 
