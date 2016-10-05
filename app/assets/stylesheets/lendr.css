@@ -81,9 +81,10 @@
 
 .context-container{
   width: 100%;
-  padding-top: 55px;
-  padding-bottom: 30px;
+  margin-top: 10px;
+  margin-bottom: 10px;
   font-family: 'Lato', sans-serif;
+  overflow: auto;
 }
 
 body{
@@ -127,4 +128,27 @@ a:hover {
   border: 1px black solid;
   position: absolute;
   left:600px;
+}
+
+#colored-footer{
+  background-color: #424242;
+}
+
+.footer-container{
+  margin-top: 30px;
+  overflow:auto;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 30px;
+  padding-right: 30px;
+  width:88%;
+  margin: auto;
+}
+
+.footer-text{
+  color: #E9E9E9;
+}
+
+.contact-us h3{
+  color: #BCBCBC;
 }
