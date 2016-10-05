@@ -13,22 +13,22 @@
 <div class='underpass-pic'>
 <% @item.pictures.each do |pic| %>
   <div class = "thumbnail-pic"><%= image_tag pic.image.url, class: 'thumbnail-pic' %></div>
+  <% if current_user != nil && @item.user_id == current_user.id %>
   <%= link_to 'delete', item_picture_url(@item.id,pic.id),method: :delete, id: 'delImgId' %>
+  <% end %>
 <% end %>
 </div>
 
-<div class="pull-right col-md-4 item-description">
+    <div class="pull-right col-md-4 item-description">
     <h1><%= @item.name %></h1>
     <strong>Owner:</strong>       <%= @owner.first_name.capitalize %> <%= @owner.last_name.capitalize %><br>
     <strong>Type:</strong>&nbsp;&nbsp;&nbsp;  <%= @item.category.name.capitalize %><br>
     <dl>
-  <dt><strong>Description:</strong></dt>
-  <dd><%= @item.description %></dd>
-  </dl>
-<br>
+    <dt><strong>Description:</strong></dt>
+    <dd><%= @item.description %></dd>
+    </dl>
+    <br>
 
-<!-- <div class = "borrow-button"><%= button_tag 'Borrow', type: 'button' %></div> -->
-<!-- button_tag 'Borrow', type: 'reset', disabled: true -->
   <%= link_to 'Borrrow', new_item_checkout_path(@item), class: 'btn btn-success btn-lg' %>
   <% if current_user == @item.user_id %>
   <%= link_to 'Edit', edit_item_path %>
