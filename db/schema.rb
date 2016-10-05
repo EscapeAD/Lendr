@@ -10,8 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+ActiveRecord::Schema.define(version: 20161005071131) do
 
-ActiveRecord::Schema.define(version: 20161005004629) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -53,6 +53,16 @@ ActiveRecord::Schema.define(version: 20161005004629) do
     t.text     "text"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.text     "content"
+    t.integer  "user_id"
+    t.integer  "verification_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["user_id"], name: "index_messages_on_user_id", using: :btree
+    t.index ["verification_id"], name: "index_messages_on_verification_id", using: :btree
   end
 
   create_table "pictures", force: :cascade do |t|
@@ -130,6 +140,7 @@ ActiveRecord::Schema.define(version: 20161005004629) do
   add_foreign_key "checkouts", "items"
   add_foreign_key "checkouts", "users"
   add_foreign_key "items", "categories"
+  add_foreign_key "messages", "verifications"
   add_foreign_key "pictures", "items"
   add_foreign_key "stories", "checkouts"
   add_foreign_key "verifications", "checkouts"
