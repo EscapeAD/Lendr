@@ -13,7 +13,7 @@ class VerificationsController < ApplicationController
     Verification.verify_staging(@verify)
     rescue ActiveRecord::RecordNotFound
       redirect_to user_url, notice: 'Item is been returned'
-    end
+    
 
   end
 

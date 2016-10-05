@@ -128,3 +128,11 @@ a:hover {
   position: absolute;
   left:600px;
 }
+.chat{
+  float:right;
+  width: 500px;
+  height: 400px;
+}
+.clearboth{
+  clear:both;
+}
