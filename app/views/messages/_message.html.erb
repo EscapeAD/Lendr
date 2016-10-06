@@ -1,0 +1,5 @@
+<p>
+  <small>(<%= message.created_at.strftime("%I:%M%p")%>)</small>
+  <b><%= message.user.first_name %> <%= message.user.last_name %>:</b>
+  <%= message.content %>
+</p>

@@ -12,8 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
 //= require_tree ../../../vendor/assets/javascripts
 //= require gmaps/google
 //= require_tree .
 //= require cocoon
+//= require cable

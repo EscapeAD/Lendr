@@ -60,4 +60,49 @@ $(document).on('turbolinks:load', function(){
     });
   });
 
+  $('#enterChat').on(keypress,function (e) {
+        event.preventDefault();
+  if (e.which == 13) {
+    $.ajax({
+          url: this.action,
+          data: $(this).serialize(),
+          method: "post"
+        }).done(function(){
+          $('#enterChat').removeAttr('value');
+        })
+};
 });
+
+
+
+
+  // $('#enterChat').on('submit', function(){
+  //     event.preventDefault();
+  //
+  //     if($('#enterChat').val()==""){
+  //       return false;
+  //     }
+  //
+  //     $.ajax({
+  //       url: this.action,
+  //       data: $(this).serialize(),
+  //       method: "post"
+  //     }).done(function(){
+  //     }).always(function(){
+  //       $('#enterChat').val().empty();
+  //     })
+  //   });
+
+
+
+
+
+  // $('#enterChat').on('keypress',function(event){
+  //   // event.preventDefault();
+  //   if(event.keyCode == 13){
+  //     $.ajax({
+  //       url:
+  //     })
+  //   }
+  // })
+  });

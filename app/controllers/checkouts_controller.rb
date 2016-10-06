@@ -40,7 +40,9 @@ class CheckoutsController < ApplicationController
 
   def destroy
     @checkout = Checkout.find(params[:id])
-    @verify = Verification.where(checkout_id: params[:id])
+    @verify   = Verification.where(checkout_id: params[:id])
+    @message  = Message.where(Verification_id: @verify.id)
+    @message.destroy_all
     @verify.destroy_all
     @checkout.destroy
     redirect_to user_path
