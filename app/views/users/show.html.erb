@@ -127,7 +127,7 @@
                           <% end %>
 
                         <% else %>
-                          <%= link_to 'show', item_checkout_verification_path(Item.find(item.item_id),item.id,Verification.verify_show_pickup(item.id)) %>
+                          <%= link_to 'View Status', item_checkout_verification_path(Item.find(item.item_id),item.id,Verification.verify_show_pickup(item.id)) %>
                         <% end %>
                         <% end %>
                       </div>
@@ -222,7 +222,8 @@
                         <% end %>
                       </div>
                       <div class = "accept-decline">
-                        <strong>Nickname: </strong> <%= Item.find(item.id).name %>
+                        <strong>Name: </strong> <%= Item.find(item.id).name %>
+                        <%= link_to 'View', item_path(item.id)%>
                       </div>
                     </div>
                   <% end %>
