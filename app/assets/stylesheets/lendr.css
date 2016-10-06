@@ -144,8 +144,9 @@ a:hover {
 }
 .clearboth{
   clear:both;
+}
 
-#colored-footer{
+#colored-footer {
   background-color: #424242;
 }
 
@@ -174,4 +175,10 @@ a:hover {
 
 .fa{
   font-size: 28px;
+}
+.category-list {
+}
+
+.image-search-item {
+  width: 200px;
 }
