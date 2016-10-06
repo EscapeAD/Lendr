@@ -129,6 +129,21 @@ a:hover {
   position: absolute;
   left:600px;
 }
+.chat{
+  float:right;
+  width: 500px;
+  overflow: scroll;
+  height: 400px;
+}
+
+#message{
+  width: 490px;
+  height: 360px;
+  overflow: auto;
+
+}
+.clearboth{
+  clear:both;
 
 #colored-footer{
   background-color: #424242;

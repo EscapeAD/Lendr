@@ -3,7 +3,22 @@
   <div id="map" style='height: 400px;'></div>
 </div>
 
-<div class = "display-info-chat pull-right">
+
+<div class="border chat">
+  <div id="new_message">
+    <div id=”messages”>
+      <%= render @messages %>
+    </div>
+</div>
+  <%= render partial: "form", locals: {verification_id: @verify, message: @message} %>
+</div>
+
+
+
+
+
+
+<div class = "display-info-chat clearboth">
   <div class = "selected-location">
     <div id = "selected-address"><strong>Selected Meetup Location: </strong><div id="selected-meetup-address"><%= @verify.meetup_location %></div>
     <div id = "verify-pickup-button">
@@ -18,7 +33,7 @@
   </div>
   <div class = "owner-borrower-chat"></div>
 </div>
-
+</div>
 <script type="text/javascript">
   function initAutocomplete() {
     var map = new google.maps.Map(document.getElementById('map'), {

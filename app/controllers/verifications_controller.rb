@@ -4,6 +4,11 @@ class VerificationsController < ApplicationController
     @status_text     = Verification.status_text(params[:id])
     @owner_of_item   = Item.find(params[:item_id])
     @borrower        = Checkout.find(params[:checkout_id])
+    @messages        = @verify.messages.order(id: :desc).limit(500).reverse
+    @message         = Message.new
+    @users           = @verify.users
+
+
     unless @owner_of_item.user_id == current_user.id || @borrower.user_id == current_user.id
       redirect_to user_path
     end
@@ -11,7 +16,7 @@ class VerificationsController < ApplicationController
     rescue ActiveRecord::RecordNotFound
       redirect_to user_url, notice: 'Item is been returned'
 
-    @users = User.all
+
   end
 
   def new
