@@ -5,6 +5,16 @@ $(document).on('turbolinks:load', function(){
     $('#myTabs a[href="#lent"]').tab('show');
     $('#myTabs a[href="#inventory"]').tab('show');
 
+
+    //Search function from main page
+    $('#mainSearchBtn').on('click', function(e){
+      e.preventDefault();
+      searchInput = $('#mainSearchTextField').val();
+      window.location.href = "/items?searchInput="+searchInput;
+    });
+
+
+
   // Search function
     $('#searchBtn').on('click',function(e){
         e.preventDefault();
@@ -138,9 +148,14 @@ $(document).on('turbolinks:load', function(){
     });
 
 
-    // To handle redirection from other pages
+    // To handle redirection from landing page
     if (getUrlParameter('categoryInput')) {
       $('#'+getUrlParameter('categoryInput')+'Cat').click()
+    }
+
+    if (getUrlParameter('searchInput')) {
+      $('#searchTextField').val(getUrlParameter('searchInput'))
+      $('#searchBtn').click()
     }
 
 
