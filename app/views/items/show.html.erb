@@ -1,5 +1,5 @@
 
-<div class='container'>
+<div class='container context-container'>
   <!-- <div class='border item-show-info row'> -->
 
 <!-- <div class = "item_image floatl col-md-8">
@@ -31,71 +31,158 @@
     <%# end %>
   </div> -->
 
-  <div class="col-md-6">
+<div class="col-md-6 ">
     <p>
-      <h1><%= @item.name %></h1>
+      <h2><%= @item.name %></h2>
       <strong>Owner:</strong> <%= @owner.first_name.capitalize %> <%= @owner.last_name.capitalize %><br>
       <strong>Type:</strong> <%= @item.category.name.capitalize %><br>
       <strong>Description:</strong><br>
       <%= @item.description %>
     </p>
-  <br>
+    <br>
 
-  <%= link_to 'Borrrow', new_item_checkout_path(@item), class: 'btn btn-success btn-lg' %>
-  <% if current_user == @item.user_id %>
-  <%= link_to 'Edit', edit_item_path %>
-  <%= link_to 'Delete', item_path, method: :delete, data: {confirm: "Are you sure you want to delete the item '#{@item.name}'? This cannot be undone!"} %>
-  <% end %>
-</div>
-</div>
-</div>
+    <%= link_to 'Borrrow', new_item_checkout_path(@item), class: 'btn btn-success btn-lg' %>
+    <a type="button"  data-toggle="modal" data-target="#message-to-owner">Message Owner</a>
 
-<div class='border container story-box'>
-  <div class='container'>
-  <h3>Adventures of:</h3>
-  <div class='row'>
-    <% if @stories.empty? %>
-    <em>Currently this lone item has no adventures </em>
-    <% else %>
-    <% @stories.each do |story| %>
-    <div class="col-xs-6 col-md-11">
-      <h2><%= story.title %></h2>
-      <div class='border'>
-        <p><%=story.story%></p>
-      </div>
-    </div>
-    <% end %>
+    <% if current_user == @item.user_id %>
+      <%= link_to 'Edit', edit_item_path %>
+      <%= link_to 'Delete', item_path, method: :delete, data: {confirm: "Are you sure you want to delete the item '#{@item.name}'? This cannot be undone!"} %>
     <% end %>
   </div>
 </div>
-</div>
 
+<!-- <section id="cd-timeline" class="cd-container">
+  <div class="cd-timeline-block">
+    <div class="cd-timeline-img cd-picture">
+      <img src="img/cd-icon-picture.svg" alt="Picture">
+    </div
 
-
-<%= form_for(@mail) do |f| %>
-
-  <% if @mail.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@mail.errors.count, "error") %> prohibited this mail from being saved:</h2>
-
-      <ul>
-        <% @mail.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
+  <div clas='border container story-box'>
+  <div class='container'>
+  <h3>Adventures of:</h3>
+  <div class='row'>
+    <%# if @stories.empty? %>
+    <em>Currently this lone item has no adventures </em>
+    <%# else %>
+    <%# @stories.each do |story| %>
+    <div class="col-xs-6 col-md-11">
+      <h2><%#= story.title %></h2>
+      <div class='border'>
+        <p><%#=story.story%></p>
+      </div>
     </div>
-  <% end %>
+    <%# end %>
+    <%# end %>
+  </div>
+</div>
+</div> -->
 
+<div class="cd-timeline-content">
+				<h2>Title of section 1</h2>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum aut hic quasi placeat iure tempora laudantium ipsa ad debitis unde? Iste voluptatibus minus veritatis qui ut.</p>
+				<a href="#0" class="cd-read-more">Read more</a>
+				<span class="cd-date">Jan 14</span>
+			</div> <!-- cd-timeline-content -->
+		</div> <!-- cd-timeline-block -->
 
-  <%= f.label :title %><br />
-  <%= f.text_field :title, id: 'mailTitle' %><br />
+		<div class="cd-timeline-block">
+			<div class="cd-timeline-img cd-movie">
+				<img src="img/cd-icon-movie.svg" alt="Movie">
+			</div> <!-- cd-timeline-img -->
 
-  <%= f.label :text %><br />
-  <%= f.text_area :text, id: 'mailText' %><br />
+			<div class="cd-timeline-content">
+				<h2>Title of section 2</h2>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum aut hic quasi placeat iure tempora laudantium ipsa ad debitis unde?</p>
+				<a href="#0" class="cd-read-more">Read more</a>
+				<span class="cd-date">Jan 18</span>
+			</div> <!-- cd-timeline-content -->
+		</div> <!-- cd-timeline-block -->
 
+		<div class="cd-timeline-block">
+			<div class="cd-timeline-img cd-picture">
+				<img src="img/cd-icon-picture.svg" alt="Picture">
+			</div> <!-- cd-timeline-img -->
 
-  <button type="button" id="mailSubmitBtn" data-ownerId="<%= @item.user_id%>">Send Email</button>
+			<div class="cd-timeline-content">
+				<h2>Title of section 3</h2>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi, obcaecati, quisquam id molestias eaque asperiores voluptatibus cupiditate error assumenda delectus odit similique earum voluptatem doloremque dolorem ipsam quae rerum quis. Odit, itaque, deserunt corporis vero ipsum nisi eius odio natus ullam provident pariatur temporibus quia eos repellat consequuntur perferendis enim amet quae quasi repudiandae sed quod veniam dolore possimus rem voluptatum eveniet eligendi quis fugiat aliquam sunt similique aut adipisci.</p>
+				<a href="#0" class="cd-read-more">Read more</a>
+				<span class="cd-date">Jan 24</span>
+			</div> <!-- cd-timeline-content -->
+		</div> <!-- cd-timeline-block -->
 
+		<div class="cd-timeline-block">
+			<div class="cd-timeline-img cd-location">
+				<img src="img/cd-icon-location.svg" alt="Location">
+			</div> <!-- cd-timeline-img -->
 
+			<div class="cd-timeline-content">
+				<h2>Title of section 4</h2>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum aut hic quasi placeat iure tempora laudantium ipsa ad debitis unde? Iste voluptatibus minus veritatis qui ut.</p>
+				<a href="#0" class="cd-read-more">Read more</a>
+				<span class="cd-date">Feb 14</span>
+			</div> <!-- cd-timeline-content -->
+		</div> <!-- cd-timeline-block -->
 
-<% end %>
+		<div class="cd-timeline-block">
+			<div class="cd-timeline-img cd-location">
+				<img src="img/cd-icon-location.svg" alt="Location">
+			</div> <!-- cd-timeline-img -->
+
+			<div class="cd-timeline-content">
+				<h2>Title of section 5</h2>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum.</p>
+				<a href="#0" class="cd-read-more">Read more</a>
+				<span class="cd-date">Feb 18</span>
+			</div> <!-- cd-timeline-content -->
+		</div> <!-- cd-timeline-block -->
+
+		<div class="cd-timeline-block">
+			<div class="cd-timeline-img cd-movie">
+				<img src="img/cd-icon-movie.svg" alt="Movie">
+			</div> <!-- cd-timeline-img -->
+
+			<div class="cd-timeline-content">
+				<h2>Final Section</h2>
+				<p>This is the content of the last section</p>
+				<span class="cd-date">Feb 26</span>
+			</div> <!-- cd-timeline-content -->
+		</div> <!-- cd-timeline-block -->
+	</section>
+
+  <div class="modal fade" id="message-to-owner" tabindex="-1" role="dialog" aria-labelledby="message-to-owner">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Message Owner</h4>
+        </div>
+        <div class="modal-body">
+          <%= form_for(@mail) do |f| %>
+
+            <% if @mail.errors.any? %>
+              <div id="error_explanation">
+                <h2><%= pluralize(@mail.errors.count, "error") %> prohibited this mail from being saved:</h2>
+
+                <ul>
+                  <% @mail.errors.full_messages.each do |msg| %>
+                    <li><%= msg %></li>
+                  <% end %>
+                </ul>
+              </div>
+            <% end %>
+
+            <%= f.label :title %><br />
+            <%= f.text_field :title, id: 'mailTitle' %><br />
+
+            <%= f.label :text %><br />
+            <%= f.text_area :text, id: 'mailText' %><br />
+        </div>
+        <div class="modal-footer">
+            <button type="button" id="mailSubmitBtn" data-ownerId="<%= @item.user_id%>">Send Email</button>
+
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
