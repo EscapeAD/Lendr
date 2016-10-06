@@ -21,13 +21,15 @@ $(document).on('turbolinks:load', function(){
           $('#searchList').append(rData);
         });
     });
+
+
   // CATEGORY
-  $('#bookCat').on('click',function(e){
+  $('#leisureCat').on('click',function(e){
     e.preventDefault();
     $('#searchList').empty();
     $('#allItems').empty();
     var searchInput = $('#searchTextField').val();
-    categoryInput = 'Book'
+    categoryInput = 'Leisure';
     $.ajax({
       url: '/items',
       method: 'GET',
@@ -38,21 +40,90 @@ $(document).on('turbolinks:load', function(){
     });
   });
 
-  $('#toolCat').on('click',function(e){
-      e.preventDefault();
-      $('#searchList').empty();
-      $('#allItems').empty();
-      var searchInput = $('#searchTextField').val();
-      categoryInput = 'Tool'
-      $.ajax({
-        url: '/items',
-        method: 'GET',
-        data: {searchInput: searchInput, categoryInput: categoryInput},
-        dataType: 'HTML'
-      }).done(function(rData){
-        $('#searchList').append(rData);
-      });
+
+  $('#equipmentCat').on('click',function(e){
+    e.preventDefault();
+    $('#searchList').empty();
+    $('#allItems').empty();
+    var searchInput = $('#searchTextField').val();
+    categoryInput = 'Equipment';
+    $.ajax({
+      url: '/items',
+      method: 'GET',
+      data: {searchInput: searchInput, categoryInput: categoryInput},
+      dataType: 'HTML'
+    }).done(function(rData){
+      $('#searchList').append(rData);
     });
+  });
+
+  $('#outdoorCat').on('click',function(e){
+    e.preventDefault();
+    $('#searchList').empty();
+    $('#allItems').empty();
+    var searchInput = $('#searchTextField').val();
+    categoryInput = 'Outdoor';
+    $.ajax({
+      url: '/items',
+      method: 'GET',
+      data: {searchInput: searchInput, categoryInput: categoryInput},
+      dataType: 'HTML'
+    }).done(function(rData){
+      $('#searchList').append(rData);
+    });
+  });
+
+  $('#repairsCat').on('click',function(e){
+    e.preventDefault();
+    $('#searchList').empty();
+    $('#allItems').empty();
+    var searchInput = $('#searchTextField').val();
+    categoryInput = 'Repairs';
+    $.ajax({
+      url: '/items',
+      method: 'GET',
+      data: {searchInput: searchInput, categoryInput: categoryInput},
+      dataType: 'HTML'
+    }).done(function(rData){
+      $('#searchList').append(rData);
+    });
+  });
+
+  $('#landscapeCat').on('click',function(e){
+    e.preventDefault();
+    $('#searchList').empty();
+    $('#allItems').empty();
+    var searchInput = $('#searchTextField').val();
+    categoryInput = 'Landscape';
+    $.ajax({
+      url: '/items',
+      method: 'GET',
+      data: {searchInput: searchInput, categoryInput: categoryInput},
+      dataType: 'HTML'
+    }).done(function(rData){
+      $('#searchList').append(rData);
+    });
+  });
+
+  $('#educationCat').on('click',function(e){
+    e.preventDefault();
+    $('#searchList').empty();
+    $('#allItems').empty();
+    var searchInput = $('#searchTextField').val();
+    categoryInput = 'Education';
+    $.ajax({
+      url: '/items',
+      method: 'GET',
+      data: {searchInput: searchInput, categoryInput: categoryInput},
+      dataType: 'HTML'
+    }).done(function(rData){
+      $('#searchList').append(rData);
+    });
+  });
+
+
+
+
     // verify buttons
     $('#verify_button').on('click', function(event){
         event.preventDefault();
@@ -65,4 +136,15 @@ $(document).on('turbolinks:load', function(){
         location.reload();
       });
     });
+
+
+    // To handle redirection from other pages
+    if (getUrlParameter('categoryInput')) {
+      $('#'+getUrlParameter('categoryInput')+'Cat').click()
+    }
+
+
+
+
+
   });

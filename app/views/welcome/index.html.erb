@@ -9,6 +9,32 @@
 
 <div class="container context-container" id="colored-bg">
   <h3 class="subheader-main recommend">Recommended Categories</h3>
+
+  <div class="row">
+    <div class="col-md-4">
+      <%= link_to image_tag("education.jpg", size: "304x228", alt: "Leisure"), items_path(categoryInput: 'leisure') %>
+    </div>
+    <div class="col-md-4">
+      <%= link_to image_tag("education.jpg", size: "304x228", alt: "Equipment"), items_path(categoryInput: 'equipment') %>
+    </div>
+    <div class="col-md-4">
+      <%= link_to image_tag("education.jpg", size: "304x228", alt: "Outdoor"), items_path(categoryInput: 'outdoor') %>    </div>
+  </div>
+
+</br>
+
+  <div class="row">
+    <div class="col-md-4">
+      <%= link_to image_tag("education.jpg", size: "304x228", alt: "Repairs"), items_path(categoryInput: 'repairs') %>
+    </div>
+    <div class="col-md-4">
+      <%= link_to image_tag("education.jpg", size: "304x228", alt: "Landscape"), items_path(categoryInput: 'landscape') %>
+    </div>
+    <div class="col-md-4">
+      <%= link_to image_tag("education.jpg", size: "304x228", alt: "Education"), items_path(categoryInput: 'education') %>
+    </div>
+  </div>
+
   <div class="container recommended-categories text-content">
     <button class="btn btn-default"><%= link_to "Search for More", items_path %></button>
   </div>
