@@ -59,57 +59,25 @@ $(document).on('turbolinks:load', function(){
       location.reload();
     });
   });
-
-  $('#enterChat').on(keypress,function (e) {
-      console.log('TEST 123'); /// TEMP
-
-        console.log(e); /// TEMP
-
-        event.preventDefault();
-
-        if (e.which == 13) {
-          $.ajax({
-            url: this.action,
-            data: $(this).serialize(),
-            method: "post"
-          }).done(function(){
-            console.log(); /// TEMP
-
-            $('#enterChat').removeAttr('value');
-          });
-        };
-  });
-
-
-
-
-  // $('#enterChat').on('submit', function(){
-  //     event.preventDefault();
+  // TEMP - Actioncable took over
+  // $('#enterChat').on(keypress,function (e) {
+  //     console.log('TEST 123'); /// TEMP
   //
-  //     if($('#enterChat').val()==""){
-  //       return false;
-  //     }
+  //       console.log(e); /// TEMP
   //
-  //     $.ajax({
-  //       url: this.action,
-  //       data: $(this).serialize(),
-  //       method: "post"
-  //     }).done(function(){
-  //     }).always(function(){
-  //       $('#enterChat').val().empty();
-  //     })
-  //   });
+  //       event.preventDefault();
+  //
+  //       if (e.which == 13) {
+  //         $.ajax({
+  //           url: this.action,
+  //           data: $(this).serialize(),
+  //           method: "post"
+  //         }).done(function(){
+  //           console.log(); /// TEMP
+  //
+  //           $('#enterChat').removeAttr('value');
+  //         });
+  //       };
+  // });
 
-
-
-
-
-  // $('#enterChat').on('keypress',function(event){
-  //   // event.preventDefault();
-  //   if(event.keyCode == 13){
-  //     $.ajax({
-  //       url:
-  //     })
-  //   }
-  // })
   });
