@@ -1,12 +1,23 @@
 // Place all the styles related to the items controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.adventures-container{
+  margin: auto;
+}
+
+.story-date{
+  font-size: 12px;
+  color: #3299BB;
+}
 
 .empty-stories{
   text-align: center;
   margin-bottom: 50px;
 }
 
+.story-profile-photo img{
+  width:150px;
+}
 
 .cd-container {
   /* this class is used to give a max-width to the element it is applied to, and center it horizontally when it reaches that max-width */
@@ -68,34 +79,34 @@
   }
 }
 
-.cd-timeline-block {
+.timeline-block {
   position: relative;
   margin: 2em 0;
 }
-.cd-timeline-block:after {
+.timeline-block:after {
   content: "";
   display: table;
   clear: both;
 }
-.cd-timeline-block:first-child {
+.timeline-block:first-child {
   margin-top: 0;
 }
-.cd-timeline-block:last-child {
+.timeline-block:last-child {
   margin-bottom: 0;
 }
 @media only screen and (min-width: 1170px) {
   .cd-timeline-block {
     margin: 4em 0;
   }
-  .cd-timeline-block:first-child {
+  .timeline-block:first-child {
     margin-top: 0;
   }
-  .cd-timeline-block:last-child {
+  .timeline-block:last-child {
     margin-bottom: 0;
   }
 }
 
-.cd-timeline-img {
+.timeline-img {
   position: absolute;
   top: 0;
   left: 0;
@@ -104,7 +115,7 @@
   border-radius: 50%;
   box-shadow: 0 0 0 4px white, inset 0 2px 0 rgba(0, 0, 0, 0.08), 0 3px 0 4px rgba(0, 0, 0, 0.05);
 }
-.cd-timeline-img .fa {
+.timeline-img .fa {
   display: block;
   color: white;
   font-size: 20px;
@@ -115,17 +126,11 @@
   margin-left: -6px;
   margin-top: -11px;
 }
-.cd-timeline-img.cd-picture {
-  background: #75ce66;
-}
-.cd-timeline-img.cd-movie {
-  background: #c03b44;
-}
-.cd-timeline-img.cd-location {
-  background: #f0ca45;
+.icon-background {
+  background: #3299BB;
 }
 @media only screen and (min-width: 1170px) {
-  .cd-timeline-img {
+  .timeline-img {
     width: 60px;
     height: 60px;
     left: 50%;
@@ -134,10 +139,10 @@
     -webkit-transform: translateZ(0);
     -webkit-backface-visibility: hidden;
   }
-  .cssanimations .cd-timeline-img.is-hidden {
+  .cssanimations .timeline-img.is-hidden {
     visibility: hidden;
   }
-  .cssanimations .cd-timeline-img.bounce-in {
+  .cssanimations .timeline-img.bounce-in {
     visibility: visible;
     -webkit-animation: cd-bounce-1 0.6s;
     -moz-animation: cd-bounce-1 0.6s;
@@ -202,49 +207,49 @@
     transform: scale(1);
   }
 }
-.cd-timeline-content {
+.timeline-content {
   position: relative;
   margin-left: 60px;
-  background: white;
+  background-color: #e9f0f5;
   border-radius: 0.25em;
   padding: 1em;
   box-shadow: 0 3px 0 #d7e4ed;
 }
-.cd-timeline-content:after {
+.timeline-content:after {
   content: "";
   display: table;
   clear: both;
 }
-.cd-timeline-content h2 {
+.timeline-content h2 {
   color: #303e49;
 }
-.cd-timeline-content p, .cd-timeline-content .cd-read-more, .cd-timeline-content .cd-date {
+.timeline-content p, .timeline-content .cd-read-more, .timeline-content .cd-date {
   font-size: 13px;
   font-size: 0.8125rem;
 }
-.cd-timeline-content .cd-read-more, .cd-timeline-content .cd-date {
+.timeline-content .cd-read-more, .timeline-content .cd-date {
   display: inline-block;
 }
-.cd-timeline-content p {
+.timeline-content p {
   margin: 1em 0;
   line-height: 1.6;
 }
-.cd-timeline-content .cd-read-more {
+.timeline-content .cd-read-more {
   float: right;
   padding: .8em 1em;
   background: #acb7c0;
   color: white;
   border-radius: 0.25em;
 }
-.no-touch .cd-timeline-content .cd-read-more:hover {
+.no-touch .timeline-content .cd-read-more:hover {
   background-color: #bac4cb;
 }
-.cd-timeline-content .cd-date {
+.timeline-content .cd-date {
   float: left;
   padding: .8em 0;
   opacity: .7;
 }
-.cd-timeline-content::before {
+.timeline-content::before {
   content: '';
   position: absolute;
   top: 16px;
@@ -255,35 +260,35 @@
   border-right: 7px solid white;
 }
 @media only screen and (min-width: 768px) {
-  .cd-timeline-content h2 {
+  .timeline-content h2 {
     font-size: 20px;
     font-size: 1.25rem;
   }
-  .cd-timeline-content p {
+  .timeline-content p {
     font-size: 16px;
     font-size: 1rem;
   }
-  .cd-timeline-content .cd-read-more, .cd-timeline-content .cd-date {
+  .timeline-content .cd-read-more, .timeline-content .cd-date {
     font-size: 14px;
     font-size: 0.875rem;
   }
 }
 @media only screen and (min-width: 1170px) {
-  .cd-timeline-content {
+  .timeline-content {
     margin-left: 0;
     padding: 1.6em;
     width: 45%;
   }
-  .cd-timeline-content::before {
+  .timeline-content::before {
     top: 24px;
     left: 100%;
     border-color: transparent;
-    border-left-color: white;
+    border-left-color: #e9f0f5;;
   }
-  .cd-timeline-content .cd-read-more {
+  .timeline-content .cd-read-more {
     float: left;
   }
-  .cd-timeline-content .cd-date {
+  .timeline-content .cd-date {
     position: absolute;
     width: 100%;
     left: 122%;
@@ -291,28 +296,28 @@
     font-size: 16px;
     font-size: 1rem;
   }
-  .cd-timeline-block:nth-child(even) .cd-timeline-content {
+  .timeline-block:nth-child(even) .timeline-content {
     float: right;
   }
-  .cd-timeline-block:nth-child(even) .cd-timeline-content::before {
+  .timeline-block:nth-child(even) .timeline-content::before {
     top: 24px;
     left: auto;
     right: 100%;
     border-color: transparent;
     border-right-color: white;
   }
-  .cd-timeline-block:nth-child(even) .cd-timeline-content .cd-read-more {
+  .timeline-block:nth-child(even) .timeline-content .cd-read-more {
     float: right;
   }
-  .cd-timeline-block:nth-child(even) .cd-timeline-content .cd-date {
+  .timeline-block:nth-child(even) .timeline-content .cd-date {
     left: auto;
     right: 122%;
     text-align: right;
   }
-  .cssanimations .cd-timeline-content.is-hidden {
+  .cssanimations .timeline-content.is-hidden {
     visibility: hidden;
   }
-  .cssanimations .cd-timeline-content.bounce-in {
+  .cssanimations .timeline-content.bounce-in {
     visibility: visible;
     -webkit-animation: cd-bounce-2 0.6s;
     -moz-animation: cd-bounce-2 0.6s;
@@ -322,7 +327,7 @@
 
 @media only screen and (min-width: 1170px) {
   /* inverse bounce effect on even content blocks */
-  .cssanimations .cd-timeline-block:nth-child(even) .cd-timeline-content.bounce-in {
+  .cssanimations .timeline-block:nth-child(even) .timeline-content.bounce-in {
     -webkit-animation: cd-bounce-2-inverse 0.6s;
     -moz-animation: cd-bounce-2-inverse 0.6s;
     animation: cd-bounce-2-inverse 0.6s;

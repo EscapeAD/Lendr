@@ -1,4 +1,4 @@
-
+`
 <div class='container context-container'>
   <!-- <div class='border item-show-info row'> -->
 
@@ -78,7 +78,7 @@
 </div> -->
 
 
-<div class='container'>
+<div class='container adventures-container'>
   <h3 class="subheader-main">Adventures</h3>
 
   <p class="empty-stories">
@@ -91,18 +91,21 @@
     <% @stories.each do |story| %>
 
     <!-- includes both marker and story -->
-    <div class="cd-timeline-block">
+    <div class="timeline-block">
 
       <!-- icon on timeline -->
-      <div class="cd-timeline-img cd-picture">
+      <div class="timeline-img icon-background">
         <i class="fa fa-male" aria-hidden="true"></i>
       </div>
 
       <!-- content -->
-      <div class="cd-timeline-content">
-        <h2><%= story.title %></h2>
-        <p><%=story.story%></p>
-        <span class="cd-date">story.date</span>
+      <div class="timeline-content">
+        <span class = "story-profile-photo"><%= image_tag StoryPhoto.find(story.id).photo.url %></span>
+        <span class = "story-info-text">
+          <h2><%= story.title %></h2>
+          <p><%=story.story%></p>
+          <div class = "story-date"><%= story.date.strftime("%B %d, %Y") %></div>
+        </span>
       </div>
     <% end %>
     </div>
@@ -147,3 +150,4 @@
     </div>
   </div>
 </div>
+`
