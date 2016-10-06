@@ -6,6 +6,7 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <script src="//cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js"></script>
+    <script src="https://use.fontawesome.com/<%= Figaro.env.fontawesome_key %>.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Lato|Montserrat|Pavanam" rel="stylesheet">
 
   </head>
@@ -151,5 +152,26 @@
       </div>
     </div>
 
+    <footer class="footer" id="colored-footer">
+      <div class="footer-container">
+        <div class = "contact-us col-md-4">
+          <h3 class="text-muted">Contact Us</h3>
+          <p class="footer-text">
+            220 Bitmaker Ave.<br>
+            Toronto, Ontario<br>
+            Canada
+          </p>
+        </div>
+        <div class = "social-media-icons col-md-4">
+        </div>
+        <div class = "social-media-icons col-md-4">
+          <h3 class="text-muted">Let's Connect</h3>
+          <i class="fa fa-github" aria-hidden="true"></i>
+          <i class="fa fa-linkedin" aria-hidden="true"></i>
+        </div>
+      </div>
+    </footer>
+
   </body>
+
 </html>
