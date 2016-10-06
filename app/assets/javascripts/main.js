@@ -53,6 +53,7 @@ $(document).on('turbolinks:load', function(){
         $('#searchList').append(rData);
       });
     });
+    
     // verify buttons
     $('#verify_button').on('click', function(event){
         event.preventDefault();
