@@ -32,7 +32,7 @@
           <div class="nav-group">
             <%= link_to 'Temp Link to items/index', items_path %> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <% if user_signed_in? %>
-              <span class="badge"><%=Mail.where(recipient: current_user.id).count%></span> <%= link_to "Inbox", mails_path %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <span class="badge"><%=Mail.where(recipient: current_user.id, open: false).count%></span> <%= link_to "Inbox", mails_path %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               <%= link_to "Profile", user_path %>
             <% else %>
               <a type="button" data-toggle="modal" data-target="#myModal">Log In</a>
