@@ -61,17 +61,24 @@ $(document).on('turbolinks:load', function(){
   });
 
   $('#enterChat').on(keypress,function (e) {
+      console.log('TEST 123'); /// TEMP
+
+        console.log(e); /// TEMP
+
         event.preventDefault();
-  if (e.which == 13) {
-    $.ajax({
-          url: this.action,
-          data: $(this).serialize(),
-          method: "post"
-        }).done(function(){
-          $('#enterChat').removeAttr('value');
-        })
-};
-});
+
+        if (e.which == 13) {
+          $.ajax({
+            url: this.action,
+            data: $(this).serialize(),
+            method: "post"
+          }).done(function(){
+            console.log(); /// TEMP
+
+            $('#enterChat').removeAttr('value');
+          });
+        };
+  });
 
 
 

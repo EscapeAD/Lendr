@@ -4,5 +4,6 @@ App.verification = App.cable.subscriptions.create({
  }, {
   received: function(data){
     $('#new_message').append(data.message);
+    $('#enterChat').val('');
   }
 });
