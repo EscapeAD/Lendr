@@ -1,21 +1,27 @@
 $(document).on('turbolinks:load', function(){
+  // jquery tabs for user
+    $('#myTabs a[href="#pending"]').tab('show');
+    $('#myTabs a[href="#borrow"]').tab('show');
+    $('#myTabs a[href="#lent"]').tab('show');
+    $('#myTabs a[href="#inventory"]').tab('show');
 
-  $('#searchBtn').on('click',function(e){
-      e.preventDefault();
-      $('#searchList').empty();
-      $('#allItems').empty();
-      var searchInput = $('#searchTextField').val();
-      categoryInput = ''
-      $.ajax({
-        url: '/items',
-        method: 'GET',
-        data: {searchInput: searchInput, categoryInput: categoryInput},
-        dataType: 'HTML'
-      }).done(function(rData){
-        $('#searchList').append(rData);
-      });
-  });
-
+  // Search function
+    $('#searchBtn').on('click',function(e){
+        e.preventDefault();
+        $('#searchList').empty();
+        $('#allItems').empty();
+        var searchInput = $('#searchTextField').val();
+        categoryInput = ''
+        $.ajax({
+          url: '/items',
+          method: 'GET',
+          data: {searchInput: searchInput, categoryInput: categoryInput},
+          dataType: 'HTML'
+        }).done(function(rData){
+          $('#searchList').append(rData);
+        });
+    });
+  // CATEGORY
   $('#bookCat').on('click',function(e){
     e.preventDefault();
     $('#searchList').empty();
@@ -46,38 +52,17 @@ $(document).on('turbolinks:load', function(){
       }).done(function(rData){
         $('#searchList').append(rData);
       });
-  });
-
-  $('#verify_button').on('click', function(event){
-      event.preventDefault();
-    $.ajax({
-      url: $(this).attr('href'),
-      method: 'PUT',
-      data: {},
-      dataType: 'JSON'
-    }).done(function(responseData){
-      location.reload();
     });
-  });
-  // TEMP - Actioncable took over
-  // $('#enterChat').on(keypress,function (e) {
-  //     console.log('TEST 123'); /// TEMP
-  //
-  //       console.log(e); /// TEMP
-  //
-  //       event.preventDefault();
-  //
-  //       if (e.which == 13) {
-  //         $.ajax({
-  //           url: this.action,
-  //           data: $(this).serialize(),
-  //           method: "post"
-  //         }).done(function(){
-  //           console.log(); /// TEMP
-  //
-  //           $('#enterChat').removeAttr('value');
-  //         });
-  //       };
-  // });
-
+    // verify buttons
+    $('#verify_button').on('click', function(event){
+        event.preventDefault();
+      $.ajax({
+        url: $(this).attr('href'),
+        method: 'PUT',
+        data: {},
+        dataType: 'JSON'
+      }).done(function(responseData){
+        location.reload();
+      });
+    });
   });
