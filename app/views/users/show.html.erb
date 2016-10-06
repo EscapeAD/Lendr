@@ -3,11 +3,13 @@
     <div class="container">
       <div class="row" id="user-profile-info">
         <div class="col-md-6" id="profile-image">
+          <a href="#" data-featherlight="#mylightbox">
           <% if @user.avatar_file_name != nil %>
-          <%= image_tag @user.avatar.url(:medium) %>
+          <%= image_tag @user.avatar.url(:medium), id: 'mylightbox' %>
           <% else %>
           <%= image_tag "http://awhatsappstatus.org/wp-content/uploads/2015/11/femous-and-poular-d-profile-pictures-2.jpg" %>
           <% end %>
+        </a>
         </div>
         <div class="col-md-6" id= "profile-description">
           <div class = "name">
@@ -55,11 +57,13 @@
                   <% @pending.each do | item | %>
                     <div class="col-md-3">
                       <div class="user-square-container">
+                        <a href="/items/<%=item.item_id%>">
                         <% if Item.find(item.item_id).pictures.first != nil %>
-                        <%= image_tag Item.find(item.item_id).pictures.first.image.url, class: 'thumbnail' %>
+                        <%= image_tag Item.find(item.item_id).pictures.first.image.url, class: 'thumbnail', id: "mylightbox#{item.id}#{item.item_id}" %>
                         <% else %>
                         <%= image_tag "http://epaper2.mid-day.com/images/no_image_thumb.gif", class: 'thumbnail' %>
                         <% end %>
+                        </a>
                       </div>
                       <strong><%=Item.find(item.item_id).name%></strong>
                       <div class = "">

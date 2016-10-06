@@ -5,6 +5,10 @@ class MailsController < ApplicationController
 
   def show
     @mail = Mail.find(params[:id])
+    if @mail.open == true
+      @mail.open = false
+      @mail.save
+    end
   end
 
   def new
