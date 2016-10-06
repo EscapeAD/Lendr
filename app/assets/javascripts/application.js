@@ -11,9 +11,10 @@
 // about supported directives.
 //
 //= require jquery
+//= require turbolinks
+//= require cable
 //= require jquery_ujs
 //= require_tree ../../../vendor/assets/javascripts
 //= require gmaps/google
-//= require_tree .
 //= require cocoon
-//= require cable
+//= require_tree .
