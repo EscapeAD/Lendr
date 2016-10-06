@@ -2,9 +2,14 @@
   <input id="location-input" class="controls" type="text" placeholder="Search Box" data-item="<%= @owner_of_item.id %>" data-checkout="<%= @borrower.id %>" data-verification="<%= @verify.id %>">
   <div id="map" style='height: 400px;'></div>
 </div>
-<div class="border chat">
-  <%= render @messages %>
 
+
+<div class="border chat">
+  <div id="new_message">
+    <div id=”messages”>
+      <%= render @messages %>
+    </div>
+</div>
   <%= render partial: "form", locals: {verification_id: @verify, message: @message} %>
 </div>
 
