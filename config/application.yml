@@ -15,9 +15,12 @@ gmail_password: 'bitmaker'
 
 development:
   google_maps_api_key: AIzaSyBnWK0fICl7oPDPWmSBWc5hcaL7Wuxxh-I
+  fontawesome_key: 301d5381d1
 
 test:
   google_maps_api_key: AIzaSyBnWK0fICl7oPDPWmSBWc5hcaL7Wuxxh-I
+  fontawesome_key: 301d5381d1
 
 production:
   google_maps_api_key: AIzaSyBnWK0fICl7oPDPWmSBWc5hcaL7Wuxxh-I
+  fontawesome_key: 301d5381d1
