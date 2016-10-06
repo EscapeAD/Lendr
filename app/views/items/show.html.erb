@@ -1,89 +1,153 @@
+`
+<div class='container context-container'>
+  <!-- <div class='border item-show-info row'> -->
 
-<div class='container'>
-  <div class='border item-show-info row'>
+<!-- <div class = "item_image floatl col-md-8">
+  <%# if @item.pictures.first != nil %>
+  <%#= image_tag @item.pictures.first.image.url, id: 'show-image' %>
+  <%# else %>
+  <%#= image_tag "http://epaper2.mid-day.com/images/no_image_thumb.gif" %>
+  <%# end %>
+  </div> -->
 
-<div class = "item_image floatl col-md-8">
-  <% if @item.pictures.first != nil %>
-  <%= image_tag @item.pictures.first.image.url, id: 'show-image' %>
-  <% else %>
-  <%= image_tag "http://epaper2.mid-day.com/images/no_image_thumb.gif" %>
-  <% end %>
-  </div>
-
-<div class='underpass-pic'>
-<% @item.pictures.each do |pic| %>
-  <div class = "thumbnail-pic"><%= image_tag pic.image.url, class: 'thumbnail-pic' %></div>
-  <% if current_user != nil && @item.user_id == current_user.id %>
-  <%= link_to 'delete', item_picture_url(@item.id,pic.id),method: :delete, id: 'delImgId' %>
-  <% end %>
-<% end %>
-</div>
-
-    <div class="pull-right col-md-4 item-description">
-    <h1><%= @item.name %></h1>
-    <strong>Owner:</strong>       <%= @owner.first_name.capitalize %> <%= @owner.last_name.capitalize %><br>
-    <strong>Type:</strong>&nbsp;&nbsp;&nbsp;  <%= @item.category.name.capitalize %><br>
-    <dl>
-    <dt><strong>Description:</strong></dt>
-    <dd><%= @item.description %></dd>
-    </dl>
-    <br>
-
-  <%= link_to 'Borrrow', new_item_checkout_path(@item), class: 'btn btn-success btn-lg' %>
-  <% if current_user == @item.user_id %>
-  <%= link_to 'Edit', edit_item_path %>
-  <%= link_to 'Delete', item_path, method: :delete, data: {confirm: "Are you sure you want to delete the item '#{@item.name}'? This cannot be undone!"} %>
-  <% end %>
-</div>
-</div>
-</div>
-
-<div class='border container story-box'>
-  <div class='container'>
-  <h3>Adventures of:</h3>
-  <div class='row'>
-    <% if @stories.empty? %>
-    <em>Currently this lone item has no adventures </em>
-    <% else %>
-    <% @stories.each do |story| %>
-    <div class="col-xs-6 col-md-11">
-      <h2><%= story.title %></h2>
-      <div class='border'>
-        <p><%=story.story%></p>
-      </div>
-    </div>
-    <% end %>
-    <% end %>
-  </div>
-</div>
-</div>
-
-
-
-<%= form_for(@mail) do |f| %>
-
-  <% if @mail.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@mail.errors.count, "error") %> prohibited this mail from being saved:</h2>
-
-      <ul>
-        <% @mail.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
+  <div class="col-md-6">
+    <div class="flexslider">
+      <ul class="slides">
+        <% if @item.pictures.first != nil %>
+          <li><%= image_tag @item.pictures.first.image.url, id: 'show-image' %></li>
+        <% else %>
+          <li><%= image_tag "http://epaper2.mid-day.com/images/no_image_thumb.gif" %></li>
         <% end %>
       </ul>
     </div>
+  </div>
+
+  <!-- <div class='underpass-pic'>
+    <%# @item.pictures.each do |pic| %>
+      <div class = "thumbnail-pic"><%#= image_tag pic.image.url, class: 'thumbnail-pic' %></div>
+      <%# if current_user != nil && @item.user_id == current_user.id %>
+        <%#= link_to 'delete', item_picture_url(@item.id,pic.id),method: :delete, id: 'delImgId' %>
+      <%# end %>
+    <%# end %>
+  </div> -->
+
+<div class="col-md-6 ">
+    <p>
+      <h2><%= @item.name %></h2>
+      <strong>Owner:</strong> <%= @owner.first_name.capitalize %> <%= @owner.last_name.capitalize %><br>
+      <strong>Type:</strong> <%= @item.category.name.capitalize %><br>
+      <strong>Description:</strong><br>
+      <%= @item.description %>
+    </p>
+    <br>
+
+    <%= link_to 'Borrrow', new_item_checkout_path(@item), class: 'btn btn-success btn-lg' %>
+    <a type="button"  data-toggle="modal" data-target="#message-to-owner">Message Owner</a>
+
+    <% if current_user == @item.user_id %>
+      <%= link_to 'Edit', edit_item_path %>
+      <%= link_to 'Delete', item_path, method: :delete, data: {confirm: "Are you sure you want to delete the item '#{@item.name}'? This cannot be undone!"} %>
+    <% end %>
+  </div>
+</div>
+
+<!-- <section id="cd-timeline" class="cd-container">
+  <div class="cd-timeline-block">
+    <div class="cd-timeline-img cd-picture">
+      <img src="img/cd-icon-picture.svg" alt="Picture">
+    </div
+
+  <div clas='border container story-box'>
+  <div class='container'>
+  <h3>Adventures of:</h3>
+  <div class='row'>
+    <%# if @stories.empty? %>
+    <em>Currently this lone item has no adventures </em>
+    <%# else %>
+    <%# @stories.each do |story| %>
+    <div class="col-xs-6 col-md-11">
+      <h2><%#= story.title %></h2>
+      <div class='border'>
+        <p><%#=story.story%></p>
+      </div>
+    </div>
+    <%# end %>
+    <%# end %>
+  </div>
+</div>
+</div> -->
+
+
+<div class='container adventures-container'>
+  <h3 class="subheader-main">Adventures</h3>
+
+  <p class="empty-stories">
+    <% if @stories.empty? %>
+      <em>Currently this lone item has no adventures.</em>
+    <% else %>
+  </p>
+
+  <section id="cd-timeline" class="cd-container">
+    <% @stories.each do |story| %>
+
+    <!-- includes both marker and story -->
+    <div class="timeline-block">
+
+      <!-- icon on timeline -->
+      <div class="timeline-img icon-background">
+        <i class="fa fa-male" aria-hidden="true"></i>
+      </div>
+
+      <!-- content -->
+      <div class="timeline-content">
+        <span class = "story-profile-photo"><%= image_tag StoryPhoto.find(story.id).photo.url %></span>
+        <span class = "story-info-text">
+          <h2><%= story.title %></h2>
+          <p><%=story.story%></p>
+          <div class = "story-date"><%= story.date.strftime("%B %d, %Y") %></div>
+        </span>
+      </div>
+    <% end %>
+    </div>
+  </section>
   <% end %>
 
+  <div class="modal fade" id="message-to-owner" tabindex="-1" role="dialog" aria-labelledby="message-to-owner">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Message Owner</h4>
+        </div>
+        <div class="modal-body">
+          <%= form_for(@mail) do |f| %>
 
-  <%= f.label :title %><br />
-  <%= f.text_field :title, id: 'mailTitle' %><br />
+            <% if @mail.errors.any? %>
+              <div id="error_explanation">
+                <h2><%= pluralize(@mail.errors.count, "error") %> prohibited this mail from being saved:</h2>
 
-  <%= f.label :text %><br />
-  <%= f.text_area :text, id: 'mailText' %><br />
+                <ul>
+                  <% @mail.errors.full_messages.each do |msg| %>
+                    <li><%= msg %></li>
+                  <% end %>
+                </ul>
+              </div>
+            <% end %>
 
+            <%= f.label :title %><br />
+            <%= f.text_field :title, id: 'mailTitle' %><br />
 
-  <button type="button" id="mailSubmitBtn" data-ownerId="<%= @item.user_id%>">Send Email</button>
+            <%= f.label :text %><br />
+            <%= f.text_area :text, id: 'mailText' %><br />
+        </div>
+        <div class="modal-footer">
 
+            <button type="button" id="mailSubmitBtn" data-ownerId="<%= @item.user_id%>">Send Email</button>
+          <% end %>
 
-
-<% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`
