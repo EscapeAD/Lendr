@@ -1,7 +1,6 @@
 <div class = "profile-bg">
   <div class="container">
     <div class="container">
-
       <div class="row" id="user-profile-info">
         <div class="col-md-6" id="profile-image">
           <% if @user.avatar_file_name != nil %>
@@ -10,7 +9,6 @@
           <%= image_tag "http://awhatsappstatus.org/wp-content/uploads/2015/11/femous-and-poular-d-profile-pictures-2.jpg" %>
           <% end %>
         </div>
-
         <div class="col-md-6" id= "profile-description">
           <div class = "name">
             <%=current_user.first_name.capitalize %> <%=current_user.last_name.capitalize %><br/>
@@ -22,7 +20,6 @@
           </div>
         </div>
       </div>
-
       <div class="row profile-statistics">
         <div class="col-md-4">
           <h2 class = "numbers"><%= @count_inventory %></h2>
@@ -37,11 +34,8 @@
           <h2 class = "statistic-titles">Total Lent Out</h2>
         </div>
       </div>
-
 <br/><br>
-
       <div class='container'>
-
         <!-- Nav tabs -->
         <ul class="nav nav-tabs" role="tablist">
           <li role="presentation" class="active"><a href="#pending" aria-controls="home" role="tab" data-toggle="tab">Pending</a></li>
@@ -49,13 +43,11 @@
           <li role="presentation"><a href="#lent" aria-controls="messages" role="tab" data-toggle="tab">Lent</a></li>
           <li role="presentation"><a href="#inventory" aria-controls="settings" role="tab" data-toggle="tab">Inventory</a></li>
         </ul>
-
         <!-- Tab panes -->
         <div class="tab-content">
           <div role="tabpanel" class="tab-pane active" id="pending">
             <div class="row pending-items-display">
               <h2 class="subheader-main user-categories">Pending</h2>
-
               <div class = "images-list">
                 <% if @pending.empty? %>
                   <em>Currently no pending</em>
@@ -113,7 +105,6 @@
                               </div>
                         <% else %>
                         <% if Verification.where(checkout_id: item.id, status: 'pickup').empty? %>
-
                           <% if Item.find(item.item_id).user_id == current_user.id %>
                             <!-- <span class="accept-button"><%#= link_to 'Accept', user_path ,data: {checkout: "#{item.id}",inventory: "#{item.item_id}"}, class: 'confirm'%></span> -->
                             <span class="accept-button"><%= link_to 'Accept', item_checkout_path(item.item_id, item.id), method: :put %></span>
@@ -122,7 +113,6 @@
                             <em> Waiting for Lender to Approve </em><br/>
                             <%= link_to 'Cancel Request', item_checkout_path(item.item_id, item.id), method: :delete, data: { confirm: 'Are you sure?' } %>
                           <% end %>
-
                         <% else %>
                           <%= link_to 'View Status', item_checkout_verification_path(Item.find(item.item_id),item.id,Verification.verify_show_pickup(item.id)) %>
                         <% end %>
@@ -132,14 +122,11 @@
                   <% end %>
                 <% end %>
               </div>
-
             </div>
-
           </div>
           <div role="tabpanel" class="tab-pane" id="borrow">
             <div class="row pending-items-display">
               <h2 class="subheader-main user-categories">Items Borrowed</h2>
-
               <div class = "images-list">
                 <% if @borrow.empty? %>
                   <em>Currently you have nothing borrowed. <%= link_to 'Available Borrow List', items_path %></em>
@@ -166,13 +153,10 @@
                 <% end %>
               </div>
             </div>
-
-
           </div>
           <div role="tabpanel" class="tab-pane" id="lent">
             <div class="row pending-items-display">
               <h2 class="subheader-main user-categories">Items Lent</h2>
-
               <div class = "images-list">
                 <% if @lent.empty? %>
                   <em>Currently nothing is being lent out.</em>
@@ -199,12 +183,10 @@
                 <% end %>
               </div>
             </div>
-
           </div>
           <div role="tabpanel" class="tab-pane" id="inventory">
             <div class="row pending-items-display">
               <h2 class="subheader-main user-categories">Total Inventory</h2>
-
               <div class = "images-list">
                 <% if @items.empty? %>
                   <em>Your inventory is empty. <%= link_to 'Add Item to Inventory', new_item_path %></em>
