@@ -1,8 +1,9 @@
-<div class='container'>
+ <div class='container'>
+  <div class='container text-center'>
   <h1>Item Search</h1>
   <button id="searchBtn">Search</button>
   <input id="searchTextField" type="text" name="searchTxt">
-
+  </div>
 <div class='row'>
   <div class='col-md-2 category-list'>
     <h4> Categories</h4>
@@ -16,29 +17,32 @@
     </ul>
   </div>
 
-  <div class='col-md-8'>
-
+  <div class='col-md-10'>
+    <h2>All Items</h2>
+    <div class='col-md-3 border'>
     <div id="searchSec">
       <div id="searchList">
         <section id="allItems">
-            <h2>All Items</h2>
+
             <% @items.each do |item| %>
             <% if item.pictures.empty? %>
             <%= image_tag "http://epaper2.mid-day.com/images/no_image_thumb.gif"%><br/>
                 <%= link_to item.name, item_path(item) %>
                 <br>Owner: <%= item.user_id %>
             <% else %>
-              <div class = "item_image"><% if item.pictures != nil %>
-                <%= image_tag item.pictures.first.image.url(:thumb) %>
+              <div class="item_image">
+                <% if item.pictures != nil %>
+                <%= image_tag item.pictures.first.image.url(:thumb), class: 'image-search-item thumbnail' %>
                 <% end %>
-              <div class = "item-info">
+              <div class="item-info">
                 <%= link_to item.name, item_path(item) %>
-                <br>Owner: <%= item.user_id %>
+                <br>Owner: <%= User.find(item.user_id).first_name %> <%= User.find(item.user_id).last_name %>
               </div>
               <br>
-          <% end %>
-        <% end %>
-        </section>
+              <% end %>
+            <% end %>
+          </section>
+        </div>
       </div>
     </div>
   </div>
