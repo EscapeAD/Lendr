@@ -53,7 +53,7 @@ $(document).on('turbolinks:load', function(){
         $('#searchList').append(rData);
       });
     });
-    
+
     // verify buttons
     $('#verify_button').on('click', function(event){
         event.preventDefault();
@@ -68,7 +68,7 @@ $(document).on('turbolinks:load', function(){
     });
 
     var timelineBlocks = $('.timeline-block'),
-  		offset = 0.8;
+		offset = 0.8;
 
   	//hide timeline blocks which are outside the viewport
   	hideBlocks(timelineBlocks, offset);

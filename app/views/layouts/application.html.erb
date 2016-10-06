@@ -9,7 +9,6 @@
     <script src="//cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js"></script>
     <script src="https://use.fontawesome.com/<%= Figaro.env.fontawesome_key %>.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Lato|Montserrat|Pavanam" rel="stylesheet">
-
   </head>
 
   <body>
@@ -35,7 +34,7 @@
               <a type="button" data-toggle="modal" data-target="#myModal">Log In</a>
             <% end %>
           </div>
-          
+
           <div class="nav-group">
             <% if user_signed_in? %>
               <%= link_to 'Log Out', destroy_user_session_path, method: :delete %>
