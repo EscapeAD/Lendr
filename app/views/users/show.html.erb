@@ -69,14 +69,14 @@
                         <%= image_tag "http://epaper2.mid-day.com/images/no_image_thumb.gif", class: 'thumbnail' %>
                         <% end %>
                       </div>
-                      <div class = "accept-decline">
+                      <strong><%=Item.find(item.item_id).name%></strong>
+                      <div class = "">
                         <% if Story.story_check(item.id) %>
                               <a  type="button" data-toggle="modal" data-target="#storyModal<%=item.id%>">Create a Story</a>
                               <!--  Story Mogal -->
                               <div class="modal fade" id="storyModal<%=item.id%>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                                 <div class="modal-dialog" role="document">
                                   <div class="modal-content">
-                                    <% #form_for @story, item_story_path(item.item_id, Story.find_by(checkout_id: item.id).id )  do |f| %>
                                     <%= form_for Story.find_by(checkout_id: item.id), url: item_story_path(item.item_id, Story.find_by(checkout_id: item.id).id ),html: { multipart: true }, method: :put  do |f| %>
                                       <div class="modal-header">
                                         <button type="button" class="close form-group row" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -104,9 +104,6 @@
                                               </div>
                                             <% end %>
                                           </div>
-
-
-
                                       <div class="modal-footer">
                                         <%= f.submit "submit story", class: "btn btn-primary" %>
                                       </div>
@@ -221,8 +218,8 @@
                         <%= image_tag "http://epaper2.mid-day.com/images/no_image_thumb.gif", class: 'thumbnail' %>
                         <% end %>
                       </div>
-                      <div class = "accept-decline">
-                        <strong>Name: </strong> <%= Item.find(item.id).name %>
+                      <div class = "">
+                        <strong><%= Item.find(item.id).name %></strong> <br/>
                         <%= link_to 'View', item_path(item.id)%>
                       </div>
                     </div>
