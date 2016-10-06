@@ -38,6 +38,8 @@ gem "cocoon"
 
 gem "paperclip", "~> 5.0.0"
 
+gem 'modernizr-rails', '~> 2.7', '>= 2.7.1'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
