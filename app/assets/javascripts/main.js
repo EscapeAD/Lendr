@@ -13,6 +13,11 @@ $(document).on('turbolinks:load', function(){
       window.location.href = "/items?searchInput="+searchInput;
     });
 
+    $("#mainSearchTextField").keyup(function(event){
+    if(event.keyCode == 13){
+        $("#mainSearchBtn").click();
+    }
+    });
 
 
   // Search function
@@ -21,7 +26,7 @@ $(document).on('turbolinks:load', function(){
         $('#searchList').empty();
         $('#allItems').empty();
         var searchInput = $('#searchTextField').val();
-        categoryInput = ''
+        categoryInput = '';
         $.ajax({
           url: '/items',
           method: 'GET',
@@ -30,6 +35,12 @@ $(document).on('turbolinks:load', function(){
         }).done(function(rData){
           $('#searchList').append(rData);
         });
+    });
+
+    $("#searchTextField").keyup(function(event){
+    if(event.keyCode == 13){
+        $("#searchBtn").click();
+    }
     });
 
 
