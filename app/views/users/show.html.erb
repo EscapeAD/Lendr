@@ -1,6 +1,6 @@
 <div class = "profile-bg">
   <div class="container">
-    <div class="context-container">
+    <div class="container">
 
       <div class="row" id="user-profile-info">
         <div class="col-md-6" id="profile-image">
@@ -38,182 +38,198 @@
         </div>
       </div>
 
+<br/><br>
 
+      <div class='container'>
 
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs" role="tablist">
+          <li role="presentation" class="active"><a href="#pending" aria-controls="home" role="tab" data-toggle="tab">Pending</a></li>
+          <li role="presentation"><a href="#borrow" aria-controls="profile" role="tab" data-toggle="tab">Borrowed</a></li>
+          <li role="presentation"><a href="#lent" aria-controls="messages" role="tab" data-toggle="tab">Lent</a></li>
+          <li role="presentation"><a href="#inventory" aria-controls="settings" role="tab" data-toggle="tab">Inventory</a></li>
+        </ul>
 
+        <!-- Tab panes -->
+        <div class="tab-content">
+          <div role="tabpanel" class="tab-pane active" id="pending">
+            <div class="row pending-items-display">
+              <h2 class="subheader-main user-categories">Pending</h2>
 
-
-
-
-
-
-      <div class="row pending-items-display">
-        <h2 class="subheader-main user-categories">Pending</h2>
-
-        <div class = "images-list">
-          <% if @pending.empty? %>
-            <em>Currently no pending</em>
-          <% else %>
-            <% @pending.each do | item | %>
-              <div class="col-md-3">
-                <div class="user-square-container">
-                  <% if Item.find(item.item_id).pictures.first != nil %>
-                  <%= image_tag Item.find(item.item_id).pictures.first.image.url, class: 'thumbnail' %>
-                  <% else %>
-                  <%= image_tag "http://epaper2.mid-day.com/images/no_image_thumb.gif", class: 'thumbnail' %>
-                  <% end %>
-                </div>
-                <div class = "accept-decline">
-                  <% if Story.story_check(item.id) %>
-                        <a  type="button" data-toggle="modal" data-target="#storyModal<%=item.id%>">Create a Story</a>
-                        <!--  Story Mogal -->
-                        <div class="modal fade" id="storyModal<%=item.id%>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                          <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                              <% #form_for @story, item_story_path(item.item_id, Story.find_by(checkout_id: item.id).id )  do |f| %>
-                              <%= form_for Story.find_by(checkout_id: item.id), url: item_story_path(item.item_id, Story.find_by(checkout_id: item.id).id ),html: { multipart: true }, method: :put  do |f| %>
-                                <div class="modal-header">
-                                  <button type="button" class="close form-group row" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                  <h4 class="modal-title" id="myModalLabel">Sign In</h4>
-                                </div>
-                                <div class="modal-body">
-                                  <div class="form-group row">
-                                      <%= f.label :title, class:'col-sm-2 col-form-label'%>
-                                      <div class="col-sm-10">
-                                      <%= f.text_field :title, class: 'form-control',placeholder:"merry had a little lamb" %>
-                                  </div>
-                                </div>
-                                  <div class="form-group row">
-                                    <%= f.label :story, class:'col-sm-2 col-form-label' %>
-                                    <div class="col-sm-10">
-                                    <%= f.text_area :story, class: 'form-control',placeholder: 'once upon a time'%>
-                                  </div>
-                                </div>
-                                    <h3>Upload Story Images</h3>
-                                    <div id="story_photos">
-                                      <%= f.fields_for :story_photos, StoryPhoto.new do |photo| %>
-                                        <%= render partial:'story_photos_fields', locals: { f: photo } %>
-                                        <div class="links">
-                                          <%= link_to_add_association 'Add Another image', f, :story_photos, partial:'story_photos_fields' %>
+              <div class = "images-list">
+                <% if @pending.empty? %>
+                  <em>Currently no pending</em>
+                <% else %>
+                  <% @pending.each do | item | %>
+                    <div class="col-md-3">
+                      <div class="user-square-container">
+                        <% if Item.find(item.item_id).pictures.first != nil %>
+                        <%= image_tag Item.find(item.item_id).pictures.first.image.url, class: 'thumbnail' %>
+                        <% else %>
+                        <%= image_tag "http://epaper2.mid-day.com/images/no_image_thumb.gif", class: 'thumbnail' %>
+                        <% end %>
+                      </div>
+                      <div class = "accept-decline">
+                        <% if Story.story_check(item.id) %>
+                              <a  type="button" data-toggle="modal" data-target="#storyModal<%=item.id%>">Create a Story</a>
+                              <!--  Story Mogal -->
+                              <div class="modal fade" id="storyModal<%=item.id%>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                                <div class="modal-dialog" role="document">
+                                  <div class="modal-content">
+                                    <% #form_for @story, item_story_path(item.item_id, Story.find_by(checkout_id: item.id).id )  do |f| %>
+                                    <%= form_for Story.find_by(checkout_id: item.id), url: item_story_path(item.item_id, Story.find_by(checkout_id: item.id).id ),html: { multipart: true }, method: :put  do |f| %>
+                                      <div class="modal-header">
+                                        <button type="button" class="close form-group row" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                        <h4 class="modal-title" id="myModalLabel">Sign In</h4>
+                                      </div>
+                                      <div class="modal-body">
+                                        <div class="form-group row">
+                                            <%= f.label :title, class:'col-sm-2 col-form-label'%>
+                                            <div class="col-sm-10">
+                                            <%= f.text_field :title, class: 'form-control',placeholder:"merry had a little lamb" %>
                                         </div>
-                                      <% end %>
-                                    </div>
+                                      </div>
+                                        <div class="form-group row">
+                                          <%= f.label :story, class:'col-sm-2 col-form-label' %>
+                                          <div class="col-sm-10">
+                                          <%= f.text_area :story, class: 'form-control',placeholder: 'once upon a time'%>
+                                        </div>
+                                      </div>
+                                          <h3>Upload Story Images</h3>
+                                          <div id="story_photos">
+                                            <%= f.fields_for :story_photos, StoryPhoto.new do |photo| %>
+                                              <%= render partial:'story_photos_fields', locals: { f: photo } %>
+                                              <div class="links">
+                                                <%= link_to_add_association 'Add Another image', f, :story_photos, partial:'story_photos_fields' %>
+                                              </div>
+                                            <% end %>
+                                          </div>
 
 
 
-                                <div class="modal-footer">
-                                  <%= f.submit "submit story", class: "btn btn-primary" %>
+                                      <div class="modal-footer">
+                                        <%= f.submit "submit story", class: "btn btn-primary" %>
+                                      </div>
+                                    <% end %>
+                                  </div>
                                 </div>
-                              <% end %>
-                            </div>
-                          </div>
-                        </div>
-                  <% else %>
-                  <% if Verification.where(checkout_id: item.id, status: 'pickup').empty? %>
+                              </div>
+                        <% else %>
+                        <% if Verification.where(checkout_id: item.id, status: 'pickup').empty? %>
 
-                    <% if Item.find(item.item_id).user_id == current_user.id %>
-                      <!-- <span class="accept-button"><%#= link_to 'Accept', user_path ,data: {checkout: "#{item.id}",inventory: "#{item.item_id}"}, class: 'confirm'%></span> -->
-                      <span class="accept-button"><%= link_to 'Accept', item_checkout_path(item.item_id, item.id), method: :put %></span>
-                      <span class="accept-button"><%= link_to 'Decline', item_checkout_path(item.item_id, item.id), method: :delete, data: { confirm: 'Are you sure?' } %></span>
-                    <% else %>
-                      <em> Waiting for Lender to Approve </em><br/>
-                      <%= link_to 'Cancel Request', item_checkout_path(item.item_id, item.id), method: :delete, data: { confirm: 'Are you sure?' } %>
-                    <% end %>
+                          <% if Item.find(item.item_id).user_id == current_user.id %>
+                            <!-- <span class="accept-button"><%#= link_to 'Accept', user_path ,data: {checkout: "#{item.id}",inventory: "#{item.item_id}"}, class: 'confirm'%></span> -->
+                            <span class="accept-button"><%= link_to 'Accept', item_checkout_path(item.item_id, item.id), method: :put %></span>
+                            <span class="accept-button"><%= link_to 'Decline', item_checkout_path(item.item_id, item.id), method: :delete, data: { confirm: 'Are you sure?' } %></span>
+                          <% else %>
+                            <em> Waiting for Lender to Approve </em><br/>
+                            <%= link_to 'Cancel Request', item_checkout_path(item.item_id, item.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+                          <% end %>
 
-                  <% else %>
-                    <%= link_to 'show', item_checkout_verification_path(Item.find(item.item_id),item.id,Verification.verify_show_pickup(item.id)) %>
+                        <% else %>
+                          <%= link_to 'show', item_checkout_verification_path(Item.find(item.item_id),item.id,Verification.verify_show_pickup(item.id)) %>
+                        <% end %>
+                        <% end %>
+                      </div>
+                    </div>
                   <% end %>
-                  <% end %>
-                </div>
+                <% end %>
               </div>
-            <% end %>
-          <% end %>
-        </div>
 
-      </div>
+            </div>
 
-      <div class="row pending-items-display">
-        <h2 class="subheader-main user-categories">Items Lent</h2>
-
-        <div class = "images-list">
-          <% if @lent.empty? %>
-            <em>Currently nothing is being lent out.</em>
-          <% else %>
-          <div class="row">
-            <% @lent.each do | item | %>
-              <div class="col-md-3 border ">
-                <div class="user-square-container">
-                  <% if Item.find(item.item_id).pictures.first != nil %>
-                  <%= image_tag Item.find(item.item_id).pictures.first.image.url, class: 'thumbnail' %>
-                  <% else %>
-                  <%= image_tag "http://epaper2.mid-day.com/images/no_image_thumb.gif", class: 'thumbnail' %>
-                  <% end %>
-                </div>
-                <div class = "accept-decline">
-                  <strong>Nickname: </strong> <%= Item.find(item.item_id).name %>
-                  <strong>Lent To: </strong> <%= User.find(item.user_id).first_name %> <%= User.find(item.user_id).last_name %>
-                  <strong>Time Left: </strong> ...
-                  <%= link_to 'Retreive Item', item_checkout_verification_path(Item.find(item.item_id),item.id,Verification.verify_show_return(item.id)) %>
-                </div>
-              </div>
-            <% end %>
           </div>
-          <% end %>
-        </div>
-      </div>
+          <div role="tabpanel" class="tab-pane" id="borrow">
+            <div class="row pending-items-display">
+              <h2 class="subheader-main user-categories">Items Borrowed</h2>
 
-      <div class="row pending-items-display">
-        <h2 class="subheader-main user-categories">Items Borrowed</h2>
-
-        <div class = "images-list">
-          <% if @borrow.empty? %>
-            <em>Currently you have nothing borrowed. <%= link_to 'Available Borrow List', items_path %></em>
-          <% else %>
-          <div class='row'>
-            <% @borrow.each do | item | %>
-              <div class="col-md-3">
-                <div class="user-square-container">
-                  <% if Item.find(item.item_id).pictures.first != nil %>
-                  <%= image_tag Item.find(item.item_id).pictures.first.image.url, class: 'thumbnail' %>
-                  <% else %>
-                  <%= image_tag "http://epaper2.mid-day.com/images/no_image_thumb.gif", class: 'thumbnail' %>
+              <div class = "images-list">
+                <% if @borrow.empty? %>
+                  <em>Currently you have nothing borrowed. <%= link_to 'Available Borrow List', items_path %></em>
+                <% else %>
+                <div class='row'>
+                  <% @borrow.each do | item | %>
+                    <div class="col-md-3">
+                      <div class="user-square-container">
+                        <% if Item.find(item.item_id).pictures.first != nil %>
+                        <%= image_tag Item.find(item.item_id).pictures.first.image.url, class: 'thumbnail' %>
+                        <% else %>
+                        <%= image_tag "http://epaper2.mid-day.com/images/no_image_thumb.gif", class: 'thumbnail' %>
+                        <% end %>
+                      </div>
+                      <div class = "accept-decline">
+                        <strong>Nickname: </strong> <%= Item.find(item.item_id).name %>
+                        <strong>Owner: </strong> <%= User.find(item.user_id).first_name %> <%= User.find(item.user_id).last_name %>
+                        <strong>Time Left: </strong> ...
+                        <%= link_to 'Return Item', item_checkout_verification_path(Item.find(item.item_id),item.id,Verification.verify_show_return(item.id)) %>
+                      </div>
+                    </div>
                   <% end %>
                 </div>
-                <div class = "accept-decline">
-                  <strong>Nickname: </strong> <%= Item.find(item.item_id).name %>
-                  <strong>Owner: </strong> <%= User.find(item.user_id).first_name %> <%= User.find(item.user_id).last_name %>
-                  <strong>Time Left: </strong> ...
-                  <%= link_to 'Return Item', item_checkout_verification_path(Item.find(item.item_id),item.id,Verification.verify_show_return(item.id)) %>
-                </div>
+                <% end %>
               </div>
-            <% end %>
+            </div>
+
+
           </div>
-          <% end %>
-        </div>
-      </div>
+          <div role="tabpanel" class="tab-pane" id="lent">
+            <div class="row pending-items-display">
+              <h2 class="subheader-main user-categories">Items Lent</h2>
 
-      <div class="row pending-items-display">
-        <h2 class="subheader-main user-categories">Total Inventory</h2>
-
-        <div class = "images-list">
-          <% if @items.empty? %>
-            <em>Your inventory is empty. <%= link_to 'Add Item to Inventory', new_item_path %></em>
-          <% else %>
-            <% @items.each do | item | %>
-              <div class="col-md-3">
-                <div class="user-square-container">
-                  <% if item.pictures.first != nil %>
-                  <%= image_tag item.pictures.first.image.url, class: 'thumbnail' %>
-                  <% else %>
-                  <%= image_tag "http://epaper2.mid-day.com/images/no_image_thumb.gif", class: 'thumbnail' %>
+              <div class = "images-list">
+                <% if @lent.empty? %>
+                  <em>Currently nothing is being lent out.</em>
+                <% else %>
+                <div class="row">
+                  <% @lent.each do | item | %>
+                    <div class="col-md-3 border ">
+                      <div class="user-square-container">
+                        <% if Item.find(item.item_id).pictures.first != nil %>
+                        <%= image_tag Item.find(item.item_id).pictures.first.image.url, class: 'thumbnail' %>
+                        <% else %>
+                        <%= image_tag "http://epaper2.mid-day.com/images/no_image_thumb.gif", class: 'thumbnail' %>
+                        <% end %>
+                      </div>
+                      <div class = "accept-decline">
+                        <strong>Nickname: </strong> <%= Item.find(item.item_id).name %>
+                        <strong>Lent To: </strong> <%= User.find(item.user_id).first_name %> <%= User.find(item.user_id).last_name %>
+                        <strong>Time Left: </strong> ...
+                        <%= link_to 'Retreive Item', item_checkout_verification_path(Item.find(item.item_id),item.id,Verification.verify_show_return(item.id)) %>
+                      </div>
+                    </div>
                   <% end %>
                 </div>
-                <div class = "accept-decline">
-                  <strong>Nickname: </strong> <%= Item.find(item.id).name %>
-                </div>
+                <% end %>
               </div>
-            <% end %>
-          <% end %>
+            </div>
+
+          </div>
+          <div role="tabpanel" class="tab-pane" id="inventory">
+            <div class="row pending-items-display">
+              <h2 class="subheader-main user-categories">Total Inventory</h2>
+
+              <div class = "images-list">
+                <% if @items.empty? %>
+                  <em>Your inventory is empty. <%= link_to 'Add Item to Inventory', new_item_path %></em>
+                <% else %>
+                  <% @items.each do | item | %>
+                    <div class="col-md-3">
+                      <div class="user-square-container">
+                        <% if item.pictures.first != nil %>
+                        <%= image_tag item.pictures.first.image.url, class: 'thumbnail' %>
+                        <% else %>
+                        <%= image_tag "http://epaper2.mid-day.com/images/no_image_thumb.gif", class: 'thumbnail' %>
+                        <% end %>
+                      </div>
+                      <div class = "accept-decline">
+                        <strong>Nickname: </strong> <%= Item.find(item.id).name %>
+                      </div>
+                    </div>
+                  <% end %>
+                <% end %>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
