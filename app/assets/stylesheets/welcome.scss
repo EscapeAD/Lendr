@@ -163,6 +163,13 @@ video {
     color: white;
   }
 }
+
+
+.col-md-4:hover {
+  opacity: .5;
+}
+
+
 @media (min-width: 768px) {
   .video-container {
     position: relative;
