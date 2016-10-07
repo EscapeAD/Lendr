@@ -24,3 +24,7 @@ test:
 production:
   google_maps_api_key: AIzaSyBnWK0fICl7oPDPWmSBWc5hcaL7Wuxxh-I
   fontawesome_key: 301d5381d1
+  S3_BUCKET_NAME: lendrbucket
+  AWS_ACCESS_KEY_ID: AKIAIJAYV4OCQVORGUQQ
+  AWS_SECRET_ACCESS_KEY: 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
+  AWS_REGION: us-east-1
