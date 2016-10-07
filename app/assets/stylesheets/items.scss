@@ -33,11 +33,17 @@
 }
 
 .item_image{
-  width:200px;
-  height:200px;
+  position: relative;
+  width: 150px;
+  height: 150px;
+  overflow: hidden;
 }
 
-.item-box{
+.image-search-item{
+  position: absolute;
+  height: 100%;
+  width: auto;
+  left: -13%;
 }
 
 

@@ -11,7 +11,7 @@
   </div> -->
 
   <div class="col-md-6">
-    <div class="flexslider">
+    <!-- <div class="flexslider"> -->
       <ul class="slides">
         <% if @item.pictures.first != nil %>
           <li><%= image_tag @item.pictures.first.image.url, id: 'show-image' %></li>
@@ -19,7 +19,7 @@
           <li><%= image_tag "http://epaper2.mid-day.com/images/no_image_thumb.gif" %></li>
         <% end %>
       </ul>
-    </div>
+    <!-- </div> -->
   </div>
 
   <!-- <div class='underpass-pic'>

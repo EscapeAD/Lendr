@@ -25,7 +25,7 @@
             <% @items.each do |item| %>
 
               <% if item.pictures.empty? %>
-                <div class='col-md-3 border item-box'>
+                <div class='col-md-3 item-box'>
                     <%= image_tag "http://epaper2.mid-day.com/images/no_image_thumb.gif"%><br/>
                     <%= link_to item.name, item_path(item) %>
                     <br>Owner: <%= item.user_id %>
@@ -34,7 +34,7 @@
               <% else %>
 
                 <% if item.pictures != nil %>
-                  <div class='col-md-3 border item-box'>
+                  <div class='col-md-3 item-box'>
                     <div class="item_image">
                       <%= image_tag item.pictures.first.image.url(:medium), class: 'image-search-item' %>
                     </div>
