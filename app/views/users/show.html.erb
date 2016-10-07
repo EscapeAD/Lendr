@@ -7,7 +7,7 @@
           <% if @user.avatar_file_name != nil %>
           <%= image_tag @user.avatar.url(:medium), id: 'mylightbox' %>
           <% else %>
-          <%= image_tag "http://awhatsappstatus.org/wp-content/uploads/2015/11/femous-and-poular-d-profile-pictures-2.jpg" %>
+          <%= image_tag "http://awhatsappstatus.org/wp-content/uploads/2015/11/femous-and-poular-d-profile-pictures-2.jpg", id: 'mylightbox' %>
           <% end %>
         </a>
         </div>
