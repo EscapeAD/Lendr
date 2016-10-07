@@ -36,6 +36,25 @@
   clear: both;
 }
 
+.item-details{
+  line-height: 30px;
+  font-family: 'Lato', sans-serif;
+  border-bottom: 1px solid #BCBCBC;
+  width: 80%;
+  padding-bottom: 18px;
+}
+
+.item-details h3{
+  padding-bottom:10px;
+}
+
+.item-details h4{
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  margin-bottom: 0px;
+  color: #424242;
+}
+
 .item_image{
   position: relative;
   width: 150px;
@@ -71,6 +90,31 @@
 
 #searchTextField{
   width: 85%;
+}
+
+.success-btn{
+  border-radius: 4px;
+  font-size: 12px;
+}
+
+.btn-secondary{
+  background-color: #ededed;
+  font-size: 18px;
+  border-radius: 40px;
+  color: #bcbcbc;
+  padding: 10px 13px;
+}
+
+.btn-secondary:hover{
+  color:#6b6b6b;
+}
+
+.messsage-icon{
+  margin-left: 28%;
+}
+
+#msg-label{
+  margin-right: 10px;
 }
 
 @media only screen and (min-width: 1170px) {
