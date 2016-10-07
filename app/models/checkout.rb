@@ -31,13 +31,13 @@ class Checkout < ApplicationRecord
     return list
   end
 
-  def self.pending(userId)
-    inventory = Item.where(user_id: userId)
+  def self.pending(current_user_id)
+    inventory = Item.where(user_id: current_user_id)
     list      = []
     checkouts  = Checkout.all
     stories   = Story.all
     checkouts.each do |checkout|
-      if checkout[:user_id] == userId && checkout[:due_date].nil?
+      if checkout[:user_id] == current_user_id && checkout[:due_date].nil?
         list << checkout
       end
 
@@ -49,7 +49,7 @@ class Checkout < ApplicationRecord
       end
 
       stories.each do | story |
-        if (userId == checkout[:user_id]) && (checkout[:id] == story[:checkout_id] && story[:completed] == false)
+        if (current_user_id == checkout[:user_id]) && (checkout[:id] == story[:checkout_id] && story[:completed] == false)
             item_story = Checkout.find(story.checkout_id)
             list << item_story
             puts story.checkout_id
