@@ -2,7 +2,7 @@
 
   <%= f.hidden_field :verification_id, value: verification_id.id %>
 
-  <%= f.label :content, "enter message here" %>
-  <%= f.text_field :content, autocomplete: :off, id: 'enterChat', class: 'theClear' %>
+  <%= f.label :content, "Enter Message" %>
+  <%= f.text_field :content, autocomplete: :off, id: 'enterChat', class: 'theClear', placeholder: "Enter text here" %>
 
 <% end %>
