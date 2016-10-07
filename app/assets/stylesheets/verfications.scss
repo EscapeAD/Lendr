@@ -25,12 +25,40 @@
   padding: 15px;
 }
 
-.selected-address{
+#selected-address{
   display: inline-block;
-  width: 70%;
+  width:55%;
 }
 
-.verify-pickup-button{
+.selected-location{
+  width:100%;
+  display: inline-block;
+  padding-bottom: 10px;
+  border-bottom: 1px solid gray;
+}
+
+#verify-pickup-button{
   display: inline-block;
   width: 30%;
+}
+
+.chat{
+  overflow: scroll;
+  height: 307px;
+  padding-top:13px;
+}
+
+#message{
+  width: 490px;
+  height: 360px;
+  overflow: auto;
+  padding: 2px;
+}
+
+.new_message label{
+  display: none;
+}
+
+#enterChat{
+  width:100%;
 }
