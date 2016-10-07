@@ -13,13 +13,15 @@
     <div class='fluid-container mailbox'>
     <table class="table table-striped">
       <tr>
+        <th>Status</th>
         <th>Date</th>
         <th>Sender</th>
         <th>Title</th>
       </tr>
     <% @mails.each do |mail| %>
     <tr>
-      <td><%=mail.created_at%></td>
+      <td><%= link_to 'Delete',  mail_path(mail.id),  method: :delete %></td>
+      <td><%=mail.created_at.strftime("%m/%d/%Y")%></td>
       <td><%=User.find(mail.sender).first_name%> <%=User.find(mail.sender).last_name%></td>
       <td><%=link_to "#{mail.title}", mail_path(mail.id)%></td>
       </tr>

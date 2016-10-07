@@ -7,10 +7,9 @@ class MailsController < ApplicationController
 
   def show
     @mail = Mail.find(params[:id])
-    if @mail.open == true
-      @mail.open = false
-      @mail.save
-    end
+    @mail.update_attribute(:open, true)
+    @mail.save
+
   end
 
   def new
@@ -32,6 +31,12 @@ class MailsController < ApplicationController
     end
   end
 
+  def destroy
+    @mail = Mail.find(params[:id])
+    @mail.destroy
+    @mail.save
+    redirect_to mails_path
+  end
 
 private
 def email_params
