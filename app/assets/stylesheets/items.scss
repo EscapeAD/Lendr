@@ -57,13 +57,20 @@
 
 .category-list{
   border-right: 1px solid #BCBCBC;
-  padding-right: 5px;
+  padding-left: 10px;
 }
 
 .category-list li{
   list-style: none;
   padding: 10px 0px;
-  margin-left: 0px;
+}
+
+#search-on-category{
+  padding-top: 35px;
+}
+
+#searchTextField{
+  width: 85%;
 }
 
 @media only screen and (min-width: 1170px) {
