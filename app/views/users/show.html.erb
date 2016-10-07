@@ -54,9 +54,9 @@
                 <% if @pending.empty? %>
                   <em>Currently no pending</em>
                 <% else %>
+                <div class="col-md-4">
                   <% @pending.each do | item | %>
-                    <div class="col-md-4">
-                      <div class="user-square-container">
+                      <div class="user-square-container text-left">
                         <a href="/items/<%=item.item_id%>">
                         <% if Item.find(item.item_id).pictures.first != nil %>
                         <%= image_tag Item.find(item.item_id).pictures.first.image.url, class: 'thumbnail', id: "mylightbox#{item.id}#{item.item_id}" %>
@@ -65,8 +65,8 @@
                         <% end %>
                         </a>
                       </div>
-                      <strong><%=Item.find(item.item_id).name%></strong>
-                      <div class = "">
+                      <div class = "text-left">
+                        <strong><%=Item.find(item.item_id).name%></strong>
                         <% if Story.story_check(item.id) %>
                               <a  type="button" data-toggle="modal" data-target="#storyModal<%=item.id%>">Create a Story</a>
                               <!--  Story Mogal -->
