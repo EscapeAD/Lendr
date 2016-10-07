@@ -1,23 +1,23 @@
-class MailsController < ApplicationController
+class MailboxesController < ApplicationController
   before_action :set_user
 
   def index
-    @mails = Mail.where(:recipient == current_user.id)
+    @mails = Mailbox.where(:recipient == current_user.id)
   end
 
   def show
-    @mail = Mail.find(params[:id])
+    @mail = Mailbox.find(params[:id])
     @mail.update_attribute(:open, true)
     @mail.save
 
   end
 
   def new
-    @mail = Mail.new
+    @mail = Mailbox.new
   end
 
   def create
-    @mail = Mail.new(title: params[:title],
+    @mail = Mailbox.new(title: params[:title],
                      recipient: params[:recipient],
                       text: params[:text],
                       sender: current_user.id,
@@ -30,10 +30,10 @@ class MailsController < ApplicationController
   end
 
   def destroy
-    @mail = Mail.find(params[:id])
+    @mail = Mailbox.find(params[:id])
     @mail.destroy
     @mail.save
-    redirect_to mails_path
+    redirect_to mailboxes_path
   end
 
 private
