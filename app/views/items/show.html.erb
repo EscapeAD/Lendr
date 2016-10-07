@@ -31,21 +31,26 @@
     <%# end %>
   </div> -->
 
-<div class="col-md-6 ">
-    <p>
-      <h2><%= @item.name %></h2>
-      <strong>Owner:</strong> <%= @owner.first_name.capitalize %> <%= @owner.last_name.capitalize %><br>
-      <strong>Type:</strong> <%= @item.category.name.capitalize %><br>
-      <strong>Description:</strong><br>
+  <div class="col-md-6 ">
+    <div class = "item-details">
+      <h3><strong><%= @item.name %></strong></h3>
+      <h4>Owner</h4> <%= @owner.first_name.capitalize %> <%= @owner.last_name.capitalize %><br>
+      <h4>Type</h4> <%= @item.category.name.capitalize %><br>
+      <h4>Description</h4>
       <%= @item.description %>
-    </p>
+    </div>
     <br>
     <% if Checkout.where(item_id: @item.id, returned: false).any? %>
-    <%= link_to 'Borrrow', item_checkouts_path(@item), class: 'btn btn-success btn-lg', id: 'borrowBtn', disabled: true %>
+      <%= link_to 'Borrrow', item_checkouts_path(@item), class: 'btn btn-success btn-lg', id: 'borrowBtn', disabled: true %>
     <% else %>
-    <%= link_to 'Borrrow', item_checkouts_path(@item), class: 'btn btn-success btn-lg', id: 'borrowBtn'%>
+      <%= link_to 'Borrrow', item_checkouts_path(@item), class: 'btn btn-success btn-lg', id: 'borrowBtn'%>
     <% end %>
-    <a type="button"  data-toggle="modal" data-target="#message-to-owner">Message Owner</a>
+      <span class="messsage-icon">
+        <span id="msg-label">Message User</span>
+        <button class="btn btn-secondary btn-lg" data-toggle="modal" data-target="#message-to-owner">
+          <i class="fa fa-envelope" aria-hidden="true"></i>
+        </button>
+      </span>
 
     <% if current_user == @item.user_id %>
       <%= link_to 'Edit', edit_item_path %>
