@@ -76,7 +76,7 @@
                                     <%= form_for Story.find_by(checkout_id: item.id), url: item_story_path(item.item_id, Story.find_by(checkout_id: item.id).id ),html: { multipart: true }, method: :put  do |f| %>
                                       <div class="modal-header">
                                         <button type="button" class="close form-group row" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                        <h4 class="modal-title" id="myModalLabel">Sign In</h4>
+                                        <h4 class="modal-title" id="myModalLabel">Create Your Story</h4>
                                       </div>
                                       <div class="modal-body">
                                         <div class="form-group row">

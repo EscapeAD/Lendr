@@ -52,7 +52,7 @@ class Verification < ApplicationRecord
       checkout_session.stories.new(checkout_id: checkout_session.id)
       checkout_session.save
       Message.where(verification_id: current_verification.id).destroy_all
-      Message.where(verification_id: current_verification.id).save
+      # Message.where(verification_id: current_verification.id).save
       verification_session.destroy
       verification_session.save
     end

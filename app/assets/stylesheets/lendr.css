@@ -209,3 +209,7 @@ a:hover {
 .company-footer {
   padding-left: 50px;
 }
+
+.modal-header{
+  width: 583px;
+}
