@@ -20,8 +20,8 @@
     <% @mails.each do |mail| %>
     <tr>
       <td><%=mail.created_at%></td>
-      <td><%=mail.first_name%> <%=mail.last_name%></td>
-      <td><%=link_to mail.title, mail_path(mail.id)%></td>
+      <td><%=User.find(mail.sender).first_name%> <%=User.find(mail.sender).last_name%></td>
+      <td><%=link_to "#{mail.title}", mail_path(mail.id)%></td>
       </tr>
     <% end %>
   </table>

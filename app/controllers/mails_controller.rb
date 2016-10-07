@@ -1,4 +1,6 @@
 class MailsController < ApplicationController
+  before_action :set_user
+
   def index
     @mails = Mail.where(:recipient == current_user.id)
   end
@@ -16,7 +18,13 @@ class MailsController < ApplicationController
   end
 
   def create
-    @mail = Mail.new(title: params[:mailTitleInput] ,sender: current_user.id, recipient: params[:ownerId], text: params[:mailTextInput])
+    puts email_params
+    puts params
+    @mail = Mail.new(title: params[:title],
+                     recipient: params[:recipient],
+                      text: params[:text],
+                      sender: current_user.id,
+                      open: false)
     if @mail.save
       redirect_to root_path
     else
@@ -26,8 +34,8 @@ class MailsController < ApplicationController
 
 
 private
-def mail_params
-  params.require(:mail).permit(:title,:sender,:recipient,:text)
+def email_params
+  # params.require(:mail).permit(:title, :recipient, :text, :sender).merge(open: false)
 end
 
 def set_user

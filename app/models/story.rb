@@ -7,7 +7,7 @@ class Story < ApplicationRecord
   private
   def self.story_check(checkout_user_id)
     story = Story.find_by(checkout_id: checkout_user_id)
-    if story  == nil
+    if story.nil?
       return false
     end
     if story.completed == false

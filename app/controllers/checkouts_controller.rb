@@ -32,7 +32,6 @@ class CheckoutsController < ApplicationController
       @verify = @checkout.verifications.new(checkout_id: params[:id], status: 'pickup')
       @verify.save
       redirect_to user_path
-
     else
       redirect_to user_path
     end

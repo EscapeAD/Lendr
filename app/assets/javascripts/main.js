@@ -169,8 +169,6 @@ $(document).on('turbolinks:load', function(){
 
 
 
-
-
     var timelineBlocks = $('.timeline-block'),
   		offset = 0.8;
 
@@ -195,7 +193,6 @@ $(document).on('turbolinks:load', function(){
   			( $(this).offset().top <= $(window).scrollTop()+$(window).height()*offset && $(this).find('.timeline-img').hasClass('is-hidden') ) && $(this).find('.timeline-img, .timeline-content').removeClass('is-hidden').addClass('bounce-in');
   		});
   	}
-
 
 
 });
