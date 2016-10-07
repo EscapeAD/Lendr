@@ -169,8 +169,6 @@ $(document).on('turbolinks:load', function(){
 
 
 
-
-
     var timelineBlocks = $('.timeline-block'),
   		offset = 0.8;
 
@@ -196,15 +194,5 @@ $(document).on('turbolinks:load', function(){
   		});
   	}
 
-
-    $('borrowBtn').on('click', function(event){
-      event.preventDefault();
-      $.ajax({
-        url:,
-        method: post;
-        data: ,
-        dataType:
-      })
-    })
 
 });
