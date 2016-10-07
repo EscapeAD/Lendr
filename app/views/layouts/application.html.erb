@@ -28,16 +28,20 @@
 
       <div id="navbar lendr-nav" class="navbar-collapse collapse">
         <div class="navbar-form navbar-right">
-          <div class="nav-group nav-search">
-            <form class="navbar-form search-bar-header" role="search">
-              <div class="input-group">
-                  <input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term">
-                  <div class="input-group-btn">
-                      <button class="btn btn-default" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
-                  </div>
-              </div>
-            </form>
-          </div>
+          <% if current_page?(root_path) %>
+            <div>
+          <% else %>
+            <div class="nav-group nav-search">
+              <form class="navbar-form search-bar-header" role="search">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term">
+                    <div class="input-group-btn">
+                        <button class="btn btn-default" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+                    </div>
+                </div>
+              </form>
+            </div>
+          <% end %>
           <div class="nav-group">
             <%= link_to 'Temp Link to items/index', items_path %> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           </div>
