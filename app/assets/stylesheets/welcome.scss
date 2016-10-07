@@ -140,7 +140,7 @@ video {
   background-size: cover;
 }
 
-// Text within image 
+// Text within image
 
 .col-md-4:hover {
   opacity: .7;
@@ -152,12 +152,10 @@ left:0px;
 font-size: 30px;
 cursor: pointer;
 cursor: hand;
-visibility:hidden;
+// visibility:hidden;
 }
 
-.col-md-4:hover .imgtext {
-visibility:visible;
-}
+
 
 
 
