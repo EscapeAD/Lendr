@@ -20,6 +20,16 @@
     margin-top: 20%;
   }
 
+.video-text h3,
+.video-text h4 {
+  font-size: 40px;
+  color: white;
+}
+
+.searchTextField {
+  width:300px;
+  height:40px;
+}
 
 
 video {
@@ -138,11 +148,39 @@ video {
     position: relative;
     height: 200px;
   }
+
+  .video-text{
+      position: absolute;
+      z-index: 5;
+      text-align: center;
+      width: 100%;
+      margin-top: 4%;
+  }
+
+  .video-text h3,
+  .video-text h4 {
+    font-size: 20px;
+    color: white;
+  }
 }
 @media (min-width: 768px) {
   .video-container {
     position: relative;
     height: 410px;
+  }
+
+  .video-text{
+      position: absolute;
+      z-index: 5;
+      text-align: center;
+      width: 100%;
+      margin-top: 14%;
+  }
+
+  .video-text h3,
+  .video-text h4 {
+    font-size: 30px;
+    color: white;
   }
 }
 
@@ -151,6 +189,20 @@ video {
   .video-container {
     position: relative;
     height: 540px;
+  }
+
+  .video-text{
+      position: absolute;
+      z-index: 5;
+      text-align: center;
+      width: 100%;
+      margin-top: 18%;
+  }
+
+  .video-text h3,
+  .video-text h4 {
+    font-size: 40px;
+    color: white;
   }
 }
 
