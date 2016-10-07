@@ -24,7 +24,7 @@ $(document).on('turbolinks:load', function(){
         sender: $(this).data('senderId')
       },
       dataType: 'JSON'
-    }).done(function(){
+    }).done(function(res){
       location.reload();
     })
   })
