@@ -41,7 +41,7 @@
     </p>
     <br>
 
-    <%= link_to 'Borrrow', new_item_checkout_path(@item), class: 'btn btn-success btn-lg' %>
+    <%= link_to 'Borrrow', new_item_checkout_path(@item), class: 'btn btn-success btn-lg', id: 'borrowBtn' %>
     <a type="button"  data-toggle="modal" data-target="#message-to-owner">Message Owner</a>
 
     <% if current_user == @item.user_id %>

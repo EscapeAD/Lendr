@@ -197,5 +197,14 @@ $(document).on('turbolinks:load', function(){
   	}
 
 
+    $('borrowBtn').on('click', function(event){
+      event.preventDefault();
+      $.ajax({
+        url:,
+        method: post;
+        data: ,
+        dataType:
+      })
+    })
 
 });
