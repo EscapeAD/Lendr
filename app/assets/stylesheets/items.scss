@@ -19,6 +19,10 @@
   width:150px;
 }
 
+.search-container{
+  padding-top: 50px;
+}
+
 .container {
   /* this class is used to give a max-width to the element it is applied to, and center it horizontally when it reaches that max-width */
   width: 90%;
@@ -46,10 +50,20 @@
   left: -13%;
 }
 
-
 .slides{
   list-style-type: none;
   padding: 0;
+}
+
+.category-list{
+  border-right: 1px solid #BCBCBC;
+  padding-right: 5px;
+}
+
+.category-list li{
+  list-style: none;
+  padding: 10px 0px;
+  margin-left: 0px;
 }
 
 @media only screen and (min-width: 1170px) {

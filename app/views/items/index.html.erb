@@ -1,24 +1,20 @@
- <div class='container'>
-  <div class='container text-center'>
-    <h1>Item Search</h1>
-    <button id="searchBtn">Search</button>
-    <input id="searchTextField" type="text" name="searchTxt">
-  </div>
+ <div class='container search-container'>
 
   <div class='row'>
-    <div class='col-md-2 category-list'>
-      <h4> Categories</h4>
+    <div class='col-md-3 category-list'>
       <ul>
-        <li><a href='' id='leisureCat'>Leisure</a></li>
+        <li><a href='' id='educationCat'>Education</a></li>
         <li><a href='' id='equipmentCat'>Equipment</a></li>
+        <li><a href='' id='landscapeCat'>Landscape</a></li>
+        <li><a href='' id='leisureCat'>Leisure</a></li>
         <li><a href='' id='outdoorCat'>Outdoor</a></li>
         <li><a href='' id='repairsCat'>Repairs</a></li>
-        <li><a href='' id='landscapeCat'>Landscape</a></li>
-        <li><a href='' id='educationCat'>Education</a></li>
+        <li id="search-on-category"><input id="searchTextField" type="text" name="searchTxt"></li>
+        <li><button id="searchBtn">Search</button></li>
       </ul>
     </div>
 
-    <div class='col-md-10 search-results'>
+    <div class='col-md-9 search-results'>
       <div id="searchSec">
         <div id="searchList">
           <section id="allItems">
