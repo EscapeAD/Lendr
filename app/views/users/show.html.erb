@@ -145,7 +145,7 @@
                         <%= image_tag "http://epaper2.mid-day.com/images/no_image_thumb.gif", class: 'thumbnail' %>
                         <% end %>
                       </div>
-                      <div class = "accept-decline">
+                      <div class = "">
                         <strong>Nickname: </strong> <%= Item.find(item.item_id).name %>
                         <strong>Owner: </strong> <%= User.find(item.user_id).first_name %> <%= User.find(item.user_id).last_name %>
                         <strong>Time Left: </strong> ...
@@ -196,7 +196,7 @@
                   <em>Your inventory is empty. <%= link_to 'Add Item to Inventory', new_item_path %></em>
                 <% else %>
                   <% @items.each do | item | %>
-                    <div class="col-md-3">
+                    <div class="col-md-2">
                       <div class="user-square-container">
                         <% if item.pictures.first != nil %>
                         <%= image_tag item.pictures.first.image.url, class: 'thumbnail' %>
