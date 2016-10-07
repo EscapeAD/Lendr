@@ -1,6 +1,5 @@
 class CheckoutsController < ApplicationController
   before_action :authenticate_user!
-
   before_action :set_user
 
   def new
@@ -32,7 +31,6 @@ class CheckoutsController < ApplicationController
       @verify = @checkout.verifications.new(checkout_id: params[:id], status: 'pickup')
       @verify.save
       redirect_to user_path
-
     else
       redirect_to user_path
     end

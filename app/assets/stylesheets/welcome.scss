@@ -5,6 +5,46 @@
   height: 400px;
 }
 
+.video-container {
+  position: relative;
+  height: 600px;
+}
+
+
+
+.video-text{
+    position: absolute;
+    z-index: 5;
+    text-align: center;
+    width: 100%;
+    margin-top: 20%;
+  }
+
+.video-text h3,
+.video-text h4 {
+  font-size: 40px;
+  color: white;
+}
+
+.searchTextField {
+  width:300px;
+  height:40px;
+}
+
+
+video {
+      width: 100%;
+      position: absolute;
+}
+
+
+.containers-container {
+  z-index: 100;
+  position: relative;
+}
+
+
+
 .jumbotron .container {
   text-align: center;
   margin-top: 70px;
@@ -94,8 +134,86 @@
 }
 
 .jumbotron{
-  background-image: url("library.jpeg");
+  // background-image: url("library.jpeg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+}
+
+
+
+@media (max-width: 768px) {
+  /* Small devices (tablets, 768px and up) */
+  .video-container {
+    position: relative;
+    height: 200px;
+  }
+
+  .video-text{
+      position: absolute;
+      z-index: 5;
+      text-align: center;
+      width: 100%;
+      margin-top: 4%;
+  }
+
+  .video-text h3,
+  .video-text h4 {
+    font-size: 20px;
+    color: white;
+  }
+}
+@media (min-width: 768px) {
+  .video-container {
+    position: relative;
+    height: 410px;
+  }
+
+  .video-text{
+      position: absolute;
+      z-index: 5;
+      text-align: center;
+      width: 100%;
+      margin-top: 14%;
+  }
+
+  .video-text h3,
+  .video-text h4 {
+    font-size: 30px;
+    color: white;
+  }
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  .video-container {
+    position: relative;
+    height: 540px;
+  }
+
+  .video-text{
+      position: absolute;
+      z-index: 5;
+      text-align: center;
+      width: 100%;
+      margin-top: 18%;
+  }
+
+  .video-text h3,
+  .video-text h4 {
+    font-size: 40px;
+    color: white;
+  }
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) { background-color: yellow }
+
+#frontTitle{
+  color: white;
+  font-size: 100px;
+}
+#frontText{
+  font-family: 'Shadows Into Light Two', cursive;
+
 }

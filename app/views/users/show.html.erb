@@ -7,7 +7,7 @@
           <% if @user.avatar_file_name != nil %>
           <%= image_tag @user.avatar.url(:medium), id: 'mylightbox' %>
           <% else %>
-          <%= image_tag "http://awhatsappstatus.org/wp-content/uploads/2015/11/femous-and-poular-d-profile-pictures-2.jpg" %>
+          <%= image_tag "http://awhatsappstatus.org/wp-content/uploads/2015/11/femous-and-poular-d-profile-pictures-2.jpg", id: 'mylightbox' %>
           <% end %>
         </a>
         </div>
@@ -55,7 +55,7 @@
                   <em>Currently no pending</em>
                 <% else %>
                   <% @pending.each do | item | %>
-                    <div class="col-md-3">
+                    <div class="col-md-4">
                       <div class="user-square-container">
                         <a href="/items/<%=item.item_id%>">
                         <% if Item.find(item.item_id).pictures.first != nil %>
@@ -137,18 +137,18 @@
                 <% else %>
                 <div class='row'>
                   <% @borrow.each do | item | %>
-                    <div class="col-md-3">
+                    <div class="col-md-4">
                       <div class="user-square-container">
-                        <% if Item.find(item.item_id).pictures.first != nil %>
+                        <% if !Item.find(item.item_id).pictures.first.nil? %>
                         <%= image_tag Item.find(item.item_id).pictures.first.image.url, class: 'thumbnail' %>
                         <% else %>
                         <%= image_tag "http://epaper2.mid-day.com/images/no_image_thumb.gif", class: 'thumbnail' %>
                         <% end %>
                       </div>
-                      <div class = "accept-decline">
-                        <strong>Nickname: </strong> <%= Item.find(item.item_id).name %>
-                        <strong>Owner: </strong> <%= User.find(item.user_id).first_name %> <%= User.find(item.user_id).last_name %>
-                        <strong>Time Left: </strong> ...
+                      <div class = "text-left">
+                        <strong> <%= Item.find(item.item_id).name %></strong><br/>
+                        <strong>Owner: </strong> <%= User.find(item.user_id).first_name %> <%= User.find(item.user_id).last_name %></br>
+                        <strong>Time Left: </strong> <span data-countdown='<%=item.due_date - Time.now%>'><%=((item.due_date - Time.now).floor)/60/60/24 %> Days</span><br/>
                         <%= link_to 'Return Item', item_checkout_verification_path(Item.find(item.item_id),item.id,Verification.verify_show_return(item.id)) %>
                       </div>
                     </div>
@@ -167,18 +167,18 @@
                 <% else %>
                 <div class="row">
                   <% @lent.each do | item | %>
-                    <div class="col-md-3 border ">
+                    <div class="col-md-4">
                       <div class="user-square-container">
-                        <% if Item.find(item.item_id).pictures.first != nil %>
+                        <% if !Item.find(item.item_id).pictures.first.nil? %>
                         <%= image_tag Item.find(item.item_id).pictures.first.image.url, class: 'thumbnail' %>
                         <% else %>
                         <%= image_tag "http://epaper2.mid-day.com/images/no_image_thumb.gif", class: 'thumbnail' %>
                         <% end %>
                       </div>
-                      <div class = "accept-decline">
-                        <strong>Nickname: </strong> <%= Item.find(item.item_id).name %>
-                        <strong>Lent To: </strong> <%= User.find(item.user_id).first_name %> <%= User.find(item.user_id).last_name %>
-                        <strong>Time Left: </strong> ...
+                      <div class = "text-left">
+                        <strong><%= Item.find(item.item_id).name %></strong><br/>
+                        <strong>Lent To: </strong> <%= User.find(item.user_id).first_name %> <%= User.find(item.user_id).last_name %><br/>
+                        <strong>Time Left: </strong> <span data-countdown='<%=item.due_date - Time.now%>'><%=((item.due_date - Time.now).floor)/60/60/24 %> Days</span><br/>
                         <%= link_to 'Retreive Item', item_checkout_verification_path(Item.find(item.item_id),item.id,Verification.verify_show_return(item.id)) %>
                       </div>
                     </div>
@@ -191,20 +191,21 @@
           <div role="tabpanel" class="tab-pane" id="inventory">
             <div class="row pending-items-display">
               <h2 class="subheader-main user-categories">Total Inventory</h2>
+              <%= link_to 'Add Item to Inventory', new_item_path %>
               <div class = "images-list">
                 <% if @items.empty? %>
-                  <em>Your inventory is empty. <%= link_to 'Add Item to Inventory', new_item_path %></em>
+                  <em>Your inventory is empty.</em>
                 <% else %>
                   <% @items.each do | item | %>
-                    <div class="col-md-3">
+                    <div class="col-md-4">
                       <div class="user-square-container">
-                        <% if item.pictures.first != nil %>
+                        <% if !item.pictures.first.nil? %>
                         <%= image_tag item.pictures.first.image.url, class: 'thumbnail' %>
                         <% else %>
                         <%= image_tag "http://epaper2.mid-day.com/images/no_image_thumb.gif", class: 'thumbnail' %>
                         <% end %>
                       </div>
-                      <div class = "">
+                      <div class = "text-left">
                         <strong><%= Item.find(item.id).name %></strong> <br/>
                         <%= link_to 'View', item_path(item.id)%>
                       </div>

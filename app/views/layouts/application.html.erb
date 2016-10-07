@@ -11,6 +11,7 @@
     <link href="https://fonts.googleapis.com/css?family=Lato|Montserrat|Pavanam" rel="stylesheet">
     <link href="//cdn.rawgit.com/noelboss/featherlight/1.5.0/release/featherlight.min.css" type="text/css" rel="stylesheet" />
     <script src="//cdn.rawgit.com/noelboss/featherlight/1.5.0/release/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+    <link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One|Shadows+Into+Light+Two" rel="stylesheet">
   </head>
 
   <body>
@@ -196,14 +197,16 @@
         <h3>Lendr</h3>
 
         <p class="footer-links">
-          <a href="#">Home</a>
+          <%= link_to 'Home', root_path %>
           ·
-          <a href="#">Search</a>
+          <%= link_to 'Search', items_path %>
           ·
-          <a href="#">Sign In</a>
+          <%if !current_user%><%= link_to 'Sign up', new_user_registration_path %>
           ·
-          <a href="#">Sign Up</a>
-
+          <%= link_to 'Sign in', user_session_path %>
+          <% else %>
+          <%= link_to 'Sign Out', destroy_user_session_path %>
+          <% end %>
         </p>
 
         <p class="footer-company-name">CARV CORP&copy; 2016</p>

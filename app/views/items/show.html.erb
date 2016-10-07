@@ -40,8 +40,11 @@
       <%= @item.description %>
     </p>
     <br>
-
-    <%= link_to 'Borrrow', new_item_checkout_path(@item), class: 'btn btn-success btn-lg' %>
+    <% if Checkout.where(item_id: @item.id, returned: false).any? %>
+    <%= link_to 'Borrrow', item_checkouts_path(@item), class: 'btn btn-success btn-lg', id: 'borrowBtn', disabled: true %>
+    <% else %>
+    <%= link_to 'Borrrow', item_checkouts_path(@item), class: 'btn btn-success btn-lg', id: 'borrowBtn'%>
+    <% end %>
     <a type="button"  data-toggle="modal" data-target="#message-to-owner">Message Owner</a>
 
     <% if current_user == @item.user_id %>
@@ -116,8 +119,7 @@
             <%= f.text_area :text, id: 'mailText' %><br />
         </div>
         <div class="modal-footer">
-
-            <button type="button" id="mailSubmitBtn" data-ownerId="<%= @item.user_id%>">Send Email</button>
+          <%= f.submit "Send Mail", id: 'mailSubmitBtn', class: 'btn btn-primary', data: { ownerId: "#{@item.user_id}", senderId: "#{current_user.id}"} %>
           <% end %>
 
         </div>
@@ -125,4 +127,3 @@
     </div>
   </div>
 </div>
-`
