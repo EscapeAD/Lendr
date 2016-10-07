@@ -51,43 +51,16 @@
   </div>
 </div>
 
-<!-- <section id="cd-timeline" class="cd-container">
-  <div class="cd-timeline-block">
-    <div class="cd-timeline-img cd-picture">
-      <img src="img/cd-icon-picture.svg" alt="Picture">
-    </div
-
-  <div clas='border container story-box'>
-  <div class='container'>
-  <h3>Adventures of:</h3>
-  <div class='row'>
-    <%# if @stories.empty? %>
-    <em>Currently this lone item has no adventures </em>
-    <%# else %>
-    <%# @stories.each do |story| %>
-    <div class="col-xs-6 col-md-11">
-      <h2><%#= story.title %></h2>
-      <div class='border'>
-        <p><%#=story.story%></p>
-      </div>
-    </div>
-    <%# end %>
-    <%# end %>
-  </div>
-</div>
-</div> -->
-
-
 <div class='container adventures-container'>
   <h3 class="subheader-main">Adventures</h3>
 
-  <p class="empty-stories">
-    <% if @stories.empty? %>
+  <% if @stories.empty? %>
+    <p class="empty-stories">
       <em>Currently this lone item has no adventures.</em>
-    <% else %>
-  </p>
+    </p>
+  <% else %>
 
-  <section id="cd-timeline" class="cd-container">
+  <section id="timeline" class="container">
     <% @stories.each do |story| %>
 
     <!-- includes both marker and story -->
@@ -107,8 +80,10 @@
           <div class = "story-date"><%= story.date.strftime("%B %d, %Y") %></div>
         </span>
       </div>
-    <% end %>
+
     </div>
+    <% end %>
+
   </section>
   <% end %>
 
