@@ -10,7 +10,7 @@ class Checkout < ApplicationRecord
     list = Checkout.where(user_id: user_id)
     final = []
     list.each do | item |
-      if item[:check_initial] == true && item[:due_date] != nil && item[:returned] == false
+      if item[:check_initial] == true && !item[:due_date].nil? && item[:returned] == false
         final << item
       end
     end
@@ -23,7 +23,7 @@ class Checkout < ApplicationRecord
     checkout  = Checkout.all
     checkout.each do |item|
       inventory.each do |invent_item|
-        if item[:item_id] == invent_item[:id] && item[:returned] == false && item[:check_initial] == true && item[:due_date] != nil && item[:returned] == false
+        if item[:item_id] == invent_item[:id] && item[:returned] == false && item[:check_initial] == true && !item[:due_date].nil?  && item[:returned] == false
           list << item
         end
       end
@@ -37,12 +37,12 @@ class Checkout < ApplicationRecord
     checkouts  = Checkout.all
     stories   = Story.all
     checkouts.each do |checkout|
-      if checkout[:user_id] == userId && checkout[:due_date] == nil
+      if checkout[:user_id] == userId && checkout[:due_date].nil?
         list << checkout
       end
 
       inventory.each do |invent_item|
-        if checkout[:item_id] == invent_item[:id] && checkout[:due_date] == nil
+        if checkout[:item_id] == invent_item[:id] && checkout[:due_date].nil?
           # && item[:check_initial] == false
           list << checkout
         end

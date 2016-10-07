@@ -145,10 +145,10 @@
                         <%= image_tag "http://epaper2.mid-day.com/images/no_image_thumb.gif", class: 'thumbnail' %>
                         <% end %>
                       </div>
-                      <div class = "accept-decline">
-                        <strong>Nickname: </strong> <%= Item.find(item.item_id).name %>
-                        <strong>Owner: </strong> <%= User.find(item.user_id).first_name %> <%= User.find(item.user_id).last_name %>
-                        <strong>Time Left: </strong> ...
+                      <div class = "text-left">
+                        <strong> <%= Item.find(item.item_id).name %></strong>
+                        <strong>Owner: </strong> <%= User.find(item.user_id).first_name %> <%= User.find(item.user_id).last_name %></br>
+                        <strong>Time Left: </strong> <span data-countdown='<%=item.due_date - Time.now%>'><%=((item.due_date - Time.now).floor)/60/60/24 %> Days</span><br/>
                         <%= link_to 'Return Item', item_checkout_verification_path(Item.find(item.item_id),item.id,Verification.verify_show_return(item.id)) %>
                       </div>
                     </div>
@@ -167,18 +167,18 @@
                 <% else %>
                 <div class="row">
                   <% @lent.each do | item | %>
-                    <div class="col-md-3 border ">
+                    <div class="col-md-3  ">
                       <div class="user-square-container">
-                        <% if Item.find(item.item_id).pictures.first != nil %>
+                        <% if !Item.find(item.item_id).pictures.first.nil? %>
                         <%= image_tag Item.find(item.item_id).pictures.first.image.url, class: 'thumbnail' %>
                         <% else %>
                         <%= image_tag "http://epaper2.mid-day.com/images/no_image_thumb.gif", class: 'thumbnail' %>
                         <% end %>
                       </div>
-                      <div class = "accept-decline">
-                        <strong>Nickname: </strong> <%= Item.find(item.item_id).name %>
-                        <strong>Lent To: </strong> <%= User.find(item.user_id).first_name %> <%= User.find(item.user_id).last_name %>
-                        <strong>Time Left: </strong> ...
+                      <div class = "text-left">
+                        <strong><%= Item.find(item.item_id).name %></strong>
+                        <strong>Lent To: </strong> <%= User.find(item.user_id).first_name %> <%= User.find(item.user_id).last_name %><br/>
+                        <strong>Time Left: </strong> <span data-countdown='<%=item.due_date - Time.now%>'><%=((item.due_date - Time.now).floor)/60/60/24 %> Days</span><br/>
                         <%= link_to 'Retreive Item', item_checkout_verification_path(Item.find(item.item_id),item.id,Verification.verify_show_return(item.id)) %>
                       </div>
                     </div>
@@ -196,7 +196,7 @@
                   <em>Your inventory is empty. <%= link_to 'Add Item to Inventory', new_item_path %></em>
                 <% else %>
                   <% @items.each do | item | %>
-                    <div class="col-md-3">
+                    <div class="col-md-2">
                       <div class="user-square-container">
                         <% if item.pictures.first != nil %>
                         <%= image_tag item.pictures.first.image.url, class: 'thumbnail' %>
