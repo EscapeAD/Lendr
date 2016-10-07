@@ -140,6 +140,27 @@ video {
   background-size: cover;
 }
 
+// Text within image 
+
+.col-md-4:hover {
+  opacity: .7;
+}
+.imgtext{
+position:relative;
+bottom:130px;
+left:0px;
+font-size: 30px;
+cursor: pointer;
+cursor: hand;
+visibility:hidden;
+}
+
+.col-md-4:hover .imgtext {
+visibility:visible;
+}
+
+
+
 
 
 @media (max-width: 768px) {
@@ -165,9 +186,7 @@ video {
 }
 
 
-.col-md-4:hover {
-  opacity: .5;
-}
+
 
 
 @media (min-width: 768px) {
