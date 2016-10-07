@@ -18,25 +18,38 @@
       <div class="navbar-header <%= current_page?(root_path) ? "header-main" : "header-others" %>">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
           <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
+          <span class="icon-bar <%= current_page?(root_path) ? "icon-bar-orange" : "icon-bar-white" %>"></span>
+          <span class="icon-bar <%= current_page?(root_path) ? "icon-bar-orange" : "icon-bar-white" %>"></span>
+          <span class="icon-bar <%= current_page?(root_path) ? "icon-bar-orange" : "icon-bar-white" %>"></span>
         </button>
         <%= link_to 'l e n d r', root_path, class: 'navbar-brand' %></a>
       </div>
 
-      <div id="navbar" class="navbar-collapse collapse">
+      <div id="navbar lendr-nav" class="navbar-collapse collapse">
         <div class="navbar-form navbar-right">
+          <div class="nav-group nav-search">
+            <form class="navbar-form search-bar-header" role="search">
+              <div class="input-group">
+                  <input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term">
+                  <div class="input-group-btn">
+                      <button class="btn btn-default" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+                  </div>
+              </div>
+            </form>
+          </div>
           <div class="nav-group">
             <%= link_to 'Temp Link to items/index', items_path %> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </div>
+          <div class="nav-group">
             <% if user_signed_in? %>
               <span class="badge"><%=Mail.where(recipient: current_user.id, open: false).count%></span> <%= link_to "Inbox", mails_path %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </div>
+          <div class="nav-group">
               <%= link_to "Profile", user_path %>
             <% else %>
               <a type="button" data-toggle="modal" data-target="#myModal">Log In</a>
             <% end %>
           </div>
-
           <div class="nav-group">
             <% if user_signed_in? %>
               <%= link_to 'Log Out', destroy_user_session_path, method: :delete %>

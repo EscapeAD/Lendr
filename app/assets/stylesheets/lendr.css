@@ -1,9 +1,10 @@
-.navbar{
+#lendr-nav{
   background-color: white;
 }
 
 .navbar-main{
   background-color: white;
+  display:inline;
 }
 
 .navbar-others{
@@ -14,6 +15,7 @@
   font-family: 'Montserrat', sans-serif;
   letter-spacing: -4px;
   font-size: 50px;
+  padding-top: 30px;
 }
 
 .header-main a{
@@ -24,11 +26,6 @@
   color: white;
 }
 
-.navbar-header{
-  padding-top: 22px;
-  padding-bottom: 22px;
-}
-
 .navbar-right{
   padding-top: 15px;
   margin-right: 15px;
@@ -36,7 +33,7 @@
 
 .nav-group{
   display: inline-block;
-  padding: 15px;
+  padding: 0px 15px;
 }
 
 #userpanel {
@@ -165,4 +162,17 @@ a:hover {
 
 .image-search-item {
   width: 200px;
+}
+
+.icon-bar-orange{
+  color: orange;
+}
+
+.icon-bar-white{
+  color: white;
+}
+
+.nav-search{
+  padding-right: 5px;
+  text-align: right;
 }

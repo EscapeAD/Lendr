@@ -1,44 +1,51 @@
  <div class='container'>
   <div class='container text-center'>
-  <h1>Item Search</h1>
-  <button id="searchBtn">Search</button>
-  <input id="searchTextField" type="text" name="searchTxt">
-  </div>
-<div class='row'>
-  <div class='col-md-2 category-list'>
-    <h4> Categories</h4>
-    <ul>
-      <li><a href='' id='leisureCat'>Leisure</a></li>
-      <li><a href='' id='equipmentCat'>Equipment</a></li>
-      <li><a href='' id='outdoorCat'>Outdoor</a></li>
-      <li><a href='' id='repairsCat'>Repairs</a></li>
-      <li><a href='' id='landscapeCat'>Landscape</a></li>
-      <li><a href='' id='educationCat'>Education</a></li>
-    </ul>
+    <h1>Item Search</h1>
+    <button id="searchBtn">Search</button>
+    <input id="searchTextField" type="text" name="searchTxt">
   </div>
 
-  <div class='col-md-10'>
-    <h2>All Items</h2>
-    <div class='col-md-3 border'>
-    <div id="searchSec">
-      <div id="searchList">
-        <section id="allItems">
+  <div class='row'>
+    <div class='col-md-2 category-list'>
+      <h4> Categories</h4>
+      <ul>
+        <li><a href='' id='leisureCat'>Leisure</a></li>
+        <li><a href='' id='equipmentCat'>Equipment</a></li>
+        <li><a href='' id='outdoorCat'>Outdoor</a></li>
+        <li><a href='' id='repairsCat'>Repairs</a></li>
+        <li><a href='' id='landscapeCat'>Landscape</a></li>
+        <li><a href='' id='educationCat'>Education</a></li>
+      </ul>
+    </div>
 
+    <div class='col-md-10 search-results'>
+
+      <div id="searchSec">
+        <div id="searchList">
+          <section id="allItems">
             <% @items.each do |item| %>
-            <% if item.pictures.empty? %>
-            <%= image_tag "http://epaper2.mid-day.com/images/no_image_thumb.gif"%><br/>
-                <%= link_to item.name, item_path(item) %>
-                <br>Owner: <%= item.user_id %>
-            <% else %>
-              <div class="item_image">
+
+              <% if item.pictures.empty? %>
+                <div class='col-md-3 border item-box'>
+                    <%= image_tag "http://epaper2.mid-day.com/images/no_image_thumb.gif"%><br/>
+                    <%= link_to item.name, item_path(item) %>
+                    <br>Owner: <%= item.user_id %>
+                </div>
+
+              <% else %>
+
                 <% if item.pictures != nil %>
-                <%= image_tag item.pictures.first.image.url(:thumb), class: 'image-search-item thumbnail' %>
+                  <div class='col-md-3 border item-box'>
+                    <div class="item_image">
+                      <%= image_tag item.pictures.first.image.url(:medium), class: 'image-search-item' %>
+                    </div>
+
+                    <div class="item-info">
+                      <%= link_to item.name, item_path(item) %>
+                      <br>Owner: <%= User.find(item.user_id).first_name %> <%= User.find(item.user_id).last_name %>
+                    </div>
+                  </div>
                 <% end %>
-              <div class="item-info">
-                <%= link_to item.name, item_path(item) %>
-                <br>Owner: <%= User.find(item.user_id).first_name %> <%= User.find(item.user_id).last_name %>
-              </div>
-              <br>
               <% end %>
             <% end %>
           </section>
@@ -46,5 +53,5 @@
       </div>
     </div>
   </div>
-</div>
+
 </div>
