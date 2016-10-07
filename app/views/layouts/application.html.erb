@@ -29,13 +29,12 @@
       <div id="navbar lendr-nav" class="navbar-collapse collapse">
         <div class="navbar-form navbar-right">
           <% if current_page?(root_path) %>
-            <div>
           <% else %>
             <div class="nav-group nav-search">
               <form class="navbar-form search-bar-header" role="search">
                 <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term">
-                    <div class="input-group-btn">
+                    <input type="text" class="form-control" placeholder="Search" name="srch-term" id="mainSearchTextField">
+                    <div class="input-group-btn" id = "mainSearchBtn">
                         <button class="btn btn-default" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
                     </div>
                 </div>
@@ -43,7 +42,7 @@
             </div>
           <% end %>
           <div class="nav-group">
-            <%= link_to 'Temp Link to items/index', items_path %> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <%= link_to 'Items', items_path %>
           </div>
           <div class="nav-group">
             <% if user_signed_in? %>
@@ -83,9 +82,9 @@
         <%= yield :top_content %>
       </div>
 
-      <div class="container header-container">
-        <h1><%= yield :header %></h1>
-      </div>
+      <!-- <div class="container header-container">
+        <h1><%#= yield :header %></h1>
+      </div> -->
 
       <%= yield %>
 

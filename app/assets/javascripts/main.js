@@ -18,7 +18,7 @@ $(document).on('turbolinks:load', function(){
         $("#mainSearchBtn").click();
     }
     });
-
+    
 
   // Search function
     $('#searchBtn').on('click',function(e){
