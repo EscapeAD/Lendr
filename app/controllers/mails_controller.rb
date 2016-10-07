@@ -7,10 +7,9 @@ class MailsController < ApplicationController
 
   def show
     @mail = Mail.find(params[:id])
-    if @mail.open == true
-      @mail.open = false
-      @mail.save
-    end
+    @mail.update_attribute(:open, true)
+    @mail.save
+
   end
 
   def new
@@ -18,8 +17,6 @@ class MailsController < ApplicationController
   end
 
   def create
-    puts email_params
-    puts params
     @mail = Mail.new(title: params[:title],
                      recipient: params[:recipient],
                       text: params[:text],
@@ -32,11 +29,17 @@ class MailsController < ApplicationController
     end
   end
 
+  def destroy
+    @mail = Mail.find(params[:id])
+    @mail.destroy
+    @mail.save
+    redirect_to mails_path
+  end
 
 private
-def email_params
-  # params.require(:mail).permit(:title, :recipient, :text, :sender).merge(open: false)
-end
+# def email_params
+#   # params.require(:mail).permit(:title, :recipient, :text, :sender).merge(open: false)
+# end
 
 def set_user
   @user = current_user

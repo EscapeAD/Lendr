@@ -40,14 +40,12 @@ class Checkout < ApplicationRecord
       if checkout[:user_id] == current_user_id && checkout[:due_date].nil?
         list << checkout
       end
-
       inventory.each do |invent_item|
         if checkout[:item_id] == invent_item[:id] && checkout[:due_date].nil?
           # && item[:check_initial] == false
           list << checkout
         end
       end
-
       stories.each do | story |
         if (current_user_id == checkout[:user_id]) && (checkout[:id] == story[:checkout_id] && story[:completed] == false)
             item_story = Checkout.find(story.checkout_id)
@@ -58,7 +56,7 @@ class Checkout < ApplicationRecord
     end
     return list.uniq
   end
-## collects the stories of the item
+  # collects the stories of the item
   def self.collect_story(item_primary_key)
     checkout_story_list = Checkout.where(item_id: item_primary_key)
     array_of_stories    = []
