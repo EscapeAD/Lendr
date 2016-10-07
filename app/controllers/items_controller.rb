@@ -33,14 +33,13 @@ class ItemsController < ApplicationController
         end
       end
     end
-
   end
 
   def show
     @item    = Item.find(params[:id])
     @stories = Checkout.collect_story(params[:id])
     @owner   = User.find(@item.user_id)
-    @mail = Mail.new
+    @mail    = Mail.new
 
   end
 
@@ -106,7 +105,7 @@ class ItemsController < ApplicationController
 
   private
   def item_params
-    params.require(:item).permit(:name,:description,:owner_id,:category_id,pictures_attributes: [:id, :image, :_destroy])
+    params.require(:item).permit(:name, :description, :owner_id, :category_id, pictures_attributes: [:id, :image, :_destroy])
   end
 
   def set_user

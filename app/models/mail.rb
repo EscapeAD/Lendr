@@ -1,5 +1,2 @@
 class Mail < ApplicationRecord
-
-
-
 end
