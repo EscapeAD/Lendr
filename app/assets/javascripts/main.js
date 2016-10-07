@@ -143,55 +143,59 @@ $(document).on('turbolinks:load', function(){
   });
 
 
-
-  // verify buttons
-  $('#verify_button').on('click', function(event){
-      event.preventDefault();
-    $.ajax({
-      url: $(this).attr('href'),
-      method: 'PUT',
-      data: {},
-      dataType: 'JSON'
-    }).done(function(responseData){
-      location.reload();
+    // verify buttons
+    $('#verify_button').on('click', function(event){
+        event.preventDefault();
+      $.ajax({
+        url: $(this).attr('href'),
+        method: 'PUT',
+        data: {},
+        dataType: 'JSON'
+      }).done(function(responseData){
+        location.reload();
+      });
     });
-  });
 
 
-  // To handle redirection from landing page
-  if (getUrlParameter('categoryInput')) {
-    $('#'+getUrlParameter('categoryInput')+'Cat').click()
-  }
+    // To handle redirection from landing page
+    if (getUrlParameter('categoryInput')) {
+      $('#'+getUrlParameter('categoryInput')+'Cat').click()
+    }
 
-  if (getUrlParameter('searchInput')) {
-    $('#searchTextField').val(getUrlParameter('searchInput'))
-    $('#searchBtn').click()
-  }
+    if (getUrlParameter('searchInput')) {
+      $('#searchTextField').val(getUrlParameter('searchInput'))
+      $('#searchBtn').click()
+    }
 
 
-  var timelineBlocks = $('.timeline-block'),
-	offset = 0.8;
 
-	//hide timeline blocks which are outside the viewport
-	hideBlocks(timelineBlocks, offset);
 
-	//on scolling, show/animate timeline blocks when enter the viewport
-	$(window).on('scroll', function(){
-		(!window.requestAnimationFrame)
-			? setTimeout(function(){ showBlocks(timelineBlocks, offset); }, 100)
-			: window.requestAnimationFrame(function(){ showBlocks(timelineBlocks, offset); });
-	});
 
-	function hideBlocks(blocks, offset) {
-		blocks.each(function(){
-			( $(this).offset().top > $(window).scrollTop()+$(window).height()*offset ) && $(this).find('.timeline-img, .timeline-content').addClass('is-hidden');
-		});
-	}
+    var timelineBlocks = $('.timeline-block'),
+  		offset = 0.8;
 
-	function showBlocks(blocks, offset) {
-		blocks.each(function(){
-			( $(this).offset().top <= $(window).scrollTop()+$(window).height()*offset && $(this).find('.timeline-img').hasClass('is-hidden') ) && $(this).find('.timeline-img, .timeline-content').removeClass('is-hidden').addClass('bounce-in');
-		});
-	}
+  	//hide timeline blocks which are outside the viewport
+  	hideBlocks(timelineBlocks, offset);
+
+  	//on scolling, show/animate timeline blocks when enter the viewport
+  	$(window).on('scroll', function(){
+  		(!window.requestAnimationFrame)
+  			? setTimeout(function(){ showBlocks(timelineBlocks, offset); }, 100)
+  			: window.requestAnimationFrame(function(){ showBlocks(timelineBlocks, offset); });
+  	});
+
+  	function hideBlocks(blocks, offset) {
+  		blocks.each(function(){
+  			( $(this).offset().top > $(window).scrollTop()+$(window).height()*offset ) && $(this).find('.timeline-img, .timeline-content').addClass('is-hidden');
+  		});
+  	}
+
+  	function showBlocks(blocks, offset) {
+  		blocks.each(function(){
+  			( $(this).offset().top <= $(window).scrollTop()+$(window).height()*offset && $(this).find('.timeline-img').hasClass('is-hidden') ) && $(this).find('.timeline-img, .timeline-content').removeClass('is-hidden').addClass('bounce-in');
+  		});
+  	}
+
+
 
 });
