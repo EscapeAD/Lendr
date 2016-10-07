@@ -5,6 +5,36 @@
   height: 400px;
 }
 
+.video-container {
+  position: relative;
+  height: 600px;
+}
+
+
+
+.video-text{
+    position: absolute;
+    z-index: 5;
+    text-align: center;
+    width: 100%;
+    margin-top: 20%;
+  }
+
+
+
+video {
+      width: 100%;
+      position: absolute;
+}
+
+
+.containers-container {
+  z-index: 100;
+  position: relative;
+}
+
+
+
 .jumbotron .container {
   text-align: center;
   margin-top: 70px;
@@ -94,8 +124,35 @@
 }
 
 .jumbotron{
-  background-image: url("library.jpeg");
+  // background-image: url("library.jpeg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
 }
+
+
+
+@media (max-width: 768px) {
+  /* Small devices (tablets, 768px and up) */
+  .video-container {
+    position: relative;
+    height: 200px;
+  }
+}
+@media (min-width: 768px) {
+  .video-container {
+    position: relative;
+    height: 410px;
+  }
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  .video-container {
+    position: relative;
+    height: 540px;
+  }
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) { background-color: yellow }
