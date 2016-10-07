@@ -1,11 +1,11 @@
 <div class="video-container">
-  <%= video_tag("video.mp4", alt: "Leisure", autoplay: true) %>
+  <%= video_tag("video2.mp4", alt: "Leisure", autoplay: true, loop: true) %>
   <div class="video-text">
     <h3>Looking for tools to fix your lawnmower?</h3>
     <h4>We can help.</h4>
     <div class="search-text">
-      <button id="mainSearchBtn">Search</button>
-      <input id="mainSearchTextField" type="text" name="mainSearchTxt">
+      <button id="mainSearchBtn" class="btn btn-default"><%= link_to "Search", items_path %></button>
+      <input id="mainSearchTextField" class="searchTextField" type="text" name="mainSearchTxt">
     </div>
   </div>
 </div>
