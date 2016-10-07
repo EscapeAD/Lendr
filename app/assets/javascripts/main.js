@@ -18,7 +18,7 @@ $(document).on('turbolinks:load', function(){
         $("#mainSearchBtn").click();
     }
     });
-
+    
 
   // Search function
     $('#searchBtn').on('click',function(e){
@@ -175,7 +175,7 @@ $(document).on('turbolinks:load', function(){
   	//hide timeline blocks which are outside the viewport
   	hideBlocks(timelineBlocks, offset);
 
-  	//on scolling, show/animate timeline blocks when enter the viewport
+  	//on scrolling, show/animate timeline blocks when enter the viewport
   	$(window).on('scroll', function(){
   		(!window.requestAnimationFrame)
   			? setTimeout(function(){ showBlocks(timelineBlocks, offset); }, 100)
@@ -194,5 +194,10 @@ $(document).on('turbolinks:load', function(){
   		});
   	}
 
+    // animate carosel on item show
+    // $('.flexslider').flexslider({
+    //   animation: "slide"
+    // });
+     $('.flexslider').flexslider();
 
 });
