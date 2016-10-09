@@ -1,17 +1,6 @@
 
 <div class='container context-container'>
-  <!-- <div class='border item-show-info row'> -->
-
-<!-- <div class = "item_image floatl col-md-8">
-  <%# if @item.pictures.first != nil %>
-  <%#= image_tag @item.pictures.first.image.url, id: 'show-image' %>
-  <%# else %>
-  <%#= image_tag "http://epaper2.mid-day.com/images/no_image_thumb.gif" %>
-  <%# end %>
-  </div> -->
-
   <div class="col-md-6">
-    <!-- <div class="flexslider"> -->
       <ul class="slides">
         <% if @item.pictures.first != nil %>
             <a href="#" data-featherlight=".itemshow">
@@ -23,19 +12,8 @@
         <% else %>
           <li><%= image_tag "http://epaper2.mid-day.com/images/no_image_thumb.gif" %></li>
           <% end %>
-
       </ul>
-    <!-- </div> -->
   </div>
-
-  <!-- <div class='underpass-pic'>
-    <%# @item.pictures.each do |pic| %>
-      <div class = "thumbnail-pic"><%#= image_tag pic.image.url, class: 'thumbnail-pic' %></div>
-      <%# if current_user != nil && @item.user_id == current_user.id %>
-        <%#= link_to 'delete', item_picture_url(@item.id,pic.id),method: :delete, id: 'delImgId' %>
-      <%# end %>
-    <%# end %>
-  </div> -->
 
   <div class="col-md-6 ">
     <div class = "item-details">
@@ -94,20 +72,22 @@
 
       <!-- content -->
       <div class="timeline-content">
-        <span class = "story-profile-photo"><%= image_tag StoryPhoto.find(story.id).photo.url %></span>
+        <span class = "story-profile-photo">
+          <% StoryPhoto.find(story.id).photo.url.any? %>
+          <%= image_tag StoryPhoto.find(story.id).photo.url %>
+          <% else %>
+          <%= image_tag "http://epaper2.mid-day.com/images/no_image_thumb.gif" %>
+          </span>
         <span class = "story-info-text">
           <h2><%= story.title %></h2>
           <p><%=story.story%></p>
           <div class = "story-date"><%= story.date.strftime("%B %d, %Y") %></div>
         </span>
       </div>
-
     </div>
     <% end %>
-
   </section>
   <% end %>
-
   <div class="modal fade" id="message-to-owner" tabindex="-1" role="dialog" aria-labelledby="message-to-owner">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -121,7 +101,6 @@
             <% if @mail.errors.any? %>
               <div id="error_explanation">
                 <h2><%= pluralize(@mail.errors.count, "error") %> prohibited this mail from being saved:</h2>
-
                 <ul>
                   <% @mail.errors.full_messages.each do |msg| %>
                     <li><%= msg %></li>
@@ -129,10 +108,8 @@
                 </ul>
               </div>
             <% end %>
-
             <%= f.label :title %><br />
             <%= f.text_field :title, id: 'mailTitle' %><br />
-
             <%= f.label :text %><br />
             <%= f.text_area :text, id: 'mailText' %><br />
         </div>
@@ -141,7 +118,6 @@
           <%= f.submit "Send Mail", id: 'mailSubmitBtn', class: 'btn btn-primary', data: { ownerId: "#{@item.user_id}", senderId: "#{current_user.id}"} %>
           <% end %>
           <% end %>
-
         </div>
       </div>
     </div>
