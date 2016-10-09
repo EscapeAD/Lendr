@@ -54,8 +54,8 @@
                 <% if @pending.empty? %>
                   <em>Currently no pending</em>
                 <% else %>
-                <div class="col-md-4">
                   <% @pending.each do | item | %>
+                  <div class="col-md-4">
                       <div class="user-square-container text-left">
                         <a href="/items/<%=item.item_id%>">
                         <% if Item.find(item.item_id).pictures.first != nil %>
