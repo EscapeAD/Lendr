@@ -4,12 +4,10 @@ class Checkout < ApplicationRecord
   has_many   :verifications
   has_many   :stories
 
-  private
-
   def self.borrow_list(user_id)
     list = Checkout.where(user_id: user_id)
     final = []
-    list.each do | item |
+    list.each do |item|
       if item[:check_initial] == true && !item[:due_date].nil? && item[:returned] == false
         final << item
       end
@@ -32,22 +30,24 @@ class Checkout < ApplicationRecord
   end
 
   def self.pending(current_user_id)
-    inventory = Item.where(user_id: current_user_id)
-    list      = []
-    checkouts  = Checkout.all
-    stories   = Story.all
+    inventory     = Item.where(user_id: current_user_id)
+    pending_check = (checkout[:id] == story[:checkout_id] && story[:completed] == false)
+    list          = []
+    checkouts     = Checkout.all
+    stories       = Story.all
     checkouts.each do |checkout|
+        # Check for pending requests for borrowing.
       if checkout[:user_id] == current_user_id && checkout[:due_date].nil?
         list << checkout
       end
       inventory.each do |invent_item|
         if checkout[:item_id] == invent_item[:id] && checkout[:due_date].nil?
-          # && item[:check_initial] == false
           list << checkout
         end
       end
-      stories.each do | story |
-        if (current_user_id == checkout[:user_id]) && (checkout[:id] == story[:checkout_id] && story[:completed] == false)
+        # Check for non completed/pending stories to be written
+      stories.each do |story|
+        if (current_user_id == checkout[:user_id]) && pending_check
             item_story = Checkout.find(story.checkout_id)
             list << item_story
             puts story.checkout_id
@@ -62,11 +62,10 @@ class Checkout < ApplicationRecord
     array_of_stories    = []
     checkout_story_list.each do |checkout_list|
       stories = Story.where(checkout_id: checkout_list.id)
-      stories.each do | story |
+      stories.each do |story|
       array_of_stories << story
     end
     end
     return array_of_stories
   end
-
 end

@@ -15,7 +15,6 @@ class UsersController < ApplicationController
   def set_user
     @user                    = current_user
     cookies.signed[:user_id] = current_user.id
-    
   end
 
 end

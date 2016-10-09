@@ -1,22 +1,22 @@
 class ItemsController < ApplicationController
   before_action :set_user
+  
   def index
     @items = Item.all
     #Append the first picture of each item into picList
     if request.xhr?
-      input = params[:searchInput]
-      catInput = params[:categoryInput]
-      filteredItems = []
+      input       = params[:searchInput]
+      cat_input   = params[:categoryInput]
+      filtered_items = []
       # Click on category when there is nothing in search input #
       if input.empty?
         items = Item.all
         items.each do |item|
-          if item.category.name == catInput
-            filteredItems << item
+          if item.category.name == cat_input
+            filtered_items << item
           end
         end
         render partial: 'items', locals: {searchItemList: filteredItems}
-
       #If we have search input
       else
         if catInput.empty?  #If we did not click on category
@@ -40,13 +40,11 @@ class ItemsController < ApplicationController
     @stories = Checkout.collect_story(params[:id])
     @owner   = User.find(@item.user_id)
     @mail    = Mailbox.new
-
   end
 
   def new
     @item = Item.new
     @item.pictures.build
-
   end
 
   def create
@@ -98,12 +96,12 @@ class ItemsController < ApplicationController
     redirect_to root_path
   end
 
-
   def destroypic(pic)
     pic.destroy
   end
 
   private
+
   def item_params
     params.require(:item).permit(:name, :description, :owner_id, :category_id, pictures_attributes: [:id, :image, :_destroy])
   end

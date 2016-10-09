@@ -13,5 +13,5 @@ class Story < ApplicationRecord
       else
         return false
       end
-    end
+  end
 end

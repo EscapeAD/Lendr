@@ -1,5 +1,5 @@
 class VerificationsController < ApplicationController
-  
+
   def show
     @verify          = Verification.find(params[:id])
     @status_text     = Verification.status_text(params[:id])
@@ -12,7 +12,7 @@ class VerificationsController < ApplicationController
       redirect_to user_path
     end
     Verification.verify_staging(@verify)
-    rescue ActiveRecord::RecordNotFound
+  rescue ActiveRecord::RecordNotFound
       redirect_to user_url, notice: 'Item is been returned'
   end
 
@@ -21,7 +21,7 @@ class VerificationsController < ApplicationController
 
   def update
     @verify = Verification.find(params[:id])
-    if params[:meetup_location] != nil
+    if !params[:meetup_location].nil?
       @verify.update_attribute(:meetup_location, params[:meetup_location])
       @verify.save
     else
@@ -39,5 +39,4 @@ class VerificationsController < ApplicationController
 
   def create
   end
-  private
 end
