@@ -65,7 +65,7 @@
       <!-- content -->
       <div class="timeline-content">
         <span class = "story-profile-photo">
-          <% StoryPhoto.find(story.id).photo.url.any? %>
+          <% if StoryPhoto.find(story.id).photo.url.any? %>
           <%= image_tag StoryPhoto.find(story.id).photo.url %>
           <% else %>
           <%= image_tag "http://epaper2.mid-day.com/images/no_image_thumb.gif" %>
