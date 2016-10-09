@@ -9,7 +9,6 @@ class MailboxesController < ApplicationController
     @mail = Mailbox.find(params[:id])
     @mail.update_attribute(:open, true)
     @mail.save
-
   end
 
   def new
