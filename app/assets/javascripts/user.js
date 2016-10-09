@@ -7,7 +7,7 @@ $(document).on('turbolinks:load', function(){
         method: 'POST',
         data: {},
         dataType: 'JSON'
-      }).done(function(res){
+      }).always(function(res){
         location.reload();
       })
     })
