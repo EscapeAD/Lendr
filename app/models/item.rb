@@ -5,4 +5,5 @@ class Item < ApplicationRecord
   belongs_to :category
   accepts_nested_attributes_for :checkouts
   accepts_nested_attributes_for :pictures, :allow_destroy => true
+  validates :name, :description, :owner_id, :category_id, presence: true
 end
