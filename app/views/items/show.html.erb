@@ -24,7 +24,7 @@
     </div>
     <br>
     <% if Checkout.where(item_id: @item.id, returned: false).any? %>
-      <%= link_to 'Borrrow', item_checkouts_path(@item), class: 'btn btn-success btn-lg', id: 'borrowBtn', disabled: true %>
+      <%= link_to 'Borrrow', item_checkouts_path(@item), class: 'btn btn-success btn-lg', id: 'btnNope', disabled: true %>
     <% elsif current_user.nil? %>
     <button class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal">Borrow</button>
     <% else %>
@@ -65,10 +65,10 @@
       <!-- content -->
       <div class="timeline-content">
         <span class = "story-profile-photo">
-          <% if StoryPhoto.find(story.id).photo.url.any? %>
-          <%= image_tag StoryPhoto.find(story.id).photo.url %>
-          <% else %>
+          <% if StoryPhoto.find(story.id).photo.nil? %>
           <%= image_tag "http://epaper2.mid-day.com/images/no_image_thumb.gif" %>
+          <% else %>
+          <%= image_tag StoryPhoto.find(story.id).photo.url %>
           </span>
           <% end %>
         <span class = "story-info-text">

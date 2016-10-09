@@ -49,7 +49,6 @@ class Checkout < ApplicationRecord
         if (current_user_id == checkout[:user_id]) && (checkout[:id] == story[:checkout_id] && story[:completed] == false)
             item_story = Checkout.find(story.checkout_id)
             list << item_story
-            puts story.checkout_id
         end
       end
     end

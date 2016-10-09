@@ -2,22 +2,24 @@ class CheckoutsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_user
 
+  def index
+  end
+
   def new
     @checkout   = @user.checkouts.new
   end
 
   def create
-    item        = params[:item_id]
-    @ower_item  = Item.find(item).user_id
-    @checkout   = Checkout.new(user_id: current_user.id, item_id: item)
+    @ower_item  = Item.find(params[:item_id])
+    @checkout   = Checkout.new(user_id: current_user.id, item_id: @ower_item.id)
     # Check to make sure borrower isn't owner
-    if current_user.id == @ower_item
-      redirect_to item_path(item), notice: "Sorry you can't borrow your own item"
+    if current_user.id == @ower_item.user_id
+      redirect_to item_path(@ower_item), notice: "Sorry you can't borrow your own item"
     else
       if @checkout.save
-        redirect_to item_path(item), notice: 'Borrow Notice, sent to owner'
+        redirect_to item_path(@ower_item), notice: 'Borrow Notice, sent to owner'
       else
-        redirect_to item_path(item), notice: 'There was a error sending a request'
+        redirect_to item_path(@ower_item), notice: 'There was a error sending a request'
       end
     end
   end
@@ -37,8 +39,12 @@ class CheckoutsController < ApplicationController
   def destroy
     @checkout   = Checkout.find(params[:id])
     @verify     = Verification.where(checkout_id: params[:id])
-    @message    = Message.where(Verification_id: @verify.id)
-    @message.destroy_all
+    if @verify.nil?
+      @message    = Message.where(Verification_id: @verify.id)
+      if !@message.nil?
+        @message.destroy_all
+      end
+    end
     @verify.destroy_all
     @checkout.destroy
     redirect_to user_path

@@ -11,6 +11,9 @@ $(document).on('turbolinks:load', function(){
         location.reload();
       })
     })
+    $('#btnNope').on('click', function(event){
+      event.preventDefault();
+    })
 
   // Ajax for mail
   $('#mailSubmitBtn').on('click', function(event){
