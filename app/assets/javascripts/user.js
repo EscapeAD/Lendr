@@ -17,7 +17,7 @@ $(document).on('turbolinks:load', function(){
 
     event.preventDefault();
     $.ajax({
-      url: '/mails',
+      url: '/mailboxes',
       method: 'POST',
       data: {
         recipient: $(this).data('ownerid'),
@@ -26,7 +26,7 @@ $(document).on('turbolinks:load', function(){
         sender: $(this).data('senderId')
       },
       dataType: 'JSON'
-    }).done(function(res){
+    }).always(function(){
       location.reload();
     })
   })
