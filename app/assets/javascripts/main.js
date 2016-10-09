@@ -182,24 +182,24 @@ $(document).on('turbolinks:load', function(){
     }
 
 
-  //Alert user when the back button is pressed
-    if (window.history && window.history.pushState) {
-
-      $(window).on('popstate', function() {
-        var hashLocation = location.hash;
-        var hashSplit = hashLocation.split("#!/");
-        var hashName = hashSplit[1];
-
-        if (hashName !== '') {
-          var hash = window.location.hash;
-          if (hash === '') {
-            alert('Back button was pressed.');
-          }
-        }
-      });
-
-      window.history.pushState('forward', null, './#forward');
-    }
+  // //Alert user when the back button is pressed
+  //   if (window.history && window.history.pushState) {
+  //
+  //     $(window).on('popstate', function() {
+  //       var hashLocation = location.hash;
+  //       var hashSplit = hashLocation.split("#!/");
+  //       var hashName = hashSplit[1];
+  //
+  //       if (hashName !== '') {
+  //         var hash = window.location.hash;
+  //         if (hash === '') {
+  //           alert('Back button was pressed.');
+  //         }
+  //       }
+  //     });
+  //
+  //     window.history.pushState('forward', null, './#forward');
+  //   }
 
 
 

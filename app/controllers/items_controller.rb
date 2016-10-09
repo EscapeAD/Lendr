@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_action :set_user
-  
+
   def index
     @items = Item.all
     #Append the first picture of each item into picList
@@ -16,7 +16,7 @@ class ItemsController < ApplicationController
             filtered_items << item
           end
         end
-        render partial: 'items', locals: {searchItemList: filteredItems}
+        render partial: 'items', locals: {searchItemList: filtered_items}
       #If we have search input
       else
         if catInput.empty?  #If we did not click on category
@@ -26,10 +26,10 @@ class ItemsController < ApplicationController
           items = Item.where('name ILIKE ?', "%#{input}%")
           items.each do |item|
             if item.category.name == catInput
-              filteredItems << item
+              filtered_tems << item
             end
           end
-          render partial: 'items', locals: {searchItemList: filteredItems}
+          render partial: 'items', locals: {searchItemList: filtered_items}
         end
       end
     end
