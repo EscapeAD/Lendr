@@ -17,12 +17,12 @@ class MailboxesController < ApplicationController
 
   def create
     @mail = Mailbox.new(title: params[:title],
-                     recipient: params[:recipient],
+                      recipient: params[:recipient],
                       text: params[:text],
                       sender: current_user.id,
                       open: false)
     if @mail.save
-      redirect_to root_path
+      redirect_to item_path(params[:id])
     else
       render :new
     end

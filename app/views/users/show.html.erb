@@ -54,8 +54,8 @@
                 <% if @pending.empty? %>
                   <em>Currently no pending</em>
                 <% else %>
+                <div class="col-md-4">
                   <% @pending.each do | item | %>
-                  <div class="col-md-4">
                       <div class="user-square-container text-left">
                         <a href="/items/<%=item.item_id%>">
                         <% if Item.find(item.item_id).pictures.first != nil %>
@@ -107,6 +107,7 @@
                                   </div>
                                 </div>
                               </div>
+                            </div>
                         <% else %>
                         <% if Verification.where(checkout_id: item.id, status: 'pickup').empty? %>
                           <% if Item.find(item.item_id).user_id == current_user.id %>
@@ -191,7 +192,7 @@
           <div role="tabpanel" class="tab-pane" id="inventory">
             <div class="row pending-items-display">
               <h2 class="subheader-main user-categories">Total Inventory</h2>
-              <%= link_to 'Add Item to Inventory', new_item_path %>
+              <span class='centerText'><%= link_to 'Add Item to Inventory', new_item_path %></span>
               <div class = "images-list">
                 <% if @items.empty? %>
                   <em>Your inventory is empty.</em>

@@ -12,12 +12,12 @@ class CheckoutsController < ApplicationController
     @checkout = Checkout.new(user_id: current_user.id, item_id: item)
     #Check to make sure borrower isn't owner
     if current_user.id == @ower_item
-      render :new, notice: "Sorry you can't borrow your own item"
+      redirect_to item_path(item), notice: "Sorry you can't borrow your own item"
     else
       if @checkout.save
-        redirect_to root_path
+        redirect_to item_path(item), notice: 'Borrow Notice, sent to owner'
       else
-        render :new
+        redirect_to item_path(item), notice: 'There was a error sending a request'
       end
     end
   end
