@@ -7,7 +7,9 @@ $(document).on('turbolinks:load', function(){
         method: 'POST',
         data: {},
         dataType: 'JSON'
-            })
+      }).done(function(res){
+        location.reload();
+      })
     })
 
   // Ajax for mail
