@@ -18,7 +18,7 @@ $(document).on('turbolinks:load', function(){
         $("#mainSearchBtn").click();
     }
     });
-    
+
 
   // Search function
     $('#searchBtn').on('click',function(e){
@@ -159,12 +159,46 @@ $(document).on('turbolinks:load', function(){
 
     // To handle redirection from landing page
     if (getUrlParameter('categoryInput')) {
-      $('#'+getUrlParameter('categoryInput')+'Cat').click()
+      $('#'+getUrlParameter('categoryInput')+'Cat').click();
+      refineUrl();
     }
 
     if (getUrlParameter('searchInput')) {
-      $('#searchTextField').val(getUrlParameter('searchInput'))
-      $('#searchBtn').click()
+      $('#searchTextField').val(getUrlParameter('searchInput'));
+      $('#searchBtn').click();
+      refineUrl();
+    }
+
+
+      /*Helper function to remove query string in url */
+    function refineUrl()
+    {
+      var query = window.location.search.substring(1)
+      if(query.length) {
+          if(window.history != undefined && window.history.pushState != undefined) {
+              window.history.pushState({}, document.title, window.location.pathname);
+          }
+      }
+    }
+
+
+  //Alert user when the back button is pressed
+    if (window.history && window.history.pushState) {
+
+      $(window).on('popstate', function() {
+        var hashLocation = location.hash;
+        var hashSplit = hashLocation.split("#!/");
+        var hashName = hashSplit[1];
+
+        if (hashName !== '') {
+          var hash = window.location.hash;
+          if (hash === '') {
+            alert('Back button was pressed.');
+          }
+        }
+      });
+
+      window.history.pushState('forward', null, './#forward');
     }
 
 
