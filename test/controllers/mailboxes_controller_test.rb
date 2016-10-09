@@ -2,12 +2,12 @@ require 'test_helper'
 
 class MailboxesControllerTest < ActionDispatch::IntegrationTest
   test "should get index" do
-    get mailboxes_index_url
+    get mailboxes_url
     assert_response :success
   end
 
   test "should get show" do
-    get mailboxes_show_url
+    get mailbox_url
     assert_response :success
   end
 

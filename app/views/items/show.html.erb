@@ -14,7 +14,6 @@
           <% end %>
       </ul>
   </div>
-
   <div class="col-md-6 ">
     <div class = "item-details">
       <h3><strong><%= @item.name %></strong></h3>
@@ -42,34 +41,27 @@
         </button>
         <% end %>
       </span>
-
     <% if current_user == @item.user_id %>
       <%= link_to 'Edit', edit_item_path %>
       <%= link_to 'Delete', item_path, method: :delete, data: {confirm: "Are you sure you want to delete the item '#{@item.name}'? This cannot be undone!"} %>
     <% end %>
   </div>
 </div>
-
 <div class='container adventures-container'>
   <h3 class="subheader-main">Adventures</h3>
-
   <% if @stories.empty? %>
     <p class="empty-stories">
       <em>Currently this lone item has no adventures.</em>
     </p>
   <% else %>
-
   <section id="timeline" class="container">
     <% @stories.each do |story| %>
-
     <!-- includes both marker and story -->
     <div class="timeline-block">
-
       <!-- icon on timeline -->
       <div class="timeline-img icon-background">
         <i class="fa fa-male" aria-hidden="true"></i>
       </div>
-
       <!-- content -->
       <div class="timeline-content">
         <span class = "story-profile-photo">
@@ -78,6 +70,7 @@
           <% else %>
           <%= image_tag "http://epaper2.mid-day.com/images/no_image_thumb.gif" %>
           </span>
+          <% end %>
         <span class = "story-info-text">
           <h2><%= story.title %></h2>
           <p><%=story.story%></p>
@@ -97,7 +90,6 @@
         </div>
         <div class="modal-body">
           <%= form_for(@mail) do |f| %>
-
             <% if @mail.errors.any? %>
               <div id="error_explanation">
                 <h2><%= pluralize(@mail.errors.count, "error") %> prohibited this mail from being saved:</h2>
