@@ -31,7 +31,6 @@ class Checkout < ApplicationRecord
 
   def self.pending(current_user_id)
     inventory     = Item.where(user_id: current_user_id)
-    pending_check = (checkout[:id] == story[:checkout_id] && story[:completed] == false)
     list          = []
     checkouts     = Checkout.all
     stories       = Story.all
@@ -47,7 +46,7 @@ class Checkout < ApplicationRecord
       end
         # Check for non completed/pending stories to be written
       stories.each do |story|
-        if (current_user_id == checkout[:user_id]) && pending_check
+        if (current_user_id == checkout[:user_id]) && (checkout[:id] == story[:checkout_id] && story[:completed] == false)
             item_story = Checkout.find(story.checkout_id)
             list << item_story
             puts story.checkout_id

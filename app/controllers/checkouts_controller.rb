@@ -3,14 +3,14 @@ class CheckoutsController < ApplicationController
   before_action :set_user
 
   def new
-    @checkout = @user.checkouts.new
+    @checkout   = @user.checkouts.new
   end
 
   def create
-    item = params[:item_id]
-    @ower_item = Item.find(item).user_id
-    @checkout = Checkout.new(user_id: current_user.id, item_id: item)
-    #Check to make sure borrower isn't owner
+    item        = params[:item_id]
+    @ower_item  = Item.find(item).user_id
+    @checkout   = Checkout.new(user_id: current_user.id, item_id: item)
+    # Check to make sure borrower isn't owner
     if current_user.id == @ower_item
       redirect_to item_path(item), notice: "Sorry you can't borrow your own item"
     else
@@ -23,12 +23,10 @@ class CheckoutsController < ApplicationController
   end
 
   def update
-    puts params[:id]
-    @checkout = Checkout.find(params[:id])
-    # @checkout = Checkout.where(id: params[:id])
+    @checkout   = Checkout.find(params[:id])
     @checkout.update_attribute(:check_initial, true)
     if @checkout.save
-      @verify = @checkout.verifications.new(checkout_id: params[:id], status: 'pickup')
+      @verify   = @checkout.verifications.new(checkout_id: params[:id], status: 'pickup')
       @verify.save
       redirect_to user_path
     else
@@ -37,9 +35,9 @@ class CheckoutsController < ApplicationController
   end
 
   def destroy
-    @checkout = Checkout.find(params[:id])
-    @verify   = Verification.where(checkout_id: params[:id])
-    @message  = Message.where(Verification_id: @verify.id)
+    @checkout   = Checkout.find(params[:id])
+    @verify     = Verification.where(checkout_id: params[:id])
+    @message    = Message.where(Verification_id: @verify.id)
     @message.destroy_all
     @verify.destroy_all
     @checkout.destroy
@@ -52,7 +50,7 @@ class CheckoutsController < ApplicationController
   end
 
   def set_user
-    @user = current_user
+    @user       = current_user
   end
 
 end

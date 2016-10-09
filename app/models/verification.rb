@@ -14,16 +14,13 @@ class Verification < ApplicationRecord
 
   def self.verify_user(current_item_id, current_checkout_id, current_verification_id, current_user)
     item                 = Item.find(current_item_id)
-    check                = Checkout.find(current_checkout_id)
     verification_session = Verification.find(current_verification_id)
     if current_user.id == item.user_id
       verification_session.update_attribute(:owner, true)
-      verification_session.save
     else
       verification_session.update_attribute(:borrower, true)
-      verification_session.save
     end
-
+    verification_session.save
   end
 
   def self.status_text(verf_id)
@@ -44,17 +41,14 @@ class Verification < ApplicationRecord
     if verification_session[:owner] == true && verification_session[:borrower] == true && verification_session[:status] == 'pickup'
       checkout_session.update_attributes(start_date:  Time.now, due_date: return_time)
       verification_session.update_attributes(status: 'return', owner: 'false', borrower: 'false')
-      checkout_session.save
-      verification_session.save
     end
     if verification_session[:owner] == true && verification_session[:borrower] == true && verification_session[:status] == 'return'
       checkout_session.update_attribute(:returned, true)
       checkout_session.stories.new(checkout_id: checkout_session.id)
-      checkout_session.save
       Message.where(verification_id: current_verification.id).destroy_all
-      # Message.where(verification_id: current_verification.id).save
       verification_session.destroy
-      verification_session.save
     end
+    checkout_session.save
+    verification_session.save
   end
 end
