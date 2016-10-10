@@ -142,8 +142,9 @@ video {
 
 // Text within image
 
-.col-md-4:hover {
-  opacity: .7;
+.categoryRec:hover {
+  filter: grayscale(100%);
+  opacity: 1;
 }
 .imgtext{
 position:relative;
@@ -156,6 +157,46 @@ color: white;
 text-decoration: none;
 // visibility:hidden;
 }
+
+@media (min-width: 768px) {
+  .imgtext{
+    bottom:40%;
+    left:45%;
+    font-size: 30px;
+    cursor: pointer;
+    cursor: hand;
+    color: white;
+    text-decoration: none;
+    position:absolute;
+
+    }
+}
+@media (min-width: 1024px) {
+  .imgtext{
+      bottom:40%;
+      left: 40%;
+      font-size: 30px;
+      cursor: pointer;
+      cursor: hand;
+      color: white;
+      text-decoration: none;
+      position:absolute;
+
+  }
+}
+@media (min-width: 2560px) {
+  .imgtext{
+      left:43%;
+      font-size: 30px;
+      cursor: pointer;
+      cursor: hand;
+      color: white;
+      text-decoration: none;
+      position:absolute;
+  }
+}
+
+
 .imgtext:hover{
 color: white;
 text-decoration: none;
@@ -247,4 +288,10 @@ text-decoration: none;
 #frontText{
   font-family: 'Shadows Into Light Two', cursive;
 
+}
+.img-center {
+	margin: 0 auto;
+}
+.img-circle{
+  width: 200px;
 }
