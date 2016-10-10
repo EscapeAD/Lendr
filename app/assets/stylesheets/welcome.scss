@@ -142,8 +142,9 @@ video {
 
 // Text within image
 
-.col-md-4:hover {
-  opacity: .7;
+.categoryRec:hover {
+  filter: grayscale(100%);
+  opacity: 1;
 }
 .imgtext{
 position:relative;
