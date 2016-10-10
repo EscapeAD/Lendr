@@ -157,10 +157,31 @@ color: white;
 text-decoration: none;
 // visibility:hidden;
 }
+
+@media (min-width: 768px) {
+  .imgtext{
+    position:absolute;
+    bottom:40%;
+    left:45%;
+    }
+}
+@media (min-width: 1024px) {
+  .imgtext{
+      bottom:40%;
+      left: 40%;
+  }
+}
+@media (min-width: 2560px) {
+  .imgtext{
+      left:43%;
+  }
+
+
 .imgtext:hover{
 color: white;
 text-decoration: none;
 // visibility:hidden;
+}
 }
 
 
