@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161007162533) do
+ActiveRecord::Schema.define(version: 20161011205439) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,10 +49,10 @@ ActiveRecord::Schema.define(version: 20161007162533) do
     t.string   "title"
     t.integer  "sender"
     t.integer  "recipient"
-    t.boolean  "open"
     t.text     "text"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.boolean  "unread",     default: true
   end
 
   create_table "messages", force: :cascade do |t|
