@@ -213,3 +213,7 @@ a:hover {
 .modal-header{
   width: 583px;
 }
+
+#mainSearchTextField {
+  width: 300px;
+}
