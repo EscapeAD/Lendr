@@ -21,16 +21,10 @@
     <% @mails.each do |mail| %>
 
     <tr>
-      <% if mail.unread == true %>
-      <strong>
-      <% end %>
       <td><%= link_to 'Delete',  mailbox_path(mail.id),  method: :delete %></td>
       <td><%=mail.created_at.strftime("%m/%d/%Y")%></td>
       <td><%=User.find(mail.sender).first_name%> <%=User.find(mail.sender).last_name%></td>
-      <td><%=link_to "#{mail.title}", mailbox_path(mail.id)%></td>
-      <% if mail.unread == true %>
-      </strong>
-      <% end %>
+      <td><% if mail.unread == true %><i class="fa fa-envelope-o" aria-hidden="true"></i><% end %> <%=link_to "#{mail.title}", mailbox_path(mail.id)%></td>
       </tr>
 
     <% end %>
