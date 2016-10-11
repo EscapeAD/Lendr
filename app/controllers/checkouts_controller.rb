@@ -16,6 +16,7 @@ class CheckoutsController < ApplicationController
     if current_user.id == @ower_item.user_id
       redirect_to item_path(@ower_item), notice: "Sorry you can't borrow your own item"
     else
+      mailbox_notice(@ower_item)
       if @checkout.save
         redirect_to item_path(@ower_item), notice: 'Borrow Notice, sent to owner'
       else
@@ -59,4 +60,12 @@ class CheckoutsController < ApplicationController
     @user       = current_user
   end
 
+  def mailbox_notice(item)
+  mail = Mailbox.new(title: "Notice: #{item.name}",
+                    recipient: item.user_id,
+                    text: 'You have recieve a request about item',
+                    sender: current_user.id,
+                    open: false)
+  mail.save
+  end
 end
