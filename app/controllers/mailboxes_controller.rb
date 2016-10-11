@@ -7,9 +7,14 @@ class MailboxesController < ApplicationController
   end
 
   def show
-    @mail = Mailbox.find(params[:id])
+    @new_mail   = Mailbox.new
+    @mail       = Mailbox.find(params[:id])
+    @sender     = @mail.sender
+    @recipient  = @mail.recipient
     @mail.update_attribute(:open, true)
     @mail.save
+
+
   end
 
   def new

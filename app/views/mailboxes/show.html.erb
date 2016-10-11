@@ -9,7 +9,9 @@
   <div class="row">
     <div class="col-md-2">
       <h4>About</h4>
-      <Strong>Sender:</strong> <%= User.find(@mail.sender).first_name %> <%= User.find(@mail.sender).last_name %><br/>
+      <Strong>Sender:</strong> <%= User.find(@mail.sender).first_name %> <%= User.find(@mail.sender).last_name %><br/><br/>
+        <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#message-to-owner"><i class="fa fa-envelope" aria-hidden="true"></i> Reply
+        </button>
   </div>
   <div class="col-md-8 mailbox">
     <h4>Title: <small><%= @mail.title %></small></h4>
@@ -18,7 +20,31 @@
 
 
   </div>
+</div>
+</div>
+</div>
+</div>
+
+
+
+<div class="modal fade" id="message-to-owner" tabindex="-1" role="dialog" aria-labelledby="message-to-owner">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Reply Back Message</h4>
+      </div>
+      <div class="modal-body">
+        <%= form_for(@new_mail) do |f| %>
+          <%= f.label :title %><br />
+          <%= f.text_field :title, id: 'mailTitle' %><br />
+          <%= f.label :text %><br />
+          <%= f.text_area :text, id: 'mailText' %><br />
+      </div>
+      <div class="modal-footer">
+        <%= f.submit "Send Mail", id: 'mailSubmitBtn', class: 'btn btn-primary', data: { ownerId: "#{@sender}", senderId: "#{current_user.id}"} %>
+        <% end %>
+      </div>
+    </div>
   </div>
-</div>
-</div>
 </div>
