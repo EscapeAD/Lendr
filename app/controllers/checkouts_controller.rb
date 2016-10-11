@@ -64,8 +64,7 @@ class CheckoutsController < ApplicationController
   mail = Mailbox.new(title: "Notice: #{item.name}",
                     recipient: item.user_id,
                     text: 'You have recieve a request about item',
-                    sender: current_user.id,
-                    open: false)
+                    sender: current_user.id)
   mail.save
   end
 end

@@ -11,10 +11,8 @@ class MailboxesController < ApplicationController
     @mail       = Mailbox.find(params[:id])
     @sender     = @mail.sender
     @recipient  = @mail.recipient
-    @mail.update_attribute(:open, true)
+    @mail.update_attribute(:unread, false)
     @mail.save
-
-
   end
 
   def new
@@ -26,8 +24,7 @@ class MailboxesController < ApplicationController
     @mail = Mailbox.new(title: params[:title],
                       recipient: params[:recipient],
                       text: params[:text],
-                      sender: current_user.id,
-                      open: false)
+                      sender: current_user.id)
     if @mail.save
       redirect_to item_path(params[:id])
     else
