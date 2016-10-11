@@ -2,7 +2,7 @@ class MailboxesController < ApplicationController
   before_action :set_user
 
   def index
-    @mails = Mailbox.where(:recipient == current_user.id)
+    @mails = Mailbox.where(recipient: current_user.id)
   end
 
   def show
@@ -16,6 +16,7 @@ class MailboxesController < ApplicationController
   end
 
   def create
+    puts params
     @mail = Mailbox.new(title: params[:title],
                       recipient: params[:recipient],
                       text: params[:text],
