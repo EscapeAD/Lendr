@@ -209,6 +209,7 @@
                       <div class = "text-left">
                         <strong><%= Item.find(item.id).name %></strong> <br/>
                         <%= link_to 'View', item_path(item.id)%>
+                        <%= link_to 'Edit', edit_item_path(item.id)%>
                       </div>
                     </div>
                   <% end %>
