@@ -46,7 +46,7 @@
           </div>
           <div class="nav-group">
             <% if user_signed_in? %>
-              <span class="badge"><%=Mailbox.where(recipient: current_user.id, unread: true).count%></span> <%= link_to "Inbox", mailboxes_path %>&nbsp;
+              <span class="badge"><%= Mailbox.where(recipient: current_user.id, unread: true).count %></span> <%= link_to "Inbox", mailboxes_path %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           </div>
           <div class="nav-group">
               <%= link_to "Profile", user_path %>
