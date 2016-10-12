@@ -217,3 +217,16 @@ a:hover {
 #mainSearchTextField {
   width: 300px;
 }
+
+@media (max-width:950px){
+  .navbar-brand{
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: -4px;
+    font-size: 40px;
+    padding-top: 30px;
+    padding-bottom: 50px;
+  }
+  #mainSearchTextField {
+    width: 180px;
+  }
+}
