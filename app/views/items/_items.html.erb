@@ -6,7 +6,7 @@
 <% else %>
 <% searchItemList.each do |item| %>
       <div class='col-md-3 item-box'>
-      <div class = "item_image"><%= image_tag item.pictures.first.image.url(:medium) %></div>
+      <div class = "item_image"><%= image_tag item.pictures.first.image.url(:medium), class: 'main-image' %></div>
       <div class = "item-info">
         <%= link_to item.name, item_path(item) %>
         <br>Owner: <%= item.user_id %>
