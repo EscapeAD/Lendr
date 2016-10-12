@@ -2,10 +2,10 @@
   <div class="container">
     <div class="container">
       <div class="row" id="user-profile-info">
-        <div class="col-md-6" id="profile-image">
+        <div class="col-md-6 " id="profile-image">
           <a href="#" data-featherlight="#mylightbox">
           <% if @user.avatar_file_name != nil %>
-          <%= image_tag @user.avatar.url(:medium), id: 'mylightbox' %>
+          <%= image_tag @user.avatar.url(:medium), id: 'mylightbox'%>
           <% else %>
           <%= image_tag "http://awhatsappstatus.org/wp-content/uploads/2015/11/femous-and-poular-d-profile-pictures-2.jpg", id: 'mylightbox' %>
           <% end %>
@@ -36,8 +36,17 @@
           <h2 class = "statistic-titles">Total Lent Out</h2>
         </div>
       </div>
-<br/><br>
+
+      <br/><br>
       <div class='container'>
+
+        <div class="panel panel-warning">
+          <div class="panel-heading">Lendr Borrow Control Panel</div>
+          <div class="panel-body">
+            <i class="fa fa-exclamation" aria-hidden="true"></i> This is where you admin panel for where you borrow, track, and lend out.
+          </div>
+        </div>
+
         <!-- Nav tabs -->
         <ul class="nav nav-tabs" role="tablist">
           <li role="presentation" class="active"><a href="#pending" aria-controls="home" role="tab" data-toggle="tab">Pending</a></li>
@@ -192,10 +201,9 @@
           <div role="tabpanel" class="tab-pane" id="inventory">
             <div class="row pending-items-display">
               <h2 class="subheader-main user-categories">Total Inventory</h2>
-              <span class='centerText'><%= link_to 'Add Item to Inventory', new_item_path %></span>
               <div class = "images-list">
                 <% if @items.empty? %>
-                  <em>Your inventory is empty.</em>
+                  <em>Your inventory is empty. </em>
                 <% else %>
                   <% @items.each do |item| %>
                     <div class="col-md-4">
@@ -208,12 +216,14 @@
                       </div>
                       <div class = "text-left">
                         <strong><%= Item.find(item.id).name %></strong> <br/>
-                        <%= link_to 'View', item_path(item.id)%>
+                        <%= link_to 'View', item_path(item.id)%> |
                         <%= link_to 'Edit', edit_item_path(item.id)%>
                       </div>
                     </div>
                   <% end %>
                 <% end %>
+                <%= link_to 'Add Item to Inventory', new_item_path, id:'centerText' %>
+
               </div>
             </div>
           </div>
