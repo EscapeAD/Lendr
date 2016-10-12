@@ -27,7 +27,9 @@ class CheckoutsController < ApplicationController
 
   def update
     @checkout   = Checkout.find(params[:id])
+    @item       = Item.find(@checkout.item_id)
     @checkout.update_attribute(:check_initial, true)
+    mailbox_ready(@item)
     if @checkout.save
       @verify   = @checkout.verifications.new(checkout_id: params[:id], status: 'pickup')
       @verify.save
@@ -63,8 +65,16 @@ class CheckoutsController < ApplicationController
   def mailbox_notice(item)
   mail = Mailbox.new(title: "Notice: #{item.name}",
                     recipient: item.user_id,
-                    text: 'You have recieve a request about item',
+                    text: 'You have recieve a borrow request, Please check your profile panel',
                     sender: current_user.id)
+  mail.save
+  end
+
+  def mailbox_ready(item)
+  mail = Mailbox.new(title: "Notice: #{item.name}",
+                    recipient: current_user.id,
+                    text: 'The owner of the item has accepted your request to borrow. Please check your profile',
+                    sender: item.user_id)
   mail.save
   end
 end

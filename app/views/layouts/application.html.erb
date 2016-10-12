@@ -46,12 +46,12 @@
           </div>
           <div class="nav-group">
             <% if user_signed_in? %>
-              <span class="badge"><%= Mailbox.where(recipient: current_user.id, unread: true).count %></span> <%= link_to "Inbox", mailboxes_path %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <span class="badge"><%= Mailbox.where(recipient: current_user.id, unread: true).count %></span> <%= link_to "Inbox", mailboxes_path %>
           </div>
           <div class="nav-group">
               <%= link_to "Profile", user_path %>
             <% else %>
-              <a type="button" data-toggle="modal" data-target="#myModal">Log In</a>
+              <a type="button" data-toggle="modal" data-target="#myModal" class='c-btn c-btn--line'>Log In</a>
             <% end %>
           </div>
           <div class="nav-group">
