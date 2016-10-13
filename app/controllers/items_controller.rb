@@ -19,14 +19,14 @@ class ItemsController < ApplicationController
         render partial: 'items', locals: {searchItemList: filtered_items}
       #If we have search input
       else
-        if catInput.empty?  #If we did not click on category
+        if cat_input.empty?  #If we did not click on category
           items = Item.where('name ILIKE ?', "%#{input}%")
           render partial: 'items', locals: {searchItemList: items}
         else
           items = Item.where('name ILIKE ?', "%#{input}%")
           items.each do |item|
-            if item.category.name == catInput
-              filtered_tems << item
+            if item.category.name == cat_input
+              filtered_items << item
             end
           end
           render partial: 'items', locals: {searchItemList: filtered_items}
