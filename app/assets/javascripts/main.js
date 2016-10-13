@@ -234,4 +234,29 @@ $(document).on('turbolinks:load', function(){
     // });
      $('.flexslider').flexslider();
 
+
+
+     $('#searchGeoBtn').on('click',function(){
+       if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(success);
+       }
+       else {
+         alert("Location is not on, please turn on location")
+       }
+       function success(pos) {
+         var lat = pos.coords.latitude;
+         var long = pos.coords.longitude;
+         console.log(lat,long);
+         $.ajax({
+           url: '/items',
+           method: 'GET',
+           data: {latitude: lat, longitude: long},
+           dataType: 'json'
+         }).done(function(rData){
+
+         });
+       }
+     });
+
+
 });

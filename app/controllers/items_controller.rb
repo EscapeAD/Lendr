@@ -8,8 +8,9 @@ class ItemsController < ApplicationController
       input       = params[:searchInput]
       cat_input   = params[:categoryInput]
       filtered_items = []
+
       # Click on category when there is nothing in search input #
-      if input.empty?
+      if input == nil &&  params[:longitude] == nil
         items = Item.all
         items.each do |item|
           if item.category.name == cat_input
@@ -19,9 +20,19 @@ class ItemsController < ApplicationController
         render partial: 'items', locals: {searchItemList: filtered_items}
       #If we have search input
       else
-        if cat_input.empty?  #If we did not click on category
+        #Click on Geolocation search button
+        if params[:latitude] && params[:longitude]
+          close_users = User.near([params[:latitude], params[:longitude]], 20)
+          close_users.each do |user|
+            filtered_items << Item.find_by(user_id: user.id)
+          end
+          puts filtered_items
+          render partial: 'items', locals: {searchItemList: filtered_items}
+        elsif cat_input.nil?  #If we did not click on category
           items = Item.where('name ILIKE ?', "%#{input}%")
+          puts items
           render partial: 'items', locals: {searchItemList: items}
+
         else
           items = Item.where('name ILIKE ?', "%#{input}%")
           items.each do |item|
