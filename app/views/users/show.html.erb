@@ -127,8 +127,8 @@
                             <em> Waiting for Lender to Approve </em><br/>
                             <%= link_to 'Cancel Request', item_checkout_path(item.item_id, item.id), method: :delete, data: { confirm: 'Are you sure?' } %>
                           <% end %>
-                        <% else %>
-                          <%= link_to 'View Status', item_checkout_verification_path(Item.find(item.item_id),item.id,Verification.verify_show_pickup(item.id)) %>
+                        <% else %><br/>
+                          <%= link_to 'Pickup Status', item_checkout_verification_path(Item.find(item.item_id),item.id,Verification.verify_show_pickup(item.id)) %>
                         <% end %>
                         <% end %>
                       </div>
