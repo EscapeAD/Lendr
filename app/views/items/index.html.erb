@@ -7,7 +7,7 @@
 
 
 
-      <nav class="navbar navbar-default navbar-static-top" style="background-color:white" role="navigation">
+      <nav class=" navbar-default navbar-static-top" style="background-color:white" role="navigation">
           <div class="container">
               <div class="navbar-header">
                   <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -27,8 +27,8 @@
         <li><a href='' id='leisureCat'>Leisure</a></li>
         <li><a href='' id='outdoorCat'>Outdoor</a></li>
         <li><a href='' id='repairsCat'>Repairs</a></li>
-        <!-- <li id="search-on-category"><input id="searchTextField" type="text" name="searchTxt"></li>
-        <li><button id="searchBtn">Search</button></li> -->
+        <li id="search-on-category"><input id="searchTextField" type="text" name="searchTxt"></li>
+        <li><button id="searchBtn">Search</button></li>
 
         <li id="search-on-geo"><input id="searchGeoTextField" type="text" name="searchGeoTxt"></li>
         <li><button id="searchGeoBtn">Search Geo</button></li>
@@ -53,20 +53,19 @@
 
               <% if item.pictures.empty? %>
                 <div class='col-md-4 item-box col-xs-6'>
-                    <%= image_tag "http://epaper2.mid-day.com/images/no_image_thumb.gif"%><br/>
+                  <div class="item_image thumbnail">
+                    <%= image_tag "http://epaper2.mid-day.com/images/no_image_thumb.gif", class:' main-image'%>
                     <%= link_to item.name, item_path(item) %>
-                    <br>Owner: <%= item.user_id %>
+                    <br>Owner: <%= User.find(item.user_id).first_name %> <%= User.find(item.user_id).last_name %>
                 </div>
-
+              </div>
               <% else %>
 
                 <% if item.pictures != nil %>
                   <div class='col-md-4 item-box col-xs-6'>
-                    <div class="item_image">
+                    <div class="item_image thumbnail">
                       <%= link_to image_tag(item.pictures.first.image.url(:medium), class: 'main-image'),item_path(item) %>
-                    </div>
 
-                    <div class="item-info">
                       <%= link_to item.name, item_path(item) %>
                       <br>Owner: <%= User.find(item.user_id).first_name %> <%= User.find(item.user_id).last_name %>
                     </div>

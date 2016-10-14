@@ -555,3 +555,19 @@
 .navbar-toggle {
   float: left;
 }
+
+.items-index{
+  border-radius: 15px;
+  background-color: #fffbf4;
+  border: 1px black solid;
+}
+
+#item-name{
+  color: orange;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  letter-spacing: 2px;
+}
+
+.navbar {
+  font-size: 16px;
+}

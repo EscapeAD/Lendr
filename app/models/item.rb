@@ -1,5 +1,6 @@
 class Item < ApplicationRecord
   # Item Class
+  # has_many :stories, through: :checkouts
   has_many :checkouts
   has_many :pictures, inverse_of: :item, dependent: :destroy
   belongs_to :category

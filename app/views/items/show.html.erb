@@ -1,7 +1,7 @@
 
 <div class='container context-container  row'>
-  <div class='col-md-12 border'>
-  <div class="col-md-6 border">
+  <div class='col-md-12 thumbnail'>
+  <div class="col-md-6 ">
       <ul class="slides ">
         <% if @item.pictures.first != nil %>
             <a href="#" data-featherlight=".itemshow">
@@ -15,9 +15,9 @@
           <% end %>
       </ul>
   </div>
-  <div class="col-md-6 ">
+  <div class="col-md-6">
     <div class = "item-details">
-      <h3><strong><%= @item.name %></strong></h3>
+      <h2 id='item-name'><strong><%= @item.name %></strong></h2>
       <h4>Owner</h4> <%= @owner.first_name.capitalize %> <%= @owner.last_name.capitalize %><br>
       <h4>Type</h4> <%= @item.category.name.capitalize %><br>
       <h4>Description</h4>
