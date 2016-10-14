@@ -1,6 +1,6 @@
-// $(document).on('turbolinks:load', function(){
-$(function(){
-  
+$(document).on('turbolinks:load', function(){
+// $(function(){
+
   // jquery tabs for user
     $('#myTabs a[href="#pending"]').tab('show');
     $('#myTabs a[href="#borrow"]').tab('show');

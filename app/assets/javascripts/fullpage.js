@@ -1,5 +1,5 @@
-// $(document).on('turbolinks:load', function(){
-$(function(){
+$(document).on('turbolinks:load', function(){
+// $(function(){
   $('#fullpage').fullpage({
     //Navigation
     menu: '#menu',
