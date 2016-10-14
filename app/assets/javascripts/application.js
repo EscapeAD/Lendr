@@ -11,7 +11,7 @@
 // about supported directives.
 //
 //= require jquery
-//= require turbolinks
+//=* #require turbolinks
 //= require cable
 //= require jquery_ujs
 //= require jquery.flexslider

@@ -1,4 +1,5 @@
-$(document).on('turbolinks:load', function(){
+// $(document).on('turbolinks:load', function(){
+$(function(){
   $('#fullpage').fullpage({
     //Navigation
     menu: '#menu',
@@ -30,8 +31,8 @@ $(document).on('turbolinks:load', function(){
     resetSliders: false,
     fadingEffect: false,
     normalScrollElements: '#element1, .element2',
-    scrollOverflow: false,
-    scrollOverflowOptions: null,
+    scrollOverflow: true,
+    scrollOverflowOptions: scroll,
     touchSensitivity: 15,
     normalScrollElementTouchThreshold: 5,
     bigSectionsDestination: null,
