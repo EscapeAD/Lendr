@@ -1,4 +1,5 @@
 $(document).on('turbolinks:load', function(){
+// $(function(){
 
   // jquery tabs for user
     $('#myTabs a[href="#pending"]').tab('show');
@@ -38,11 +39,11 @@ $(document).on('turbolinks:load', function(){
         });
     });
 
-    $("#searchTextField").keyup(function(event){
-    if(event.keyCode == 13){
-        $("#searchBtn").click();
-    }
-    });
+    // $("#searchTextField").keyup(function(event){
+    // if(event.keyCode == 13){
+    //     $("#searchBtn").click();
+    // }
+    // });
 
 
   // CATEGORY

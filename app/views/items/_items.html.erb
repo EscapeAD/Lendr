@@ -6,9 +6,9 @@
       <div class='col-md-4 item-box col-xs-6'>
       <div class = "item_image thumbnail">
         <% if item.pictures.empty? %>
-        <%= image_tag "http://epaper2.mid-day.com/images/no_image_thumb.gif", class:' main-image'%>
+        <%= link_to image_tag("http://epaper2.mid-day.com/images/no_image_thumb.gif", class:' main-image'), item_path(item) %>
         <% else %>
-        <%= image_tag item.pictures.first.image.url(:medium), class: 'main-image' %>
+        <%= link_to image_tag(item.pictures.first.image.url(:medium), class: 'main-image'),item_path(item) %>
         <% end %>
         <%= link_to item.name, item_path(item) %>
         <br>Owner: <%= User.find(item.user_id).first_name %> <%= User.find(item.user_id).last_name %>

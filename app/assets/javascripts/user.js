@@ -1,4 +1,5 @@
 $(document).on('turbolinks:load', function(){
+// $(function(){
   // Borrow button post
     $('#borrowBtn').on('click', function(event){
       event.preventDefault();
