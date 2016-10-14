@@ -22,8 +22,8 @@ class ItemsController < ApplicationController
       else
         #Click on Geolocation search button
         if params[:latitude] && params[:longitude]
-          close_users = User.near([params[:latitude], params[:longitude]], 20)
-          puts close_users
+          distance    = params[:distance]
+          close_users = User.near([params[:latitude], params[:longitude]], distance, units: :km)
             close_users.each do |user|
               item = Item.where(user_id: user.id)
               item.each do |test|
@@ -38,6 +38,7 @@ class ItemsController < ApplicationController
 
         else
           items = Item.where('name ILIKE ?', "%#{input}%")
+          puts items
           items.each do |item|
             if item.category.name == cat_input
               filtered_items << item

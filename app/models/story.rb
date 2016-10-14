@@ -1,5 +1,6 @@
 class Story < ApplicationRecord
   belongs_to :checkout
+  # has_and_belongs_to_many :item, through: :checkouts
   has_many :story_photos, dependent: :destroy
   accepts_nested_attributes_for :story_photos
 
