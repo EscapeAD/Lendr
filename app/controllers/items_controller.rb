@@ -23,14 +23,15 @@ class ItemsController < ApplicationController
         #Click on Geolocation search button
         if params[:latitude] && params[:longitude]
           close_users = User.near([params[:latitude], params[:longitude]], 20)
-          close_users.each do |user|
-            filtered_items << Item.find_by(user_id: user.id)
-          end
-          puts filtered_items
+          puts close_users
+            close_users.each do |user|
+              item = Item.where(user_id: user.id)
+              filtered_items << item
+            end
           render partial: 'items', locals: {searchItemList: filtered_items}
-        elsif cat_input.nil?  #If we did not click on category
+
+        elsif  params[:searchInput] && params[:searchInput] != '' && params[:categoryInput] == ''  #If we did not click on category
           items = Item.where('name ILIKE ?', "%#{input}%")
-          puts items
           render partial: 'items', locals: {searchItemList: items}
 
         else
@@ -44,6 +45,7 @@ class ItemsController < ApplicationController
         end
       end
     end
+
   end
 
   def show
@@ -94,7 +96,7 @@ class ItemsController < ApplicationController
     end
     dragon_var.each do |element|
       found_checkout_element = Verification.where(checkout_id: element.id)
-        found_checkout_element.each do | check_out_element |
+        found_checkout_element.each do |check_out_element|
           check_out_element.destroy
           check_out_element.save
         end
