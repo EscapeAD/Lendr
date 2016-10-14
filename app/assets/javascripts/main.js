@@ -234,33 +234,4 @@ $(document).on('turbolinks:load', function(){
     // });
      $('.flexslider').flexslider();
 
-
-
-     $('#searchGeoBtn').on('click',function(event){
-       event.preventDefault();
-       $('#searchList').empty();
-       $('#allItems').empty();
-       if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(success);
-       }
-       else {
-         alert("Location is not on, please turn on location")
-       }
-       function success(pos) {
-         var lat = pos.coords.latitude;
-         var long = pos.coords.longitude;
-         console.log(lat,long);
-         $.ajax({
-           url: '/items',
-           method: 'GET',
-           data: {latitude: lat, longitude: long},
-           dataType: 'html'
-         }).done(function(rData){
-           $('#searchList').append(rData);
-
-         });
-       }
-     });
-
-
 });

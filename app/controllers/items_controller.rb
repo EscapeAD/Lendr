@@ -26,7 +26,9 @@ class ItemsController < ApplicationController
           puts close_users
             close_users.each do |user|
               item = Item.where(user_id: user.id)
-              filtered_items << item
+              item.each do |test|
+              filtered_items << test
+              end
             end
           render partial: 'items', locals: {searchItemList: filtered_items}
 
