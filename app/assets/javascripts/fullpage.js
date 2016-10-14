@@ -17,7 +17,7 @@ $(document).on('turbolinks:load', function(){
     autoScrolling: true,
     fitToSection: true,
     fitToSectionDelay: 1000,
-    scrollBar: false,
+    scrollBar: true,
     easing: 'easeInOutCubic',
     easingcss3: 'ease',
     loopBottom: false,
