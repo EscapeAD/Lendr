@@ -38,11 +38,11 @@ $(document).on('turbolinks:load', function(){
         });
     });
 
-    $("#searchTextField").keyup(function(event){
-    if(event.keyCode == 13){
-        $("#searchBtn").click();
-    }
-    });
+    // $("#searchTextField").keyup(function(event){
+    // if(event.keyCode == 13){
+    //     $("#searchBtn").click();
+    // }
+    // });
 
 
   // CATEGORY
