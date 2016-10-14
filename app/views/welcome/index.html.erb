@@ -6,7 +6,11 @@
 			<div class="slide3-text cover-slider">
         <h1 class ="slider-header">Looking for something to borrow?</h1>
         <h2 class = "slider-description">We have what you need.</h2>
-        <a class = "slider-box-link">(search bar here)</a>
+        <!-- <a class = "slider-box-link">(search bar here)</a> -->
+        <div class="search-text">
+          <input id="mainSearchTextField" class="searchTextField" type="text" name="mainSearchTxt">
+          <button id="mainSearchBtn" class="btn btn-default"><%= link_to "Search", items_path %></button>
+        </div>
 			</div>
 		</div>
 
@@ -28,7 +32,7 @@
   </div>
 
 	<div class="section" data-anchor="page2" id="section2">
-		<div class="timeline-intro">
+		<div class="timeline main-feature">
       <%= image_tag "timeline.svg", id: "timeline-road"%>
       <%= image_tag "icon1.svg", class:"timeline-icon", id: "icon1"%>
       <%= image_tag "icon2.svg", class:"timeline-icon", id: "icon2"%>
@@ -48,47 +52,61 @@
 	</div>
 
 	<div class="section" data-anchor="page3" id="section3">
-		<div class="intro">
+		<div class="location main-feature">
+      <%= image_tag "dotted_lines.svg", id:"user-lines" %>
       <%= image_tag "city.svg", id:"city-landscape" %>
-			<h1>Determine Meetup Location Through Chat</h1>
-			<p>
-        Chat instantly with who you're borrowing from or lending to. Set your agreed upon meetup location with integrated Google Maps.
-			</p>
+      <%= image_tag "user-profile-city.svg", id:"user-icons" %>
+
+      <!-- <div class = "user-circle effect-random" data-id="1">
+        <div class = "card-front">
+          <%#= image_tag "front-profile3.svg"%>
+        </div>
+        <div class = "card-back">
+          <%#= image_tag "back-chat-left.svg"%>
+        </div>
+      </div> -->
+
+      <div id="location-text">
+  			<h1>Determine Meetup Location Through Chat</h1>
+  			<p>
+          Chat instantly with who you're borrowing from or lending to.
+          Set your agreed upon meetup location with integrated Google Maps.
+  			</p>
+      </div>
 		</div>
 	</div>
 
-  <div class="section" data-anchor="page4" id="section4">
-		<div class="intro">
+  <div class="section container" data-anchor="page4" id="section4">
+		<div class="our-team">
 			<h1>Our Team</h1>
       <div class="col-lg-3 col-sm-6 text-center">
           <img class="img-circle img-responsive img-center" src="https://media.licdn.com/media/AAEAAQAAAAAAAAd7AAAAJGJiZjI1ODM0LTQ0ZGUtNDYzYS1iYzg5LTE5ZDE4OTFlNDA1NQ.jpg" alt="">
-          <h3>Cathy Chan
-              <small>Web Developer</small>
-          </h3>
+          <h3>Cathy Chan</h3>
+          <h5>Web Developer</h5>
+
           <p><a href="https://github.com/cathyccc"><i class="fa fa-github" aria-hidden="true"></i> GitHub</a></p>
           <p><a href="https://www.linkedin.com/in/cathy-chan"><i class="fa fa-linkedin" aria-hidden="true"></i> Linkedin</a></p>
       </div>
       <div class="col-lg-3 col-sm-6 text-center">
           <img class="img-circle img-responsive img-center" src="https://media.licdn.com/media/AAEAAQAAAAAAAAfqAAAAJDMxNzE3Y2FlLTUxMjMtNGRmMy05N2U0LWIzNThjMWRmODYzMA.jpg" alt="">
-          <h3>Adam Tse
-              <small>Web Developer</small>
-          </h3>
+          <h3>Adam Tse</h3>
+          <h5>Web Developer</h5>
+
           <p><a href="https://github.com/EscapeAD"><i class="fa fa-github" aria-hidden="true"></i> GitHub</a></p>
           <p><a href="https://ca.linkedin.com/in/adam-tse"><i class="fa fa-linkedin" aria-hidden="true"></i> Linkedin</a></p>
       </div>
       <div class="col-lg-3 col-sm-6 text-center">
           <img class="img-circle img-responsive img-center" src="https://media.licdn.com/media/AAEAAQAAAAAAAAj0AAAAJGNhMDk2MzYxLTFkZDgtNDdkMS1iOGU5LTM2MDVlY2U2N2E3MA.jpg" alt="">
-          <h3>Victor Mclean
-              <small>Web Developer</small>
-          </h3>
+          <h3>Victor Mclean</h3>
+          <h5>Web Developer</h5>
+
           <p><a href="https://github.com/vmvictorvm"><i class="fa fa-github" aria-hidden="true"></i> GitHub</a></p>
           <p><a href="https://ca.linkedin.com/in/victor-mclean"><i class="fa fa-linkedin" aria-hidden="true"></i> Linkedin</a></p>
        </div>
       <div class="col-lg-3 col-sm-6 text-center">
           <img class="img-circle img-responsive img-center" src="https://media.licdn.com/media/AAEAAQAAAAAAAAigAAAAJDY5YTU1MGUxLTdhNjUtNDAyYy04OWFiLTFjNTBjYWQ0ZTViMw.jpg" alt="">
-          <h3>Rui Dong
-              <small>Web Developer</small>
-          </h3>
+          <h3>Rui Dong</h3>
+          <h5>Web Developer</h5>
           <p><a href="https://github.com/codeisawesome"><i class="fa fa-github" aria-hidden="true"></i> GitHub</a></p>
           <p><a href="https://ca.linkedin.com/in/rudong"><i class="fa fa-linkedin" aria-hidden="true"></i> Linkedin</a></p>
       </div>
