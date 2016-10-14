@@ -1,7 +1,8 @@
 
-<div class='container context-container'>
-  <div class="col-md-6">
-      <ul class="slides">
+<div class='container context-container  row'>
+  <div class='col-md-12 border'>
+  <div class="col-md-6 border">
+      <ul class="slides ">
         <% if @item.pictures.first != nil %>
             <a href="#" data-featherlight=".itemshow">
           <li><%= image_tag @item.pictures.first.image.url, id: 'show-image', class: 'itemshow' %></li>
@@ -47,6 +48,11 @@
     <% end %>
   </div>
 </div>
+</div>
+
+
+
+
 <div class='container adventures-container'>
   <h3 class="subheader-main">Adventures</h3>
   <% if @stories.empty? %>

@@ -22,10 +22,12 @@ class ItemsController < ApplicationController
       else
         #Click on Geolocation search button
         if params[:latitude] && params[:longitude]
-          close_users = User.near([params[:latitude], params[:longitude]], 1)
-          close_users.each do |user|
-            filtered_items << Item.where(user_id: user.id)
-          end
+          close_users = User.near([params[:latitude], params[:longitude]], 20)
+          puts close_users
+            close_users.each do |user|
+              item = Item.where(user_id: user.id)
+              filtered_items << item
+            end
           render partial: 'items', locals: {searchItemList: filtered_items}
 
         elsif  params[:searchInput] && params[:searchInput] != '' && params[:categoryInput] == ''  #If we did not click on category
@@ -41,9 +43,9 @@ class ItemsController < ApplicationController
           end
           render partial: 'items', locals: {searchItemList: filtered_items}
         end
-
       end
     end
+
   end
 
   def show

@@ -160,13 +160,13 @@ $(document).on('turbolinks:load', function(){
     // To handle redirection from landing page
     if (getUrlParameter('categoryInput')) {
       $('#'+getUrlParameter('categoryInput')+'Cat').click();
-      refineUrl();
+      // refineUrl();
     }
 
     if (getUrlParameter('searchInput')) {
       $('#searchTextField').val(getUrlParameter('searchInput'));
       $('#searchBtn').click();
-      refineUrl();
+      // refineUrl();
     }
 
 
@@ -236,7 +236,10 @@ $(document).on('turbolinks:load', function(){
 
 
 
-     $('#searchGeoBtn').on('click',function(){
+     $('#searchGeoBtn').on('click',function(event){
+       event.preventDefault();
+       $('#searchList').empty();
+       $('#allItems').empty();
        if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(success);
        }
@@ -251,8 +254,9 @@ $(document).on('turbolinks:load', function(){
            url: '/items',
            method: 'GET',
            data: {latitude: lat, longitude: long},
-           dataType: 'json'
+           dataType: 'html'
          }).done(function(rData){
+           $('#searchList').append(rData);
 
          });
        }
