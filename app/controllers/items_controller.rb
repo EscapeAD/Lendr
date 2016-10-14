@@ -8,8 +8,9 @@ class ItemsController < ApplicationController
       input       = params[:searchInput]
       cat_input   = params[:categoryInput]
       filtered_items = []
+
       # Click on category when there is nothing in search input #
-      if input.empty?
+      if input == nil &&  params[:longitude] == nil
         items = Item.all
         items.each do |item|
           if item.category.name == cat_input
@@ -19,20 +20,35 @@ class ItemsController < ApplicationController
         render partial: 'items', locals: {searchItemList: filtered_items}
       #If we have search input
       else
-        if catInput.empty?  #If we did not click on category
+        #Click on Geolocation search button
+        if params[:latitude] && params[:longitude]
+          distance    = params[:distance]
+          close_users = User.near([params[:latitude], params[:longitude]], distance, units: :km)
+            close_users.each do |user|
+              item = Item.where(user_id: user.id)
+              item.each do |test|
+              filtered_items << test
+              end
+            end
+          render partial: 'items', locals: {searchItemList: filtered_items}
+
+        elsif  params[:searchInput] && params[:searchInput] != '' && params[:categoryInput] == ''  #If we did not click on category
           items = Item.where('name ILIKE ?', "%#{input}%")
           render partial: 'items', locals: {searchItemList: items}
+
         else
           items = Item.where('name ILIKE ?', "%#{input}%")
+          puts items
           items.each do |item|
-            if item.category.name == catInput
-              filtered_tems << item
+            if item.category.name == cat_input
+              filtered_items << item
             end
           end
           render partial: 'items', locals: {searchItemList: filtered_items}
         end
       end
     end
+
   end
 
   def show
@@ -83,7 +99,7 @@ class ItemsController < ApplicationController
     end
     dragon_var.each do |element|
       found_checkout_element = Verification.where(checkout_id: element.id)
-        found_checkout_element.each do | check_out_element |
+        found_checkout_element.each do |check_out_element|
           check_out_element.destroy
           check_out_element.save
         end

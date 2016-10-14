@@ -27,7 +27,7 @@
         <%= link_to 'l e n d r', root_path, class: 'navbar-brand' %></a>
       </div>
       <div id="navbar lendr-nav" class="navbar-collapse collapse">
-        <div class="navbar-form navbar-right">
+        <div class="navbar-form navbar-right navbar-links">
           <% if current_page?(root_path) %>
           <% else %>
             <div class="nav-group nav-search">
@@ -42,23 +42,23 @@
             </div>
           <% end %>
           <div class="nav-group">
-            <%= link_to 'Items', items_path %>
+            <%= link_to 'Items', items_path ,class: 'navbar-links'%>
           </div>
           <div class="nav-group">
             <% if user_signed_in? %>
-              <span class="badge"><%= Mailbox.where(recipient: current_user.id, unread: true).count %></span> <%= link_to "Inbox", mailboxes_path %>
+              <span class="badge navbar-links"><%= Mailbox.where(recipient: current_user.id, unread: true).count %></span> <%= link_to "Inbox", mailboxes_path, class: 'navbar-links' %>
           </div>
           <div class="nav-group">
-              <%= link_to "Profile", user_path %>
+              <%= link_to "Profile", user_path, class: 'navbar-links' %>
             <% else %>
-              <a type="button" data-toggle="modal" data-target="#myModal" class='c-btn c-btn--line'>Log In</a>
+              <a type="button" data-toggle="modal" data-target="#myModal" class='c-btn c-btn--line navbar-links'>Log In</a>
             <% end %>
           </div>
           <div class="nav-group">
             <% if user_signed_in? %>
-              <%= link_to 'Log Out', destroy_user_session_path, method: :delete %>
+              <%= link_to 'Log Out', destroy_user_session_path, method: :delete, class: 'navbar-links' %>
             <% else %>
-              <a type="button" data-toggle="modal" data-target="#signupModal">Sign Up</a>
+              <a type="button" data-toggle="modal" data-target="#signupModal" class='navbar-links'>Sign Up</a>
             <% end %>
           </div>
         </div>
@@ -82,12 +82,7 @@
         <%= yield :top_content %>
       </div>
 
-      <!-- <div class="container header-container">
-        <h1><%#= yield :header %></h1>
-      </div> -->
-
       <%= yield %>
-
 
       <!--  Sign Up Modal -->
       <div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -172,26 +167,8 @@
         </div>
       </div>
     </div>
-<!--
-    <footer class="footer" id="colored-footer">
-      <div class="footer-container">
-        <div class = "contact-us col-md-4">
-          <h3 class="text-muted">Contact Us</h3>
-          <p class="footer-text">
-            220 Bitmaker Ave.<br>
-            Toronto, Ontario<br>
-            Canada
-          </p>
-        </div>
-        <div class = "social-media-icons col-md-4">
-        </div>
-        <div class = "social-media-icons col-md-4">
-          <h3 class="text-muted">Let's Connect</h3>
-          <i class="fa fa-github" aria-hidden="true"></i>
-          <i class="fa fa-linkedin" aria-hidden="true"></i>
-        </div>
-      </div>
-    </footer> -->
+
+<!-- FOOTER -->
 
     <footer class="footer-distributed">
 
