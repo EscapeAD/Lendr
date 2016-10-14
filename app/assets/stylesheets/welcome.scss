@@ -105,6 +105,142 @@
   background-size: cover;
 }
 
+#timeline-road{
+  position: relative;
+  left:0px;
+  top:0px;
+}
+
+#timeline-text{
+  position:absolute;
+  right: 60px;
+  top: 150px;
+  max-width: 600px;
+}
+
+#icon1{
+  position:absolute;
+  left:163px;
+  top:-117px;
+
+  transition: all 1.6s ease-out;
+  -webkit-transition: all 1.6s ease-out;
+
+  -webkit-transition-delay: 1s; /* Chrome, Safari, Opera */
+  transition-delay: 1s;
+}
+
+#icon1-review{
+  position: absolute;
+  left:139px;
+  top:168px;
+  opacity: 0;
+
+  transition: all 2.5s ease-out;
+  -webkit-transition: all 2.5s ease-out;
+
+  -webkit-transition-property: opacity; /* Safari */
+  transition-property: opacity;
+  transition-delay: 2.8s;
+}
+
+#tent-icon{
+  position:absolute;
+  left: 177px;
+  top: -72px;
+  width: 44px;
+
+  transition: all 1.6s ease-out;
+  -webkit-transition: all 1.6s ease-out;
+
+  -webkit-transition-delay: 1s; /* Chrome, Safari, Opera */
+  transition-delay: 1s;
+}
+
+// viewing section2
+.fp-viewing-page2 #icon1{
+  top:98px;
+}
+
+.fp-viewing-page2 #icon1-review{
+  opacity: 1;
+}
+
+.fp-viewing-page2 #tent-icon{
+  top:72px;
+}
+
+// viewing section1
+.fp-viewing-page1 #icon1{
+  top:0;
+}
+
+.fp-viewing-page1 #tent-icon{
+  top:0;
+}
+
+#icon2{
+  position:absolute;
+  left:500px;
+  top:-176px;
+
+  transition: all 1.6s ease-out;
+  -webkit-transition: all 1.6s ease-out;
+
+  -webkit-transition-delay: 1s; /* Chrome, Safari, Opera */
+  transition-delay: 1s;
+}
+
+#icon2-review{
+  position:absolute;
+  left:476px;
+  top:546px;
+  opacity: 0;
+
+  transition: all 2.5s ease-out;
+  -webkit-transition: all 2.5s ease-out;
+
+  -webkit-transition-property: opacity; /* Safari */
+  transition-property: opacity;
+  transition-delay: 2.8s;
+}
+
+#light-bulb-icon{
+  position:absolute;
+  left: 516px;
+  top: -148px;
+  width: 40px;
+
+  transition: all 1.6s ease-out;
+  -webkit-transition: all 1.6s ease-out;
+
+  -webkit-transition-delay: 1s; /* Chrome, Safari, Opera */
+  transition-delay: 1s;
+}
+
+// viewing section2
+.fp-viewing-page2 #icon2{
+  top:476px;
+}
+
+.fp-viewing-page2 #icon2-review{
+  opacity: 1;
+}
+
+.fp-viewing-page2 #light-bulb-icon{
+  top:448px;
+}
+
+#icon3{
+  position:absolute;
+  left:1000px;
+  top:476px;
+}
+
+
+
+
+
 
 // old css
 .jumbotron {
