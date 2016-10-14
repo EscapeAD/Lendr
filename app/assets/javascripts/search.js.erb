@@ -5,6 +5,7 @@ $(document).on('turbolinks:load', function(){
        $('#searchGeoBtn').on('click',function(event){
          event.preventDefault();
          var someAssetPath = '<%= image_tag "load.svg" %>';
+         var distanceSelect      = $('#distance-select option:selected').val();
          $('#searchList').empty();
          $('#allItems').empty();
          $('#searchList').append(someAssetPath);
@@ -21,7 +22,7 @@ $(document).on('turbolinks:load', function(){
            $.ajax({
              url: '/items',
              method: 'GET',
-             data: {latitude: lat, longitude: long},
+             data: {latitude: lat, longitude: long, distance: distanceSelect},
              dataType: 'html'
            }).done(function(rData){
              $('#searchList').empty();

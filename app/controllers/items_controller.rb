@@ -22,7 +22,8 @@ class ItemsController < ApplicationController
       else
         #Click on Geolocation search button
         if params[:latitude] && params[:longitude]
-          close_users = User.near([params[:latitude], params[:longitude]], 20)
+          distance    = params[:distance]
+          close_users = User.near([params[:latitude], params[:longitude]], distance, units: :km)
             close_users.each do |user|
               item = Item.where(user_id: user.id)
               item.each do |test|

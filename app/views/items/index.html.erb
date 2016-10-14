@@ -20,6 +20,7 @@
 
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
+        <li><strong>Categories:</strong></li>
         <li><%= link_to 'All Items', items_path %></li>
         <li><a href='' id='educationCat'>Education</a></li>
         <li><a href='' id='equipmentCat'>Equipment</a></li>
@@ -27,11 +28,16 @@
         <li><a href='' id='leisureCat'>Leisure</a></li>
         <li><a href='' id='outdoorCat'>Outdoor</a></li>
         <li><a href='' id='repairsCat'>Repairs</a></li>
-        <li id="search-on-category"><input id="searchTextField" type="text" name="searchTxt"></li>
-        <li><button id="searchBtn">Search</button></li>
-
-        <li id="search-on-geo"><input id="searchGeoTextField" type="text" name="searchGeoTxt"></li>
-        <li><button id="searchGeoBtn">Search Geo</button></li>
+        <!-- <li id="search-on-category"><input id="searchTextField" type="text" name="searchTxt"></li>
+        <li><button id="searchBtn">Search</button></li> -->
+        <li> <strong>Search by Distance: </strong> </li>
+        <li id="search-on-geo"><select id='distance-select' name="select">
+        <option value="10" selected>10 km</option>
+        <option value="20" >20 km</option>
+        <option value="50">50 km</option>
+        </select>
+        </li>
+        <li><button id="searchGeoBtn">Search</button></li>
       </ul>
     </div>
   </div>
