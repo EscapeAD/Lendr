@@ -47,34 +47,58 @@ class ItemsController < ApplicationController
               # end
 
 
-              #Handling BOTH searchInput and category input
+
+              #Handle searchInput only
               if params[:searchInput] == ''    #If no search Input
                 item = Item.where(user_id: user.id)
-                if params[:categoryInput]  #If there is category filter
-                  item.each do |test|
-                    if test.category.name == cat_input
-                        filtered_items << test
-                    end
-                  end
-                else
-                  item.each do |test|
-                    filtered_items << test
-                  end
+                item.each do |test|
+                  filtered_items << test
                 end
               else  #IF there is search input
                 item = Item.where('name ILIKE ?', "%#{input}%")
                 item.each do |test|
-                  if params[:categoryInput]   #If there is a category
-                    if test.user_id == user.id && test.category.name == cat_input
-                      filtered_items << test
-                    end
-                  else  #No category filter = Show all category
-                    if test.user_id == user.id
-                      filtered_items << test
-                    end
+                  if test.user_id == user.id
+                    filtered_items << test
                   end
                 end
               end
+
+
+
+
+
+
+              #Handling BOTH searchInput and category input
+              # if params[:searchInput] == ''    #If no search Input
+              #   item = Item.where(user_id: user.id)
+              #   if params[:categoryInput]  #If there is category filter
+              #     item.each do |test|
+              #       if test.category.name == cat_input
+              #           filtered_items << test
+              #       end
+              #     end
+              #   else
+              #     item.each do |test|
+              #       filtered_items << test
+              #     end
+              #   end
+              # else  #IF there is search input
+              #   item = Item.where('name ILIKE ?', "%#{input}%")
+              #   item.each do |test|
+              #     if params[:categoryInput]   #If there is a category
+              #       if test.user_id == user.id && test.category.name == cat_input
+              #         filtered_items << test
+              #       end
+              #     else  #No category filter = Show all category
+              #       if test.user_id == user.id
+              #         filtered_items << test
+              #       end
+              #     end
+              #   end
+              # end
+
+
+
             end
           render partial: 'items', locals: {searchItemList: filtered_items}
 

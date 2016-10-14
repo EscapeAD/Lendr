@@ -19,15 +19,15 @@ $(document).on('turbolinks:load', function(){
            var lat = pos.coords.latitude;
            var long = pos.coords.longitude;
            console.log(lat,long);
+           var searchInput = $('#searchTextField').val();
            $.ajax({
              url: '/items',
              method: 'GET',
-             data: {latitude: lat, longitude: long, distance: distanceSelect},
+             data: {searchInput: searchInput, latitude: lat, longitude: long, distance: distanceSelect},
              dataType: 'html'
            }).done(function(rData){
              $('#searchList').empty();
              $('#searchList').append(rData);
-
            });
          }
        });

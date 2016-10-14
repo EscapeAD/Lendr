@@ -1,5 +1,4 @@
 $(document).on('turbolinks:load', function(){
-
   // jquery tabs for user
     $('#myTabs a[href="#pending"]').tab('show');
     $('#myTabs a[href="#borrow"]').tab('show');
