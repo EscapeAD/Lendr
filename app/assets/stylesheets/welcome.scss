@@ -1,7 +1,6 @@
 // Place all the styles related to the welcome controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
 .searchTextField {
   width:300px;
   height:40px;
@@ -121,10 +120,15 @@
   background-size: cover;
 }
 
-#timeline-road{
+.timeline .main-feature{
   position: relative;
+
+}
+
+#timeline-road{
+  position: absolute;
   left:0px;
-  top:0px;
+  top:96px;
 }
 
 #timeline-text{
