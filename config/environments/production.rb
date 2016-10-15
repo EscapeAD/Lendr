@@ -25,7 +25,7 @@ Rails.application.configure do
   # config.assets.css_compressor = :sass
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
-  config.assets.compile = false
+  # config.assets.compile = false
 
   # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
 
@@ -83,6 +83,11 @@ Rails.application.configure do
       s3_region: Figaro.env.AWS_REGION,
     }
   }
+
+
+  # Allows images to show in Heroku 
+  config.assets.compile = true
+  config.assets.digest = true
 
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
