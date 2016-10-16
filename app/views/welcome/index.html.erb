@@ -34,14 +34,18 @@
 
 	<div class="section" data-anchor="page2" id="section2">
 		<div class="timeline main-feature">
-      <%= image_tag "timeline.svg", id: "timeline-road"%>
-      <%= image_tag "icon1.svg", class:"timeline-icon", id: "icon1"%>
-      <%= image_tag "icon2.svg", class:"timeline-icon", id: "icon2"%>
-      <%#= image_tag "icon3.svg", class:"timeline-icon", id: "icon3"%>
-      <%= image_tag "icon1_review.svg", id: "icon1-review"%>
-      <%= image_tag "icon2_review.svg", id: "icon2-review"%>
-      <%= image_tag "tent.svg", id: "tent-icon"%>
-      <%= image_tag "light-bulb.svg", id: "light-bulb-icon"%>
+			<div class ="timeline-map1">
+	      <%= image_tag "timeline.svg", id: "timeline-road"%>
+	      <%= image_tag "icon1.svg", class:"timeline-icon", id: "icon1"%>
+	      <%= image_tag "icon2.svg", class:"timeline-icon", id: "icon2"%>
+	      <%#= image_tag "icon3.svg", class:"timeline-icon", id: "icon3"%>
+	      <%= image_tag "icon1_review.svg", id: "icon1-review"%>
+	      <%= image_tag "icon2_review.svg", id: "icon2-review"%>
+	      <%= image_tag "tent.svg", id: "tent-icon"%>
+	      <%= image_tag "light-bulb.svg", id: "light-bulb-icon"%>
+			</div>
+
+
       <div id = "timeline-text">
   			<h1>Timeline of Item Background</h1>
         <p>
@@ -49,6 +53,10 @@
           Add your objects to our library to create your story or borrow items to continue its adventure.
         </p>
       </div>
+
+			<div id="timeline-short-container">
+				<%= image_tag "timeline-short.svg", id: "timeline-road-short"%>
+			</div>
 		</div>
 	</div>
 
