@@ -239,13 +239,13 @@ $(document).on('turbolinks:load', function(){
     // To handle redirection from landing page
     if (getUrlParameter('categoryInput')) {
       $('#'+getUrlParameter('categoryInput')+'Cat').click();
-      // refineUrl();
+      refineUrl();
     }
 
     if (getUrlParameter('searchInput')) {
       $('#searchTextField').val(getUrlParameter('searchInput'));
       $('#searchBtn').click();
-      // refineUrl();
+      refineUrl();
     }
 
 
