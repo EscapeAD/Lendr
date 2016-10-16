@@ -64,7 +64,6 @@
         </div>
       </div><!--/.navbar-collapse -->
     </nav>
-
     <div class="body-content">
       <% if flash.any? %>
         <div class="container alert-container">
@@ -77,10 +76,6 @@
       <% end %>
 
       <%= render :partial => 'items/signin_form' %>
-
-      <div class='container'>
-        <%= yield :top_content %>
-      </div>
 
       <%= yield %>
 
