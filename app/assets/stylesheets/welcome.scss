@@ -23,15 +23,15 @@
 }
 
 #slider3{
-  background-image: url("slider3.jpg");
+  background-image: image-url("slider3.jpg");
 }
 
 #slider1{
-  background-image: url("slider1.jpg");
+  background-image: image-url("slider1.jpg");
 }
 
 #slider2{
-  background-image: url("slider2.jpg");
+  background-image: image-url("slider2.jpg");
 }
 
 .slide3-text{
@@ -122,7 +122,6 @@
 
 .timeline .main-feature{
   position: relative;
-
 }
 
 #timeline-road{
@@ -271,12 +270,15 @@
   top:476px;
 }
 
-#city-landscape{
-  float: right;
-  margin-right: 12px;
+.location .main-feature{
   position: relative;
+}
+
+#city-landscape{
+  margin-right: 12px;
+  position: absolute;
   right:40px;
-  top:120px;
+  bottom:60px;
   width:601px;
   height: auto;
 }
@@ -290,7 +292,6 @@
 }
 
 #user-lines{
-  float: right;
   margin-right: 12px;
   position: absolute;
   right:63px;
@@ -300,7 +301,6 @@
 }
 
 #user-icons{
-  float: right;
   margin-right: 12px;
   position: absolute;
   right:40px;
