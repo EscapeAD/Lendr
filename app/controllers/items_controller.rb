@@ -14,11 +14,23 @@ class ItemsController < ApplicationController
         distance    = params[:distance]
         close_users = User.near([params[:latitude], params[:longitude]], distance, units: :km)
         close_users.each do |user|
-          #Handle searchInput only
-            items = Item.where('name ILIKE ?', "%#{search_input}%")
-            items.each do |item|
-              if item.user_id == user.id
-                filtered_items << item
+            if cat_input == 'All'
+              items = Item.all
+            else
+              items = Item.where('name ILIKE ?', "%#{search_input}%")
+            end
+
+            if cat_input != '' && cat_input != nil && cat_input != 'All'
+              items.each do |item|
+                if item.user_id == user.id && item.category.name == cat_input
+                  filtered_items << item
+                end
+              end
+            else
+              items.each do |item|
+                if item.user_id == user.id
+                  filtered_items << item
+                end
               end
             end
           end
@@ -27,21 +39,25 @@ class ItemsController < ApplicationController
       #No geolocation selected
       else
 
-        # If we have category
-        if cat_input != ''
+        # If all category is selected
+        if cat_input == 'All'
+          filtered_items = Item.all
+
+
+        # If we have a category
+        elsif cat_input != '' && cat_input != nil
           items = Item.where('name ILIKE ?', "%#{search_input}%")
           items.each do |item|
             if item.category.name == cat_input
               filtered_items << item
             end
           end
-          render partial: 'items', locals: {searchItemList: filtered_items}
 
         #If no category
         else
-          items = Item.where('name ILIKE ?', "%#{search_input}%")
-          render partial: 'items', locals: {searchItemList: items}
+          filtered_items = Item.where('name ILIKE ?', "%#{search_input}%")
         end
+        render partial: 'items', locals: {searchItemList: filtered_items}
       end
     end
   end

@@ -16,7 +16,7 @@
 
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><%= link_to 'All Items', items_path %></li>
+        <li><a href='' id='allCat' class="link-gap">All Items</a></li>
         <li><a href='' id='educationCat' class="link-gap">Education</a></li>
         <li><a href='' id='equipmentCat' class="link-gap">Equipment</a></li>
         <li><a href='' id='landscapeCat' class="link-gap">Landscape</a></li>
@@ -27,7 +27,8 @@
         <li><button id="searchBtn">Search</button></li> -->
         <li> <strong>Search by Distance: </strong> </li>
         <li><select  class='inline' id='distance-select' name="select">
-        <option value="10" selected>10 km</option>
+        <option value="None" selected>None</option>
+        <option value="10">10 km</option>
         <option value="20" >20 km</option>
         <option value="50">50 km</option>
         </select>
