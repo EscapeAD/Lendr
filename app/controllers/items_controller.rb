@@ -10,7 +10,7 @@ class ItemsController < ApplicationController
       filtered_items = []
 
       # Click on category when there is nothing in search input #
-      if input == nil &&  params[:longitude] == nil
+      if input == nil &&  params[:longitude] == nil && params[:categoryInput] != ''
         items = Item.all
         items.each do |item|
           if item.category.name == cat_input
@@ -96,8 +96,6 @@ class ItemsController < ApplicationController
               #     end
               #   end
               # end
-
-
 
             end
           render partial: 'items', locals: {searchItemList: filtered_items}

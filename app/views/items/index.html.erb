@@ -16,7 +16,6 @@
 
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <!-- <li><strong>Categories:</strong></li> -->
         <li><%= link_to 'All Items', items_path %></li>
         <li><a href='' id='educationCat' class="link-gap">Education</a></li>
         <li><a href='' id='equipmentCat' class="link-gap">Equipment</a></li>
@@ -37,13 +36,6 @@
     </div>
   </div>
 </nav>
-
-
-
-
-
-
-
     </div>
 
     <div class='col-md-10 search-results'>
@@ -51,24 +43,25 @@
         <div id="searchList">
           <section id="allItems">
             <% @items.each do |item| %>
-
               <% if item.pictures.empty? %>
                 <div class='col-md-4 item-box col-xs-6'>
-                  <div class="item_image thumbnail">
+                  <div class="item_image item-box thumbnail">
+                    <p class='item-word'>
                     <%= link_to image_tag("http://epaper2.mid-day.com/images/no_image_thumb.gif", class:' main-image'), item_path(item) %>
                     <%= link_to item.name, item_path(item) %>
                     <br>Owner: <%= User.find(item.user_id).first_name %> <%= User.find(item.user_id).last_name %>
+                    </p>
                 </div>
               </div>
               <% else %>
-
                 <% if item.pictures != nil %>
                   <div class='col-md-4 item-box col-xs-6'>
-                    <div class="item_image thumbnail">
+                    <div class="item_image item-box thumbnail">
+                      <p class='item-word'>
                       <%= link_to image_tag(item.pictures.first.image.url(:medium), class: 'main-image'),item_path(item) %>
-
                       <%= link_to item.name, item_path(item) %>
                       <br>Owner: <%= User.find(item.user_id).first_name %> <%= User.find(item.user_id).last_name %>
+                    </p>
                     </div>
                   </div>
                 <% end %>
@@ -79,5 +72,4 @@
       </div>
     </div>
   </div>
-
 </div>

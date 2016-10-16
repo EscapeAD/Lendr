@@ -530,6 +530,7 @@
 .main-image{
   width: 200px;
   height: 200px;
+  margin-top: 0.5em;
 }
 
 .timeline-content {
@@ -610,4 +611,14 @@
 
 .inline {
   display: inline-block;;
+}
+
+.item-box {
+  width: 18em;
+}
+
+.item-word {
+  width: 13em;
+  margin: 0 auto;
+
 }
