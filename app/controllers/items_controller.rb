@@ -5,120 +5,47 @@ class ItemsController < ApplicationController
     @items = Item.all
     #Append the first picture of each item into picList
     if request.xhr?
-      input       = params[:searchInput]
-      cat_input   = params[:categoryInput]
+      search_input = params[:searchInput]
+      cat_input   =  params[:categoryInput]
       filtered_items = []
 
-      # Click on category when there is nothing in search input #
-      if input == nil &&  params[:longitude] == nil && params[:categoryInput] != ''
-        items = Item.all
-        items.each do |item|
-          if item.category.name == cat_input
-            filtered_items << item
-          end
-        end
-        render partial: 'items', locals: {searchItemList: filtered_items}
-      #If we have search input
-      else
-        #Click on Geolocation search button
-        if params[:latitude] && params[:longitude]
-          distance    = params[:distance]
-          close_users = User.near([params[:latitude], params[:longitude]], distance, units: :km)
-            close_users.each do |user|
-
-              #Default
-              # item = Item.where(user_id: user.id)
-              # item.each do |test|
-              #   filtered_items << test
-              # end
-
-              #Handling ONLY category input. Ignore searchInput
-              # item = Item.where(user_id: user.id)
-              # if params[:categoryInput]
-              #   item.each do |test|
-              #     if test.category.name == cat_input
-              #         filtered_items << test
-              #     end
-              #   end
-              # else
-              #   item.each do |test|
-              #     filtered_items << test
-              #   end
-              # end
-
-
-
-              #Handle searchInput only
-              if params[:searchInput] == ''    #If no search Input
-                item = Item.where(user_id: user.id)
-                item.each do |test|
-                  filtered_items << test
-                end
-              else  #IF there is search input
-                item = Item.where('name ILIKE ?', "%#{input}%")
-                item.each do |test|
-                  if test.user_id == user.id
-                    filtered_items << test
-                  end
-                end
+      #If geolocation is selected
+      if params[:latitude] && params[:longitude]
+        distance    = params[:distance]
+        close_users = User.near([params[:latitude], params[:longitude]], distance, units: :km)
+        close_users.each do |user|
+          #Handle searchInput only
+            items = Item.where('name ILIKE ?', "%#{search_input}%")
+            items.each do |item|
+              if item.user_id == user.id
+                filtered_items << item
               end
-
-
-
-
-
-
-              #Handling BOTH searchInput and category input
-              # if params[:searchInput] == ''    #If no search Input
-              #   item = Item.where(user_id: user.id)
-              #   if params[:categoryInput]  #If there is category filter
-              #     item.each do |test|
-              #       if test.category.name == cat_input
-              #           filtered_items << test
-              #       end
-              #     end
-              #   else
-              #     item.each do |test|
-              #       filtered_items << test
-              #     end
-              #   end
-              # else  #IF there is search input
-              #   item = Item.where('name ILIKE ?', "%#{input}%")
-              #   item.each do |test|
-              #     if params[:categoryInput]   #If there is a category
-              #       if test.user_id == user.id && test.category.name == cat_input
-              #         filtered_items << test
-              #       end
-              #     else  #No category filter = Show all category
-              #       if test.user_id == user.id
-              #         filtered_items << test
-              #       end
-              #     end
-              #   end
-              # end
-
             end
-          render partial: 'items', locals: {searchItemList: filtered_items}
+          end
+        render partial: 'items', locals: {searchItemList: filtered_items}
 
-          #If there is no latitude and longitude
-        elsif  params[:searchInput] && params[:searchInput] != '' && params[:categoryInput] == ''  #If we did not click on category
-          items = Item.where('name ILIKE ?', "%#{input}%")
-          render partial: 'items', locals: {searchItemList: items}
+      #No geolocation selected
+      else
 
-        else
-          items = Item.where('name ILIKE ?', "%#{input}%")
-          puts items
+        # If we have category
+        if cat_input != ''
+          items = Item.where('name ILIKE ?', "%#{search_input}%")
           items.each do |item|
             if item.category.name == cat_input
               filtered_items << item
             end
           end
           render partial: 'items', locals: {searchItemList: filtered_items}
+
+        #If no category
+        else
+          items = Item.where('name ILIKE ?', "%#{search_input}%")
+          render partial: 'items', locals: {searchItemList: items}
         end
       end
     end
-
   end
+
 
   def show
     @item    = Item.find(params[:id])
