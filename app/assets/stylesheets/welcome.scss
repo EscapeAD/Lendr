@@ -129,11 +129,6 @@
   display:none;
 }
 
-#timeline-short-container{
-  width:100%;
-  heigh:50%;
-}
-
 #timeline-road-short{
   position:static;
   margin-bottom: 10%;
@@ -197,9 +192,28 @@
 }
 
 #icon3{
-  position:absolute;
-  left:1000px;
-  top:476px;
+  display: none;
+}
+
+#icon3-review{
+  display: none;
+}
+
+#wrench-icon{
+  display: none;
+}
+
+// viewing section2
+.fp-viewing-page2 #icon3{
+  top:467px;
+}
+
+.fp-viewing-page2 #icon3-review{
+  opacity: 1;
+}
+
+.fp-viewing-page2 #wrench-icon{
+  top:448px;
 }
 
 .location .main-feature{
@@ -211,7 +225,7 @@
   position: absolute;
   right:40px;
   bottom:60px;
-  width:601px;
+  max-width:601px;
   height: auto;
 }
 
@@ -219,8 +233,8 @@
   margin-right: 8%;
   position:absolute;
   left: 60px;
-  top: 350px;
-  max-width: 600px;
+  top: 33%;
+  width: 430px;
 }
 
 #user-lines{
@@ -258,6 +272,9 @@
   text-align: center;
 }
 
+
+// RESPONSIVE WEB PAGES
+
 @media (min-width: 870px){
   #timeline-road-short{
     display:none;
@@ -267,7 +284,7 @@
     display: block;
     position: absolute;
     left:0px;
-    top:96px;
+    top:97px;
   }
 
   #timeline-text {
@@ -367,6 +384,51 @@
     -webkit-transition-delay: 2s; /* Chrome, Safari, Opera */
     transition-delay: 2s;
   }
+
+  #icon3{
+    display: block;
+    position:absolute;
+    left:900px;
+    top:-176px;
+
+    transition: all 1.6s ease-out;
+    -webkit-transition: all 1.6s ease-out;
+
+    -webkit-transition-delay: 1.5s; /* Chrome, Safari, Opera */
+    transition-delay: 1.5s;
+  }
+
+  #icon3-review{
+    display: block;
+    position:absolute;
+    left:878px;
+    top:537px;
+    opacity: 0;
+
+    transition: all 2.5s ease-out;
+    -webkit-transition: all 2.5s ease-out;
+
+    -webkit-transition-property: opacity; /* Safari */
+    transition-property: opacity;
+    transition-delay: 2.8s;
+
+    -webkit-transition-delay: 0.6s; /* Chrome, Safari, Opera */
+    transition-delay: 0.6s;
+  }
+
+  #wrench-icon{
+    display: block;
+    position:absolute;
+    left: 918px;
+    top: -148px;
+    width: 40px;
+
+    transition: all 1.6s ease-out;
+    -webkit-transition: all 1.6s ease-out;
+
+    -webkit-transition-delay: 2s; /* Chrome, Safari, Opera */
+    transition-delay: 2s;
+  }
 }
 
 @media (min-width: 977px){
@@ -392,11 +454,29 @@
 
 @media (min-width: 1162px){
   #timeline-text {
-    left: 47%;
-    width: 545px;
+    width: 400px;
   }
 }
 
+@media (min-width: 1225px){
+  #location-text{
+    top: 33%;
+    left: 60px;
+    width:430px;
+  }
+}
+
+@media (min-width: 1269px){
+  #location-text{
+    width: 500px;
+  }
+}
+
+@media (min-width: 1341px){
+  #location-text{
+    width: 600px;
+  }
+}
 
 
 
