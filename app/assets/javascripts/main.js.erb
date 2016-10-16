@@ -47,20 +47,49 @@ $(document).on('turbolinks:load', function(){
 
 
   // CATEGORY
+  $('#allCat').on('click',function(e){
+    e.preventDefault();
+    $('#searchList').empty();
+    $('#allItems').empty();
+    var searchInput = $('#searchTextField').val();
+    categoryInput = 'All';
+    var distanceSelect      = $('#distance-select option:selected').val();
+    if (distanceSelect != 'None') {
+      geoloc(searchInput, categoryInput, distanceSelect);
+    }
+    else {
+      $.ajax({
+        url: '/items',
+        method: 'GET',
+        data: {searchInput: searchInput, categoryInput: categoryInput},
+        dataType: 'HTML'
+      }).done(function(rData){
+        $('#searchList').append(rData);
+      });
+    }
+  });
+
+
   $('#leisureCat').on('click',function(e){
     e.preventDefault();
     $('#searchList').empty();
     $('#allItems').empty();
     var searchInput = $('#searchTextField').val();
     categoryInput = 'Leisure';
-    $.ajax({
-      url: '/items',
-      method: 'GET',
-      data: {searchInput: searchInput, categoryInput: categoryInput},
-      dataType: 'HTML'
-    }).done(function(rData){
-      $('#searchList').append(rData);
-    });
+    var distanceSelect      = $('#distance-select option:selected').val();
+    if (distanceSelect != 'None') {
+      geoloc(searchInput, categoryInput, distanceSelect);
+    }
+    else {
+      $.ajax({
+        url: '/items',
+        method: 'GET',
+        data: {searchInput: searchInput, categoryInput: categoryInput},
+        dataType: 'HTML'
+      }).done(function(rData){
+        $('#searchList').append(rData);
+      });
+    }
   });
 
 
@@ -70,14 +99,20 @@ $(document).on('turbolinks:load', function(){
     $('#allItems').empty();
     var searchInput = $('#searchTextField').val();
     categoryInput = 'Equipment';
-    $.ajax({
-      url: '/items',
-      method: 'GET',
-      data: {searchInput: searchInput, categoryInput: categoryInput},
-      dataType: 'HTML'
-    }).done(function(rData){
-      $('#searchList').append(rData);
-    });
+    var distanceSelect      = $('#distance-select option:selected').val();
+    if (distanceSelect != 'None') {
+      geoloc(searchInput, categoryInput, distanceSelect);
+    }
+    else {
+      $.ajax({
+        url: '/items',
+        method: 'GET',
+        data: {searchInput: searchInput, categoryInput: categoryInput},
+        dataType: 'HTML'
+      }).done(function(rData){
+        $('#searchList').append(rData);
+      });
+    }
   });
 
   $('#outdoorCat').on('click',function(e){
@@ -86,15 +121,22 @@ $(document).on('turbolinks:load', function(){
     $('#allItems').empty();
     var searchInput = $('#searchTextField').val();
     categoryInput = 'Outdoor';
-    $.ajax({
-      url: '/items',
-      method: 'GET',
-      data: {searchInput: searchInput, categoryInput: categoryInput},
-      dataType: 'HTML'
-    }).done(function(rData){
-      $('#searchList').append(rData);
-    });
+    var distanceSelect      = $('#distance-select option:selected').val();
+    if (distanceSelect != 'None') {
+      geoloc(searchInput, categoryInput, distanceSelect);
+    }
+    else {
+      $.ajax({
+        url: '/items',
+        method: 'GET',
+        data: {searchInput: searchInput, categoryInput: categoryInput},
+        dataType: 'HTML'
+      }).done(function(rData){
+        $('#searchList').append(rData);
+      });
+    }
   });
+
 
   $('#repairsCat').on('click',function(e){
     e.preventDefault();
@@ -102,15 +144,23 @@ $(document).on('turbolinks:load', function(){
     $('#allItems').empty();
     var searchInput = $('#searchTextField').val();
     categoryInput = 'Repairs';
-    $.ajax({
-      url: '/items',
-      method: 'GET',
-      data: {searchInput: searchInput, categoryInput: categoryInput},
-      dataType: 'HTML'
-    }).done(function(rData){
-      $('#searchList').append(rData);
-    });
+    var distanceSelect      = $('#distance-select option:selected').val();
+    if (distanceSelect != 'None') {
+      geoloc(searchInput, categoryInput, distanceSelect);
+    }
+    else {
+      $.ajax({
+        url: '/items',
+        method: 'GET',
+        data: {searchInput: searchInput, categoryInput: categoryInput},
+        dataType: 'HTML'
+      }).done(function(rData){
+        $('#searchList').append(rData);
+      });
+    }
   });
+
+
 
   $('#landscapeCat').on('click',function(e){
     e.preventDefault();
@@ -118,15 +168,22 @@ $(document).on('turbolinks:load', function(){
     $('#allItems').empty();
     var searchInput = $('#searchTextField').val();
     categoryInput = 'Landscape';
-    $.ajax({
-      url: '/items',
-      method: 'GET',
-      data: {searchInput: searchInput, categoryInput: categoryInput},
-      dataType: 'HTML'
-    }).done(function(rData){
-      $('#searchList').append(rData);
-    });
+    var distanceSelect      = $('#distance-select option:selected').val();
+    if (distanceSelect != 'None') {
+      geoloc(searchInput, categoryInput, distanceSelect);
+    }
+    else {
+      $.ajax({
+        url: '/items',
+        method: 'GET',
+        data: {searchInput: searchInput, categoryInput: categoryInput},
+        dataType: 'HTML'
+      }).done(function(rData){
+        $('#searchList').append(rData);
+      });
+    }
   });
+
 
   $('#educationCat').on('click',function(e){
     e.preventDefault();
@@ -134,15 +191,22 @@ $(document).on('turbolinks:load', function(){
     $('#allItems').empty();
     var searchInput = $('#searchTextField').val();
     categoryInput = 'Education';
-    $.ajax({
-      url: '/items',
-      method: 'GET',
-      data: {searchInput: searchInput, categoryInput: categoryInput},
-      dataType: 'HTML'
-    }).done(function(rData){
-      $('#searchList').append(rData);
-    });
+    var distanceSelect      = $('#distance-select option:selected').val();
+    if (distanceSelect != 'None') {
+      geoloc(searchInput, categoryInput, distanceSelect);
+    }
+    else {
+      $.ajax({
+        url: '/items',
+        method: 'GET',
+        data: {searchInput: searchInput, categoryInput: categoryInput},
+        dataType: 'HTML'
+      }).done(function(rData){
+        $('#searchList').append(rData);
+      });
+    }
   });
+
 
 
     // verify buttons
@@ -235,5 +299,34 @@ $(document).on('turbolinks:load', function(){
     //   animation: "slide"
     // });
      $('.flexslider').flexslider();
+
+
+     function geoloc(searchInput, categoryInput, distanceSelect)
+     {
+       var someAssetPath       = '<%= image_tag "load.svg" %>';
+        $('#searchList').empty();
+        $('#allItems').empty();
+       $('#searchList').append(someAssetPath);
+        if (navigator.geolocation) {
+         navigator.geolocation.getCurrentPosition(success);
+        }
+        else {
+          alert("Location is not on, please turn on location")
+        }
+        function success(pos) {
+          var lat = pos.coords.latitude;
+          var long = pos.coords.longitude;
+          var searchInput = $('#searchTextField').val();
+          $.ajax({
+            url: '/items',
+            method: 'GET',
+            data: {categoryInput: categoryInput, searchInput: searchInput, latitude: lat, longitude: long, distance: distanceSelect},
+            dataType: 'html'
+          }).done(function(rData){
+            $('#searchList').empty();
+            $('#searchList').append(rData);
+          });
+        }
+      }
 
 });
