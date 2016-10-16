@@ -34,16 +34,16 @@
 
 	<div class="section" data-anchor="page2" id="section2">
 		<div class="timeline main-feature">
-			<div class ="timeline-map1">
 	      <%= image_tag "timeline.svg", id: "timeline-road"%>
 	      <%= image_tag "icon1.svg", class:"timeline-icon", id: "icon1"%>
 	      <%= image_tag "icon2.svg", class:"timeline-icon", id: "icon2"%>
-	      <%#= image_tag "icon3.svg", class:"timeline-icon", id: "icon3"%>
+	      <%= image_tag "icon3.svg", class:"timeline-icon", id: "icon3"%>
 	      <%= image_tag "icon1_review.svg", id: "icon1-review"%>
 	      <%= image_tag "icon2_review.svg", id: "icon2-review"%>
+				<%= image_tag "icon3_review.svg", id: "icon3-review"%>
 	      <%= image_tag "tent.svg", id: "tent-icon"%>
 	      <%= image_tag "light-bulb.svg", id: "light-bulb-icon"%>
-			</div>
+				<%= image_tag "wrench.svg", id: "wrench-icon"%>
 
 
       <div id = "timeline-text">
@@ -57,15 +57,18 @@
 			<div id="timeline-short-container">
 				<%= image_tag "timeline-short.svg", id: "timeline-road-short"%>
 			</div>
+
+			<!-- <p class ="sources"> designed by {Author's Name} from Flaticon </p> -->
 		</div>
 	</div>
 
 	<div class="section" data-anchor="page3" id="section3">
 		<div class="location main-feature">
-      <%= image_tag "dotted_lines.svg", id:"user-lines" %>
-      <%= image_tag "city.svg", id:"city-landscape" %>
-      <%= image_tag "user-profile-city.svg", id:"user-icons" %>
-
+			<div class = "full-city">
+	      <%= image_tag "dotted_lines.svg", id:"user-lines" %>
+	      <%= image_tag "city.svg", id:"city-landscape" %>
+	      <%= image_tag "user-profile-city.svg", id:"user-icons" %>
+			</div>
 
       <div id="location-text">
   			<h1>Determine Meetup Location Through Chat</h1>
