@@ -81,7 +81,7 @@ $(document).on('turbolinks:load', function(){
    // section 3 animation
    var cards = document.querySelectorAll(".effect_random");
    var timeMin = 1;
-   var timeMax = 3;
+   var timeMax = 7;
    var timeouts = [];
 
    // looping through cards
@@ -89,7 +89,7 @@ $(document).on('turbolinks:load', function(){
       var card = cards[i];
       var cardID = card.getAttribute("data-id");
       var id = "timeoutID" + cardID;
-      var time = randomNum(timeMin,timeMax)*5000;
+      var time = randomNum(timeMin,timeMax)*1000;
       cardsTimeout(id,time,card);
    }
 
