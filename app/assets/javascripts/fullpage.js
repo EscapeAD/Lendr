@@ -89,7 +89,7 @@ $(document).on('turbolinks:load', function(){
       var card = cards[i];
       var cardID = card.getAttribute("data-id");
       var id = "timeoutID" + cardID;
-      var time = randomNum(timeMin,timeMax)*1000;
+      var time = randomNum(timeMin,timeMax)*5000;
       cardsTimeout(id,time,card);
    }
 
