@@ -98,28 +98,31 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    @item = Item.find(params[:id])
-    @item.destroy
-    @item.save
-    dragon_var = Checkout.where(item_id: params[:id])
-    picture_destroy = Picture.where(item_id: params[:id])
-    picture_destroy.each do |picture|
+    @item             = Item.find(params[:id])
+    list_of_checkouts = Checkout.where(item_id: params[:id])
+    list_of_pictures  = Picture.where(item_id: params[:id])
+    list_of_pictures.each do |picture|
       if !picture.nil?
         picture.destroy
         picture.save
       end
     end
-    dragon_var.each do |element|
-      found_checkout_element = Verification.where(checkout_id: element.id)
-        found_checkout_element.each do |check_out_element|
-          check_out_element.destroy
-          check_out_element.save
-        end
-      element.destroy
-      element.save
+    if list_of_checkouts.any?
+    list_of_checkouts.each do |checkout|
+      list_of_verifications = Verification.where(checkout_id: checkout.id)
+        list_of_verifications.each do |this_verifcation|
+            item_chat = Message.where(verification_id: this_verifcation.id)
+              item_chat.destroy_all
+          this_verifcation.destroy
+          this_verifcation.save
+      checkout.destroy
+      checkout.save
+      end
+    end
     end
     @item.destroy
-    redirect_to root_path
+    @item.save
+    redirect_to user_path
   end
 
   private
