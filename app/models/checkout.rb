@@ -61,8 +61,8 @@ class Checkout < ApplicationRecord
     checkout_story_list.each do |checkout_list|
       stories = Story.where(checkout_id: checkout_list.id)
       stories.each do |story|
-      array_of_stories << story
-    end
+        array_of_stories << story
+      end
     end
     return array_of_stories
   end
