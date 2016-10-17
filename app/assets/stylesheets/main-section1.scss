@@ -1,0 +1,123 @@
+.searchTextField {
+  width:300px;
+  height:40px;
+  border: 1px solid gray;
+  margin-bottom: 28px;
+}
+
+.search-text{
+  font-family: 'Montserrat', sans-serif,black;
+  font-size: 30px;
+  padding-bottom: 15px;
+  line-height: 40px;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+.slider-header{
+  font-size: 3em;
+  color:black;
+}
+
+#slider3{
+  background-image: image-url("slider3.jpg");
+}
+
+#slider1{
+  background-image: image-url("slider1.jpg");
+}
+
+#slider2{
+  background-image: image-url("slider2.jpg");
+}
+
+.slide3-text{
+  float: right;
+  margin-right: 10%;
+  width: 334px;
+}
+
+.slide3-text .slider-header{
+  font-weight: bold;
+  font-size: 3.4em;
+  line-height: 1.3em;
+}
+
+.slide3-text .slider-description{
+  font-size: 2em;
+  padding-top: 16px;
+  padding-bottom: 48px;
+}
+
+.slide3-text a{
+  text-decoration: none;
+  color: black;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 30px;
+}
+
+.slide1-text .slider-header{
+  font-weight: bold;
+  font-size: 3.9em;
+  color: white;
+}
+
+.slide1-text .slider-description{
+  font-family: 'Lato', sans-serif;
+  font-size: 2.4em;
+  padding-top: 16px;
+  padding-bottom: 75px;
+  color: white;
+}
+
+.slide1-text a{
+  text-decoration: none;
+  color: white;
+  font-family: 'Lato', sans-serif;
+  font-size: 30px;
+}
+
+.slide2-text {
+  margin-top: 10%;
+  margin-left: 9%;
+}
+
+.slide2-text .slider-header{
+  font-weight: bold;
+  font-size: 3.8em;
+}
+
+.slide2-text .slider-description{
+  font-family: 'Lato', sans-serif;
+  font-size: 1.8em;
+  line-height: 1.3em;
+  padding-top: 6px;
+  padding-bottom: 46px;
+}
+
+.slide2-text{
+  width: 400px;
+}
+
+.slide2-text a{
+  text-decoration: none;
+  color: white;
+  font-family: 'Lato', sans-serif;
+  font-size: 24px;
+  background-color: black;
+  padding: 8px 15px;
+}
+
+.section{
+  background-size: cover;
+}
+
+.slide{
+  text-align: center;
+  background-size: cover;
+}
+
+#section2{
+  background-image: image-url("timeline-15mbp.svg");
+  background-position: 25% 50%;
+}

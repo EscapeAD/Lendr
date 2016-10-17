@@ -120,9 +120,14 @@
   background-size: cover;
 }
 
+#section2{
+  background-image: image-url("timeline-15mbp.svg");
+  background-position: 25% 50%;
+}
+
 .timeline .main-feature{
-  position: relative;
-  overflow: hidden;
+  // position: relative;
+  // overflow: hidden;
 }
 
 #timeline-road{
@@ -135,21 +140,9 @@
   object-fit: cover;
 }
 
-#timeline-text{
-  position: static;
-  padding:3%;
-  padding: 15px 50px 15px 50px;
-}
-
-#icon1{
-  display: none;
-}
-
-#icon1-review{
-  display: none;
-}
-
-#tent-icon{
+#icon1,
+#icon1-review,
+#tent-icon {
   display: none;
 }
 
@@ -166,15 +159,9 @@
   top:72px;
 }
 
-#icon2{
-  display: none;
-}
-
-#icon2-review{
-  display: none;
-}
-
-#light-bulb-icon{
+#icon2,
+#icon2-review,
+#light-bulb-icon {
   display: none;
 }
 
@@ -191,15 +178,9 @@
   top:443px;
 }
 
-#icon3{
-  display: none;
-}
-
-#icon3-review{
-  display: none;
-}
-
-#wrench-icon{
+#icon3,
+#icon3-review,
+#wrench-icon {
   display: none;
 }
 
@@ -214,10 +195,6 @@
 
 .fp-viewing-page2 #wrench-icon{
   top:448px;
-}
-
-.location .main-feature{
-  position: relative;
 }
 
 #city-landscape{
@@ -237,6 +214,10 @@
   width: 430px;
 }
 
+.user_profile_flip{
+  position:relative;
+}
+
 #user-lines{
   margin-right: 12px;
   position: absolute;
@@ -253,6 +234,76 @@
   top:55px;
   width: 600px;
   height: auto;
+}
+
+.user1_card{
+  position: absolute;
+  top: 96px;
+  right: 513px;
+}
+
+.user2_card{
+  position: absolute;
+  top: 68px;
+  right: 348px;
+}
+
+.user3_card{
+  position: absolute;
+  top: 128px;
+  right: 222px;
+}
+
+.user4_card{
+  position: absolute;
+  top: 102px;
+  right: 69px;
+}
+
+.user5_card{
+  position: absolute;
+  top: 232px;
+  right: 533px;
+}
+
+.user6_card{
+  position: absolute;
+  top: 184px;
+  right: 390px;
+}
+
+.user7_card{
+  position: absolute;
+  top: 256px;
+  right: 258px;
+}
+
+.user8_card{
+  position: absolute;
+  top: 234px;
+  right: 103px;
+}
+
+.user1_front,
+.user1_back,
+.user2_front,
+.user2_back,
+.user3_front,
+.user3_back,
+.user4_front,
+.user4_back,
+.user5_front,
+.user5_back,
+.user6_front,
+.user6_back,
+.user7_front,
+.user7_back,
+.user8_front,
+.user8_back {
+  position: absolute;
+  width: 100px;
+  top: 0px;
+  right: 0px;
 }
 
 .main-feature h1{
@@ -281,22 +332,20 @@
   }
 
   #timeline-road{
-    display: block;
-    position: absolute;
-    left:0px;
-    top:97px;
+    // position: absolute;
+    // left:0px;
+    // top:97px;
   }
 
-  #timeline-text {
-    padding:0px;
-    position: absolute;
-    left: 62%;
-    top: 150px;
-    width: 300px;
+  .timeline-text {
+    // padding:0px;
+    // position: absolute;
+    // left: 62%;
+    // top: 150px;
+    // width: 300px;
   }
 
   #icon1{
-    display: block;
     position:absolute;
     left:163px;
     top:-117px;
@@ -309,7 +358,6 @@
   }
 
   #icon1-review{
-    display: block;
     position: absolute;
     left:139px;
     top:168px;
@@ -327,7 +375,6 @@
   }
 
   #tent-icon{
-    display: block;
     position:absolute;
     left: 177px;
     top: -72px;
@@ -341,7 +388,6 @@
   }
 
   #icon2{
-    display: block;
     position:absolute;
     left:430px;
     top:-176px;
@@ -354,7 +400,6 @@
   }
 
   #icon2-review{
-    display: block;
     position:absolute;
     left:406px;
     top:537px;
@@ -372,7 +417,6 @@
   }
 
   #light-bulb-icon{
-    display: block;
     position:absolute;
     left: 446px;
     top: -148px;
@@ -386,7 +430,6 @@
   }
 
   #icon3{
-    display: block;
     position:absolute;
     left:900px;
     top:-176px;
@@ -394,12 +437,11 @@
     transition: all 1.6s ease-out;
     -webkit-transition: all 1.6s ease-out;
 
-    -webkit-transition-delay: 1.5s; /* Chrome, Safari, Opera */
-    transition-delay: 1.5s;
+    -webkit-transition-delay: 1.8s; /* Chrome, Safari, Opera */
+    transition-delay: 1.8s;
   }
 
   #icon3-review{
-    display: block;
     position:absolute;
     left:878px;
     top:537px;
@@ -417,7 +459,6 @@
   }
 
   #wrench-icon{
-    display: block;
     position:absolute;
     left: 918px;
     top: -148px;
@@ -428,33 +469,6 @@
 
     -webkit-transition-delay: 2s; /* Chrome, Safari, Opera */
     transition-delay: 2s;
-  }
-}
-
-@media (min-width: 977px){
-  #timeline-text {
-    left: 55%;
-    width: 400px;
-  }
-}
-
-@media (min-width: 1070px){
-  #timeline-text {
-    left: 51%;
-    width: 460px;
-  }
-}
-
-@media (min-width: 1118px){
-  #timeline-text {
-    left: 51%;
-    width: 484px;
-  }
-}
-
-@media (min-width: 1162px){
-  #timeline-text {
-    width: 400px;
   }
 }
 
@@ -509,313 +523,4 @@
 //
 //   -webkit-transform: rotateY(-180deg);
 //   transform: rotateY(-180deg);
-// }
-
-// // old css
-// .jumbotron {
-//   height: 400px;
-// }
-//
-// .video-container {
-//   position: relative;
-//   height: 600px;
-// }
-//
-//
-//
-// .video-text{
-//     position: absolute;
-//     z-index: 5;
-//     text-align: center;
-//     width: 100%;
-//     margin-top: 20%;
-//   }
-//
-// .video-text h3,
-// .video-text h4 {
-//   font-size: 40px;
-//   color: white;
-// }
-//
-// .searchTextField {
-//   width:300px;
-//   height:40px;
-// }
-//
-//
-// video {
-//       width: 100%;
-//       position: absolute;
-// }
-//
-//
-// .containers-container {
-//   z-index: 100;
-//   position: relative;
-// }
-//
-//
-//
-// .jumbotron .container {
-//   text-align: center;
-//   margin-top: 70px;
-//   width: 400px;
-//   color:white;
-// }
-//
-// #colored-bg{
-//   color: white;
-//   background-color: orange;
-// }
-//
-// .image-text{
-//   font-family: 'Montserrat', sans-serif;
-//   font-size: 30px;
-//   padding-bottom: 15px;
-//   line-height: 40px;
-//   letter-spacing: 1px;
-// }
-//
-// .search-text{
-//   font-family: 'Montserrat', sans-serif,black;
-//   font-size: 30px;
-//   padding-bottom: 15px;
-//   line-height: 40px;
-//   letter-spacing: 1px;
-//   text-align: center;
-// }
-//
-// .subheader-main{
-//   font-family: 'Montserrat', sans-serif;
-//   font-size: 25px;
-//   letter-spacing: 1px;
-//   text-align: center;
-//   width: auto;
-//   padding-top: 15px;
-//   padding-bottom: 15px;
-// }
-//
-// .jumbotron h4{
-//   font-size: 17px;
-//   font-family: 'Lato', sans-serif;
-//   letter-spacing: 1px;
-//   padding: 8px;
-//   border: 3px solid white;
-//   text-align: center;
-//   width: 150px;
-//   margin: auto;
-// }
-//
-// .about-us{
-//   color:orange;
-// }
-//
-// .text-content{
-//   text-align: center;
-//   padding-bottom: 30px;
-// }
-//
-// .recommended-categories a{
-//   text-decoration: none;
-//   color: white;
-// }
-//
-// .recommended-categories button:hover{
-//   background-color: white;
-//   border: 3px solid white;
-// }
-//
-// .recommended-categories button a:hover{
-//   color:orange;
-// }
-//
-// .recommended-categories button{
-//   font-size: 17px;
-//   font-family: 'Lato', sans-serif;
-//   letter-spacing: 1px;
-//   text-align: center;
-//   margin: auto;
-//   border: 3px solid white;
-//   border-radius: 0px;
-//   background-color: transparent;
-// }
-//
-// .container .jumbotron{
-//   border-radius: 0px;
-// }
-//
-// .jumbotron{
-//   // background-image: url("library.jpeg");
-//   background-repeat: no-repeat;
-//   background-position: center;
-//   background-size: cover;
-// }
-//
-// // Text within image
-//
-// .categoryRec:hover {
-//   filter: grayscale(100%);
-//   opacity: 1;
-// }
-// .imgtext{
-// position:relative;
-// bottom:130px;
-// left:0px;
-// font-size: 30px;
-// cursor: pointer;
-// cursor: hand;
-// color: white;
-// text-decoration: none;
-// // visibility:hidden;
-// }
-//
-// @media (min-width: 768px) {
-//   .imgtext{
-//     bottom:40%;
-//     left:45%;
-//     font-size: 30px;
-//     cursor: pointer;
-//     cursor: hand;
-//     color: white;
-//     text-decoration: none;
-//     position:absolute;
-//
-//     }
-// }
-// @media (min-width: 1024px) {
-//   .imgtext{
-//       bottom:40%;
-//       left: 35%;
-//       font-size: 30px;
-//       cursor: pointer;
-//       cursor: hand;
-//       color: white;
-//       text-decoration: none;
-//       position:absolute;
-//
-//   }
-// }
-// @media (min-width: 1024px) {
-//   .imgtext{
-//       bottom:40%;
-//       left: 40%;
-//       font-size: 30px;
-//       cursor: pointer;
-//       cursor: hand;
-//       color: white;
-//       text-decoration: none;
-//       position:absolute;
-//
-//   }
-// }
-// @media (min-width: 2560px) {
-//   .imgtext{
-//       left:43%;
-//       font-size: 30px;
-//       cursor: pointer;
-//       cursor: hand;
-//       color: white;
-//       text-decoration: none;
-//       position:absolute;
-//   }
-// }
-//
-//
-// .imgtext:hover{
-// color: white;
-// text-decoration: none;
-// // visibility:hidden;
-// }
-//
-//
-//
-//
-//
-//
-//
-// @media (max-width: 768px) {
-//   /* Small devices (tablets, 768px and up) */
-//   .video-container {
-//     position: relative;
-//     height: 200px;
-//   }
-//
-//   .video-text{
-//       position: absolute;
-//       z-index: 5;
-//       text-align: center;
-//       width: 100%;
-//       margin-top: 4%;
-//   }
-//
-//   .video-text h3,
-//   .video-text h4 {
-//     font-size: 20px;
-//     color: white;
-//   }
-// }
-//
-//
-//
-//
-//
-// @media (min-width: 768px) {
-//   .video-container {
-//     position: relative;
-//     height: 410px;
-//   }
-//
-//   .video-text{
-//       position: absolute;
-//       z-index: 5;
-//       text-align: center;
-//       width: 100%;
-//       margin-top: 14%;
-//   }
-//
-//   .video-text h3,
-//   .video-text h4 {
-//     font-size: 30px;
-//     color: white;
-//   }
-// }
-//
-// /* Medium devices (desktops, 992px and up) */
-// @media (min-width: 992px) {
-//   .video-container {
-//     position: relative;
-//     height: 540px;
-//   }
-//
-//   .video-text{
-//       position: absolute;
-//       z-index: 5;
-//       text-align: center;
-//       width: 100%;
-//       margin-top: 18%;
-//   }
-//
-//   .video-text h3,
-//   .video-text h4 {
-//     font-size: 40px;
-//     color: white;
-//   }
-// }
-//
-// /* Large devices (large desktops, 1200px and up) */
-// @media (min-width: 1200px) { background-color: yellow }
-//
-// #frontTitle{
-//   color: white;
-//   font-size: 100px;
-// }
-// #frontText{
-//   font-family: 'Shadows Into Light Two', cursive;
-//
-// }
-// .img-center {
-// 	margin: 0 auto;
-// }
-// .img-circle{
-//   width: 200px;
 // }
