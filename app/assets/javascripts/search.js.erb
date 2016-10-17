@@ -4,28 +4,30 @@ $(document).on('turbolinks:load', function(){
          event.preventDefault();
          var someAssetPath       = '<%= image_tag "load.svg" %>';
          var distanceSelect      = $('#distance-select option:selected').val();
-         $('#searchList').empty();
-         $('#allItems').empty();
-         $('#searchList').append(someAssetPath);
-         if (navigator.geolocation) {
-          navigator.geolocation.getCurrentPosition(success);
-         }
-         else {
-           alert("Location is not on, please turn on location")
-         }
-         function success(pos) {
-           var lat = pos.coords.latitude;
-           var long = pos.coords.longitude;
-           var searchInput = $('#searchTextField').val();
-           $.ajax({
-             url: '/items',
-             method: 'GET',
-             data: {searchInput: searchInput, latitude: lat, longitude: long, distance: distanceSelect},
-             dataType: 'html'
-           }).done(function(rData){
-             $('#searchList').empty();
-             $('#searchList').append(rData);
-           });
+         if (distanceSelect != 'All') {
+           $('#searchList').empty();
+           $('#allItems').empty();
+           $('#searchList').append(someAssetPath);
+           if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(success);
+           }
+           else {
+             alert("Location is not on, please turn on location")
+           }
+           function success(pos) {
+             var lat = pos.coords.latitude;
+             var long = pos.coords.longitude;
+             var searchInput = $('#searchTextField').val();
+             $.ajax({
+               url: '/items',
+               method: 'GET',
+               data: {searchInput: searchInput, latitude: lat, longitude: long, distance: distanceSelect},
+               dataType: 'html'
+             }).done(function(rData){
+               $('#searchList').empty();
+               $('#searchList').append(rData);
+             });
+           }
          }
        });
 
