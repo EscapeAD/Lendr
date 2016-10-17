@@ -2,114 +2,38 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-#city-landscape{
-  margin-right: 12px;
-  position: absolute;
-  right:40px;
-  bottom:60px;
-  max-width:601px;
-  height: auto;
-}
+// #city-landscape{
+//   margin-right: 12px;
+//   position: absolute;
+//   right:40px;
+//   bottom:60px;
+//   max-width:601px;
+//   height: auto;
+// }
+//
+// .user_profile_flip{
+//   position:relative;
+// }
+//
+// #user-lines{
+//   margin-right: 12px;
+//   position: absolute;
+//   right:63px;
+//   top:137px;
+//   width: 537px;
+//   height: auto;
+// }
+//
+// #user-icons{
+//   margin-right: 12px;
+//   position: absolute;
+//   right:40px;
+//   top:55px;
+//   width: 600px;
+//   height: auto;
+// }
 
-#location-text{
-  margin-right: 8%;
-  position:absolute;
-  left: 60px;
-  top: 33%;
-  width: 430px;
-}
 
-.user_profile_flip{
-  position:relative;
-}
-
-#user-lines{
-  margin-right: 12px;
-  position: absolute;
-  right:63px;
-  top:137px;
-  width: 537px;
-  height: auto;
-}
-
-#user-icons{
-  margin-right: 12px;
-  position: absolute;
-  right:40px;
-  top:55px;
-  width: 600px;
-  height: auto;
-}
-
-.user1_card{
-  position: absolute;
-  top: 96px;
-  right: 513px;
-}
-
-.user2_card{
-  position: absolute;
-  top: 68px;
-  right: 348px;
-}
-
-.user3_card{
-  position: absolute;
-  top: 128px;
-  right: 222px;
-}
-
-.user4_card{
-  position: absolute;
-  top: 102px;
-  right: 69px;
-}
-
-.user5_card{
-  position: absolute;
-  top: 232px;
-  right: 533px;
-}
-
-.user6_card{
-  position: absolute;
-  top: 184px;
-  right: 390px;
-}
-
-.user7_card{
-  position: absolute;
-  top: 256px;
-  right: 258px;
-}
-
-.user8_card{
-  position: absolute;
-  top: 234px;
-  right: 103px;
-}
-
-.user1_front,
-.user1_back,
-.user2_front,
-.user2_back,
-.user3_front,
-.user3_back,
-.user4_front,
-.user4_back,
-.user5_front,
-.user5_back,
-.user6_front,
-.user6_back,
-.user7_front,
-.user7_back,
-.user8_front,
-.user8_back {
-  position: absolute;
-  width: 100px;
-  top: 0px;
-  right: 0px;
-}
 
 .main-feature h1{
   font-family: 'Slabo 27px', serif;
@@ -126,31 +50,6 @@
   font-family: 'Slabo 27px', serif;
   font-weight: bold;
   text-align: center;
-}
-
-
-// RESPONSIVE WEB PAGES
-
-
-
-@media (min-width: 1225px){
-  #location-text{
-    top: 33%;
-    left: 60px;
-    width:430px;
-  }
-}
-
-@media (min-width: 1269px){
-  #location-text{
-    width: 500px;
-  }
-}
-
-@media (min-width: 1341px){
-  #location-text{
-    width: 600px;
-  }
 }
 
 
