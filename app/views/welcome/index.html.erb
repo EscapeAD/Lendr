@@ -33,28 +33,31 @@
   </div>
 
 	<div class="section" data-anchor="page2" id="section2">
-		<div class="timeline main-feature">
-      <%= image_tag "timeline.svg", id: "timeline-road"%>
-      <%= image_tag "icon1.svg", class:"timeline-icon", id: "icon1"%>
-      <%= image_tag "icon2.svg", class:"timeline-icon", id: "icon2"%>
-      <%= image_tag "icon3.svg", class:"timeline-icon", id: "icon3"%>
-      <%= image_tag "icon1_review.svg", id: "icon1-review"%>
-      <%= image_tag "icon2_review.svg", id: "icon2-review"%>
-			<%= image_tag "icon3_review.svg", id: "icon3-review"%>
-      <%= image_tag "tent.svg", id: "tent-icon"%>
-      <%= image_tag "light-bulb.svg", id: "light-bulb-icon"%>
-			<%= image_tag "wrench.svg", id: "wrench-icon"%>
-      <div id = "timeline-text">
-  			<h1>Timeline of Item Background</h1>
-        <p>
-          Every item has its own history. We want to hear all about it.
-          Add your objects to our library to create your story or borrow items to continue its adventure.
-        </p>
-      </div>
+		<div class = "container">
+			<div class="timeline main-feature">
+				<div class = "timeline-map col-md-6">
+		      <%#= image_tag "icon1.svg", class:"timeline-icon", id: "icon1"%>
+		      <%#= image_tag "icon2.svg", class:"timeline-icon", id: "icon2"%>
+		      <%#= image_tag "icon3.svg", class:"timeline-icon", id: "icon3"%>
+		      <%#= image_tag "icon1_review.svg", id: "icon1-review"%>
+		      <%#= image_tag "icon2_review.svg", id: "icon2-review"%>
+					<%#= image_tag "icon3_review.svg", id: "icon3-review"%>
+		      <%#= image_tag "tent.svg", id: "tent-icon"%>
+		      <%#= image_tag "light-bulb.svg", id: "light-bulb-icon"%>
+					<%#= image_tag "wrench.svg", id: "wrench-icon"%>
+				</div>
+	      <div class = "timeline-text col-md-6">
+	  			<h1>Timeline of Item Background</h1>
+	        <p>
+	          Every item has its own history. We want to hear all about it.
+	          Add your objects to our library to create your story or borrow items to continue its adventure.
+	        </p>
+	      </div>
+			</div>
 		</div>
 	</div>
 
-	<div class="section" data-anchor="page3" id="section3">
+	<div class="container section" data-anchor="page3" id="section3">
 		<div class="location main-feature">
       <%= image_tag "dotted_lines.svg", id:"user-lines" %>
       <%= image_tag "city.svg", id:"city-landscape" %>
@@ -103,7 +106,7 @@
 		</div>
 	</div>
 
-  <div class="section container" data-anchor="page4" id="section4">
+  <div class="section" data-anchor="page4" id="section4">
 		<div class="our-team">
 			<h1>Our Team</h1>
       <div class="col-lg-3 col-sm-6 text-center">

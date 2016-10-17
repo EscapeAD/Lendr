@@ -120,9 +120,14 @@
   background-size: cover;
 }
 
+#section2{
+  background-image: image-url("timeline-15mbp.svg");
+  background-position: 25% 50%;
+}
+
 .timeline .main-feature{
-  position: relative;
-  overflow: hidden;
+  // position: relative;
+  // overflow: hidden;
 }
 
 #timeline-road{
@@ -133,12 +138,6 @@
   position:static;
   margin-bottom: 10%;
   object-fit: cover;
-}
-
-#timeline-text{
-  position: static;
-  padding:3%;
-  padding: 15px 50px 15px 50px;
 }
 
 #icon1,
@@ -333,23 +332,20 @@
   }
 
   #timeline-road{
-    display: inline-block;
-    position: absolute;
-    left:0px;
-    top:97px;
+    // position: absolute;
+    // left:0px;
+    // top:97px;
   }
 
-  #timeline-text {
-    display: inline-block;
-    padding:0px;
-    position: absolute;
-    left: 62%;
-    top: 150px;
-    width: 300px;
+  .timeline-text {
+    // padding:0px;
+    // position: absolute;
+    // left: 62%;
+    // top: 150px;
+    // width: 300px;
   }
 
   #icon1{
-    display: inline-block;
     position:absolute;
     left:163px;
     top:-117px;
@@ -362,7 +358,6 @@
   }
 
   #icon1-review{
-    display: inline-block;
     position: absolute;
     left:139px;
     top:168px;
@@ -380,7 +375,6 @@
   }
 
   #tent-icon{
-    display: inline-block;
     position:absolute;
     left: 177px;
     top: -72px;
@@ -394,7 +388,6 @@
   }
 
   #icon2{
-    display: inline-block;
     position:absolute;
     left:430px;
     top:-176px;
@@ -407,7 +400,6 @@
   }
 
   #icon2-review{
-    display: inline-block;
     position:absolute;
     left:406px;
     top:537px;
@@ -425,7 +417,6 @@
   }
 
   #light-bulb-icon{
-    display: inline-block;
     position:absolute;
     left: 446px;
     top: -148px;
@@ -439,7 +430,6 @@
   }
 
   #icon3{
-    display: inline-block;
     position:absolute;
     left:900px;
     top:-176px;
@@ -452,7 +442,6 @@
   }
 
   #icon3-review{
-    display: inline-block;
     position:absolute;
     left:878px;
     top:537px;
@@ -470,7 +459,6 @@
   }
 
   #wrench-icon{
-    display: inline-block;
     position:absolute;
     left: 918px;
     top: -148px;
@@ -481,33 +469,6 @@
 
     -webkit-transition-delay: 2s; /* Chrome, Safari, Opera */
     transition-delay: 2s;
-  }
-}
-
-@media (min-width: 977px){
-  #timeline-text {
-    left: 55%;
-    width: 400px;
-  }
-}
-
-@media (min-width: 1070px){
-  #timeline-text {
-    left: 51%;
-    width: 460px;
-  }
-}
-
-@media (min-width: 1118px){
-  #timeline-text {
-    left: 51%;
-    width: 484px;
-  }
-}
-
-@media (min-width: 1162px){
-  #timeline-text {
-    width: 400px;
   }
 }
 
