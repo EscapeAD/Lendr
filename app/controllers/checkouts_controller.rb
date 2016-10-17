@@ -28,6 +28,7 @@ class CheckoutsController < ApplicationController
   def update
     @checkout   = Checkout.find(params[:id])
     @item       = Item.find(@checkout.item_id)
+    # when owner approves borrow
     @checkout.update_attribute(:check_initial, true)
     mailbox_ready(@item)
     if @checkout.save

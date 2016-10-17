@@ -77,7 +77,7 @@ class ItemsController < ApplicationController
 
   def create
     @item = @user.owned_items.new(item_params)
-    if @item.save!
+    if @item.save
       redirect_to items_path
     else
       render :new, notice: 'Error'
@@ -126,10 +126,6 @@ class ItemsController < ApplicationController
   end
 
   private
-
-  def destroypic(pic)
-    pic.destroy
-  end
 
   def item_params
     params.require(:item).permit(:name, :description, :owner_id, :category_id, pictures_attributes: [:id, :image, :_destroy])
