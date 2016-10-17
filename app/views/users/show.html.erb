@@ -201,6 +201,7 @@
           <div role="tabpanel" class="tab-pane" id="inventory">
             <div class="row pending-items-display">
               <h2 class="subheader-main user-categories">Total Inventory</h2>
+              <%= link_to 'Add Item to Inventory', new_item_path, id:'centerText' %>
               <div class = "images-list">
                 <% if @items.empty? %>
                   <em>Your inventory is empty. </em>
@@ -217,13 +218,12 @@
                       <div class = "text-left">
                         <strong><%= Item.find(item.id).name %></strong> <br/>
                         <%= link_to 'View', item_path(item.id)%> |
-                        <%= link_to 'Edit', edit_item_path(item.id)%>
+                        <%= link_to 'Edit', edit_item_path(item.id)%> |
+                        <%= link_to 'Delete', item_path(item.id), method: :delete, data: { confirm: 'Are you sure?' } %> 
                       </div>
                     </div>
                   <% end %>
                 <% end %>
-                <%= link_to 'Add Item to Inventory', new_item_path, id:'centerText' %>
-
               </div>
             </div>
           </div>
