@@ -75,7 +75,11 @@
 }
 
 .alert-container{
-  padding-top: 30px;
+  position: absolute;
+  display: inline;
+  font-size: 1em;
+  left: 18em;
+  top: 1.2em;
 }
 
 .context-container{
