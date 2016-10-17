@@ -25,6 +25,17 @@
           <span class="icon-bar <%= current_page?(root_path) ? "icon-bar-orange" : "icon-bar-white" %>"></span>
         </button>
         <%= link_to 'l e n d r', root_url, class: 'navbar-brand' %></a>
+        <% if flash.any? %>
+          <div class="alert-container">
+            <% flash.each do |key, value| %>
+              <div class="alert alert-<%= key %>">
+                <%= value %>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+
+
       </div>
       <div id="navbar lendr-nav" class="navbar-collapse collapse">
         <div class="navbar-form navbar-right navbar-links">
@@ -65,15 +76,6 @@
       </div><!--/.navbar-collapse -->
     </nav>
     <div class="body-content">
-      <% if flash.any? %>
-        <div class="container alert-container">
-          <% flash.each do |key, value| %>
-            <div class="alert alert-<%= key %>">
-              <%= value %>
-            </div>
-          <% end %>
-        </div>
-      <% end %>
 
       <%= render :partial => 'items/signin_form' %>
 
