@@ -77,4 +77,39 @@ $(document).on('turbolinks:load', function(){
     afterSlideLoad: function(anchorLink, index, slideAnchor, slideIndex){},
     onSlideLeave: function(anchorLink, index, slideIndex, direction, nextSlideIndex){}
    });
+
+   // section 3 animation
+   var cards = document.querySelectorAll(".effect_random");
+   var timeMin = 1;
+   var timeMax = 3;
+   var timeouts = [];
+
+   // looping through cards
+   for (var i=0; i<cards.length; i++){
+      var card = cards[i];
+      var cardID = card.getAttribute("data-id");
+      var id = "timeoutID" + cardID;
+      var time = randomNum(timeMin,timeMax)*1000;
+      cardsTimeout(id,time,card);
+   }
+
+   // timeout listener
+   function cardsTimeout(id,time,card){
+     if (id in timeouts){
+       clearTimeout(timeouts[id]);
+     }
+     timeouts[id] = setTimeout(function(){
+        var c = card.classList;
+        var newTime = randomNum(timeMin, timeMax)*1000;
+        c.contains("flipped") == true? c.remove("flipped") : c.add("flipped");
+        cardsTimeout(id, newTime, card);
+     }, time);
+   };
+
+   // randomNum generator given min and max
+   function randomNum(min,max){
+     return Math.random() * (max-min) + min;
+   };
+
+
  });

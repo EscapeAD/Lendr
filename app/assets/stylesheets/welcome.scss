@@ -2,37 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-// #city-landscape{
-//   margin-right: 12px;
-//   position: absolute;
-//   right:40px;
-//   bottom:60px;
-//   max-width:601px;
-//   height: auto;
-// }
-//
-// .user_profile_flip{
-//   position:relative;
-// }
-//
-// #user-lines{
-//   margin-right: 12px;
-//   position: absolute;
-//   right:63px;
-//   top:137px;
-//   width: 537px;
-//   height: auto;
-// }
-//
-// #user-icons{
-//   margin-right: 12px;
-//   position: absolute;
-//   right:40px;
-//   top:55px;
-//   width: 600px;
-//   height: auto;
-// }
-
 
 
 .main-feature h1{
@@ -51,36 +20,3 @@
   font-weight: bold;
   text-align: center;
 }
-
-
-
-// .user-circle{
-//   position:relative;
-// }
-//
-// .card-front{
-//   position: absolute;
-//   left:0;
-//   top:0;
-// }
-//
-// .user-circle .card-front{
-//   -webkit-transform: rotateY(-180deg);
-//          transform: rotateY(-180deg);
-// }
-//
-// .user-circle .card-back{
-//   -webkit-transform: rotateY(0);
-//           transform: rotateY(0);
-// }
-//
-// .card-back{
-//   position: absolute;
-//   left:0;
-//   top:0;
-//   -webkit-transition: -webkit-transform 0.3s;
-//   transition: transform 0.3s;
-//
-//   -webkit-transform: rotateY(-180deg);
-//   transform: rotateY(-180deg);
-// }

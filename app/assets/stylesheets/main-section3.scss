@@ -86,4 +86,34 @@
   width: 100px;
   top: 0px;
   right: 0px;
+
+  // defines whether property is visible when not facing screen
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  -webkit-transition: -webkit-transform 0.3s;
+          transition: transform 0.3s;
+}
+
+.card.effect_random.flipped .user1_back,
+.card.effect_random.flipped .user2_back,
+.card.effect_random.flipped .user3_back,
+.card.effect_random.flipped .user4_back,
+.card.effect_random.flipped .user5_back,
+.card.effect_random.flipped .user6_back,
+.card.effect_random.flipped .user7_back,
+.card.effect_random.flipped .user8_back {
+  -webkit-transform: rotateY(-180deg);
+          transform: rotateY(-180deg);
+}
+
+.card.effect_random.flipped .user1_front,
+.card.effect_random.flipped .user2_front,
+.card.effect_random.flipped .user3_front,
+.card.effect_random.flipped .user4_front,
+.card.effect_random.flipped .user5_front,
+.card.effect_random.flipped .user6_front,
+.card.effect_random.flipped .user7_front,
+.card.effect_random.flipped .user8_front {
+  -webkit-transform: rotateY(0);
+          transform: rotateY(0);
 }
