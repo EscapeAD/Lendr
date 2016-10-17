@@ -33,18 +33,15 @@
   </div>
 
 	<div class="section" data-anchor="page2" id="section2">
+		<%= image_tag "icon1.svg", class:"timeline-icon img-responsive", id: "icon1"%>
+		<%= image_tag "icon2.svg", class:"timeline-icon img-responsive", id: "icon2"%>
+		<%= image_tag "icon3.svg", class:"timeline-icon img-responsive", id: "icon3"%>
+		<%= image_tag "tent.svg", id: "tent-icon"%>
+		<%= image_tag "light-bulb.svg", id: "light-bulb-icon"%>
+		<%= image_tag "wrench.svg", id: "wrench-icon"%>
 		<div class = "container">
 			<div class="timeline main-feature">
 				<div class = "timeline-map col-md-6">
-		      <%#= image_tag "icon1.svg", class:"timeline-icon", id: "icon1"%>
-		      <%#= image_tag "icon2.svg", class:"timeline-icon", id: "icon2"%>
-		      <%#= image_tag "icon3.svg", class:"timeline-icon", id: "icon3"%>
-		      <%#= image_tag "icon1_review.svg", id: "icon1-review"%>
-		      <%#= image_tag "icon2_review.svg", id: "icon2-review"%>
-					<%#= image_tag "icon3_review.svg", id: "icon3-review"%>
-		      <%#= image_tag "tent.svg", id: "tent-icon"%>
-		      <%#= image_tag "light-bulb.svg", id: "light-bulb-icon"%>
-					<%#= image_tag "wrench.svg", id: "wrench-icon"%>
 				</div>
 	      <div class = "timeline-text col-md-6">
 	  			<h1>Timeline of Item Background</h1>
@@ -57,52 +54,58 @@
 		</div>
 	</div>
 
-	<div class="container section" data-anchor="page3" id="section3">
+	<div class="section" data-anchor="page3" id="section3">
 		<div class="location main-feature">
-      <%= image_tag "dotted_lines.svg", id:"user-lines" %>
-      <%= image_tag "city.svg", id:"city-landscape" %>
-      <%#= image_tag "user-profile-city.svg", id:"user-icons" %>
+			<div class = "container">
+				<div class="location-text col-md-6">
+	  			<h1>Determine Meetup Location Through Chat</h1>
+	  			<p>
+	          Chat instantly with who you're borrowing from or lending to.
+	          Set your agreed upon meetup location with integrated Google Maps.
+	  			</p>
+	      </div>
 
-			<div class = "user1_card effect_random">
-				<%= image_tag "front-profile1.svg", class:"user1_front" %>
-				<%= image_tag "back-profile1.svg", class:"user1_back" %>
-			</div>
-			<div class = "user2_card effect__random">
-				<%= image_tag "front-profile2.svg", class:"user2_front" %>
-				<%= image_tag "back-profile2.svg", class:"user2_back" %>
-			</div>
-			<div class = "user3_card effect__random">
-				<%= image_tag "front-profile3.svg", class:"user3_front" %>
-				<%= image_tag "back-profile3.svg", class:"user3_back" %>
-			</div>
-			<div class = "user4_card effect__random">
-				<%= image_tag "front-profile4.svg", class:"user4_front" %>
-				<%= image_tag "back-profile4.svg", class:"user4_back" %>
-			</div>
-			<div class = "user5_card effect__random">
-				<%= image_tag "front-profile5.svg", class:"user5_front" %>
-				<%= image_tag "back-profile5.svg", class:"user5_back" %>
-			</div>
-			<div class = "user6_card effect__random">
-				<%= image_tag "front-profile6.svg", class:"user6_front" %>
-				<%= image_tag "back-profile6.svg", class:"user6_back" %>
-			</div>
-			<div class = "user7_card effect__random">
-				<%= image_tag "front-profile7.svg", class:"user7_front" %>
-				<%= image_tag "back-profile7.svg", class:"user7_back" %>
-			</div>
-			<div class = "user8_card effect__random">
-				<%= image_tag "front-profile8.svg", class:"user8_front" %>
-				<%= image_tag "back-profile8.svg", class:"user8_back" %>
-			</div>
+				<div class = "full-city col-md-6">
 
-      <div id="location-text">
-  			<h1>Determine Meetup Location Through Chat</h1>
-  			<p>
-          Chat instantly with who you're borrowing from or lending to.
-          Set your agreed upon meetup location with integrated Google Maps.
-  			</p>
-      </div>
+			    <%= image_tag "dotted_lines-15mbp.svg", class:"user-lines"%>
+
+					<%= image_tag "city-15mbp.svg", class:"city-landscape"%>
+
+					<div class = "card user1_card effect_random" data-id="1">
+						<%= image_tag "front-profile1.svg", class:"user1_front" %>
+						<%= image_tag "back-profile1.svg", class:"user1_back" %>
+					</div>
+					<div class = "card user2_card effect_random" data-id="2">
+						<%= image_tag "front-profile2.svg", class:"user2_front" %>
+						<%= image_tag "back-profile2.svg", class:"user2_back" %>
+					</div>
+					<div class = "card user3_card effect_random" data-id="3">
+						<%= image_tag "front-profile3.svg", class:"user3_front" %>
+						<%= image_tag "back-profile3.svg", class:"user3_back" %>
+					</div>
+					<div class = "card user4_card effect_random" data-id="4">
+						<%= image_tag "front-profile4.svg", class:"user4_front" %>
+						<%= image_tag "back-profile4.svg", class:"user4_back" %>
+					</div>
+					<div class = "card user5_card effect_random" data-id="5">
+						<%= image_tag "front-profile5.svg", class:"user5_front" %>
+						<%= image_tag "back-profile5.svg", class:"user5_back" %>
+					</div>
+					<div class = "card user6_card effect_random" data-id="6">
+						<%= image_tag "front-profile6.svg", class:"user6_front" %>
+						<%= image_tag "back-profile6.svg", class:"user6_back" %>
+					</div>
+					<div class = "card user7_card effect_random" data-id="7">
+						<%= image_tag "front-profile7.svg", class:"user7_front" %>
+						<%= image_tag "back-profile7.svg", class:"user7_back" %>
+					</div>
+					<div class = "card user8_card effect_random" data-id="8">
+						<%= image_tag "front-profile8.svg", class:"user8_front" %>
+						<%= image_tag "back-profile8.svg", class:"user8_back" %>
+					</div>
+
+				</div>
+			</div>
 		</div>
 	</div>
 

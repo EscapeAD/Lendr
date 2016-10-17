@@ -1,0 +1,119 @@
+.city-landscape{
+  position: absolute;
+  width:100%;
+  left:0;
+  top:11em;
+}
+
+.user-lines{
+  position: relative;
+  width:100%;
+}
+
+// template
+#user-icons{
+  position:absolute;
+  width: 95%;
+  top: -81px;
+  left: 23px;
+}
+
+.user1_card{
+  position: absolute;
+  top: -19%;
+  left: 25%;
+}
+
+.user2_card{
+  position: absolute;
+  top: -26%;
+  left: 53%;
+}
+
+.user3_card{
+  position: absolute;
+  top: -8%;
+  left: 74%;
+}
+
+.user4_card{
+  position: absolute;
+  top: -16%;
+  right: 0 ;
+}
+
+.user5_card{
+  position: absolute;
+  top: 21%;
+  left: 22%;
+}
+
+.user6_card{
+  position: absolute;
+  top: 7%;
+  left: 45%;
+}
+
+.user7_card{
+  position: absolute;
+  top: 27%;
+  right: 33%;
+}
+
+.user8_card{
+  position: absolute;
+  top: 19%;
+  right: 9.5%;
+}
+
+.user1_front,
+.user1_back,
+.user2_front,
+.user2_back,
+.user3_front,
+.user3_back,
+.user4_front,
+.user4_back,
+.user5_front,
+.user5_back,
+.user6_front,
+.user6_back,
+.user7_front,
+.user7_back,
+.user8_front,
+.user8_back {
+  position: absolute;
+  width: 100px;
+  top: 0px;
+  right: 0px;
+
+  // defines whether property is visible when not facing screen
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  -webkit-transition: -webkit-transform 0.3s;
+          transition: transform 0.3s;
+}
+
+.card.effect_random.flipped .user1_back,
+.card.effect_random.flipped .user2_back,
+.card.effect_random.flipped .user3_back,
+.card.effect_random.flipped .user4_back,
+.card.effect_random.flipped .user5_back,
+.card.effect_random.flipped .user6_back,
+.card.effect_random.flipped .user7_back,
+.card.effect_random.flipped .user8_back {
+  -webkit-transform: rotateY(-180deg);
+          transform: rotateY(-180deg);
+}
+
+.card.effect_random.flipped .user1_front,
+.card.effect_random.flipped .user2_front,
+.card.effect_random.flipped .user3_front,
+.card.effect_random.flipped .user4_front,
+.card.effect_random.flipped .user5_front,
+.card.effect_random.flipped .user6_front,
+.card.effect_random.flipped .user7_front,
+.card.effect_random.flipped .user8_front {
+  -webkit-transform: rotateY(0);
+          transform: rotateY(0);
+}
