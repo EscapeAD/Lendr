@@ -122,7 +122,7 @@ class ItemsController < ApplicationController
     end
     @item.destroy
     @item.save
-    redirect_to user_path
+    redirect_to user_url
   end
 
   private
