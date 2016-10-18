@@ -52,24 +52,19 @@
               <% if item.pictures.empty? %>
                 <div class='col-md-4 item-box col-xs-6'>
                   <div class = "item_search_box">
-                  <!-- <div class="item_image item-box thumbnail"> -->
-                    <div class = "index-image-wrapper">
-                      <!-- <%#= link_to image_tag("http://epaper2.mid-day.com/images/no_image_thumb.gif", class:' main-image'), item_path(item) %> -->
-                      <%= link_to image_tag("http://epaper2.mid-day.com/images/no_image_thumb.gif"), item_path(item) %>
+                    <div class = "index-image-wrapper" data:"search-items-images">
+                      <%= link_to image_tag("http://epaper2.mid-day.com/images/no_image_thumb.gif"), item_path(item), class:'search-item-result' %>
                     </div>
                     <p class='item-word'>
                       <%= link_to item.name, item_path(item) %>
                       <br>Owner: <%= User.find(item.user_id).first_name %> <%= User.find(item.user_id).last_name %>
                     </p>
                   </div>
-                  <!-- </div> -->
                 </div>
               <% elsif item.pictures != nil %>
                   <div class='col-md-4 item-box col-xs-6'>
                     <div class = "item_search_box">
-                    <!-- <div class="item_image item-box thumbnail"> -->
                       <div class = "index-image-wrapper">
-                        <!-- <%#= link_to image_tag(item.pictures.first.image.url(:medium), class: 'main-image'),item_path(item) %> -->
                         <%= link_to image_tag(item.pictures.first.image.url(:medium)),item_path(item) %>
                       </div>
                       <p class='item-word'>
@@ -77,7 +72,6 @@
                         <br>Owner: <%= User.find(item.user_id).first_name %> <%= User.find(item.user_id).last_name %>
                       </p>
                     </div>
-                    <!-- </div> -->
                   </div>
               <% end %>
 
