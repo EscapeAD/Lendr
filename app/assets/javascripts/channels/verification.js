@@ -1,5 +1,5 @@
-// $(document).on('turbolinks:load', function(){
-$(function(){
+$(document).on('turbolinks:load', function(){
+// $(function(){
   var messages, messages_to_bottom;
   messages = $('.chat');
   if ($('.chat').length > 0) {
