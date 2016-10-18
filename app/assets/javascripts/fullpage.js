@@ -81,7 +81,7 @@ $(document).on('turbolinks:load', function(){
    // section 3 animation
    var cards = document.querySelectorAll(".effect_random");
    var timeMin = 1;
-   var timeMax = 3;
+   var timeMax = 7;
    var timeouts = [];
 
    // looping through cards

@@ -30,7 +30,7 @@ class CheckoutsController < ApplicationController
     @item       = Item.find(@checkout.item_id)
     # when owner approves borrow
     @checkout.update_attribute(:check_initial, true)
-    mailbox_ready(@item)
+    mailbox_ready(@checkout, @item)
     if @checkout.save
       @verify   = @checkout.verifications.new(checkout_id: params[:id], status: 'pickup')
       @verify.save
@@ -71,9 +71,9 @@ class CheckoutsController < ApplicationController
   mail.save
   end
 
-  def mailbox_ready(item)
+  def mailbox_ready(checkout, item)
   mail = Mailbox.new(title: "Notice: #{item.name}",
-                    recipient: current_user.id,
+                    recipient: checkout.user_id,
                     text: 'The owner of the item has accepted your request to borrow. Please check your profile',
                     sender: item.user_id)
   mail.save
