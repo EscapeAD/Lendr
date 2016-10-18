@@ -60,7 +60,6 @@ $(document).on('turbolinks:load', function(){
     //events
     onLeave: function(index, nextIndex, direction){},
     afterLoad: function(anchorLink, index){
-
       // if (anchorLink == 'page2'){
       //   $('.timeline-icon').animate({
       //     top:"+=50",
