@@ -3,7 +3,7 @@ class MailboxesController < ApplicationController
   before_action :set_user
 
   def index
-    @mails = Mailbox.where(recipient: current_user.id).order(id: :desc).reverse
+    @mails = Mailbox.where(recipient: current_user.id).reverse
   end
 
   def show
