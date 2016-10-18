@@ -1,5 +1,13 @@
 $(document).on('turbolinks:load', function(){
 // $(function(){
+      $('.index-image-wrapper .img').on('load',function(){
+        var ratio = $(this).width / $(this).height;
+        if (ratio < 1) {
+          $img.addClass('vertical');
+        }
+        $(this).addClass()
+      });
+
        $('#searchGeoBtn').on('click',function(event){
          event.preventDefault();
          var someAssetPath       = '<%= image_tag "load.svg" %>';
