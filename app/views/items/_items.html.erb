@@ -15,12 +15,12 @@
           </div>
         <% else %>
           <div class = "index-image-wrapper">
-            <%= link_to image_tag(item.pictures.first.image.url(:medium)),item_path(item) %>
+            <%= link_to image_tag(item.pictures.first.image.url(:medium)),item_path(item), class: 'link-cut' %>
           </div>
         <% end %>
 
         <p class='item-word'>
-          <%= link_to item.name, item_path(item) %>
+          <%= link_to item.name, item_path(item), class: 'link-cut' %>
           <br>Owner: <%= User.find(item.user_id).first_name %>
           <%= User.find(item.user_id).last_name %>
         </p>
