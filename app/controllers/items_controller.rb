@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
   before_action :set_user
 
   def index
-    @items = Item.all
+    @items = Item.all.order(name: :asc)
     #Append the first picture of each item into picList
     if request.xhr?
       search_input = params[:searchInput]
@@ -34,7 +34,7 @@ class ItemsController < ApplicationController
               end
             end
           end
-        render partial: 'items', locals: {searchItemList: filtered_items}
+        render partial: 'items', locals: { searchItemList: filtered_items }
 
       #No geolocation selected
       else
@@ -57,7 +57,7 @@ class ItemsController < ApplicationController
         else
           filtered_items = Item.where('name ILIKE ?', "%#{search_input}%")
         end
-        render partial: 'items', locals: {searchItemList: filtered_items}
+        render partial: 'items', locals: { searchItemList: filtered_items }
       end
     end
   end
