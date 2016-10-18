@@ -86,6 +86,7 @@
           <%= image_tag StoryPhoto.find(story.id).photo.url, class: "itemshow#{story.id}" %>
           </span>
           <% end %>
+        </a>
         <span class = "story-info-text">
           <h2><%= story.title %></h2>
           <p><%=story.story%></p>
