@@ -1,6 +1,36 @@
 // Place all the styles related to the items controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.item_search_box{
+  padding: 4px;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  -webkit-transition: border .2s ease-in-out;
+       -o-transition: border .2s ease-in-out;
+          transition: border .2s ease-in-out;
+  width: 18em;
+  margin-bottom: 0;
+  padding-bottom: 0;
+  margin-left: 0.15em;
+  margin-right: 0.15em;
+}
+
+.index-image-wrapper{
+  position:relative;
+  width: 182px;
+  height: 120px;
+  overflow: hidden;
+  margin: auto;
+}
+
+.index-image-wrapper img{
+  position: absolute;
+  width:100%;
+  min-height: 100%;
+  vertical-align: middle;
+}
+
 .adventures-container{
   margin: auto;
 }
