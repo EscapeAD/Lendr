@@ -1,11 +1,11 @@
 $(document).on('turbolinks:load', function(){
 // $(function(){
-      $('.index-image-wrapper .img').on('load',function(){
-        var ratio = $(this).width / $(this).height;
-        if (ratio < 1) {
-          $img.addClass('vertical');
-        }
-        $(this).addClass()
+      $('.index-image-wrapper img').each(function(){
+        var element = $(this);
+        var searchImage = element[0];
+        if (searchImage.width < searchImage.height) {
+            searchImage.addClass("vertical");
+        ;
       });
 
        $('#searchGeoBtn').on('click',function(event){
