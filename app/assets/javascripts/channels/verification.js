@@ -1,5 +1,5 @@
-$(document).on('turbolinks:load', function(){
-// $(function(){
+// $(document).on('turbolinks:load', function(){
+$(function(){
   var messages, messages_to_bottom;
   messages = $('.chat');
   if ($('.chat').length > 0) {
@@ -8,6 +8,7 @@ $(document).on('turbolinks:load', function(){
     };
     messages_to_bottom();
   }
+
 App.verification = App.cable.subscriptions.create({
   channel:'VerificationChannel',
    room: window.location.pathname.split("/")[6]
