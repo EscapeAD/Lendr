@@ -76,7 +76,7 @@
                       </div>
                       <div class = "text-left">
                         <strong><%=Item.find(item.item_id).name%></strong>
-                        <% if Story.story_check(item.id) %>
+                        <% if Story.story_check(item.id) %><br/>
                               <a  type="button" data-toggle="modal" data-target="#storyModal<%=item.id%>">Create a Story</a>
                               <!--  Story Mogal -->
                               <div class="modal fade" id="storyModal<%=item.id%>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
