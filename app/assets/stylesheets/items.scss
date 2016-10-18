@@ -17,18 +17,25 @@
 }
 
 .index-image-wrapper{
+  position: relative;
+  overflow: hidden;
   width: 200px;
-  height: 200px;
-  overflow:hidden;
+  height: 150px;
   margin: auto;
 }
 
 .index-image-wrapper img{
-  height: 100%;
-  min-width: 100%;
-  left: 50%;
-  position: relative;
-  transform: translateX(-50%);
+  position: absolute;
+  top: -999px; bottom: -999px;
+  left: -999px;
+  right: -999px;
+  width: auto !important;
+  height: 100% !important;
+}
+
+.vertical{
+  width: 100% !important;
+  height: auto !important;
 }
 
 .adventures-container{
