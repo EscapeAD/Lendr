@@ -55,7 +55,7 @@
     </div>
 
   </div>
-  
+
 </div>
 
 
@@ -79,10 +79,11 @@
       <!-- content -->
       <div class="timeline-content">
         <span class = "story-profile-photo">
+          <a href="#" data-featherlight=".itemshow<%=story.id%>">
           <% if StoryPhoto.find(story.id).photo.nil? %>
           <%= image_tag "http://epaper2.mid-day.com/images/no_image_thumb.gif" %>
           <% else %>
-          <%= image_tag StoryPhoto.find(story.id).photo.url %>
+          <%= image_tag StoryPhoto.find(story.id).photo.url, class: "itemshow#{story.id}" %>
           </span>
           <% end %>
         <span class = "story-info-text">

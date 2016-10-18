@@ -121,8 +121,8 @@ class ItemsController < ApplicationController
     end
     end
     @item.destroy
-    @item.save
-    redirect_to user_url
+    # @item.save
+    redirect_to user_path
   end
 
   private
