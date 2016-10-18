@@ -659,3 +659,10 @@
   margin: 0 auto;
 
 }
+
+.link-cut {
+  width: 182px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis
+}
