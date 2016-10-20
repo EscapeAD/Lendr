@@ -84,8 +84,8 @@
           <%= image_tag "http://epaper2.mid-day.com/images/no_image_thumb.gif" %>
           <% else %>
           <%= image_tag StoryPhoto.find(story.id).photo.url, class: "itemshow#{story.id}" %>
-          </span>
           <% end %>
+        </span>
         </a>
         <span class = "story-info-text">
           <h2><%= story.title %></h2>

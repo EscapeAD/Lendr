@@ -59,7 +59,7 @@ class Checkout < ApplicationRecord
     checkout_story_list = Checkout.where(item_id: item_primary_key)
     array_of_stories    = []
     checkout_story_list.each do |checkout_list|
-      stories = Story.where(checkout_id: checkout_list.id)
+      stories = Story.where(checkout_id: checkout_list.id, completed: true)
       stories.each do |story|
         array_of_stories << story
       end
