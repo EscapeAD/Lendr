@@ -15,7 +15,7 @@ App.verification = App.cable.subscriptions.create({
  }, {
   received: function(data){
 
-    $('#new_message').append(data.message).get(0).focus();
+    $('#new_message').append(data.message);
     $('#enterChat').val('');
     messages_to_bottom();
   }

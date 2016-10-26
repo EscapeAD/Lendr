@@ -7,7 +7,7 @@ module ApplicationCable
     end
 
     protected
-    
+
       def find_verified_user
         if current_user == User.find_by(id: cookies.signed['user.id'])
           current_user

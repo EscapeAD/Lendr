@@ -1,13 +1,5 @@
 $(document).on('turbolinks:load', function(){
 // $(function(){
-      // $('.index-image-wrapper img').each(function(){
-      //   var element = $(this);
-      //   var searchImage = element[0];
-      //   if (searchImage.width < searchImage.height) {
-      //       searchImage.addClass("vertical");
-      // }
-      // });
-
        $('#searchGeoBtn').on('click',function(event){
          event.preventDefault();
          var someAssetPath       = '<%= image_tag "load.svg" %>';
@@ -38,6 +30,4 @@ $(document).on('turbolinks:load', function(){
            }
          }
        });
-
-
 })
