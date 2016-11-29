@@ -5,6 +5,7 @@ class Checkout < ApplicationRecord
   has_many   :stories
 
   def self.borrow_list(user_id)
+    # current list of items borrowed out to user
     list = Checkout.where(user_id: user_id)
     final = []
     list.each do |item|
@@ -16,6 +17,7 @@ class Checkout < ApplicationRecord
   end
 
   def self.lent_out(user_id)
+    # current list of items left out by user
     inventory = Item.where(user_id: user_id)
     list      = []
     checkout  = Checkout.all
