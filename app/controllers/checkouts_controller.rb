@@ -2,9 +2,6 @@ class CheckoutsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_user
 
-  def index
-  end
-
   def new
     @checkout   = @user.checkouts.new
   end

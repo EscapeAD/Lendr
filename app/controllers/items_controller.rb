@@ -5,8 +5,8 @@ class ItemsController < ApplicationController
     @items = Item.all.order(name: :asc)
     #Append the first picture of each item into picList
     if request.xhr?
-      search_input = params[:searchInput]
-      cat_input   =  params[:categoryInput]
+      search_input   = params[:searchInput]
+      cat_input      =  params[:categoryInput]
       filtered_items = []
 
       #If geolocation is selected
