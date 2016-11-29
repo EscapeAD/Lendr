@@ -4,12 +4,10 @@ one:
   title: MyString
   sender: 1
   recipient: 1
-  open: false
   text: MyText
 
 two:
   title: MyString
   sender: 1
   recipient: 1
-  open: false
   text: MyText
