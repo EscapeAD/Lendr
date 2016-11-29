@@ -117,9 +117,9 @@
               </div>
             <% end %>
             <%= f.label :title %><br />
-            <%= f.text_field :title, id: 'mailTitle' %><br />
+            <%= f.text_field :title, id: 'mailTitle', class: 'form-control'  %><br />
             <%= f.label :text %><br />
-            <%= f.text_area :text, id: 'mailText' %><br />
+            <%= f.text_area :text, id: 'mailText', class: 'form-control'  %><br />
         </div>
         <div class="modal-footer">
           <% if !current_user.nil? %>
